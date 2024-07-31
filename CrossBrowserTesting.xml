@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="tests" thread-count="5" verbose="2">
+
+	<listeners>
+		<listener class-name="com.hanapos.utilities.ExtentReportManager"/>
+	</listeners>
+
+
+	<test thread-count="5" name="Chrome_BrowserTest">
+		<parameter name="os" value="Windows"/>
+		<parameter name="browser" value="chrome"/>
+		<groups>
+			<run>
+				<include name="Smoke"/>
+			</run>
+		</groups>
+
+		<classes>
+			<class name="com.hanapos.testCases.TC_001_LoginPage"></class>
+			<!--<class name="com.hanapos.testCases.TC_002_CashAndCarryTest"></class>-->
+		</classes>
+	</test>
+
+	<test  thread-count="5" name="Edge_BrowserTest">
+		<parameter name="os" value="Windows"/>
+		<parameter name="browser" value="edge"/>
+		<groups>
+			<run>
+				<include name="Smoke"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.hanapos.testCases.TC_001_LoginPage"></class>
+			<!--<class name="com.hanapos.testCases.TC_002_CashAndCarryTest"></class>-->
+		</classes>
+	</test>
+
+	<test  thread-count="5" name="FireFox_BrowserTest">
+		<parameter name="os" value="Windows"/>
+		<parameter name="browser" value="firefox"/>
+
+		<groups>
+			<run>
+				<include name="Smoke"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="com.hanapos.testCases.TC_001_LoginPage"></class>
+			<!--<class name="com.hanapos.testCases.TC_002_CashAndCarryTest"></class>-->
+		</classes>
+	</test>
+</suite> 

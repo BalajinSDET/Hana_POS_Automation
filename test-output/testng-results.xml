@@ -2,22 +2,22 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-09T22:01:09 IST" name="Default suite" finished-at="2024-08-09T22:02:44 IST" duration-ms="94588">
+  <suite started-at="2024-08-12T15:58:08 IST" name="Suite" finished-at="2024-08-12T15:59:27 IST" duration-ms="79088">
     <groups>
       <group name="Regression">
-        <method signature="Hana_T15_Edit_Product_FT.Validate_Hana_T15_Edit_Product_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@78a773fd]" name="Validate_Hana_T15_Edit_Product_Test" class="com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT"/>
+        <method signature="Hana_T51_Payments_Cash_Payment_Section_FT.Validate_Hana_T51_Payments_Cash_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@6337c201]" name="Validate_Hana_T51_Payments_Cash_Payment_Test" class="com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT"/>
       </group> <!-- Regression -->
       <group name="Smoke">
-        <method signature="Hana_T15_Edit_Product_FT.Validate_Hana_T15_Edit_Product_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@78a773fd]" name="Validate_Hana_T15_Edit_Product_Test" class="com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT"/>
+        <method signature="Hana_T51_Payments_Cash_Payment_Section_FT.Validate_Hana_T51_Payments_Cash_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@6337c201]" name="Validate_Hana_T51_Payments_Cash_Payment_Test" class="com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT"/>
       </group> <!-- Smoke -->
     </groups>
-    <test started-at="2024-08-09T22:01:09 IST" name="Default test" finished-at="2024-08-09T22:02:44 IST" duration-ms="94588">
-      <class name="com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@78a773fd]" started-at="2024-08-09T22:01:09 IST" name="loadConfig" finished-at="2024-08-09T22:01:09 IST" duration-ms="20" status="PASS">
+    <test started-at="2024-08-12T15:58:08 IST" name="ChromeBrowserTest" finished-at="2024-08-12T15:59:27 IST" duration-ms="79088">
+      <class name="com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@6337c201]" started-at="2024-08-12T15:58:08 IST" name="loadConfig" finished-at="2024-08-12T15:58:08 IST" duration-ms="17" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@78a773fd]" started-at="2024-08-09T22:01:10 IST" name="setup" finished-at="2024-08-09T22:01:18 IST" duration-ms="7498" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@6337c201]" started-at="2024-08-12T15:58:10 IST" name="setup" finished-at="2024-08-12T15:58:16 IST" duration-ms="6114" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -28,7 +28,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Validate_Hana_T15_Edit_Product_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@78a773fd]" started-at="2024-08-09T22:01:18 IST" name="Validate_Hana_T15_Edit_Product_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-09T22:02:43 IST" duration-ms="85458" status="PASS">
+        <test-method signature="Validate_Hana_T51_Payments_Cash_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@6337c201]" started-at="2024-08-12T15:58:16 IST" name="Validate_Hana_T51_Payments_Cash_Payment_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-12T15:59:27 IST" duration-ms="71251" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -37,28 +37,33 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[Birthday]]>
+                <![CDATA[abish]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[3]]>
+                <![CDATA[Birthday]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[abish]]>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[500]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Validate_Hana_T15_Edit_Product_Test -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@78a773fd]" started-at="2024-08-09T22:02:43 IST" name="tearDown" finished-at="2024-08-09T22:02:44 IST" duration-ms="170" status="PASS">
+        </test-method> <!-- Validate_Hana_T51_Payments_Cash_Payment_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@6337c201]" started-at="2024-08-12T15:59:27 IST" name="tearDown" finished-at="2024-08-12T15:59:27 IST" duration-ms="189" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT -->
+    </test> <!-- ChromeBrowserTest -->
+  </suite> <!-- Suite -->
 </testng-results>

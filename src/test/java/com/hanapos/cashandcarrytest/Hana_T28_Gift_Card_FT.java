@@ -259,14 +259,10 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 				logger.info(("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice()));
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-			delayWithGivenTime(1000);
-				
-		//	getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);
-		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	executorService.shutdown();	
-			RobotDismissAlert();
+
+		//	delayWithGivenTime(2000);
+		
+		//	RobotDismissAlert();
 			logger.info("User click the cancel button on web client print window popup");
 			delayWithGivenTime(1000);
 

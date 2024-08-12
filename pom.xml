@@ -32,11 +32,10 @@
 					<version>3.1.2</version>
 					<configuration>
 						<testFailureIgnore>true</testFailureIgnore>
-						<!--<argLine>
-							-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-						</argLine>-->
+					
 						<suiteXmlFiles>
-							<suiteXmlFile>CashandCarry_MasterSuite.xml</suiteXmlFile>
+							<suiteXmlFile>demo.xml</suiteXmlFile>
+						<!--	<suiteXmlFile>CashandCarry.xml</suiteXmlFile>-->
 						</suiteXmlFiles>
 					</configuration>
 

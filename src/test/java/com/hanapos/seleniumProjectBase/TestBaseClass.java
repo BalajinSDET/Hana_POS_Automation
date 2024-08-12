@@ -99,7 +99,7 @@ public class TestBaseClass implements FrameworkDesign {
 		String downloadPath=System.getProperty("user.dir");
 		try {
 			if (browserName.equalsIgnoreCase("Chrome")) {
-				WebDriverManager.chromedriver().setup();
+				WebDriverManager.chromedriver().timeout(30).setup();
 				ChromeOptions opt = new ChromeOptions();	
 				
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -134,8 +134,8 @@ public class TestBaseClass implements FrameworkDesign {
 			getDriver().manage().window().setSize(new Dimension(1920, 1080));
 			getDriver().manage().window().maximize();
 			getDriver().manage().deleteAllCookies();
-			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-			getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+			getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
 			getDriver().get(prop.getProperty("appURL"));
 		} catch (Exception e) {			
 			e.printStackTrace();
@@ -265,7 +265,7 @@ public class TestBaseClass implements FrameworkDesign {
 			WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
 			wait.until(ExpectedConditions.elementToBeClickable(ele));
 			ele.click();
-		//	ext.reportStep("Click Successful", "PASS");
+			//	ext.reportStep("Click Successful", "PASS");
 		} catch (Exception e) {
 			//ext.reportStep("Click Failed", "FAIL");
 		}
@@ -495,6 +495,30 @@ public class TestBaseClass implements FrameworkDesign {
 			Actions action = new Actions(getDriver());
 			action.sendKeys(Keys.ESCAPE).build().perform();
 		} catch (Exception e) {	
+			e.printStackTrace();
+		}
+	}
+	
+	public void ActionArrowDown() {
+		try {
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_DOWN);
+			robot.keyRelease(KeyEvent.VK_DOWN);
+		} catch (Exception e) {	
+			e.printStackTrace();
+		}
+	}
+	
+	public void RobotEscapeKey() {
+		try {
+			delayWithGivenTime(1000);
+			SafeRobot robot = SafeRobot.getInstance();
+		 synchronized (robot) {
+			robot.keyPress(KeyEvent.VK_ESCAPE);
+			robot.keyRelease(KeyEvent.VK_ESCAPE);
+		 	}
+		 } catch (AWTException e) {
+		
 			e.printStackTrace();
 		}
 	}

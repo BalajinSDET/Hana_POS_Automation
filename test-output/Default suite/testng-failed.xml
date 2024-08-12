@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hanapos.OrderEntry_Alais_PhoneOrderTest.Hana_T144_Pickup_CustomerSection_TextMeUpdatesAndPromotion_UnChecked_FT">
+      <class name="com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT">
         <methods>
+          <include name="Validate_Hana_T65_Payments_Add_New_Customer_Test" invocation-numbers="0"/>
           <include name="loadConfig"/>
-          <include name="Validate_Hana_T144_Pickup_CustomerSection_TextMeUpdatesAndPromotion_UnChecked_Functionality_Test"/>
           <include name="tearDown"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.hanapos.OrderEntry_Alais_PhoneOrderTest.Hana_T144_Pickup_CustomerSection_TextMeUpdatesAndPromotion_UnChecked_FT -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1033,3 +1033,113 @@
 [INFO ] 2024-08-12 16:11:07.231 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - Generated Order invoice number is :9038325
 [INFO ] 2024-08-12 16:11:07.295 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - The remaining amount given to customer is :$194.90
 [INFO ] 2024-08-12 16:11:12.447 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click the cancel button on webclientprint window popup
+[DEBUG] 2024-08-12 16:23:25.567 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-12 16:23:25.573 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-12 16:23:25.575 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-12 16:23:25.901 [TestNG-test-ChromeBrowserTest-1] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-12 16:23:31.096 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - **** Starting Hana_T51_Payments_Cash_Payment_Secion_FT_CashAndCarryTest  ****
+[INFO ] 2024-08-12 16:23:31.212 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User on the hana pos login page
+[INFO ] 2024-08-12 16:23:31.440 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User entered username as nanda_2
+[INFO ] 2024-08-12 16:23:31.574 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User entered username as 123
+[INFO ] 2024-08-12 16:23:34.072 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User clicked on Login button..
+[INFO ] 2024-08-12 16:23:43.648 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User navigated to hana dashboard page sucess..
+[INFO ] 2024-08-12 16:23:44.234 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User selected the shop name as SISTERCHICKS FLOWERS AND MORE LLCin dashboard page
+[DEBUG] 2024-08-12 16:30:03.257 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-12 16:30:03.268 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-12 16:30:03.269 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-12 16:30:03.602 [TestNG-test-ChromeBrowserTest-1] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-12 16:30:08.985 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - **** Starting Hana_T51_Payments_Cash_Payment_Secion_FT_CashAndCarryTest  ****
+[INFO ] 2024-08-12 16:30:09.099 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User on the hana pos login page
+[INFO ] 2024-08-12 16:30:09.284 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User entered username as nanda_2
+[INFO ] 2024-08-12 16:30:09.460 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User entered username as 123
+[INFO ] 2024-08-12 16:30:20.743 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User clicked on Login button..
+[INFO ] 2024-08-12 16:30:21.059 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User navigated to hana dashboard page sucess..
+[INFO ] 2024-08-12 16:30:21.523 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User selected the shop name as SISTERCHICKS FLOWERS AND MORE LLCin dashboard page
+[INFO ] 2024-08-12 16:30:29.040 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User hover the mouse on New order and click on Cash and Carry..
+[DEBUG] 2024-08-12 16:34:24.627 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-12 16:34:24.635 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-12 16:34:24.636 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-12 16:34:24.973 [TestNG-test-ChromeBrowserTest-1] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-12 16:34:32.897 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - **** Starting Hana_T51_Payments_Cash_Payment_Secion_FT_CashAndCarryTest  ****
+[INFO ] 2024-08-12 16:34:33.006 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User on the hana pos login page
+[INFO ] 2024-08-12 16:34:33.198 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User entered username as nanda_2
+[INFO ] 2024-08-12 16:34:33.341 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User entered username as 123
+[INFO ] 2024-08-12 16:34:46.468 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User clicked on Login button..
+[INFO ] 2024-08-12 16:34:46.798 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User navigated to hana dashboard page sucess..
+[INFO ] 2024-08-12 16:34:47.147 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User selected the shop name as SISTERCHICKS FLOWERS AND MORE LLCin dashboard page
+[INFO ] 2024-08-12 16:34:55.604 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User hover the mouse on New order and click on Cash and Carry..
+[INFO ] 2024-08-12 16:34:56.112 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify the Cash and Carry page is displayed..
+[INFO ] 2024-08-12 16:34:56.393 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the shop name as SISTERCHICKS FLOWERS AND MORE LLCin cash and carry page
+[INFO ] 2024-08-12 16:34:57.347 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the clerk name as Cash Register2
+[INFO ] 2024-08-12 16:34:57.683 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the employee name as Stuart Markwood
+[INFO ] 2024-08-12 16:35:04.682 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click on the particular product tile
+[INFO ] 2024-08-12 16:35:04.818 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify add the title product to the Cash and Carry page is displayed..
+[INFO ] 2024-08-12 16:35:07.691 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User search and select the created customer 
+[INFO ] 2024-08-12 16:35:07.953 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the tax type as Tax Exemption
+[INFO ] 2024-08-12 16:35:08.161 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the occasion as Birthday
+[INFO ] 2024-08-12 16:35:10.266 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click on Pay button
+[INFO ] 2024-08-12 16:35:12.360 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User navigated to Cash And Carry payment page successfully
+[INFO ] 2024-08-12 16:35:24.100 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verified the order payment done successfully
+[INFO ] 2024-08-12 16:35:25.350 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify the order confirmation popup is displayed
+[INFO ] 2024-08-12 16:35:25.439 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify the order confirmation message and invoice number is displayed
+[INFO ] 2024-08-12 16:35:25.482 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - Generated Order invoice number is :9038326
+[INFO ] 2024-08-12 16:35:25.545 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - The remaining amount given to customer is :$194.90
+[INFO ] 2024-08-12 16:35:30.688 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click the cancel button on webclientprint window popup
+[DEBUG] 2024-08-12 16:41:00.786 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-12 16:41:00.792 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-12 16:41:00.793 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-12 16:41:01.179 [TestNG-test-ChromeBrowserTest-1] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-12 16:41:06.368 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - **** Starting Hana_T51_Payments_Cash_Payment_Secion_FT_CashAndCarryTest  ****
+[INFO ] 2024-08-12 16:41:06.498 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User on the hana pos login page
+[INFO ] 2024-08-12 16:41:06.704 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User entered username as nanda_2
+[INFO ] 2024-08-12 16:41:06.861 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User entered username as 123
+[INFO ] 2024-08-12 16:41:10.771 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User clicked on Login button..
+[INFO ] 2024-08-12 16:41:21.668 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User navigated to hana dashboard page sucess..
+[INFO ] 2024-08-12 16:41:22.679 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User selected the shop name as SISTERCHICKS FLOWERS AND MORE LLCin dashboard page
+[INFO ] 2024-08-12 16:41:31.873 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User hover the mouse on New order and click on Cash and Carry..
+[INFO ] 2024-08-12 16:41:32.495 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify the Cash and Carry page is displayed..
+[INFO ] 2024-08-12 16:41:33.337 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the shop name as SISTERCHICKS FLOWERS AND MORE LLCin cash and carry page
+[INFO ] 2024-08-12 16:41:33.646 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the clerk name as Cash Register2
+[INFO ] 2024-08-12 16:41:33.970 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the employee name as Stuart Markwood
+[INFO ] 2024-08-12 16:41:41.106 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click on the particular product tile
+[INFO ] 2024-08-12 16:41:41.205 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify add the title product to the Cash and Carry page is displayed..
+[INFO ] 2024-08-12 16:41:43.987 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User search and select the created customer 
+[INFO ] 2024-08-12 16:41:44.210 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the tax type as Tax Exemption
+[INFO ] 2024-08-12 16:41:44.412 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the occasion as Birthday
+[INFO ] 2024-08-12 16:41:46.488 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click on Pay button
+[INFO ] 2024-08-12 16:41:48.577 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User navigated to Cash And Carry payment page successfully
+[INFO ] 2024-08-12 16:42:00.133 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verified the order payment done successfully
+[INFO ] 2024-08-12 16:42:01.382 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify the order confirmation popup is displayed
+[INFO ] 2024-08-12 16:42:01.471 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify the order confirmation message and invoice number is displayed
+[INFO ] 2024-08-12 16:42:01.512 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - Generated Order invoice number is :9038327
+[INFO ] 2024-08-12 16:42:01.575 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - The remaining amount given to customer is :$194.90
+[INFO ] 2024-08-12 16:42:06.707 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click the cancel button on webclientprint window popup
+[DEBUG] 2024-08-12 18:06:04.823 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-12 18:06:04.835 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-12 18:06:04.837 [TestNG-test-ChromeBrowserTest-1] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-12 18:06:05.255 [TestNG-test-ChromeBrowserTest-1] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-12 18:06:15.292 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - **** Starting Hana_T51_Payments_Cash_Payment_Secion_FT_CashAndCarryTest  ****
+[INFO ] 2024-08-12 18:06:15.438 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User on the hana pos login page
+[INFO ] 2024-08-12 18:06:15.638 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User entered username as nanda_2
+[INFO ] 2024-08-12 18:06:15.817 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User entered username as 123
+[INFO ] 2024-08-12 18:06:47.629 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User clicked on Login button..
+[INFO ] 2024-08-12 18:06:47.986 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User navigated to hana dashboard page sucess..
+[INFO ] 2024-08-12 18:06:48.289 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User selected the shop name as SISTERCHICKS FLOWERS AND MORE LLCin dashboard page
+[INFO ] 2024-08-12 18:06:56.580 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User hover the mouse on New order and click on Cash and Carry..
+[INFO ] 2024-08-12 18:06:58.016 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify the Cash and Carry page is displayed..
+[INFO ] 2024-08-12 18:06:58.352 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the shop name as SISTERCHICKS FLOWERS AND MORE LLCin cash and carry page
+[INFO ] 2024-08-12 18:06:58.802 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the clerk name as Cash Register2
+[INFO ] 2024-08-12 18:06:59.131 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the employee name as Stuart Markwood
+[INFO ] 2024-08-12 18:07:06.156 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click on the particular product tile
+[INFO ] 2024-08-12 18:07:06.328 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify add the title product to the Cash and Carry page is displayed..
+[INFO ] 2024-08-12 18:07:09.138 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User search and select the created customer 
+[INFO ] 2024-08-12 18:07:09.371 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the tax type as Tax Exemption
+[INFO ] 2024-08-12 18:07:09.584 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User select the occasion as Birthday
+[INFO ] 2024-08-12 18:07:11.818 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click on Pay button
+[INFO ] 2024-08-12 18:07:13.919 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User navigated to Cash And Carry payment page successfully
+[INFO ] 2024-08-12 18:07:25.486 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verified the order payment done successfully
+[INFO ] 2024-08-12 18:07:26.755 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify the order confirmation popup is displayed
+[INFO ] 2024-08-12 18:07:26.853 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User verify the order confirmation message and invoice number is displayed
+[INFO ] 2024-08-12 18:07:26.902 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - Generated Order invoice number is :9038328
+[INFO ] 2024-08-12 18:07:26.971 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - The remaining amount given to customer is :$194.90
+[INFO ] 2024-08-12 18:07:32.104 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click the cancel button on webclientprint window popup

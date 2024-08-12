@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Cash and carry Suite">
-  <test thread-count="5" name="Cash and carry Test">
+<suite name="Regression Functional Test Suite">
+		<!--parallel="classes"-->
+	<listeners>
+		<listener class-name="com.hanapos.utilities.ExtentReportManager" />
+		<listener class-name="com.hanapos.utilities.AllureListener" />
+	</listeners>
+	
+  <test thread-count="5" name="RegressionFunctionalTest">
+		<parameter name="os" value="Windows" />
+		<parameter name="browser" value="chrome" />
+		<groups>
+			<run>
+				<include name="Regression"/>
+			</run>
+		</groups>
+	
     <classes>
       <class name="com.hanapos.cashandcarrytest.Hana_T48_Payments_CreditCard_Manually_Entering_CreditCard_Details_ExistingCard_Functionality_FT"/>
       <class name="com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT"/>
@@ -54,5 +68,5 @@
       <class name="com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT"/>
       <class name="com.hanapos.cashandcarrytest.Hana_T32_GiftCardSalepopup_Edit_Gift_Card_Denominations_Edit_FT"/>
     </classes>
-  </test> <!-- Cash and carry Test -->
-</suite> <!-- Cash and carry Suite -->
+  </test> 
+</suite> 

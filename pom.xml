@@ -34,8 +34,7 @@
 						<testFailureIgnore>true</testFailureIgnore>
 					
 						<suiteXmlFiles>
-							<suiteXmlFile>demo.xml</suiteXmlFile>
-						<!--	<suiteXmlFile>CashandCarry.xml</suiteXmlFile>-->
+							<suiteXmlFile>${xmlFiles}</suiteXmlFile>
 						</suiteXmlFiles>
 					</configuration>
 

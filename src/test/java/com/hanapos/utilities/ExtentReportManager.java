@@ -89,7 +89,7 @@ public class ExtentReportManager extends TestBaseClass implements ITestListener 
 	        LogUtil.saveBrowserLogs(getDriver(), logFilePath);
 
 	        try {
-				String imgPath = new TestBaseClass().captureScreen(result.getName());
+				String imgPath = new TestBaseClass().captureScreenshot(result.getName());
 				test.addScreenCaptureFromPath(imgPath);
 			} catch (Exception e) {
 				e.printStackTrace();

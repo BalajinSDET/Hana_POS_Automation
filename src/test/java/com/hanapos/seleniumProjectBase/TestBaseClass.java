@@ -1078,10 +1078,10 @@ public class TestBaseClass implements FrameworkDesign {
 		 * "\\screenshots\\" + tname + "_" + timeStamp + ".png"; File targetFile = new
 		 * File(targetFilePath); sourceFile.renameTo(targetFile);
 		 */
-		String jenkins = "http://localhost:8080/job/HanaposAutomationDemo/ws/screenshots/" + tname + "_" + timeStamp + ".png";
+	//	String jenkins = "http://localhost:8080/job/HanaposAutomationDemo/ws/screenshots/" + tname + "_" + timeStamp + ".png";
 		 String targetDir = System.getProperty("user.dir") + "\\screenshots\\";
-	    String targetFilePath = jenkins;
-		// String targetFilePath = targetDir + tname + "_" + timeStamp + ".png";
+	//    String targetFilePath = jenkins;
+		 String targetFilePath = targetDir + tname + "_" + timeStamp + ".png";
 	        
 		try {
             Files.createDirectories(Paths.get(targetDir));
@@ -1095,7 +1095,7 @@ public class TestBaseClass implements FrameworkDesign {
     }
 
 	
-	public static String captureScreenshot(String screenshotName) {
+	public String captureScreenshot(String screenshotName) {
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 
 		String dest = System.getProperty("user.dir") + "/screenshots/" + screenshotName  + "_" + timeStamp + ".png";

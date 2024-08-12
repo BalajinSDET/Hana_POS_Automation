@@ -1078,9 +1078,10 @@ public class TestBaseClass implements FrameworkDesign {
 		 * "\\screenshots\\" + tname + "_" + timeStamp + ".png"; File targetFile = new
 		 * File(targetFilePath); sourceFile.renameTo(targetFile);
 		 */
-		
+		String jenkins = "http://localhost:8080/job/HanaposAutomationDemo/ws/screenshots/" + tname + "_" + timeStamp + ".png";
 		 String targetDir = System.getProperty("user.dir") + "\\screenshots\\";
-	     String targetFilePath = targetDir + tname + "_" + timeStamp + ".png";
+	    String targetFilePath = jenkins;
+		// String targetFilePath = targetDir + tname + "_" + timeStamp + ".png";
 	        
 		try {
             Files.createDirectories(Paths.get(targetDir));

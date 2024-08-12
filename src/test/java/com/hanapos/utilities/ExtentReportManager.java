@@ -45,7 +45,7 @@ public class ExtentReportManager extends TestBaseClass implements ITestListener 
 		timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		repName = "Hana-Test-AutomationReport-" + timeStamp + ".html";
 		sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName);
-
+		sparkReporter = new ExtentSparkReporter(".\\reports\\extentreport\\Hanapos_AutomationReport.html");
 		sparkReporter.config().setDocumentTitle("Hana POS Automation"); 
 		sparkReporter.config().setReportName("Hana POS Automation Test Report"); 
 		sparkReporter.config().setTheme(Theme.DARK);

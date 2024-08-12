@@ -44,6 +44,51 @@ public class Order_Confirmation_Page extends TestBaseClass {
 	@FindBy(id="customerZip")
 	private WebElement CustomerZip;
 	
+	@FindBy(id="recipentFName")
+	private WebElement RecipientFirstName;
+	
+	@FindBy(id="recipentLName")
+	private WebElement RecipientLastName;
+	
+	@FindBy(id="recipentPhone1")
+	private WebElement RecipientPhone1;
+	
+	@FindBy(id="recipentPhone2")
+	private WebElement RecipientPhone2;
+	
+	@FindBy(id="recipentAddress1")
+	private WebElement RecipientAddress1;
+	
+	@FindBy(id="recipentAddress2")
+	private WebElement RecipientAddress2;
+	
+	@FindBy(id="recipentCity")
+	private WebElement RecipientCity;
+	
+	@FindBy(id="recipentState")
+	private WebElement RecipientState;
+	
+	@FindBy(id="recipentZip")
+	private WebElement RecipientZip;
+	
+	@FindBy(id="btnSubmit")
+	private WebElement SubmitButton;
+	
+	@FindBy(xpath="//td[@class='text-wrap-cms text-wrap-cms-small']//div")
+	private WebElement itemcode1;
+	
+	@FindBy(xpath="//td[@class='text-wrap-cms text-wrap-cms-small']//small")
+	private WebElement itemdescription1;
+	
+	@FindBy(xpath="//tbody[@id='tbodyitems']//td[2]")
+	private WebElement qty1;
+	
+	@FindBy(xpath="//tbody[@id='tbodyitems']//td[3]")
+	private WebElement unitprice1;
+	
+	@FindBy(xpath="//td//span[@id='orderpaymentType']")
+	private WebElement PaymentType;
+	
 	public boolean VerifyOrderConfirmationPage() {
 		HighlightElement(OrderConfirmationPage);
 		return OrderConfirmationPage.isDisplayed();	
@@ -94,4 +139,74 @@ public class Order_Confirmation_Page extends TestBaseClass {
 		return 	CustomerZip.getText();
 	}
 	
+	public String getRecipientFname() {
+		HighlightElement(RecipientFirstName);
+		return 	RecipientFirstName.getText();
+	}
+	
+	public String getRecipientLname() {
+		HighlightElement(RecipientLastName);
+		return 	RecipientLastName.getText();
+	}
+	
+	public String getRecipientPhone1() {
+		HighlightElement(RecipientPhone1);
+		return 	RecipientPhone1.getText();
+	}
+	
+	public String getRecipientPhone2() {
+		HighlightElement(RecipientPhone2);
+		return 	RecipientPhone2.getText();
+	}
+	
+	public String getRecipientAddress1() { 
+		HighlightElement(RecipientAddress1);
+		return 	RecipientAddress1.getText();
+	}
+	
+	public String getRecipientAddress2() { 
+		HighlightElement(RecipientAddress2);
+		return 	RecipientAddress2.getText();
+	}
+	
+	
+	public String getRecipientCity() {
+		HighlightElement(RecipientCity);
+		return 	RecipientCity.getText();
+	}
+	
+	public String getRecipientState() {
+		HighlightElement(RecipientState);
+		return 	RecipientState.getText();
+	}
+	
+	public String getRecipientZip() {
+		HighlightElement(RecipientZip);
+		return 	RecipientZip.getText();
+	}
+
+	public String get_itemcode1() {
+		HighlightElement(itemcode1);
+		return itemcode1.getText();
+	}
+	
+	public String get_itemdescription1() {
+		HighlightElement(itemdescription1);
+		return itemdescription1.getText();
+	}
+	
+	public String get_itemqty1() {
+		HighlightElement(qty1);
+		return qty1.getText();
+	}
+	
+	public String get_itemunitprice1() {
+		HighlightElement(unitprice1);
+		return unitprice1.getText();
+	}
+	
+	public String get_PaymentType() {
+		HighlightElement(PaymentType);
+		return PaymentType.getText();
+	}
 }

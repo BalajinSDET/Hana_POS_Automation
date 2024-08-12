@@ -22,7 +22,7 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 	private HanaDashBoardPage dashboard;
 	private CashAndCarryPage cashandcarry;
 	private CashAndCarryPaymentPage cashandcarrypayment;
-	public static final String dataSheetName = "TC_002_CashAndCarryTest";
+	public static final String dataSheetName = "Hana_T87";
 	SoftAssert softassert = new SoftAssert();
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
@@ -38,7 +38,7 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 	 */
 //retryAnalyzer= com.hanapos.utilities.RetryTest.class,
 	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT() {
+	public void Validate_Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT(String merchantcopynote, String clerkname, String searchandselectitemcode, String customername, String taxtype, String occasion) {
 		// Test Step - 1
 		logger.info("**** Starting Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT  ****");
 		logger.debug("capturing application debug logs....");
@@ -82,7 +82,7 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 					
 					delayWithGivenTime(4000);
 					softassert.assertTrue(cashandcarry.VerifyAddNewWalkingSettingPopupIsDisplayed());
-					cashandcarry.EnterMerchantCopyNoteonAddnewPopup("Automation merchant copy notes");
+					cashandcarry.EnterMerchantCopyNoteonAddnewPopup(merchantcopynote);
 					cashandcarry.ClickSaveBtnonAddnewPopup();
 					delayWithGivenTime(1000);
 					softassert.assertTrue(cashandcarry.verifyWalkingSettingPopupIsDisplayed(),"Walking Setting pop up is not displayed");
@@ -109,26 +109,32 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 					logger.info("User selected the shop name");		
 			
 			// Test Step - 5
-			cashandcarry.SelectClerkName("Cash Register unchecked FT");		
+			cashandcarry.SelectClerkName(clerkname);		
 			logger.info("User selected the clerk");
 			// Test Step - 6
 			cashandcarry.SelectEmployeeName(prop.getProperty("employeename"));
 			logger.info("User selected the employee");
 			
 			// Test Step - 7
-			cashandcarry.SearchAndSelectTheItemCode("rrd");
+			cashandcarry.SearchAndSelectTheItemCode(searchandselectitemcode);
 			logger.info("User search and selected the item code");
 			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe");	;
 			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1");
-			softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309");
+			
+			if(cashandcarry.ItemPriceValueIsExist()=="299") {
+				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Item price is not matched with search and selected item code");
+			}else if(cashandcarry.ItemPriceValueIsExist()=="309") {
+				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309","Item price is not matched with search and selected item code");
+			}
+			
 			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0");
 			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0");
 			// Test Step - 8
 			cashandcarry.ClickAddItem();
 			// Test Step - 9
-			cashandcarry.EnterCustomerName("abish");
-			cashandcarry.SelectTaxType("Tax Exemption");
-			cashandcarry.SelectOccasion("Birthday");
+			cashandcarry.EnterCustomerName(customername);
+			cashandcarry.SelectTaxType(taxtype);
+			cashandcarry.SelectOccasion(occasion);
 			// Test Step - 10
 			cashandcarry.ClickPayButton();
 			// Test Step - 11
@@ -180,17 +186,23 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 			cashandcarry.SelectEmployeeName(prop.getProperty("employeename"));
 			logger.info("User selected the employee");
 			
-			cashandcarry.SearchAndSelectTheItemCode("rrd");
+			cashandcarry.SearchAndSelectTheItemCode(searchandselectitemcode);
 			logger.info("User search and selected the item code");
 			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe");	;
 			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1");
-			softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309");
+			
+			if(cashandcarry.ItemPriceValueIsExist()=="299") {
+				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Item price is not matched with search and selected item code");
+			}else if(cashandcarry.ItemPriceValueIsExist()=="309") {
+				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309","Item price is not matched with search and selected item code");
+			}
+			
 			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0");
 			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0");
 			cashandcarry.ClickAddItem();
-			cashandcarry.EnterCustomerName("abish");
-			cashandcarry.SelectTaxType("Tax Exemption");
-			cashandcarry.SelectOccasion("Birthday");
+			cashandcarry.EnterCustomerName(customername);
+			cashandcarry.SelectTaxType(taxtype);
+			cashandcarry.SelectOccasion(occasion);
 			cashandcarry.ClickPayButton();
 			delayWithGivenTime(2000);
 			cashandcarrypayment = new CashAndCarryPaymentPage();

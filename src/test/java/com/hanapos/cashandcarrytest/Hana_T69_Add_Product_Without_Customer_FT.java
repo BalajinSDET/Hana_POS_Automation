@@ -87,7 +87,7 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 			cashandcarry.SearchAndSelect_ItemCode(itemcode,itemdesc);
 			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Rose Flowers ","Item Description is not matched with selected item");	
 			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1","Item quantity is not matched with selected item");
-			softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "80", "Item price is not matched with selected item");
+			softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "82", "Item price is not matched with selected item");
 			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0","Discount amount is not matched with selected item");
 			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0","Discount percentage is not matched with selected item");
 
@@ -97,8 +97,8 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 			softassert.assertEquals(cashandcarry.getAddedItemCode(),"RSS");
 			softassert.assertEquals(cashandcarry.GetAddedItemDescription(),"Rose Flowers");
 			softassert.assertEquals(cashandcarry.GetAddedItemQty(), "1");
-			softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$80.00");
-			softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$80.00");
+			softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$82.00");
+			softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$82.00");
 			softassert.assertEquals(cashandcarry.GetAddedItemDiscountAmount(), "$ 0.00");
 			softassert.assertEquals(cashandcarry.GetAddedItemDiscountPercentage(),"0.00");
 			
@@ -143,14 +143,14 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 				cashandcarrypayment.GetTenderPrice();
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-			delayWithGivenTime(1000);
+		//	delayWithGivenTime(1000);
 				
 			getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);
+		//	delayWithGivenTime(2000);
 		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
 		//	executorService.shutdown();
-			RobotDismissAlert();
+		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(1000);
 			

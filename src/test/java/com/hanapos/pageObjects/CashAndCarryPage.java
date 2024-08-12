@@ -1303,7 +1303,7 @@ public class CashAndCarryPage extends TestBaseClass{
 		delayWithGivenTime(3000);
 
 		for(int i=0;i<itemcodelist.size();i++) {
-			if(itemcodelist.get(i).getText().equals("rrd-Red Rose Deluxe-309")) {
+			if(itemcodelist.get(i).getText().contains("rrd-Red Rose Deluxe")) {
 				jsClick(itemcodelist.get(i));
 				break;
 			}

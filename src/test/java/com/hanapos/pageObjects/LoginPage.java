@@ -6,12 +6,16 @@ import org.openqa.selenium.support.PageFactory;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
 
 public class LoginPage extends TestBaseClass {
+	
 	public LoginPage() {
 		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(xpath="//h3[contains(text(),'Welcome to HANA POS')]") 
 	private WebElement LoginPage;
+	
+	@FindBy(xpath="//h3[contains(text(),'Welcome to HANA Florist POS')]")
+	private WebElement LoginPageQaFinal;
 
 	@FindBy(id="Username") 
 	private WebElement Username;
@@ -50,9 +54,15 @@ public class LoginPage extends TestBaseClass {
 		return getDriver().getTitle();
 	}
 	
+	
 	public String ValidateLoginPage() {
 		HighlightElement(LoginPage);
-		return LoginPage.getText();
+		return LoginPage.getText(); // LoginPage.getText();//LoginPageQaFinal.getText(); 
+	}
+	
+	public String ValidateLoginPageQaFinal() {
+		HighlightElement(LoginPageQaFinal);
+		return LoginPageQaFinal.getText();
 	}
 	
 	public boolean LoginPageIsDisplayed() {

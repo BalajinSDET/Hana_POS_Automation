@@ -1,0 +1,834 @@
+<html>
+<head>
+<title>TestNG:  CashAndCarryFunctionalTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CashAndCarryFunctionalTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>9/9/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Aug 09 14:11:17 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>3604 seconds (3604390 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>Smoke </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT.Validate_Hana_T18_Order_Confirmation_Popup_Test()'><b>Validate_Hana_T18_Order_Confirmation_Popup_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT<br>Parameters: rrd, abish, Birthday</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	******Test Failed: SMS Phone number is not autopopulated from customer details****** expected [9566550756] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT.Validate_Hana_T18_Order_Confirmation_Popup_Test(Hana_T18_OrderConfirmationPopup_FT.java:179)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace250823362", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace250823362'><pre>java.lang.AssertionError: The following asserts failed:
+	******Test Failed: SMS Phone number is not autopopulated from customer details****** expected [9566550756] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT.Validate_Hana_T18_Order_Confirmation_Popup_Test(Hana_T18_OrderConfirmationPopup_FT.java:179)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>54</td>
+<td>com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT@6f19ac19</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT.Validate_Hana_T69_Add_Product_Without_Customer_Test()'><b>Validate_Hana_T69_Add_Product_Without_Customer_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT<br>Parameters: Hana POS (Canada), Automation clerk desc, Stuart Ben, RSS, RSS-Rose Flowers -80, 12345~Yellow Roses Standard~10.00~169513~true~false~Item~1801201, Birthday</td>
+<td><div><pre>java.lang.AssertionError: An exception occurred: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//tr[@id=&apos;Row_1&apos;]&quot;}
+  (Session info: chrome=127.0.6533.100)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.22.0&apos;, revision: &apos;c5f3146703*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [499eb086bfcce2d22d563b0be1f401ca, findElement {using=xpath, value=//tr[@id=&apos;Row_1&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56281}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56281/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 499eb086bfcce2d22d563b0be1f401ca
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT.Validate_Hana_T69_Add_Product_Without_Customer_Test(Hana_T69_Add_Product_Without_Customer_FT.java:179)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace508096889", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace508096889'><pre>java.lang.AssertionError: An exception occurred: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//tr[@id=&apos;Row_1&apos;]&quot;}
+  (Session info: chrome=127.0.6533.100)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.22.0&apos;, revision: &apos;c5f3146703*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [499eb086bfcce2d22d563b0be1f401ca, findElement {using=xpath, value=//tr[@id=&apos;Row_1&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56281}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56281/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 499eb086bfcce2d22d563b0be1f401ca
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT.Validate_Hana_T69_Add_Product_Without_Customer_Test(Hana_T69_Add_Product_Without_Customer_FT.java:179)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>157</td>
+<td>com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT@1a20270e</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT.Validate_Hana_T53_Payments_Check_Payment_Section_Test()'><b>Validate_Hana_T53_Payments_Check_Payment_Section_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT<br>Parameters: rrd, abish, Birthday, *&^&^&&$&^*^, 1844020000000050, Fedral Bank, Hana Test Automation for pos</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step - 16 expected [1844020000000010] but found [],
+	Test Step - 16 expected [Bank Of America] but found [],
+	Test Step - 16 expected [Hana POS] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT.Validate_Hana_T53_Payments_Check_Payment_Section_Test(Hana_T53_Payments_Check_Payment_Section_FT.java:282)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1913186684", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1913186684'><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step - 16 expected [1844020000000010] but found [],
+	Test Step - 16 expected [Bank Of America] but found [],
+	Test Step - 16 expected [Hana POS] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT.Validate_Hana_T53_Payments_Check_Payment_Section_Test(Hana_T53_Payments_Check_Payment_Section_FT.java:282)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>93</td>
+<td>com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT@5bf8fa12</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT.Validate_Hana_T65_Payments_Add_New_Customer_Test()'><b>Validate_Hana_T65_Payments_Add_New_Customer_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT<br>Parameters: rrd, Test, Automation, 9900778866, @@$$@, @!#$@, !!@@@##^&*, !!@@@##^&*, abcdefghij, abcdefghij, 991234567890111, 991234567890111, Test Automation pvt ltd , 9192939495, 9192939896, Test Automation address, India, QA Test Automation, Cbe, Tn, India, 641004, Coimbatore, Tamilnadu, India, hanaposqateam@gmail.com, Corporate, 100, Test Automation, Birthday</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step - 24 - Order confirmation toast message text is not matched expected [Order payment done successfully] but found [New Customer added successfully],
+	Test Step - 24 - New Customer added successfully toast message text is not matched expected [New Customer added successfully] but found [Order payment done successfully],
+	City, State &amp; Zipcode on customer table is not matched expected [Coimbatore Tamilnadu 641004] but found [Coimabtore Tamilnadu 641004],
+	Customer details pop up is not displayed expected [true] but found [false],
+	expected [Test Automation pvt ltd ] but found [],
+	Added on first name field are not properly displayed expected [Test] but found [],
+	Added on first name field are not properly displayed expected [Automation] but found [],
+	Added on phone number field are not properly displayed expected [9192939495] but found [],
+	Added on alternative phone number field are not properly displayed expected [9192939896] but found [],
+	Added address 1 field is not properly displayed expected [Test Automation Address, India] but found [],
+	Added address 2 field is not properly displayed expected [QA Test Automation, Cbe, Tn, India] but found [],
+	Added zip code is not displayed expected [641004] but found [],
+	Added city field is not displayed expected [Coimbatore] but found [],
+	Added state field is not displayed expected [Tamilnadu] but found [],
+	Added country field is not displayed expected [India] but found [],
+	Added email id field is not displayed expected [hanaposqateam@gmail.com] but found [],
+	Added customer type dropdown field is not displayed expected [Corporate] but found [],
+	Added credit card field is not displayed expected [100] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT.Validate_Hana_T65_Payments_Add_New_Customer_Test(Hana_T65_Payment_Add_New_Customer_FT.java:459)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1137246957", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1137246957'><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step - 24 - Order confirmation toast message text is not matched expected [Order payment done successfully] but found [New Customer added successfully],
+	Test Step - 24 - New Customer added successfully toast message text is not matched expected [New Customer added successfully] but found [Order payment done successfully],
+	City, State &amp; Zipcode on customer table is not matched expected [Coimbatore Tamilnadu 641004] but found [Coimabtore Tamilnadu 641004],
+	Customer details pop up is not displayed expected [true] but found [false],
+	expected [Test Automation pvt ltd ] but found [],
+	Added on first name field are not properly displayed expected [Test] but found [],
+	Added on first name field are not properly displayed expected [Automation] but found [],
+	Added on phone number field are not properly displayed expected [9192939495] but found [],
+	Added on alternative phone number field are not properly displayed expected [9192939896] but found [],
+	Added address 1 field is not properly displayed expected [Test Automation Address, India] but found [],
+	Added address 2 field is not properly displayed expected [QA Test Automation, Cbe, Tn, India] but found [],
+	Added zip code is not displayed expected [641004] but found [],
+	Added city field is not displayed expected [Coimbatore] but found [],
+	Added state field is not displayed expected [Tamilnadu] but found [],
+	Added country field is not displayed expected [India] but found [],
+	Added email id field is not displayed expected [hanaposqateam@gmail.com] but found [],
+	Added customer type dropdown field is not displayed expected [Corporate] but found [],
+	Added credit card field is not displayed expected [100] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT.Validate_Hana_T65_Payments_Add_New_Customer_Test(Hana_T65_Payment_Add_New_Customer_FT.java:459)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>1218</td>
+<td>com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT@3c7c886c</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT.Validate_Hana_T15_Edit_Product_Test()'><b>Validate_Hana_T15_Edit_Product_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT<br>Parameters: rrd, Birthday, 3, abish</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step:12 - Cash And Carry page is not displayed expected [true] but found [false],
+	Test Step:13 - Item code is not matched expected [ballonsYY] but found [],
+	Test Step:13 - Item description is not matched expected [Ballons small] but found [],
+	Test Step:13 - Item quantity is not matched expected [1] but found [],
+	Test Step:13 - Item extended price is not matched expected [$40.00] but found [],
+	Test Step:13 - Item price is not matched expected [$40.00] but found [],
+	Test Step:13 - Item discount amount is not matched expected [$ 0.00] but found [],
+	Test Step:13 - Item discount percentage is not matched expected [0.00] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT.Validate_Hana_T15_Edit_Product_Test(Hana_T15_Edit_Product_FT.java:276)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1555453155", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1555453155'><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step:12 - Cash And Carry page is not displayed expected [true] but found [false],
+	Test Step:13 - Item code is not matched expected [ballonsYY] but found [],
+	Test Step:13 - Item description is not matched expected [Ballons small] but found [],
+	Test Step:13 - Item quantity is not matched expected [1] but found [],
+	Test Step:13 - Item extended price is not matched expected [$40.00] but found [],
+	Test Step:13 - Item price is not matched expected [$40.00] but found [],
+	Test Step:13 - Item discount amount is not matched expected [$ 0.00] but found [],
+	Test Step:13 - Item discount percentage is not matched expected [0.00] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT.Validate_Hana_T15_Edit_Product_Test(Hana_T15_Edit_Product_FT.java:276)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>347</td>
+<td>com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@59cba5a</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT.Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test()'><b>Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT<br>Parameters: rrd</td>
+<td><div><pre>java.lang.AssertionError: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on windows (8b3a82b9069ceb2615d8b3a5383688eb)] -&gt; xpath: (//input[@id=&apos;txtCardNumberForGiftCard&apos;])[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.22.0&apos;, revision: &apos;c5f3146703*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55157}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55157/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8b3a82b9069ceb2615d8b3a5383688eb
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT.Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test(Hana_T61_Payments_GiftCard_Payment_Section_FT.java:203)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace194712062", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace194712062'><pre>java.lang.AssertionError: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on windows (8b3a82b9069ceb2615d8b3a5383688eb)] -&gt; xpath: (//input[@id=&apos;txtCardNumberForGiftCard&apos;])[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.22.0&apos;, revision: &apos;c5f3146703*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55157}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55157/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8b3a82b9069ceb2615d8b3a5383688eb
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT.Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test(Hana_T61_Payments_GiftCard_Payment_Section_FT.java:203)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>164</td>
+<td>com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT@5812f68b</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT.Validate_Hana_T43_Payments_Split_Payment_Test()'><b>Validate_Hana_T43_Payments_Split_Payment_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT<br>Parameters: rrd, Test Automation, Birthday, Automation, Test, Add New Card, 8866 8866 8866 8866, 567, 10/25, 200, 100, Cash Register2, 50, 150, 889900889900, 10, 1844223338884, Bank Of America, Hana POS Automation</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	***Credit card present toogle button is not displayed***,
+	Grand total amount is not calculated correctly expected [344.60] but found [$344.60],
+	***Credit card present toogle button is not displayed***
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT.Validate_Hana_T43_Payments_Split_Payment_Test(Hana_T43_Payments_Split_Payment_FT.java:438)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1680694170", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1680694170'><pre>java.lang.AssertionError: The following asserts failed:
+	***Credit card present toogle button is not displayed***,
+	Grand total amount is not calculated correctly expected [344.60] but found [$344.60],
+	***Credit card present toogle button is not displayed***
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT.Validate_Hana_T43_Payments_Split_Payment_Test(Hana_T43_Payments_Split_Payment_FT.java:438)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>172</td>
+<td>com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT@3ad2e17</td></tr>
+<tr>
+<td title='com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT.Validate_Hana_T081_Pickup_Functionality_with_Existing_customer()'><b>Validate_Hana_T081_Pickup_Functionality_with_Existing_customer</b><br>Test class: com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT<br>Parameters: Stuart Markwood, Abish, Abish, David, 3402 Park Blvd, PICK UP, 92103, San Diego, United States, 956-655-0756, Church, Birthday, rrd, Invoice/House Account</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step - 9 - Item description is not displayed on phone order page product details section expected [Red Rose Deluxe] but found [Red Rose Small],
+	Test Step - 9 - Item price is not displayed on phone order page product details section expected [299.00] but found [199.00]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT.Validate_Hana_T081_Pickup_Functionality_with_Existing_customer(Hana_T081_Pickup_Functionality_with_Existing_customer_FT.java:210)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1492399875", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1492399875'><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step - 9 - Item description is not displayed on phone order page product details section expected [Red Rose Deluxe] but found [Red Rose Small],
+	Test Step - 9 - Item price is not displayed on phone order page product details section expected [299.00] but found [199.00]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT.Validate_Hana_T081_Pickup_Functionality_with_Existing_customer(Hana_T081_Pickup_Functionality_with_Existing_customer_FT.java:210)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>135</td>
+<td>com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT@21fd5faa</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT.Validate_Hana_T33_Purchase_Product_With_Coupon_Test()'><b>Validate_Hana_T33_Purchase_Product_With_Coupon_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT<br>Parameters: rrd, QA24, abish</td>
+<td><div><pre>java.lang.AssertionError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//div[@class=&apos;col-md-6 col-sm-5 col-xs-6 BoldText text-right hidetax&apos;])[1]//span&quot;}
+  (Session info: chrome=127.0.6533.100)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.22.0&apos;, revision: &apos;c5f3146703*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a53ba92603c2e4376bebc60f6e60a3d3, findElement {using=xpath, value=(//div[@class=&apos;col-md-6 col-sm-5 col-xs-6 BoldText text-right hidetax&apos;])[1]//span}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54027}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54027/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a53ba92603c2e4376bebc60f6e60a3d3
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT.Validate_Hana_T33_Purchase_Product_With_Coupon_Test(Hana_T33_Purchase_Product_With_Coupon_FT.java:179)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1956355202", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1956355202'><pre>java.lang.AssertionError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//div[@class=&apos;col-md-6 col-sm-5 col-xs-6 BoldText text-right hidetax&apos;])[1]//span&quot;}
+  (Session info: chrome=127.0.6533.100)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.22.0&apos;, revision: &apos;c5f3146703*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a53ba92603c2e4376bebc60f6e60a3d3, findElement {using=xpath, value=(//div[@class=&apos;col-md-6 col-sm-5 col-xs-6 BoldText text-right hidetax&apos;])[1]//span}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54027}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54027/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a53ba92603c2e4376bebc60f6e60a3d3
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT.Validate_Hana_T33_Purchase_Product_With_Coupon_Test(Hana_T33_Purchase_Product_With_Coupon_FT.java:179)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>61</td>
+<td>com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT@4ddbbdf8</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT.Validate_Hana_T37_Add_New_Customer_Test()'><b>Validate_Hana_T37_Add_New_Customer_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT<br>Parameters: rrd, Test, Automation, 9900778866, @@$$@, @!#$@, !!@@@##^&*, !!@@@##^&*, abcdefghij, abcdefghij, 991234567890111, 991234567890111, Test Automation pvt ltd , 9192939495, 9192939896, Test Automation address, India, QA Test Automation, Cbe, Tn, India, 641004, Coimbatore, Tamilnadu, India, hanaposqateam@gmail.com, Corporate, 100, Test Automation, Birthday</td>
+<td></td>
+<td>353</td>
+<td>com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT@27eedb64</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT.Validate_Hana_T59_Payments_POH_Payment_Section_Test()'><b>Validate_Hana_T59_Payments_POH_Payment_Section_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT<br>Parameters: rrd</td>
+<td></td>
+<td>64</td>
+<td>com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT@b2c5e07</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT.Validate_Hana_T28_GiftCard_Functionality_Test()'><b>Validate_Hana_T28_GiftCard_Functionality_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT<br>Parameters: $30, abc, 30, 5.00, Abcdef, 111112222233333444445555566, abish, $30</td>
+<td></td>
+<td>86</td>
+<td>com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT@5454d35e</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT.Validate_Hana_T16_Delete_Product_Test()'><b>Validate_Hana_T16_Delete_Product_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT<br>Parameters: rrd, Birthday</td>
+<td></td>
+<td>251</td>
+<td>com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT@1bd39d3c</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT.Validate_Hana_T56_Payments_Invoice_Payment_Section_Test()'><b>Validate_Hana_T56_Payments_Invoice_Payment_Section_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT<br>Parameters: rrd, abish, Birthday, Net 30</td>
+<td></td>
+<td>66</td>
+<td>com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT@29ca3d04</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT.Validate_Hana_T68_Payments_Donation_Payment_Test()'><b>Validate_Hana_T68_Payments_Donation_Payment_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT<br>Parameters: rrd, abish, Birthday, ---$$$@@@, 123456789</td>
+<td></td>
+<td>79</td>
+<td>com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT@55493582</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT.Validate_Hana_T79_Add_Product_With_Existing_Customer_Test()'><b>Validate_Hana_T79_Add_Product_With_Existing_Customer_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT<br>Parameters: rrd, Test Automation, Tax Exemption, Birthday</td>
+<td></td>
+<td>70</td>
+<td>com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@19e4fcac</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT.Validate_Hana_T14_Add_Product_Test()'><b>Validate_Hana_T14_Add_Product_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT<br>Parameters: rrd</td>
+<td></td>
+<td>59</td>
+<td>com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT@4397ad89</td></tr>
+<tr>
+<td title='com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT.Validate_Hana_T51_Payments_Cash_Payment_Test()'><b>Validate_Hana_T51_Payments_Cash_Payment_Test</b><br>Test class: com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT<br>Parameters: rrd, abish, Birthday, 100, 500</td>
+<td></td>
+<td>54</td>
+<td>com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@1608bcbd</td></tr>
+</table><p>
+</body>
+</html>

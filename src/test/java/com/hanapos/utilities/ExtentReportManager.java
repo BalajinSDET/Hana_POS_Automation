@@ -108,14 +108,14 @@ public class ExtentReportManager extends TestBaseClass implements ITestListener 
 			
 			
 			 //To open report on desktop..
-			String pathOfExtentReport =	 System.getProperty("user.dir") + "\\reports\\" + repName;
-			File extentReport = new File(pathOfExtentReport);
+		//	String pathOfExtentReport =	 System.getProperty("user.dir") + "\\reports\\" + repName;
+		//	File extentReport = new File(pathOfExtentReport);
 			 
-			 try {
-				 Desktop.getDesktop().browse(extentReport.toURI()); 
-			 } catch (IOException e) {
-				 e.printStackTrace(); 
-				 }
+		//	 try {
+		//		 Desktop.getDesktop().browse(extentReport.toURI()); 
+		//	 } catch (IOException e) {
+		//		 e.printStackTrace(); 
+		//		 }
 			 
 	}
 

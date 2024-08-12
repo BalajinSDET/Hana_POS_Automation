@@ -112,7 +112,8 @@ public class ExtentReportManager extends TestBaseClass implements ITestListener 
 		//	File extentReport = new File(pathOfExtentReport);
 			 
 		//	 try {
-		//		 Desktop.getDesktop().browse(extentReport.toURI()); 
+		//		 Desktop.getDesktop().browse(ex
+		//	tentReport.toURI()); 
 		//	 } catch (IOException e) {
 		//		 e.printStackTrace(); 
 		//		 }

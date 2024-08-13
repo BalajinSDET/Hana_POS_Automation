@@ -227,7 +227,7 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 			logger.info("User verify the first name field entered data is displayed");
 			softassert.assertEquals(customerpage.getCustDetailsLastNameTextBox().contains("Jones"), true,"Test Step - 19 - Added on first name field are not properly displayed");
 			logger.info("User verify the last name field entered data is displayed");
-			softassert.assertEquals(customerpage.getCustDetailsPhoneNumberTextbox(), "9566550756","Test Step - 19 - Added on phone number field are not properly displayed");
+			softassert.assertEquals(customerpage.getCustDetailsPhoneNumberTextbox(), "956-655-0756","Test Step - 19 - Added on phone number field are not properly displayed");
 			logger.info("User verify the phone number field entered data is displayed");
 			softassert.assertEquals(customerpage.getCustDetailsAddress1TextBox(),"2715 35th Ave","Test Step - 19 - Added address 1 field is not properly displayed");
 			logger.info("User verify that address 1 field entered data is displayed");			

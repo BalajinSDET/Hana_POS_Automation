@@ -181,6 +181,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			// Test Step - 18
 			cashandcarry.SelectTaxType("Tax Exemption");
 			delayWithGivenTime(2000);
+			
 			if(cashandcarry.get_selected_tax_type().equals("Tax Exemption")){
 			delayWithGivenTime(2000);
 			softassert.assertEquals(cashandcarry.ValidateGrandTotalDefaultValue(),"120.00","Test Step:18 - Grand total to pay is not matched");
@@ -200,31 +201,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			logger.info("User select the payment type as cash tab");
 			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.getGrandTotaltoPay(),"120.00", "Test Step:21 - Grand total to pay is not matched");
-			} 
-			
-			else if(cashandcarry.get_selected_tax_type().equals("Test Hana")){ 
-				delayWithGivenTime(2000);
-				softassert.assertEquals(cashandcarry.ValidateGrandTotalDefaultValue(),"132.48","Test Step:18 - Grand total to pay is not matched");
-
-					// Test Step - 19
-					softassert.assertEquals(cashandcarry.ValidatePayButtonDisplayedPrice(),"132.48","Test Step:19 - Grand total to pay is not matched");
-
-					// Test Step - 20
-					
-					cashandcarry.SelectOccasion(occasion);
-					cashandcarry.ClickPayButton();
-
-					logger.info("User fillout the customer,tax type & occasion details and click on Pay button");
-					cashandcarrypayment = new CashAndCarryPaymentPage();
-					softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
-					logger.info("User is on Cash And Carry payment page");
-
-					// Test Step - 21
-					cashandcarrypayment.ClickCashTab();
-					logger.info("User select the payment type as cash tab");
-					delayWithGivenTime(1000);
-					softassert.assertEquals(cashandcarrypayment.getGrandTotaltoPay(),"132.48", "Test Step:21 - Grand total to pay is not matched");
-			}
+			} 			
 			
 			// Test Step - 22		
 			cashandcarrypayment.EnterGivenAmount();
@@ -244,24 +221,10 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 				cashandcarrypayment.GetTenderPrice();
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-			
-			delayWithGivenTime(1000);	 
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(2000);
-		//	ThreadWait(2000);
-			//executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-			//executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-			//executorService.shutdown();	
-		//	RobotDismissAlert();
-			
-			/*
-			 * try {
-			 * Runtime.getRuntime().exec("C:\\AutoIT\\CancelButtonOpenWebClientPrint.au3");
-			 * } catch (IOException e) { e.printStackTrace(); }
-			 */
-			
+				 
+			getDriver().switchTo().activeElement();			
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(1000);
+			delayWithGivenTime(2000);
 
 			// Test Step - 23
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();

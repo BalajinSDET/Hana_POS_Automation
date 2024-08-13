@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-13T10:11:31 IST" name="Default suite" finished-at="2024-08-13T10:12:36 IST" duration-ms="65092">
+  <suite started-at="2024-08-13T15:55:35 IST" name="Default suite" finished-at="2024-08-13T15:58:06 IST" duration-ms="151318">
     <groups>
       <group name="Regression">
-        <method signature="Hana_T02_AddProductWithDiscount_FT.Validate_Hana_T02_Add_Product_With_Discount_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.hanapos.cashandcarrytest.Hana_T02_AddProductWithDiscount_FT@1ef6d34c]" name="Validate_Hana_T02_Add_Product_With_Discount_Test" class="com.hanapos.cashandcarrytest.Hana_T02_AddProductWithDiscount_FT"/>
+        <method signature="Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT.Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" name="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT"/>
       </group> <!-- Regression -->
+      <group name="Smoke">
+        <method signature="Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT.Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" name="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT"/>
+      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2024-08-13T10:11:31 IST" name="Default test" finished-at="2024-08-13T10:12:36 IST" duration-ms="65092">
-      <class name="com.hanapos.cashandcarrytest.Hana_T02_AddProductWithDiscount_FT">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T02_AddProductWithDiscount_FT@1ef6d34c]" started-at="2024-08-13T10:11:31 IST" name="loadConfig" finished-at="2024-08-13T10:11:31 IST" duration-ms="17" status="PASS">
+    <test started-at="2024-08-13T15:55:35 IST" name="Default test" finished-at="2024-08-13T15:58:06 IST" duration-ms="151318">
+      <class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" started-at="2024-08-13T15:55:35 IST" name="loadConfig" finished-at="2024-08-13T15:55:35 IST" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T02_AddProductWithDiscount_FT@1ef6d34c]" started-at="2024-08-13T10:11:32 IST" name="setup" finished-at="2024-08-13T10:11:38 IST" duration-ms="5835" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" started-at="2024-08-13T15:55:36 IST" name="setup" finished-at="2024-08-13T15:55:43 IST" duration-ms="7107" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -25,71 +28,71 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Validate_Hana_T02_Add_Product_With_Discount_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.hanapos.cashandcarrytest.Hana_T02_AddProductWithDiscount_FT@1ef6d34c]" started-at="2024-08-13T10:11:38 IST" name="Validate_Hana_T02_Add_Product_With_Discount_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-13T10:12:36 IST" duration-ms="58055" status="FAIL">
+        <test-method signature="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" started-at="2024-08-13T15:55:43 IST" name="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-13T15:58:06 IST" duration-ms="142776" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[rrd]]>
+                <![CDATA[Stuart Markwood]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[premium]]>
+                <![CDATA[2715 35th Ave]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[3]]>
+                <![CDATA[80634]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[50]]>
+                <![CDATA[956-655-0756]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[10]]>
+                <![CDATA[Abish]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[10.00]]>
+                <![CDATA[David]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[Red-p]]>
+                <![CDATA[3402 Park Blvd]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[10]]>
+                <![CDATA[PICK UP]]>
               </value>
             </param>
             <param index="8">
               <value>
-                <![CDATA[Red rose boutque covered with pink cover]]>
+                <![CDATA[92103]]>
               </value>
             </param>
             <param index="9">
               <value>
-                <![CDATA[2]]>
+                <![CDATA[San Diego]]>
               </value>
             </param>
             <param index="10">
               <value>
-                <![CDATA[100]]>
+                <![CDATA[United States]]>
               </value>
             </param>
             <param index="11">
               <value>
-                <![CDATA[abish]]>
+                <![CDATA[956-655-0756]]>
               </value>
             </param>
             <param index="12">
               <value>
-                <![CDATA[Tax Exemption]]>
+                <![CDATA[Church]]>
               </value>
             </param>
             <param index="13">
@@ -99,74 +102,28 @@
             </param>
             <param index="14">
               <value>
-                <![CDATA[Friend]]>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[Cash]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[Cash Register2]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[The following asserts failed:
-Error in Hana_T02_AddProductWithDiscount_Test_CashAndCarryTest : org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=127.0.6533.100)
-Build info: version: '4.22.0', revision: 'c5f3146703*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [6983a57c8eb6965a68469b232ac0cba8, findElement {using=xpath, value=//a[@class='li_Hana navbar-brand']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56006}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56006/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 6983a57c8eb6965a68469b232ac0cba8]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: The following asserts failed:
-Error in Hana_T02_AddProductWithDiscount_Test_CashAndCarryTest : org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=127.0.6533.100)
-Build info: version: '4.22.0', revision: 'c5f3146703*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [6983a57c8eb6965a68469b232ac0cba8, findElement {using=xpath, value=//a[@class='li_Hana navbar-brand']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56006}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56006/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 6983a57c8eb6965a68469b232ac0cba8
-at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
-at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-at com.hanapos.cashandcarrytest.Hana_T02_AddProductWithDiscount_FT.Validate_Hana_T02_Add_Product_With_Discount_Test(Hana_T02_AddProductWithDiscount_FT.java:253)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Validate_Hana_T02_Add_Product_With_Discount_Test -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T02_AddProductWithDiscount_FT@1ef6d34c]" started-at="2024-08-13T10:12:36 IST" name="tearDown" finished-at="2024-08-13T10:12:36 IST" duration-ms="49" status="PASS">
+        </test-method> <!-- Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" started-at="2024-08-13T15:58:06 IST" name="tearDown" finished-at="2024-08-13T15:58:06 IST" duration-ms="275" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.hanapos.cashandcarrytest.Hana_T02_AddProductWithDiscount_FT -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

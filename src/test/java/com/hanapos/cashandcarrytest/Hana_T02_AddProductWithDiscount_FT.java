@@ -37,10 +37,7 @@ public class Hana_T02_AddProductWithDiscount_FT extends TestBaseClass{
 	/*
 	 * HANA-T02 - 1 to 29 - Verify Add Product with Discount	
 	 */
-//,retryAnalyzer= com.hanapos.utilities.RetryTest.class
-	
-	
-	
+//,retryAnalyzer= com.hanapos.utilities.RetryTest.class	
 	@Description("This test method is to Validate Add Product With Discount Test")
 	@Severity(SeverityLevel.CRITICAL)
 	@Owner("Balaji N")

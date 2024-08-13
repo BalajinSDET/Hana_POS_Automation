@@ -1143,3 +1143,97 @@
 [INFO ] 2024-08-12 18:07:26.902 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - Generated Order invoice number is :9038328
 [INFO ] 2024-08-12 18:07:26.971 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - The remaining amount given to customer is :$194.90
 [INFO ] 2024-08-12 18:07:32.104 [TestNG-test-ChromeBrowserTest-1] Hana_T51_Payments_Cash_Payment_Section_FT - User click the cancel button on webclientprint window popup
+[DEBUG] 2024-08-13 09:44:42.742 [main] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-13 09:44:42.748 [main] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-13 09:44:42.749 [main] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-13 09:44:43.101 [main] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-13 09:44:51.045 [main] Hana_T02_AddProductWithDiscount_FT - **** Starting Hana_T02_AddProductWithDiscount_CashAndCarryTest  ****
+[DEBUG] 2024-08-13 09:44:51.045 [main] Hana_T02_AddProductWithDiscount_FT - capturing application debug logs....
+[ERROR] 2024-08-13 09:45:41.148 [main] Hana_T02_AddProductWithDiscount_FT - Error in Hana_T02_AddProductWithDiscount_Test_CashAndCarryTest : org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Welcome to HANA POS')]"}
+  (Session info: chrome=127.0.6533.100)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [dcef29cd795ae7233ab9674985359f7c, findElement {value=//h3[contains(text(),'Welcome to HANA POS')], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54765}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54765/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: dcef29cd795ae7233ab9674985359f7c
+[DEBUG] 2024-08-13 09:46:45.038 [main] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-13 09:46:45.044 [main] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-13 09:46:45.045 [main] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-13 09:46:45.353 [main] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-13 09:46:51.735 [main] Hana_T02_AddProductWithDiscount_FT - **** Starting Hana_T02_AddProductWithDiscount_CashAndCarryTest  ****
+[DEBUG] 2024-08-13 09:46:51.735 [main] Hana_T02_AddProductWithDiscount_FT - capturing application debug logs....
+[ERROR] 2024-08-13 09:47:41.808 [main] Hana_T02_AddProductWithDiscount_FT - Error in Hana_T02_AddProductWithDiscount_Test_CashAndCarryTest : org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Welcome to HANA POS')]"}
+  (Session info: chrome=127.0.6533.100)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c3f469ab781d9ec78a3f046e91424450, findElement {value=//h3[contains(text(),'Welcome to HANA POS')], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54890}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54890/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c3f469ab781d9ec78a3f046e91424450
+[DEBUG] 2024-08-13 09:50:16.765 [main] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-13 09:50:16.771 [main] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-13 09:50:16.772 [main] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-13 09:50:17.085 [main] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-13 09:50:23.211 [main] Hana_T02_AddProductWithDiscount_FT - **** Starting Hana_T02_AddProductWithDiscount_CashAndCarryTest  ****
+[DEBUG] 2024-08-13 09:50:23.211 [main] Hana_T02_AddProductWithDiscount_FT - capturing application debug logs....
+[ERROR] 2024-08-13 09:51:13.274 [main] Hana_T02_AddProductWithDiscount_FT - Error in Hana_T02_AddProductWithDiscount_Test_CashAndCarryTest : org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Welcome to HANA POS')]"}
+  (Session info: chrome=127.0.6533.100)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0a429f2da58a943de04a0d92b59f39f0, findElement {value=//h3[contains(text(),'Welcome to HANA POS')], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55077}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55077/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0a429f2da58a943de04a0d92b59f39f0
+[DEBUG] 2024-08-13 09:55:28.982 [main] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-13 09:55:28.989 [main] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-13 09:55:28.990 [main] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-13 09:55:29.313 [main] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-13 09:55:36.288 [main] Hana_T02_AddProductWithDiscount_FT - **** Starting Hana_T02_AddProductWithDiscount_CashAndCarryTest  ****
+[DEBUG] 2024-08-13 09:55:36.288 [main] Hana_T02_AddProductWithDiscount_FT - capturing application debug logs....
+[ERROR] 2024-08-13 09:56:26.358 [main] Hana_T02_AddProductWithDiscount_FT - Error in Hana_T02_AddProductWithDiscount_Test_CashAndCarryTest : org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h3[contains(text(),'Welcome to HANA POS')]"}
+  (Session info: chrome=127.0.6533.100)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8dcaf9efa02c52e8ad32c710d164f16b, findElement {value=//h3[contains(text(),'Welcome to HANA POS')], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55308}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55308/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8dcaf9efa02c52e8ad32c710d164f16b
+[DEBUG] 2024-08-13 09:56:57.621 [main] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-13 09:56:57.627 [main] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-13 09:56:57.628 [main] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-13 09:56:57.942 [main] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-13 09:57:04.294 [main] Hana_T02_AddProductWithDiscount_FT - **** Starting Hana_T02_AddProductWithDiscount_CashAndCarryTest  ****
+[DEBUG] 2024-08-13 09:57:04.294 [main] Hana_T02_AddProductWithDiscount_FT - capturing application debug logs....
+[INFO ] 2024-08-13 09:57:04.409 [main] Hana_T02_AddProductWithDiscount_FT - User on the hana pos login page
+[INFO ] 2024-08-13 09:57:34.612 [main] Hana_T02_AddProductWithDiscount_FT - User navigated to hana dashboard page sucessfully
+[INFO ] 2024-08-13 09:57:34.908 [main] Hana_T02_AddProductWithDiscount_FT - User selected the shop name on dashboard page as SISTERCHICKS FLOWERS AND MORE LLC
+[INFO ] 2024-08-13 09:57:45.591 [main] Hana_T02_AddProductWithDiscount_FT - User hover the mouse on New order and click on Cash and Carry..
+[INFO ] 2024-08-13 09:57:45.706 [main] Hana_T02_AddProductWithDiscount_FT - User verify the Cash and Carry page is displayed..
+[INFO ] 2024-08-13 09:57:46.024 [main] Hana_T02_AddProductWithDiscount_FT - User select the shop name on cash and carry page as SISTERCHICKS FLOWERS AND MORE LLC
+[INFO ] 2024-08-13 09:57:46.550 [main] Hana_T02_AddProductWithDiscount_FT - User select the clerk name on cash and carry page as Cash Register2
+[ERROR] 2024-08-13 09:57:46.638 [main] Hana_T02_AddProductWithDiscount_FT - Error in Hana_T02_AddProductWithDiscount_Test_CashAndCarryTest : org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //select[@id='ddlEmployee']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
+Driver info: driver.version: RemoteWebDriver
+[DEBUG] 2024-08-13 10:11:32.058 [main] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-13 10:11:32.066 [main] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-13 10:11:32.067 [main] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-13 10:11:32.387 [main] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-13 10:11:38.429 [main] Hana_T02_AddProductWithDiscount_FT - **** Starting Hana_T02_AddProductWithDiscount_CashAndCarryTest  ****
+[DEBUG] 2024-08-13 10:11:38.429 [main] Hana_T02_AddProductWithDiscount_FT - capturing application debug logs....
+[INFO ] 2024-08-13 10:11:38.594 [main] Hana_T02_AddProductWithDiscount_FT - User on the hana pos login page
+[ERROR] 2024-08-13 10:12:36.437 [main] Hana_T02_AddProductWithDiscount_FT - Error in Hana_T02_AddProductWithDiscount_Test_CashAndCarryTest : org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=127.0.6533.100)
+Build info: version: '4.22.0', revision: 'c5f3146703*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6983a57c8eb6965a68469b232ac0cba8, findElement {using=xpath, value=//a[@class='li_Hana navbar-brand']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.100, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56006}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56006/devtoo..., se:cdpVersion: 127.0.6533.100, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6983a57c8eb6965a68469b232ac0cba8

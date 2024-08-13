@@ -194,9 +194,9 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			cashandcarry.EnterAddNewCustAltPhoneNumber(custphnumber2);
 			logger.info("User entered the alternate phone number as ");
 			
-			softassert.assertEquals(cashandcarry.getEnteredaddnewcustphonenumber(), "991234567890","enter more than 12 character is added on phone number field");
+			softassert.assertEquals(cashandcarry.getEnteredaddnewcustphonenumber(), "+99-123-456-7890","Test Step - 16 - enter more than 12 character is added on phone number field");
 			logger.info("User verify the alphabetic character is not accepted on phone number field ");
-			softassert.assertEquals(cashandcarry.getEnteredaddnewcustaltphonenumber(), "991234567890","enter more than 12 character is added on alternative phone number field");
+			softassert.assertEquals(cashandcarry.getEnteredaddnewcustaltphonenumber(), "+99-123-456-7890","Test Step - 16 - enter more than 12 character is added on alternative phone number field");
 			logger.info("User verify the alphabetic character is not accepted on alternative phone number field ");
 
 			// Test Step - 17
@@ -239,9 +239,9 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			logger.info("User verify the first name field entered data is displayed");
 			softassert.assertEquals(cashandcarry.getEnteredaddnewcustlastname(), "Automation","Test Step-17 -Added on first name field are not properly displayed");
 			logger.info("User verify the last name field entered data is displayed");
-			softassert.assertEquals(cashandcarry.getEnteredaddnewcustphonenumber(), "9192939495","Test Step-17 -Added on phone number field are not properly displayed");
+			softassert.assertEquals(cashandcarry.getEnteredaddnewcustphonenumber(), "+99-123-456-9192","Test Step-17 -Added on phone number field are not properly displayed");
 			logger.info("User verify the phone number field entered data is displayed");
-			softassert.assertEquals(cashandcarry.getEnteredaddnewcustaltphonenumber(), "9192939896","Test Step-17 -Added on alternative phone number field are not properly displayed");
+			softassert.assertEquals(cashandcarry.getEnteredaddnewcustaltphonenumber(), "+99-123-456-9192","Test Step-17 -Added on alternative phone number field are not properly displayed");
 			logger.info("User verify the alternative phone number field entered data is displayed");
 			softassert.assertEquals(cashandcarry.getEnteredaddnewcustaddress1(),"Test Automation Address, India","Test Step-17 -Added address 1 field is not properly displayed");
 			logger.info("User verify that address 1 field entered data is displayed");
@@ -335,7 +335,7 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			cashandcarrypayment.EnterGivenAmount();
 			logger.info("User enter the amount in given amount field");
 			cashandcarrypayment.ClickProcessPaymentBtn();
-			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
+			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg(),"Test Step - 24 -Order payment done successfully toast message is not displayed"); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully","Test Step - 24 -Order confirmation message is not displayed");
 			
@@ -380,7 +380,7 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			
 			// Test Step - 26
 			delayWithGivenTime(1000);
-			softassert.assertEquals(dashboardorder.GetSenderorCustomerOnOrderPage().contains("Test Automation pvt ltd | Test Automation"),true);
+			softassert.assertEquals(dashboardorder.GetSenderorCustomerOnOrderPage().contains("Test Automation pvt ltd | Test Automation"),true,"Test Step - 26 -sender or customer name on order page is not matched");
 			
 			// Test Step - 27
 			dashboardorder.ClickonSenderorCustomerOnOrderPage();
@@ -416,7 +416,7 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			ThreadWait(1000);
 			softassert.assertEquals(customerpage.VerifyCompanyNameOnCustTable(),"Test Automation pvt ltd","Test Step - 31 - Company Name on customer table is not matched");
 			logger.info("User verify that company name on customer table");
-			softassert.assertEquals(customerpage.VerifyPhoneNumberOnCustTable(),"919-293-9495","Test Step - 31 - Phone number on customer table is not matched");
+			softassert.assertEquals(customerpage.VerifyPhoneNumberOnCustTable(),"+99-123-456-9192","Test Step - 31 - Phone number on customer table is not matched");
 			logger.info("User verify that phone number on customer table");
 			softassert.assertEquals(customerpage.VerifyAddressOnCustTable(),"Test Automation Address, India","Test Step - 31 - Address on customer table is not matched");
 			logger.info("User verify that address on customer table");
@@ -433,15 +433,15 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			
 			// Test Step - 33
 			delayWithGivenTime(2000);
-			softassert.assertEquals(customerpage.getCustDetailsCompanyNameTextBox(), "Test Automation pvt ltd"," Test - 33 - Added on company name field are not properly displayed");
+			softassert.assertEquals(customerpage.getCustDetailsCompanyNameTextBox(), "Test Automation pvt ltd "," Test - 33 - Added on company name field are not properly displayed");
 			logger.info("User verified that entered company name entered data is displayed on add new customer popup");
 			softassert.assertEquals(customerpage.getCustDetailsFirstNameTextBox(), "Test","Test Step - 33 - Added on first name field are not properly displayed");
 			logger.info("User verify the first name field entered data is displayed");
 			softassert.assertEquals(customerpage.getCustDetailsLastNameTextBox(), "Automation","Test Step - 33 - Added on first name field are not properly displayed");
 			logger.info("User verify the last name field entered data is displayed");
-			softassert.assertEquals(customerpage.getCustDetailsPhoneNumberTextbox(), "9192939495","Test Step - 33 - Added on phone number field are not properly displayed");
+			softassert.assertEquals(customerpage.getCustDetailsPhoneNumberTextbox(), "919-293-9495","Test Step - 33 - Added on phone number field are not properly displayed");
 			logger.info("User verify the phone number field entered data is displayed");
-			softassert.assertEquals(customerpage.getCustDetailsAltPhoneNumberTextBox(), "9192939896","Test S- 33 - Added on alternative phone number field are not properly displayed");
+			softassert.assertEquals(customerpage.getCustDetailsAltPhoneNumberTextBox(), "919-293-9896","Test Step - 33 - Added on alternative phone number field are not properly displayed");
 			logger.info("User verify the alternative phone number field entered data is displayed");
 			softassert.assertEquals(customerpage.getCustDetailsAddress1TextBox(),"Test Automation Address, India","Test Step - 33 - Added address 1 field is not properly displayed");
 			logger.info("User verify that address 1 field entered data is displayed");

@@ -144,7 +144,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up") 
 				&& listOfCashMOP.get(0).getText().equals("Cash")) {
-			for (int i= 0;i<listOfInvoiceNumber.size(); i++ ) {	
+			for (int i= 0;i<listOfInvoiceNumber.size(); ) {	
 				HighlightElement(listOfWalkinSales.get(0));
 				HighlightElement(listOfOrderDetail.get(0));
 				HighlightElement(firstrowOfOrderDetail.get(0));
@@ -159,10 +159,11 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public boolean Validate_POH_MOP_DisplayedOnOrderPage() {
 		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales") 
-				&& listOfPickUp.get(0).getText().contains("Pick Up") ) {
+				&& listOfPickUp.get(0).getText().contains("Pick Up")
+				&& listOfPaidOutsideHana.get(0).getText().contains("Paid Outside Hana")) {
 			HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
-			for(int i=0;i<listOfPaidOutsideHana.size();i++) {
+			for(int i=0;i<listOfPaidOutsideHana.size();) {
 				listOfPaidOutsideHana.get(0).isDisplayed();
 				break;
 			}
@@ -171,10 +172,11 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public boolean Validate_GiftCard_MOP_DisplayedOnOrderPage() {
 		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales") 
-				&& listOfPickUp.get(0).getText().contains("Pick Up") ) {
+				&& listOfPickUp.get(0).getText().contains("Pick Up")
+				&&	listOfGiftCard.get(0).getText().contains("Gift Card")) {
 			HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
-			for(int i=0;i<listOfGiftCard.size();i++) {
+			for(int i=0;i<listOfGiftCard.size();) {
 				listOfGiftCard.get(0).isDisplayed();
 				break;
 			}
@@ -184,7 +186,8 @@ public class DashboardOrderPage extends TestBaseClass{
 	public boolean Validate_Donation_MOP_DisplayedOnOrderPage() {
 		
 		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales") 
-				&& listOfPickUp.get(0).getText().contains("Pick Up") ) {
+				&& listOfPickUp.get(0).getText().contains("Pick Up")
+				&&	listOfDonation.get(0).getText().contains("Donation")) {
 			HighlightElement(listOfInvoiceNumber.get(0));
 			HighlightElement(listOfOrderStatus.get(0));
 			delayWithGivenTime(1000);
@@ -224,7 +227,7 @@ public class DashboardOrderPage extends TestBaseClass{
 			delayWithGivenTime(1000);
 			HighlightElement(firstrowOfOrderDetail.get(0));
 			delayWithGivenTime(1000);
-			for (int i= 0;i<listOfInvoiceAmountValue.size(); i++ ) {				
+			for (int i= 0;i<listOfInvoiceAmountValue.size(); ) {				
 				break; 
 			}
 			HighlightElement(listOfInvoiceAmountValue.get(0));
@@ -328,19 +331,17 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales")
 				&&listOfPickUp.get(0).getText().contains("Pick Up")
 				&&listOfCashMOP.get(0).getText().contains("Cash")) {
-			HighlightElement(listOfWalkinSales.get(0));
-			delayWithGivenTime(1000);
-			HighlightElement(listOfOrderDetail.get(0));
-			delayWithGivenTime(1000);
+		
 			HighlightElement(firstrowOfOrderDetail.get(0));
 			delayWithGivenTime(1000);
-			
-			for (int i= 0;i<listOfSenderCustomer.size(); i++ ) {				
+		
+			for (int i= 0;i<listOfSenderCustomer.size(); ) {	
+				HighlightElement(listOfSenderCustomer.get(0));
+				delayWithGivenTime(1000);
 				break; 
 			}
 			
-			HighlightElement(listOfSenderCustomer.get(0));
-			delayWithGivenTime(1000);
+			
 		}	return listOfSenderCustomer.get(0).getText();			 		
 	}
 	
@@ -356,7 +357,7 @@ public class DashboardOrderPage extends TestBaseClass{
 			HighlightElement(firstrowOfOrderDetail.get(0));
 			
 			
-			for (int i= 0;i<listOfSenderCustomer.size(); i++ ) {				
+			for (int i= 0;i<listOfSenderCustomer.size(); ) {				
 				break; 
 			}
 			

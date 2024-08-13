@@ -11,11 +11,8 @@ public class LoginPage extends TestBaseClass {
 		PageFactory.initElements(getDriver(), this);
 	}
 
-	@FindBy(xpath="//h3[contains(text(),'Welcome to HANA POS')]") 
+	@FindBy(xpath="//div[contains(@class,'loginscreen animated fadeInDown')]//div//h3") 
 	private WebElement LoginPage;
-	
-	@FindBy(xpath="//h3[contains(text(),'Welcome to HANA Florist POS')]")
-	private WebElement LoginPageQaFinal;
 
 	@FindBy(id="Username") 
 	private WebElement Username;
@@ -49,6 +46,18 @@ public class LoginPage extends TestBaseClass {
 	
 	@FindBy	(xpath="//a[normalize-space()='Create an account']")
 	private WebElement CreateAccount;
+	
+	@FindBy(xpath="//div[@class='llogin text-center loginscreen animated fadeInDown']//div//h3")
+	private WebElement loginPage;
+	
+	@FindBy(xpath="//input[@id='Username']")
+	private WebElement User_name;
+	
+	@FindBy(xpath="//input[@id='Password']")
+	private WebElement Pass_word;
+	
+	@FindBy(xpath="//button[@id='btnLogin']")
+	private WebElement login_Btn;
 
 	public String VerifyLoginPageTitle() {
 		return getDriver().getTitle();
@@ -56,18 +65,25 @@ public class LoginPage extends TestBaseClass {
 	
 	
 	public String ValidateLoginPage() {
-		HighlightElement(LoginPage);
-		return LoginPage.getText(); // LoginPage.getText();//LoginPageQaFinal.getText(); 
+		
+		if(LoginPage.getText().contains("Welcome to HANA Florist POS")) {
+			HighlightElement(LoginPage);
+			return LoginPage.getText();
+		}return LoginPage.getText();
 	}
 	
-	public String ValidateLoginPageQaFinal() {
-		HighlightElement(LoginPageQaFinal);
-		return LoginPageQaFinal.getText();
-	}
 	
-	public boolean LoginPageIsDisplayed() {
-		HighlightElement(LoginPage);
-		return LoginPage.isDisplayed();
+	public boolean LoginPageIsDisplayed() {		
+		  if(LoginPage.getText().equals("Welcome to HANA POS")) {
+		  HighlightElement(LoginPage); return LoginPage.isDisplayed(); 
+		  }else if(loginPage.getText().equals("Welcome to HANA Florist POS")) {
+		  HighlightElement(loginPage); return loginPage.isDisplayed();
+		  }
+		  else { 
+			  return false;
+		  }
+		 
+		//HighlightElement(loginPage); return loginPage.isDisplayed();
 	}
 
 	public String ValidateLoginPageUrl() {
@@ -75,7 +91,12 @@ public class LoginPage extends TestBaseClass {
 	}
 	
 	public LoginPage EnterUserName(String username) {
-		clickAndType(Username,username ); 
+		if(loginPage.getText().equals("Welcome to HANA Florist POS")) {
+			clickAndType(User_name,username ); 
+		}else if(loginPage.getText().equals("Welcome to HANA POS")) {
+			clickAndType(Username,username ); 
+		}
+		
 		return this;
 	}
 	
@@ -90,12 +111,20 @@ public class LoginPage extends TestBaseClass {
 	}
 
 	public LoginPage EnterPassword(String password) {
-		clickAndType(Password,password ); 
+		if(loginPage.getText().equals("Welcome to HANA Florist POS")) {
+			clickAndType(Pass_word,password ); 
+		}else if(loginPage.getText().equals("Welcome to HANA POS")) {
+			clickAndType(Password,password ); 
+		}
 		return this;
 	}
 
 	public HanaDashBoardPage ClickLoginButton() {
-		click(loginbutton);
+		if(loginPage.getText().equals("Welcome to HANA Florist POS")) {
+			click(login_Btn);
+		}else if(loginPage.getText().equals("Welcome to HANA POS")) {
+			click(loginbutton);
+		}
 		return new HanaDashBoardPage();
 	}
 	

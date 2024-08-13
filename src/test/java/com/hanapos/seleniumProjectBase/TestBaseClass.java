@@ -136,7 +136,11 @@ public class TestBaseClass implements FrameworkDesign {
 			getDriver().manage().deleteAllCookies();
 			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 			getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
+			
 			getDriver().get(prop.getProperty("appURL"));
+			
+			
+			
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}
@@ -146,6 +150,19 @@ public class TestBaseClass implements FrameworkDesign {
 		return driver.get();
 	}
 
+	public String getAppURL() {
+		switch (prop.getProperty("appURL")) {
+        case "qa-final":
+            return "https://hanadevpos3-qa-final.azurewebsites.net/";
+        case "staging":
+            return "https://hanafloralpos3-staging.azurewebsites.net/";
+        case "live":
+            return "https://hanafloralpos3.com/Account/Login";
+        default:
+            throw new IllegalStateException("Unexpected value: " + prop.getProperty("appURL"));
+    }
+	}
+	
 	public void WindowDriver() {
 	try {
 		

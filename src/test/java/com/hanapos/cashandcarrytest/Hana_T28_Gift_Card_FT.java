@@ -74,11 +74,15 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 			logger.info("User verify the gift card sales pop up is displayed..");
 			
 			// Test Step - 5
+			//prerequiste
+			cashandcarry.set_DefaultDenomination();
+			delayWithGivenTime(1000);	
 			cashandcarry.ClickOnInstantDenomination(instantdenomination1);
 			logger.info("User select instant denomination as "+instantdenomination1);
-			softassert.assertEquals(cashandcarry.getGiftAmountValue(), "30.00","Gift amount values are not matched");
+			delayWithGivenTime(2000);
+			softassert.assertEquals(cashandcarry.getGiftAmountValue(), "30.00","Test Step - 5 - Gift amount values are not matched");
 			logger.info("User verify the gift amount values are matched..");
-			softassert.assertEquals(cashandcarry.getTotalGiftValue(), "30.00","Total gift values are not matched");
+			softassert.assertEquals(cashandcarry.getTotalGiftValue(), "30.00","Test Step - 5 - Total gift values are not matched");
 			logger.info("User verify the total gift values are matched..");
 			
 			// Test Step - 6
@@ -90,13 +94,15 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 			//Test Step - 7
 			cashandcarry.EnterAmountOnGiftamtField(giftvalidamt);
 			logger.info("User enter amount on gift amount field as "+giftvalidamt);
-			softassert.assertEquals(cashandcarry.getGiftAmountValue(), "30","gift amount values are not match");
+			delayWithGivenTime(2000);
+			softassert.assertEquals(cashandcarry.getGiftAmountValue(), "30","Test Step - 7 - gift amount values are not match");
 			logger.info("User verify the gift amount values are matched as "+giftvalidamt);
-			softassert.assertEquals(cashandcarry.getTotalGiftValue(), "30.00","Total gift values are not match");
+			softassert.assertEquals(cashandcarry.getTotalGiftValue(), "30.00","Test Step - 7 - Total gift values are not match");
 			logger.info("User verify the total gift values are matched as "+giftvalidamt);
 			
 			// Test Step - 8
-			softassert.assertEquals(cashandcarry.VerifyTotalGiftValueTextboxIsDisabled(),"30.00","Total gift value field is enabled");
+			delayWithGivenTime(1000);
+			softassert.assertEquals(cashandcarry.VerifyTotalGiftValueTextboxIsDisabled(),"30.00","Test Step - 8 - Total gift value field is enabled");
 			logger.info("User verify the Total gift value field is disabled..");
 			
 			// Test Step - 9
@@ -105,7 +111,7 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 			softassert.assertEquals(cashandcarry.getGiftCardProcessingFee(),"5.00");
 			logger.info("User verify the gift card processing fee is matched as "+processingfee);
 			delayWithGivenTime(2000);
-			softassert.assertEquals(cashandcarry.getTotalGiftValue(), "35.00"," total gift values are not matched");
+			softassert.assertEquals(cashandcarry.getTotalGiftValue(), "35.00"," Test Step - 9 - Total gift values are not matched");
 			logger.info("User verify the total gift values are matched as "+processingfee);
 			
 			// Test Step - 10
@@ -151,11 +157,11 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 			// Test Step - 17
 			cashandcarry.ClickOnInstantDenomination(Instantdenomination1);
 			logger.info("User select instant denomination as "+Instantdenomination1);
-			
-			softassert.assertEquals(cashandcarry.getGiftAmountValue(), "30.00","Gift amount values are not matched");
+			delayWithGivenTime(2000);
+			softassert.assertEquals(cashandcarry.getGiftAmountValue(), "30.00","Test Step - 17 - Gift amount values are not matched");
 			logger.info("User verify the gift amount values are matched as "+Instantdenomination1);
 			
-			softassert.assertEquals(cashandcarry.getTotalGiftValue(), "30.00","Total gift values are not matched");
+			softassert.assertEquals(cashandcarry.getTotalGiftValue(), "30.00","Test Step - 17 - Total gift values are not matched");
 			logger.info("User verify the total gift values are matched as "+Instantdenomination1);
 			
 			cashandcarry.EnterAmountOnGiftamtField("abc");	
@@ -169,7 +175,7 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 			softassert.assertEquals(cashandcarry.getTotalGiftValue(), "30.00");
 			logger.info("User verify the total gift values are matched as "+giftvalidamt);
 
-			softassert.assertEquals(cashandcarry.VerifyTotalGiftValueTextboxIsDisabled(),"30.00","Total gift value field is enabled");
+			softassert.assertEquals(cashandcarry.VerifyTotalGiftValueTextboxIsDisabled(),"30.00","Test Step - 17 - Total gift value field is enabled");
 			logger.info("User verify the Total gift value field is disabled..");
 			cashandcarry.EnterProcessingFeesOnGiftSalePopup(processingfee);
 			logger.info("User enter gift card processing fee as "+processingfee);

@@ -134,9 +134,11 @@ public class Hana_T18_OrderConfirmationPopup_FT extends TestBaseClass{
 
 			// Test Step - 11
 			cashandcarrypayment.ClickCashTab();
+			cashandcarrypayment.EnterGivenAmount();
 			logger.info("User select the payment type as cash tab");
 					
 			// Test Step - 12	
+			
 			cashandcarrypayment.ClickProcessPaymentBtn();
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
@@ -155,11 +157,10 @@ public class Hana_T18_OrderConfirmationPopup_FT extends TestBaseClass{
 			getDriver().switchTo().activeElement();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(2000);
-			
-			
+						
 			// Test Step - 13
-			softassert.assertEquals(cashandcarrypayment.GetConfirmationPopupCustEmail(),"hanaposqateam@gmail.com","******Test Failed: Email id is not autopopulated from customer details******");		
-			softassert.assertEquals(cashandcarrypayment.GetConfirmationPopupCustSMS(), "9566550756","******Test Failed: SMS Phone number is not autopopulated from customer details******");
+			softassert.assertEquals(cashandcarrypayment.GetConfirmationPopupCustEmail(),"hanaposqateam@gmail.com","******Test Step - 13 - Email id is not autopopulated from customer details******");		
+			softassert.assertEquals(cashandcarrypayment.GetConfirmationPopupCustSMS(), "9566550756","******Test Step - 13 - SMS Phone number is not autopopulated from customer details******");
 					
 			//Test Step - 14
 			cashandcarrypayment.ClickSendReciptBtnOnOrderConfirmationPopup();

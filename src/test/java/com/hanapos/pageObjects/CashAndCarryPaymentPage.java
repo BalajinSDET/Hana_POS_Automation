@@ -19,6 +19,9 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	}
 	public Select select;
 	
+	@FindBy(xpath="//a[@class='btn btn-warning btn-sm btn']")
+	private WebElement backBtn;
+	
 	@FindBy(xpath="//h3[contains(text(),'Payment')]")
 	private WebElement PaymentPage;
 	
@@ -525,8 +528,7 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	
 	public boolean VerifyProcessPaymentDisabled() {
 		HighlightElement(ProcessPaymentBtn);
-		boolean isDisabled = ProcessPaymentBtn.getAttribute("disabled")!= null;
-		
+		boolean isDisabled = ProcessPaymentBtn.getAttribute("disabled")!= null;		
 		return isDisabled;
 	}
 	
@@ -606,18 +608,7 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	}
 	
 	public void ClickBackButtonOnTopRightCorner() {
-		//Actions actions = new Actions(getDriver());
-		//actions.keyDown(Keys.ALT).sendKeys("b").keyUp(Keys.ALT).perform();
-		Robot robot;
-		try {
-			robot = new Robot();
-			robot.keyPress(KeyEvent.VK_ALT);
-			robot.keyPress(KeyEvent.VK_B);
-			robot.keyRelease(KeyEvent.VK_B);
-			robot.keyRelease(KeyEvent.VK_ALT);
-		} catch (AWTException e) {			
-			e.printStackTrace();
-		}	
+			jsClick(backBtn);
 	}
 	
 	public String GetConfirmationPopupCustEmail() {

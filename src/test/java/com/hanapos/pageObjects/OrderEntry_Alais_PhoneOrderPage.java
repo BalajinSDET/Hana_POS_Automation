@@ -1357,6 +1357,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public String getFirstnameOnPhoneOrderPage() {
 		HighlightElement(firstnameOnPhoneOrderPage);
+		System.out.println(firstnameOnPhoneOrderPage.getAttribute("value"));
 		return firstnameOnPhoneOrderPage.getAttribute("value");
 	}
 

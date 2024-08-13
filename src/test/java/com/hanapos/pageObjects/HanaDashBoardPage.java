@@ -203,7 +203,7 @@ public class HanaDashBoardPage extends TestBaseClass {
 	}
 	public void ClickOrder() {
 		fluentWait(OrdersMenu);
-		click(OrdersMenu);
+		jsClick(OrdersMenu);
 	}
 
 	public DashboardOrderPage ClickAllOrder() {

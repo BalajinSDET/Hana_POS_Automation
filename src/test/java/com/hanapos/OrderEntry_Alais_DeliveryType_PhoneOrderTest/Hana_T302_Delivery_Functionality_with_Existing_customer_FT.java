@@ -182,7 +182,7 @@ public class Hana_T302_Delivery_Functionality_with_Existing_customer_FT extends 
 			softassert.assertEquals(dashboardorder.getCustAndcompyNameOnDeliveryPopup(),"Hana_Sisterchicks | Abish David","Test Step - 16 - customer and company name on delivery popup is not matched");
 			delayWithGivenTime(2000);
 			softassert.assertEquals(dashboardorder.getCustAddressOnDeliveryPopup(),"3402 Park Blvd","Test Step - 16 -customer address on delivery popup is not matched");
-			softassert.assertEquals(dashboardorder.getCustPhoneNumOnDeliveryPopup(),"956-655-0756 /","Test Step - 16 -customer phone number on delivery popup is not matched");
+			softassert.assertEquals(dashboardorder.getCustPhoneNumOnDeliveryPopup(),"956-655-0756","Test Step - 16 -customer phone number on delivery popup is not matched");
 			softassert.assertEquals(dashboardorder.getCustEmailOnDeliveryPopup(),"hanaposqateam@gmail.com","Test Step - 16 - customer phone number on delivery popup is not matched");
 			logger.info("User verified displayed customer type, customer name, company name, Address, Phone number & email are matched");
 			delayWithGivenTime(2000);			

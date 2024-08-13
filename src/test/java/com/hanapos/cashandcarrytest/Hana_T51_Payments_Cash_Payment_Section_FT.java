@@ -149,7 +149,7 @@ public class Hana_T51_Payments_Cash_Payment_Section_FT extends TestBaseClass{
 			
 			// Test Step - 14
 			delayWithGivenTime(1000);
-			softassert.assertFalse(cashandcarrypayment.VerifyProcessPaymentDisabled(),"Test step 14 : Process payment button is not disabled");
+			softassert.assertTrue(cashandcarrypayment.VerifyProcessPaymentDisabled(),"Test step 14 : Process payment button is not disabled");
 			
 			// Test Step - 15
 			delayWithGivenTime(1000);

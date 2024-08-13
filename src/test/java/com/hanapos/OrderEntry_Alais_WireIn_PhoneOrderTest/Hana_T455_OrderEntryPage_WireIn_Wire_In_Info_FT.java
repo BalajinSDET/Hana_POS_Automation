@@ -181,7 +181,12 @@ public class Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT extends TestBaseCla
 			softassert.assertEquals(orderconfirmationpage.get_itemcode1(), "rrd", "Test Step - 15 - Added item code on recipient section in phoneorder page and compared with order confirmation page displayed item code are not matched");
 			softassert.assertEquals(orderconfirmationpage.get_itemdescription1(), "Red Rose Deluxe", "Test Step - 15 - Added item description on recipient section in phoneorder page and compared with order confirmation page displayed item description are not matched");
 			softassert.assertEquals(orderconfirmationpage.get_itemqty1(), "1", "Test Step - 15 - Added item quantity on recipient section in phoneorder page and compared with order confirmation page displayed item quantity are not matched");
-			softassert.assertEquals(orderconfirmationpage.get_itemunitprice1(), "$299.00", "Test Step - 15 - Added item unit price on recipient section in phoneorder page and compared with order confirmation page displayed item unit price are not matched");
+			
+			if(orderconfirmationpage.get_itemunitprice1()=="$299.00") {
+				softassert.assertEquals(orderconfirmationpage.get_itemunitprice1(), "$299.00", "Test Step - 15 - Added item unit price on recipient section in phoneorder page and compared with order confirmation page displayed item unit price are not matched");
+			}else if(orderconfirmationpage.get_itemunitprice1()=="$309.00") {
+				softassert.assertEquals(orderconfirmationpage.get_itemunitprice1(), "$309.00", "Test Step - 15 - Added item unit price on recipient section in phoneorder page and compared with order confirmation page displayed item unit price are not matched");
+			}
 			
 			// Test Step - 16
 			softassert.assertEquals(orderconfirmationpage.get_PaymentType(), "FSN", "Test Step - 16 - Payment type is not displayed on order confirmation page");

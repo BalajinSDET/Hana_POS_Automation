@@ -227,6 +227,7 @@ public class CustomerPage extends TestBaseClass {
 	
 	public String getCustDetailsFirstNameTextBox() {
 		HighlightElement(CustDetailsFirstNameTextBox);
+		System.out.println(CustDetailsFirstNameTextBox.getAttribute("value"));
 		return CustDetailsFirstNameTextBox.getAttribute("value");
 	}
 	

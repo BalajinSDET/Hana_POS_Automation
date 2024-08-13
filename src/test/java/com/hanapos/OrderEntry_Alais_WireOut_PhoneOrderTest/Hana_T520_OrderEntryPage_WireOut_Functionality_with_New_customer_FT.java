@@ -81,7 +81,7 @@ public class Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT
 			phoneorder.EnterZipCode(custzip);
 			phoneorder.EnterPhoneNumber(custphone);
 			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage().contains("stuart"),true, "Test Step - 6 - First name is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage().contains("Stuart"),true, "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage().contains("Jones"),true, "Test Step - 6 - Last name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getAddress1OnPhoneOrderPage(),"2715 35th Ave", "Test Step - 6 - address 1 is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getZipCodeOnPhoneOrderPage(),"94116", "Test Step - 6 - Zipcode is not displayed on phone order page");
@@ -210,7 +210,7 @@ public class Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT
 			logger.info("User verify that customer menu page is displayed successfully");
 			
 			// Test Step - 17
-			customerpage.Search_and_SelectCustomerName("stuart","stuart");
+			customerpage.Search_and_SelectCustomerName("Stuart","Stuart");
 			softassert.assertEquals(customerpage.VerifyPhoneNumberOnCustTable(),"956-655-0756","Test Step - 17 -Phone number on customer table is not matched");
 			logger.info("User verify that phone number on customer table");
 			softassert.assertEquals(customerpage.VerifyAddressOnCustTable(),"2715 35th Ave","Test Step - 17 - Address on customer table is not matched");
@@ -226,11 +226,11 @@ public class Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT
 			
 			// Test Step - 19
 			delayWithGivenTime(2000);
-			softassert.assertEquals(customerpage.getCustDetailsFirstNameTextBox().contains("stuart"), true,"Test Step - 19 - Added on first name field are not properly displayed");
+			softassert.assertEquals(customerpage.getCustDetailsFirstNameTextBox().contains("Stuart"), true,"Test Step - 19 - Added on first name field are not properly displayed");
 			logger.info("User verify the first name field entered data is displayed");
 			softassert.assertEquals(customerpage.getCustDetailsLastNameTextBox().contains("Jones"), true,"Test Step - 19 - Added on first name field are not properly displayed");
 			logger.info("User verify the last name field entered data is displayed");
-			softassert.assertEquals(customerpage.getCustDetailsPhoneNumberTextbox(), "9566550756","Test Step - 19 - Added on phone number field are not properly displayed");
+			softassert.assertEquals(customerpage.getCustDetailsPhoneNumberTextbox(), "956-655-0756","Test Step - 19 - Added on phone number field are not properly displayed");
 			logger.info("User verify the phone number field entered data is displayed");
 			softassert.assertEquals(customerpage.getCustDetailsAddress1TextBox(),"2715 35th Ave","Test Step - 19 - Added address 1 field is not properly displayed");
 			logger.info("User verify that address 1 field entered data is displayed");			

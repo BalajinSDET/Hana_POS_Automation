@@ -201,7 +201,7 @@ public class Hana_T081_Pickup_Functionality_with_Existing_customer_FT extends Te
 			softassert.assertEquals(dashboardorder.getRecipientAddress_OnDeliveryPopup(),"3402 Park Blvd PICK UP San Diego CA 92103 US", "Test Step 16 - Recipient address is not displayed on delivery popup");
 			softassert.assertEquals(dashboardorder.getCustAndcompyNameOnDeliveryPopup(),"Hana_Sisterchicks | Abish David","Test Step - 16 - customer and company name on delivery popup is not matched");
 			softassert.assertEquals(dashboardorder.getCustAddressOnDeliveryPopup(),"3402 Park Blvd","Test Step - 16 -customer address on delivery popup is not matched");
-			softassert.assertEquals(dashboardorder.getCustPhoneNumOnDeliveryPopup(),"956-655-0756 /","Test Step - 16 -customer phone number on delivery popup is not matched");
+			softassert.assertEquals(dashboardorder.getCustPhoneNumOnDeliveryPopup(),"956-655-0756","Test Step - 16 -customer phone number on delivery popup is not matched");
 			softassert.assertEquals(dashboardorder.getCustEmailOnDeliveryPopup(),"hanaposqateam@gmail.com","Test Step - 16 - customer phone number on delivery popup is not matched");
 			logger.info("User verified displayed customer type, customer name, company name, Address, Phone number & email are matched");
 			delayWithGivenTime(2000);

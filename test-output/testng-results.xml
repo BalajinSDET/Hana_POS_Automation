@@ -2,22 +2,22 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-13T15:55:35 IST" name="Default suite" finished-at="2024-08-13T15:58:06 IST" duration-ms="151318">
+  <suite started-at="2024-08-13T19:17:12 IST" name="Default suite" finished-at="2024-08-13T19:18:27 IST" duration-ms="75297">
     <groups>
       <group name="Regression">
-        <method signature="Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT.Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" name="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT"/>
+        <method signature="Hana_T79_Add_Product_With_Existing_Customer_FT.Validate_Hana_T79_Add_Product_With_Existing_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@57c03d88]" name="Validate_Hana_T79_Add_Product_With_Existing_Customer_Test" class="com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT"/>
       </group> <!-- Regression -->
       <group name="Smoke">
-        <method signature="Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT.Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" name="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT"/>
+        <method signature="Hana_T79_Add_Product_With_Existing_Customer_FT.Validate_Hana_T79_Add_Product_With_Existing_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@57c03d88]" name="Validate_Hana_T79_Add_Product_With_Existing_Customer_Test" class="com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT"/>
       </group> <!-- Smoke -->
     </groups>
-    <test started-at="2024-08-13T15:55:35 IST" name="Default test" finished-at="2024-08-13T15:58:06 IST" duration-ms="151318">
-      <class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" started-at="2024-08-13T15:55:35 IST" name="loadConfig" finished-at="2024-08-13T15:55:35 IST" duration-ms="16" status="PASS">
+    <test started-at="2024-08-13T19:17:12 IST" name="Default test" finished-at="2024-08-13T19:18:27 IST" duration-ms="75297">
+      <class name="com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@57c03d88]" started-at="2024-08-13T19:17:12 IST" name="loadConfig" finished-at="2024-08-13T19:17:12 IST" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" started-at="2024-08-13T15:55:36 IST" name="setup" finished-at="2024-08-13T15:55:43 IST" duration-ms="7107" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@57c03d88]" started-at="2024-08-13T19:17:13 IST" name="setup" finished-at="2024-08-13T19:17:19 IST" duration-ms="6433" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -28,102 +28,37 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" started-at="2024-08-13T15:55:43 IST" name="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-13T15:58:06 IST" duration-ms="142776" status="PASS">
+        <test-method signature="Validate_Hana_T79_Add_Product_With_Existing_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@57c03d88]" started-at="2024-08-13T19:17:19 IST" name="Validate_Hana_T79_Add_Product_With_Existing_Customer_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-13T19:18:27 IST" duration-ms="67358" status="PASS">
           <params>
             <param index="0">
-              <value>
-                <![CDATA[Stuart Markwood]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2715 35th Ave]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[80634]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[956-655-0756]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Abish]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[David]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[3402 Park Blvd]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[PICK UP]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[92103]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[San Diego]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[United States]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[956-655-0756]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[Church]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Birthday]]>
-              </value>
-            </param>
-            <param index="14">
               <value>
                 <![CDATA[rrd]]>
               </value>
             </param>
-            <param index="15">
+            <param index="1">
               <value>
-                <![CDATA[Cash]]>
+                <![CDATA[Test Automation]]>
               </value>
             </param>
-            <param index="16">
+            <param index="2">
               <value>
-                <![CDATA[Cash Register2]]>
+                <![CDATA[Tax Exemption]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Birthday]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@658c5a19]" started-at="2024-08-13T15:58:06 IST" name="tearDown" finished-at="2024-08-13T15:58:06 IST" duration-ms="275" status="PASS">
+        </test-method> <!-- Validate_Hana_T79_Add_Product_With_Existing_Customer_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@57c03d88]" started-at="2024-08-13T19:18:27 IST" name="tearDown" finished-at="2024-08-13T19:18:27 IST" duration-ms="262" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

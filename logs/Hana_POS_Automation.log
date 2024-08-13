@@ -3965,3 +3965,30 @@ Session ID: 6983a57c8eb6965a68469b232ac0cba8
 [INFO ] 2024-08-13 15:58:05.967 [main] Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT - User verify the last name field entered data is displayed
 [INFO ] 2024-08-13 15:58:06.050 [main] Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT - User verify the phone number field entered data is displayed
 [INFO ] 2024-08-13 15:58:06.133 [main] Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT - User verify that address 1 field entered data is displayed
+[DEBUG] 2024-08-13 19:17:12.989 [main] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+[DEBUG] 2024-08-13 19:17:12.997 [main] PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet1.xml.rels
+[DEBUG] 2024-08-13 19:17:12.998 [main] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[DEBUG] 2024-08-13 19:17:13.320 [main] POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+[INFO ] 2024-08-13 19:17:19.952 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - **** Starting Hana_T79_Add_Product_CashAndCarryTest  ****
+[INFO ] 2024-08-13 19:17:20.115 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User on the hana pos login page
+[INFO ] 2024-08-13 19:17:20.115 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - Entering valid username and password..
+[INFO ] 2024-08-13 19:17:38.737 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - Clicked on Login button..
+[INFO ] 2024-08-13 19:17:39.410 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User navigated to hana dashboard page sucess..
+[INFO ] 2024-08-13 19:17:48.000 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User hover the mouse on New order and click on Cash and Carry..
+[INFO ] 2024-08-13 19:17:48.123 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User verify the Cash and Carry page is displayed..
+[INFO ] 2024-08-13 19:17:48.926 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User select the shop name
+[INFO ] 2024-08-13 19:17:49.291 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User select the clerk name
+[INFO ] 2024-08-13 19:17:49.783 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User select the employee name
+[INFO ] 2024-08-13 19:17:56.836 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User verify add the title product to the Cash and Carry page is displayed..
+[INFO ] 2024-08-13 19:18:00.784 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User verify add the title product to the Cash and Carry page is displayed..
+[INFO ] 2024-08-13 19:18:03.891 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User enter the customer name
+[INFO ] 2024-08-13 19:18:07.300 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User fillout the customer,tax type & occasion details and click on Pay button
+[INFO ] 2024-08-13 19:18:07.417 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User is on Cash And Carry payment page
+[INFO ] 2024-08-13 19:18:07.537 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User select the payment type as cash tab
+[INFO ] 2024-08-13 19:18:07.979 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User enter the amount in given amount field
+[INFO ] 2024-08-13 19:18:07.979 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User search and select the customer 
+[INFO ] 2024-08-13 19:18:10.179 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User verified the order payment done successfully
+[INFO ] 2024-08-13 19:18:11.698 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User click the cancel button on webclientprint window popup
+[INFO ] 2024-08-13 19:18:12.869 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User select the payment type as cash tab
+[INFO ] 2024-08-13 19:18:21.988 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User click the order menu on hana dashboard page
+[INFO ] 2024-08-13 19:18:22.032 [main] Hana_T79_Add_Product_With_Existing_Customer_FT - User verify that the order page is navigated to dashboard order page

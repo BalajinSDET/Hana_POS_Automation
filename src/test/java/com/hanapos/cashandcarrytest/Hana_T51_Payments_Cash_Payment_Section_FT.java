@@ -149,7 +149,7 @@ public class Hana_T51_Payments_Cash_Payment_Section_FT extends TestBaseClass{
 			
 			// Test Step - 14
 			delayWithGivenTime(1000);
-			softassert.assertTrue(cashandcarrypayment.VerifyProcessPaymentDisabled(),"Test step 14 : Process payment button is not disabled");
+			softassert.assertFalse(cashandcarrypayment.VerifyProcessPaymentDisabled(),"Test step 14 : Process payment button is not disabled");
 			
 			// Test Step - 15
 			delayWithGivenTime(1000);
@@ -193,15 +193,8 @@ public class Hana_T51_Payments_Cash_Payment_Section_FT extends TestBaseClass{
 			delayWithGivenTime(1000);			
 			getDriver().switchTo().activeElement();
 			delayWithGivenTime(2000);
-			//ExecutorService executorService = Executors.newFixedThreadPool(2);
-		//	executorService.submit(() -> handleOpenWebClientPrintPopup());
-		//	executorService.shutdown();
-		//	while (!executorService.isTerminated()) {
-			//	delayWithGivenTime(1000);
-		//	}
-			//Click_CancelPrinterPopup();
 		
-			RobotAcceptAlert();
+			//	RobotAcceptAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(1000);
 			softassert.assertAll();

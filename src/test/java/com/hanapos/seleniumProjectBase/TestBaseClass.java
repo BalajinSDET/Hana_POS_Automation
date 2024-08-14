@@ -1090,14 +1090,8 @@ public class TestBaseClass implements FrameworkDesign {
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot takesScreenshot = (TakesScreenshot) getDriver();
 		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
-		/*
-		 * String targetFilePath = System.getProperty("user.dir") +
-		 * "\\screenshots\\" + tname + "_" + timeStamp + ".png"; File targetFile = new
-		 * File(targetFilePath); sourceFile.renameTo(targetFile);
-		 */
-	//	String jenkins = "http://localhost:8080/job/HanaposAutomationDemo/ws/screenshots/" + tname + "_" + timeStamp + ".png";
-		 String targetDir = System.getProperty("user.dir") + "\\screenshots\\";
-	//    String targetFilePath = jenkins;
+		//System.getProperty("user.dir") +
+		 String targetDir =  ".\\screenshots\\";
 		 String targetFilePath = targetDir + tname + "_" + timeStamp + ".png";
 	        
 		try {
@@ -1106,17 +1100,14 @@ public class TestBaseClass implements FrameworkDesign {
         } catch (IOException e) {
             e.printStackTrace();
             return null; 
-        }
-        
+        }        
         return targetFilePath;
     }
 
-	
+	//System.getProperty("user.dir") +
 	public String captureScreenshot(String screenshotName) {
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-
-		String dest = System.getProperty("user.dir") + "/screenshots/" + screenshotName  + "_" + timeStamp + ".png";
-
+		String dest =  ".//reports//screenshots//" + screenshotName  + "_" + timeStamp + ".png";
         try {
             Robot robot = new Robot();
             Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());

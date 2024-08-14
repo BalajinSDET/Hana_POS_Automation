@@ -12,13 +12,13 @@ import java.io.ByteArrayInputStream;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
-public class AllureListener extends TestBaseClass implements ITestListener {
-	
+
+public class AllureListener extends TestBaseClass implements ITestListener {	
 	private static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
 	  
-	@Attachment(value = "Screenshot", type = "image/png")
+		@Attachment(value = "Screenshot", type = "image/png")
 	    public byte[] saveScreenshotPNG(WebDriver driver) {
 	        return ((TakesScreenshot) TestBaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
 	    }
@@ -33,26 +33,9 @@ public class AllureListener extends TestBaseClass implements ITestListener {
 	             Allure.addAttachment("Screenshot", new ByteArrayInputStream(saveScreenshotPNG(driver)));
 	         }
 	         Allure.step("Test failed: " + getTestMethodName(result));
-	         Allure.step("Error message: " + result.getThrowable().getMessage());
-	    
+	         Allure.step("Error message: " + result.getThrowable().getMessage());	    
 	    }
 
-	    @Override
-	    public void onTestStart(ITestResult result) {}
 
-	    @Override
-	    public void onTestSuccess(ITestResult result) {}
-
-	    @Override
-	    public void onTestSkipped(ITestResult result) {}
-
-	    @Override
-	    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {}
-
-	    @Override
-	    public void onStart(ITestContext context) {}
-
-	    @Override
-	    public void onFinish(ITestContext context) {}
 	}
 

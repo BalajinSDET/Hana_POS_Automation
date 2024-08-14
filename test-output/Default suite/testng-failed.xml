@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT">
+      <class name="com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT">
         <methods>
-          <include name="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test" invocation-numbers="0"/>
           <include name="loadConfig"/>
           <include name="tearDown"/>
           <include name="setup"/>
+          <include name="Validate_Hana_T51_Payments_Cash_Payment_Test" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

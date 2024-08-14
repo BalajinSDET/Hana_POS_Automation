@@ -12,7 +12,6 @@
 		<allure.version>2.24.0</allure.version>
 	</properties>
 
-
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -32,11 +31,9 @@
 					<version>3.1.2</version>
 					<configuration>
 						<testFailureIgnore>true</testFailureIgnore>
-						<!--<argLine>
-							-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-						</argLine>-->
+					
 						<suiteXmlFiles>
-							<suiteXmlFile>CashandCarry_MasterSuite.xml</suiteXmlFile>
+							<suiteXmlFile>${xmlFiles}</suiteXmlFile>
 						</suiteXmlFiles>
 					</configuration>
 
@@ -194,6 +191,14 @@
 			<artifactId>java-client</artifactId>
 			<version>8.1.1</version>
 		</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.32</version>
+    <scope>provided</scope>
+</dependency>
 
 
 	</dependencies>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" thread-count="5" verbose="1" parallel="classes">
+<suite name="Suite" thread-count="5" verbose="2" parallel="classes">
 
 	<listeners>
 		<listener class-name="com.hanapos.utilities.ExtentReportManager" />
-	<!--	<listener class-name="com.hanapos.utilities.AllureListener" />-->
+		<listener class-name="com.hanapos.utilities.AllureListener" />
 	</listeners>
 
 	<test name="ChromeBrowserTest">
@@ -13,7 +13,7 @@
 		<groups>
 			<run>
 				<include name="Smoke" />
-				<!--<include name="Regression" />	-->			
+						
 			</run>
 		</groups>
 
@@ -21,7 +21,7 @@
 			<!--<class name="com.hanapos.cashandcarrytest.Hana_T01_UI_Elements_Test"/>-->	
 			<class
 				name="com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT" />
-			<class
+			<!--<class
 				name="com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT" />
 			<class
 				name="com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT" />
@@ -29,7 +29,7 @@
 				name="com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT" />
 			<class
 				name="com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT" />
-					
+					-->
 		</classes>
 	</test>
 </suite> 

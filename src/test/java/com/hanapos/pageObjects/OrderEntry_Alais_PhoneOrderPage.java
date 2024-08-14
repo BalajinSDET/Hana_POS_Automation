@@ -2,6 +2,8 @@ package com.hanapos.pageObjects;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
@@ -17,11 +19,14 @@ import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.hanapos.seleniumProjectBase.TestBaseClass;
@@ -81,6 +86,12 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(xpath = "//select[@id='orderOccasion']")
 	private WebElement occasionOnphoneorderpage;
 
+	@FindBy(xpath="//input[@id='orderPrintSuperTicketChkBox']")
+	private WebElement printTicketCheckBox_OrderDetailsSection;
+	
+	@FindBy(xpath="//input[@id='orderreminderChkBox']")
+	private WebElement sendRemainderCheckbox_OrderDetailsSection;
+
 	@FindBy(xpath = "(//input[@id='orderItem1'])[1]")
 	private WebElement itemcodeOnphoneorderpage;
 
@@ -104,16 +115,88 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath = "(//select[@id='productTaxType'])[1]")
 	private WebElement taxtype_OnPhoneOrderPage;
+	
+	//======================Product Section===============================//
+	@FindBy(xpath="(//legend[@class='scheduler-border'])[5]")
+	private WebElement productsectionOnPhoneOrderPage;
+	
+	
 
 	// -------------------------Recipient Section --------------------------------//
+	@FindBy(xpath="//fieldset[@class='col-md-7 col-sm-7 scheduler-border borderLeft recepientinfo']")
+	private WebElement recipientsectionOnPhoneOrderPage;
+
+	@FindBy(xpath="//legend[@class='scheduler-border']//span[@style='color:red']")
+	private WebElement recipientKMS;
+
 	@FindBy(xpath = "(//input[@id='reciFirstName'])[1]")
 	private WebElement recipientfirstnameOnPhoneOrderPage;
+
+	@FindBy(xpath="//ul[@id='ui-id-22']//li")
+	private List<WebElement> ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@class='toast-title']")
+	private WebElement addressverifiedmsg;
 
 	@FindBy(xpath = "(//input[@id='reciLastName'])[1]")
 	private WebElement recipientlastnameOnPhoneOrderPage;
 
+	@FindBy(xpath="//span[@id='viewMap']")
+	private WebElement googleIcon_ReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="//h4[contains(text(),'Map Directions')]")
+	private WebElement mapdirectionsPopup_ReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="//table[@class='adp-directions']//tr[1]")
+	private WebElement directionsRow1_ReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="//iframe[@id='mapPreview']")
+	private WebElement mapiframe_ReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="//div[@class='gm-style-iw gm-style-iw-c']//div[2]//div")
+	private WebElement tooltiptext_MapDirectionPopup_ReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="//div[@class='gm-style-iw gm-style-iw-c']//div[1]//button")
+	private WebElement TooltipCloseIcon_MapDirectionPopup_ReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="(//table[@id='control']//tbody//tr[2]//td[@valign='top'][2]//div//div[@class='gm-style-mtc']//button)[2]")
+	private WebElement SateliteTab_MapDirectionPopupReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="(//ul[@role='menu']//li//label)[2]")
+	private WebElement satelliteTabLabel_MapDirectionPopupReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="(//table[@id='control']//tbody//tr[2]//td[@valign='top'][2]//div//div[@class='gm-style-mtc']//button)[1]")
+	private WebElement MapTab_MapDirectionPopupReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="(//button[@class='gm-control-active'])[3]")
+	private WebElement plusIcon_MapDirectionPopupReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="(//button[@class='gm-control-active'])[4]")
+	private WebElement minusIcon_MapDirectionPopupReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="(//div[@class='gm-style']//div//div//div//div//div)[1]")
+	private WebElement VerifyZoomIn_MapDirectionPopupReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="//button[@class='gm-svpc']")
+	private WebElement DragPegman_MapDirectionPopupReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="(//button[@class='gm-control-active gm-fullscreen-control'])[1]")
+	private WebElement FullScreen_MapDirectionPopupReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="(//div[@class='modal-content']//a//i)[3]")
+	private WebElement CloseIcon_MapDirectionPopupReciAddress1_OnPhoneOrderPage;
+
+	@FindBy(xpath="(//ul[@role='menu']//li//label)[1]")
+	private WebElement satelliteTabTerrain_MapDirectionPopupReciAddress1_OnPhoneOrderPage;
+
 	@FindBy(xpath = "(//input[@id='reciAddress1'])")
 	private WebElement recipientaddress1OnPhoneOrderPage;
+
+	@FindBy(xpath="//div[@class='pac-container pac-logo hdpi']//div")
+	private List<WebElement> ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage;
+
+	@FindBy(xpath="//div[@class='pac-container pac-logo hdpi']//div//span[3]")
+	private List<WebElement> ListOfReciAddress1_CityStateCountry_Autosuggestions_OnPhoneOrderPage;
 
 	@FindBy(xpath = "(//input[@id='reciAddress2'])")
 	private WebElement recipientaddress2OnPhoneOrderPage;
@@ -130,6 +213,12 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(xpath = "(//input[@id='reciPhone1'])[1]")
 	private WebElement recipientphoneOnPhoneOrderPage;
 
+	@FindBy(xpath = "(//input[@id='reciPhone2'])[1]")
+	private WebElement recipientphone2OnPhoneOrderPage;
+
+	@FindBy(xpath="//input[@id='reciAttention']")
+	private WebElement recipientattentionOnPhoneOrderPage;
+
 	@FindBy(xpath = "(//select[@id='reciLocationType'])[1]")
 	private WebElement recipientlocationOnPhoneOrderPage;
 
@@ -138,6 +227,42 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath = "//input[@id='reciTime']")
 	private WebElement recipientDeliverytimeOnPhoneOrderPage;
+
+	@FindBy(xpath="//select[@id='reciTimeType']")
+	private WebElement selectDeliverytimeonDropdown_RecipientSectionOnPhoneOrderPage;
+
+	@FindBy(xpath="//div[@class='col-md-3 col-sm-3 col-xs-12 text-right no-padding']//a//span")
+	private WebElement ClearTimeButton_recipientSectionOnPhoneOrderPage;
+
+	@FindBy(xpath="//input[@id='reciState']")
+	private WebElement recipientstateOnPhoneOrderPage;
+
+	@FindBy(xpath="//button[@class='multiselect dropdown-toggle btn btn-default']")
+	private WebElement recipientSelectOptionsBtnOnPhoneOrderPage;
+	
+	@FindBy(xpath="(//ul[@class='multiselect-container dropdown-menu']//li//a//label)[1]")
+	private WebElement selectallOption_RecipientSelectOptionsDropDown;
+	
+	@FindBy(xpath="(//ul[@class='multiselect-container dropdown-menu']//li//a//label)[2]")
+	private WebElement confidentialOption_RecipientSelectOptionsDropDown;
+	
+	@FindBy(xpath="(//ul[@class='multiselect-container dropdown-menu']//li//a//label)[3]")
+	private WebElement FrequentAddrOption_RecipientSelectOptionsDropDown;
+
+	@FindBy(xpath="(//ul[@class='multiselect-container dropdown-menu']//li//a//label)[4]")
+	private WebElement saveFuneralOption_RecipientSelectOptionsDropDown;
+	
+	@FindBy(xpath="//ul[@class='multiselect-container dropdown-menu']//li//a//label")
+	private List<WebElement> recipientSelectOptionsListOnPhoneOrderPage;
+	
+	@FindBy(xpath="//span[@Class='multiselect-selected-text']")
+	private WebElement selectedRecipientOptionsOnPhoneOrderPage;
+	
+	@FindBy(xpath="//select[@id='reciLocationType']")
+	private WebElement recipientLocation;
+	
+	@FindBy(xpath="//select[@id='reciZone']")
+	private WebElement recipientzone;
 
 	// ================== Wire In section =====================================
 	@FindBy(xpath = "//li[@data-ordermode='wirein']")
@@ -159,7 +284,66 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath = "(//select[@id='paymentOptions'])[1]")
 	private WebElement paymentTypeDropdownOnPhoneOrderPage;
+	
+	
+	//==================== Wire In deliveryType Section ================
+	@FindBy(xpath="//li[@data-ordermode='wirein']//a")
+	private WebElement wirein_deliverytype_OnPhoneOrderPage;
+	
+	@FindBy(id="wireinFirstName")
+	private WebElement wireinFirstName_OnPhoneOrderPage;
+	
+	@FindBy(id="wireinLastName")
+	private WebElement wireinLastName_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//input[@id='wireinShopCode']")
+	private WebElement wireinShopCode_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//input[@id='wireinShopName']")
+	private WebElement wireinShopName_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//select[@id='wireinMethods']")
+	private WebElement wireinMethods_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//input[@id='wireinOrderNum']")
+	private WebElement wireinOrderNum_OnPhoneOrderPage;
+	
+	@FindBy(xpath="(//input[@id='wireinEmail'])[1]")
+	private WebElement wireinEmail_OnPhoneOrderPage;
+	
+	@FindBy(xpath="(//input[@id='wireinPhone'])[1]")
+	private WebElement wireinPhone_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//textarea[@id='wireinShopAddress']")
+	private WebElement wireinShopAddress_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//textarea[@id='wireinComments']")
+	private WebElement wireinComments_OnPhoneOrderPage;
+	
 
+	//============================== Wire Out deliveryType Section ================
+	@FindBy(xpath="//li[@data-ordermode='wireout']//a")
+	private WebElement wireout_deliverytype_OnPhoneOrderPage;
+	
+	@FindBy(id="wireoutMethods")
+	private WebElement wireoutMethods_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//input[@id='wireoutFlorist']")
+	private WebElement wireoutFlorist_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@class='col-lg-6 col-sm-12 wireoutAmt']")
+	private WebElement wireoutAmt_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//input[@id='wireoutAmount']")
+	private WebElement wireoutAmount_OnPhoneOrderPage;
+	
+	
+	
+	
+	
+	
+	
+	
 	// ================= Pickup section ============================
 	@FindBy(id = "drpShopUser")
 	private WebElement salesPersonDDOnPhoneOrderPage;
@@ -263,24 +447,24 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath = "(//h4[@id='Title'])[1]")
 	private WebElement custSectionCustomerDetailsPopup;
-	
+
 	@FindBy(xpath="//div[@class='col-lg-3 col-md-4 col-sm-3 custActions ']//a[1] //span")
 	private WebElement custHistoryIcon_OnCustDetailsSection;
-	
+
 	@FindBy(xpath="//h4[contains(text(),'Previous Orders History')]")
 	private WebElement previousOrdersHistoryHeaderPopup_OnCustDetailsSection;
-	
+
 	@FindBy(xpath="//table[@id='tblCustomerOrderHistory']//tbody//tr//td[1]")
 	private List<WebElement> ListOfPreviousOrdersInvoices_InOrderHistoryTable_CustHistoryPopup;
-	
+
 	@FindBy(xpath="//label[@class='ChkBoxLbl PromotionsLbl']")
 	private WebElement TextMepromotionsCheckBox_OnCustDetailsPopup;
-	
+
 	@FindBy(xpath="(//span[@class='switchery switchery-default'])[5]")
 	private WebElement smstooglebutton_OnCustDetailsPopup;
-	
-	
-	
+
+
+
 
 	// ============= Credit Card tab on Customer Details
 	// ===========================
@@ -458,6 +642,36 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(id = "productGrid")
 	private WebElement productDetailGrid;
+	
+	@FindBy(xpath="//a[@id='orderItemRemoveIcon1']")
+	private WebElement removeIconProdDetails1;
+	
+	@FindBy(xpath="//textarea[@id='orderItemDesc2']")
+	private WebElement prod_details_ItemDescription2OnPhoneOrderPage;
+	
+	@FindBy(xpath="//ul[@id='ui-id-19']//li//div")
+	private List<WebElement> listOfRow2_ItemDescription_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//a[@id='orderItemAddIcon3']")
+	private WebElement addIconProdDetails3_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//input[@id='orderItem4']")
+	private WebElement prod_details_Itemcode4_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//table[@class='table productGrid']//tbody//tr")
+	private List<WebElement> listOfRow_ProductDetails_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//input[@id='orderItem2']")
+	private WebElement prod_details_Itemcode2_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//textarea[@id='orderItemDesc2']")
+	private WebElement prod_details_ItemDescription2_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//input[@id='orderItemQty2']")
+	private WebElement prod_details_ItemQty2_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//input[@id='orderItemPrice2']")
+	private WebElement prod_details_ItemPrice2_OnPhoneOrderPage;
 
 	// ===================== Payment type ==============================
 	@FindBy(xpath = "//input[@id='paymentPayableBal']")
@@ -466,7 +680,23 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(xpath = "//input[@id='paymentGrandTotalTxt']")
 	private WebElement grandTotalOnPhoneOrderPage;
 
-	// cash type
+	@FindBy(id="paymentDelFeeTxt")
+	private WebElement deliveryFee_PhoneOrder_PaymentSection;
+	
+	// ===================Payment Type as Gift Card =============================
+	@FindBy(id="paymentGiftCardNumber")
+	private WebElement giftCardNumber_PhoneOrder_PaymentSection;
+	
+	@FindBy(id="paymentGiftCustName")
+	private WebElement giftCardCustName_PhoneOrder_PaymentSection;
+	
+	@FindBy(id="paymentGiftAmt")
+	private WebElement giftCardAmount_PhoneOrder_PaymentSection;
+	
+	@FindBy(id="paymentGiftCardCurrentBalance")
+	private WebElement giftCardCurrentBalance_PhoneOrder_PaymentSection;
+	
+	//====================== cash type ========================================
 	@FindBy(xpath = "//input[@id='paymentPaidAmt']")
 	private WebElement paidAmountOnPhoneOrderPage;
 
@@ -493,6 +723,24 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	// ============== Instruction textbox =================
 	@FindBy(xpath = "//textarea[@id='productSpInstructions']")
 	private WebElement Splinstruction_Textbox_OnPhoneOrderPage;
+	
+	@FindBy(xpath = "//textarea[@id='productDriverInstruct']")
+	private WebElement Driverinstruction_Textbox_OnPhoneOrderPage;
+	
+	@FindBy(xpath="(//textarea[@id='txtCustomerNotes'])[1]")
+	private WebElement customerPrivateNotes_Textbox_OnPhoneOrderPage;
+	
+	@FindBy(id="productTaxType")
+	private WebElement producttaxType_OnPhoneOrderPage;
+	
+	@FindBy(id="productTaxId")
+	private WebElement producttaxId_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//select[@id='productReferral']")
+	private WebElement productSourceCode_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//select[@id='customerType']")
+	private WebElement productcustomerType_OnPhoneOrderPage;
 
 	@FindBy(xpath = "(//input[@id='txtPONumber'])[1]")
 	private WebElement ponumber_preference_OnCustDetailsPopup;
@@ -512,7 +760,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath="//span[@class='k-icon k-i-file-excel']")
 	private WebElement exportToExcel_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage;
-	
+
 	@FindBy(xpath = "(//div[@class='k-pager-wrap k-grid-pager k-widget k-floatwrap'])[1]")
 	private WebElement pagination_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage;
 
@@ -623,7 +871,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath = "(//input[@class='k-textbox k-FullWidth'])[2]")
 	private WebElement PaidAmtSearchTextbox_InvoiceTable_UnpaidTab_OnPhoneOrderPage;
-	
+
 	@FindBy(xpath="//tbody[@role='rowgroup']//tr//td[3]")
 	private List<WebElement> listOfPaidAmt__InvoiceTable_UnpaidTab_OnPhoneOrderPage;
 
@@ -754,224 +1002,287 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	private List<WebElement> ListOfDeliveryDate_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup;
 
 	//=============================Payment details======================
-	
+
 	@FindBy(xpath="(//a[normalize-space()='Payment Detail(s)'])[1]")
 	private WebElement PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//div[@id='gvCustomerPaymentDtls'])[1]")
 	private WebElement PaymentDetailsTabTable;
-	
+
 	@FindBy(xpath="(//div[@id='gvCustomerPaymentDtls']//div//a)[1]")
 	private WebElement exportExcel_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//table[@role='grid'])[3]//tbody//tr[1]//td[1]")
 	private WebElement tablerow1cell1_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//input)[1]")
 	private WebElement InvoiceSearchTextBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//table[@role='grid'])[3]//tbody//tr//td[1]")
 	private List <WebElement> ListOfInvoice_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="//div[contains(text(),'No Customer Payments Found.')]")
 	private WebElement NoCustomerFound_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//button)[1]")
 	private WebElement clearbutton_InvoiceSearchTextBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//input)[2]")
 	private WebElement payAmountSearchBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//table[@role='grid'])//tbody[@role='rowgroup']//tr//td[2]")
 	private List<WebElement> ListOfPayAmount_PaymentDetailsTab; 
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//button)[2]")
 	private WebElement clearbutton_PayAmountSearchBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//input)[3]")
 	private WebElement payDateSearchBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//table[@role='grid'])//tbody[@role='rowgroup']//tr//td[3]")
 	private List<WebElement> ListOfPayDate_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//button)[3]")
 	private WebElement clearbutton_PayDateSearchBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//span[2])")
 	private WebElement filterIconOnPayDate_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//div[@class='k-animation-container']//ul[@class='k-list k-reset']//li)")
 	private List<WebElement> ListOfFilterOptionsOnPayDate_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//span[@role='button'])[1]")
 	private WebElement calendarIconOnPayDate_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="//a[@class='k-link k-nav-fast']")
 	private WebElement calendar_MonthYear_PayDate_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="//table[@class='k-content k-month']//tbody//tr//td")
 	private List<WebElement> ListOfdates_PayDate_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//input)[5]")
 	private WebElement MOPSearchBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//button)[4]")
 	private WebElement clearbutton_MOPSearchBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//table[@role='grid'])//tbody[@role='rowgroup']//tr//td[4]")
 	private List<WebElement> ListOfMOP_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//input)[6]")
 	private WebElement ChecknoSearchBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//table[@role='grid'])//tbody[@role='rowgroup']//tr//td[5]")
 	private List<WebElement> ListOfCheckno_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//button)[5]")
 	private WebElement clearbutton_ChecknoSearchBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//input)[7]")
 	private WebElement CCNumberSearchBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//table[@role='grid'])//tbody[@role='rowgroup']//tr//td[6]")
 	private List<WebElement> ListOfCCNumber_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr[2]//th//span//button)[6]")
 	private WebElement clearbutton_CCNumberSearchBox_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="//div[@class='k-pager-wrap k-grid-pager k-widget k-floatwrap']")
 	private WebElement paginationSection_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//ul[@class='k-pager-numbers k-reset'])")
 	private WebElement pagelistnumber_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="//span[@class='k-pager-info k-label']")
 	private WebElement paginationInfo_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//a[@class='k-link'])[16]")
 	private WebElement threedotsOnPagination_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//ul[@class='k-pager-numbers k-reset']//li/a)[2]")
 	private WebElement page2_PaymentDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr//th//a)[1]")
 	private WebElement invoicelabel_paymentdetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr//th//a)[2]")
 	private WebElement payamountlabel_paymentdetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr//th//a)[3]")
 	private WebElement payDatelabel_paymentdetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr//th//a)[4]")
 	private WebElement moplabel_paymentdetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr//th//a)[5]")
 	private WebElement checknolabel_paymentdetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@class='k-grid-header']//tr//th//a)[6]")
 	private WebElement ccnumberlabel_paymentdetailsTab;
-	
+
 	//=============================Order Details Tab=======================================
+	@FindBy(xpath="//legend[text()='Order Details']")
+	private WebElement OrderDetailsSection;
+	
+	@FindBy(xpath="//label[@class='ChkBoxLbl reminderLbl']")
+	private WebElement sendreminderlabel_OrderDetailsTab;
+	
+	@FindBy(xpath="//a[text()='View ShortCodes']")
+	private WebElement ViewShortCodesLink_OrderDetailsSection;
+	
+	@FindBy(xpath="//div[@class='shortCodeListDiv']//table//tbody//tr//td[1]")
+	private List<WebElement> ListOfShortCodes_OrderDetailsSection;
+	
+	@FindBy(xpath="//div[@class='shortCodeListDiv']//table//tbody//tr[last()]//td[1]")
+	private WebElement LastShortCode_OrderDetailsSection;
+	
+	@FindBy(xpath="//div[@class='shortCodeListDiv']//table//tbody//tr//td[2]")
+	private List<WebElement> ListOfValues_OrderDetailsSection;
+	
+	@FindBy(xpath="//div[@class='shortCodeListDiv']//table//tbody//tr[last()]//td[2]")
+	private WebElement LastValues_OrderDetailsSection;
+	
+	@FindBy(xpath="//div[@class='shortCodeListDiv']//table//tbody//tr//td[3]")
+	private List<WebElement> ListOfdeleteIcon_OrderDetailsSection;
+	
+	@FindBy(xpath="//div[@class='shortCodeListDiv']//table//tbody//tr[last()]//td[3]//a")
+	private WebElement LastdeleteIcon_OrderDetailsSection;
+	
+	@FindBy(xpath="//div[@class='sweet-alert showSweetAlert visible']")
+	private WebElement ConfirmationPopup;
+	
+	@FindBy(xpath="//h2[text()='Confirmation']")
+	private WebElement ConfirmationAlert_ShortCodesPopup_OrderDetailsSection;
+	
+	@FindBy(xpath="//div[@class='sa-icon sa-info']")
+	private WebElement ConfirmationAlertIcon_ShortCodesPopup_OrderDetailsSection;
+	
+	@FindBy(xpath="//button[@class='cancel']")
+	private WebElement ConfirmationAlertCancelButton_ShortCodesPopup_OrderDetailsSection;
+	
+	@FindBy(xpath="//p[text()='Are you sure you want to delete this code?']")
+	private WebElement ConfirmationAlertMessage_ShortCodesPopup_OrderDetailsSection;
+	
+	@FindBy(xpath="//button[@class='confirm']")
+	private WebElement YesButtonDeleteConfirmation_ShortCodesPopup_OrderDetailsSection;
+	
+	@FindBy(xpath="//button[@class='cancel']")
+	private WebElement NoButtonDeleteConfirmation_ShortCodesPopup_OrderDetailsSection;
+	
+	@FindBy(xpath="(//div[@class='modal-content']//i)[1]")
+	private WebElement closeIcon_ShortCodesPopup_OrderDetailsSection;
+	
+	@FindBy(xpath="//h4[text()='Short Codes']")
+	private WebElement ShortCodes_Popup_OrderDetailsSection;
+	
+	@FindBy(xpath="//input[@id='txtNewShortCode']")
+	private WebElement codeTextBox_ShortCodesPopup_OrderDetailsSection;
+	
+	@FindBy(xpath="//input[@id='txtNewShortDesc']")
+	private WebElement valueTextBox_ShortCodesPopup_OrderDetailsSection;
+	
+	@FindBy(xpath="//input[@id='btnAddNewShortCode']")
+	private WebElement addButton_ShortCodesPopup_OrderDetailsSection;
+	
 	@FindBy(xpath="(//a[normalize-space()='Order Detail(s)'])[1]")
 	private WebElement OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//div[@id='gvCustomerOrderDtls']//div//a)[1]")
 	private WebElement exporttoexcelbutton_orderdetailsTab;
-	
+
 	@FindBy(xpath="(//div[@id='gvCustomerOrderDtls'])[1]")
 	private WebElement OrderDetailsTable;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//input)[1]") //(//thead[@role='rowgroup']//tr[2]//th//span//input)[18]
 	private WebElement InvoiceNoSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="//table[@role='grid']//tbody//tr//td[contains(@class,' gvCustomerOrderDtls')]")
 	private List<WebElement> ListOfInvoiceNo_OrderDetailsTab;
-	
+
 	@FindBy(xpath="//table[@role='grid']//tbody//tr//td[1]")
 	private WebElement FirstInvoiceNo_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//button)[1]")
 	private WebElement clearbutton_InvoiceNoSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="//div[contains(text(),'No Customer Orders Found.')]")
 	private WebElement NoCustomerOrderFoundMessage_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//input)[5]")
 	private WebElement TotalAmountSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="//table[@role='grid']//tbody//tr//td[5]")
 	private List<WebElement> TotalAmountList_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//button)[5]")
 	private WebElement clearbutton_TotalAmountSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//input)[2]")
 	private WebElement StatusSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="//table[@role='grid']//tbody//tr//td[2]")
 	private List<WebElement> ListOfStatus_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//button)[2]")
 	private WebElement clearbutton_StatusSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//input)[3]")
 	private WebElement NameSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="//table[@role='grid']//tbody//tr//td[3]")
 	private List<WebElement> ListOfName_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//button)[3]")
 	private WebElement clearbutton_NameSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//input)[4]")
 	private WebElement AddressSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="//table[@role='grid']//tbody//tr//td[4]")
 	private List<WebElement> ListOfAddress_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//button)[4]")
 	private WebElement clearbutton_AddressSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//input)[6]")
 	private WebElement OrderDateSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="//table[@role='grid']//tbody//tr//td[6]")
 	private List<WebElement> ListOfOrderDate_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//button)[6]")
 	private WebElement clearbutton_OrderDateSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//input)[7]")
 	private WebElement DescriptionSearchBox_OrderDetailsTab;
-	
+
 	@FindBy(xpath="//table[@role='grid']//tbody//tr//td[7]")
 	private List<WebElement> ListOfDescription_OrderDetailsTab;
-	
+
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//button)[7]")
 	private WebElement clearbutton_DescriptionSearchBox_OrderDetailsTab;
-	
+
 	//=========================Statements Tab ==========================
 	@FindBy(xpath="(//a[contains(text(),'Statement(s)')])[1]")
 	private WebElement StatementsTab;
-	
+
 	@FindBy(xpath="(//select[@id='ddlMonthYear'])[1]")
 	private WebElement monthdropdown_statementsTab;
-	
+
 	@FindBy(xpath="(//button[@id='btnDownloadStatement'])[1]")
 	private WebElement downloadstatementbutton_statementsTab;
-	
+
 	@FindBy(xpath="//div[@id='sizer']")
 	private WebElement iframereport_statementsTab;
-	
+
 	@FindBy(xpath="(//h2[@id='lblCustAccStmntMsg'])[1]")
 	private WebElement NoStatementsFoundMessage_statementsTab;
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	// ================================================================================//
 
 	public void ClickDefaultValuesIcon() {
@@ -1046,6 +1357,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public String getFirstnameOnPhoneOrderPage() {
 		HighlightElement(firstnameOnPhoneOrderPage);
+		System.out.println(firstnameOnPhoneOrderPage.getAttribute("value"));
 		return firstnameOnPhoneOrderPage.getAttribute("value");
 	}
 
@@ -1113,22 +1425,19 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public void EnterAddress1(String custaddress1) {
-		DoubleClickAndType(address1OnPhoneOrderPage, custaddress1);
+		address1OnPhoneOrderPage.clear();
+		delayWithGivenTime(500);
+		clickAndType(address1OnPhoneOrderPage, custaddress1);
 	}
 
 	public void SearchAndSelect_Address1_CustSection(String custaddress1, String fulladdress) {
-		address1OnPhoneOrderPage.clear();
-		delayWithGivenTime(500);
-		DoubleClickAndType(address1OnPhoneOrderPage, custaddress1);
-		delayWithGivenTime(3000);
-		RobotArrowDownAndEnter();
-		for (int i = 0; i < listOfAddress1SuggestionsOnCustSection.size(); i++) {
-			if (listOfAddress1SuggestionsOnCustSection.get(i).getText().contains(fulladdress)) {
-
-				break;
-			}
+		for (WebElement CustomerAddress1 : listOfAddress1SuggestionsOnCustSection) {
+			MouseHover(listOfAddress1SuggestionsOnCustSection.get(0));
+			click(listOfAddress1SuggestionsOnCustSection.get(0));
+			break;
 		}
 	}
+
 
 	public String getAddress2OnPhoneOrderPage() {
 		HighlightElement(address2OnPhoneOrderPage);
@@ -1147,8 +1456,8 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public void EnterZipCode(String custzipcode) {
 		zipcodeOnPhoneOrderPage.clear();
-		delayWithGivenTime(500);
-		DoubleClickAndType(zipcodeOnPhoneOrderPage, custzipcode);
+		delayWithGivenTime(1000);
+		jsClearAndType(zipcodeOnPhoneOrderPage, custzipcode);
 	}
 
 	public boolean VerifyZipcodeField_On_CustSection_IsDisabled() {
@@ -1205,7 +1514,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		HighlightElement(AltphoneNumOnPhoneOrderPage);
 		return AltphoneNumOnPhoneOrderPage.isEnabled();
 	}
-
+	
 	public void SearchandSelectItemcodeOnPhoneOrderPage(String proditemcode) {
 		DoubleClickAndType(prod_details_Itemcode1, proditemcode);
 		delayWithGivenTime(3000);
@@ -1305,6 +1614,17 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return recipientphoneOnPhoneOrderPage.getAttribute("value");
 	}
 
+	public void EnterRecipientPhone2OnPhoneOrderPage(String reciphone2) {
+		clickAndType(recipientphone2OnPhoneOrderPage,reciphone2);
+	}
+	
+	public String getRecipientPhone2OnPhoneOrderPage() {
+		HighlightElement(recipientphone2OnPhoneOrderPage);
+		return recipientphone2OnPhoneOrderPage.getAttribute("value");
+
+	}
+
+
 	public String getRecipientZipcodeOnPhoneOrderPage() {
 		HighlightElement(recipientzipcodeOnPhoneOrderPage);
 		return recipientzipcodeOnPhoneOrderPage.getAttribute("value");
@@ -1335,6 +1655,16 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		jsClick(deliverytypeOnPhoneOrderPage);
 	}
 
+	public void Click_WireIn_DeliveryType_OnPhoneOrderPage() {
+		jsClick(wirein_deliverytype_OnPhoneOrderPage);
+	}
+	
+	public void Click_WireOut_DeliveryType_OnPhoneOrderPage() {
+		jsClick(wireout_deliverytype_OnPhoneOrderPage);
+	}
+	
+	
+	
 	public String getDisplayedPaymentTypeSelectedOption() {
 		HighlightElement(paymentTypeDropdownOnPhoneOrderPage);
 		s = new Select(paymentTypeDropdownOnPhoneOrderPage);
@@ -1342,9 +1672,12 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public void SelectPaymentTypeOnPhoneOrderPage_PaymentSection(String paymentType) {
-		 dropDown(paymentTypeDropdownOnPhoneOrderPage, paymentType, "VisibleText");
-		//click(paymentTypeDropdownOnPhoneOrderPage);
-		//SelectDropDownVisibleText(paymentTypeDropdownOnPhoneOrderPage, paymentType);
+		dropDown(paymentTypeDropdownOnPhoneOrderPage, paymentType, "VisibleText");
+	}
+	
+	public String get_SelectedPaymentType_OnPhoneOrderPage() {
+		s=new Select(paymentTypeDropdownOnPhoneOrderPage);
+		return s.getFirstSelectedOption().getText();
 	}
 
 	public void ClickPickupTypeOnPhoneOrderPage() {
@@ -1353,6 +1686,16 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public String getHighlightedColorOnPickupTypeOnPhoneOrderPage() {
 		String color = pickupTypeOnPhoneOrderPage.getCssValue("color");
+		String hexColor = rgbaToHex(color);
+		return hexColor;
+	}
+	
+	public void ClickDeliveryTypeOnPhoneOrderPage() {
+		jsClick(deliverytypeOnPhoneOrderPage);
+	}
+
+	public String getHighlightedColorOnDeliveryTypeOnPhoneOrderPage() {
+		String color = deliverytypeOnPhoneOrderPage.getCssValue("color");
 		String hexColor = rgbaToHex(color);
 		return hexColor;
 	}
@@ -1449,7 +1792,12 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		}
 	}
 
+	public void ClickReciNameOnPhoneOrderPage() {
+		recipientfirstnameOnPhoneOrderPage.click();
+	}
+
 	public void EnterReciFirstName(String recifname) {
+		recipientfirstnameOnPhoneOrderPage.clear();
 		DoubleClickAndType(recipientfirstnameOnPhoneOrderPage, recifname);
 	}
 
@@ -1458,10 +1806,12 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public void EnterReciLastName(String recilname) {
+		recipientlastnameOnPhoneOrderPage.clear();
 		DoubleClickAndType(recipientlastnameOnPhoneOrderPage, recilname);
 	}
 
 	public String getReciLastName() {
+		System.out.println("LastName of Recipient" +recipientlastnameOnPhoneOrderPage.getAttribute("value"));
 		return recipientlastnameOnPhoneOrderPage.getAttribute("value");
 	}
 
@@ -1471,7 +1821,37 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		DoubleClickAndType(recipientaddress1OnPhoneOrderPage, reciaddress1);
 	}
 
+	public boolean Verify_Autosuggestion_Displayed_OnReciAddress1() {
+		recipientaddress1OnPhoneOrderPage.clear();
+		delayWithGivenTime(1000);
+		for(int i=0;i<ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage.size();i++) {
+			int ReciAddress1_size=	ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage.size();
+			if(ReciAddress1_size>0) {
+				return true;
+			}
+		}return false;
+
+	}
+
+	public void SearchAndSelectReciAddress1(String reciaddress1) {	
+		recipientaddress1OnPhoneOrderPage.clear();
+		delayWithGivenTime(1000);
+		recipientaddress1OnPhoneOrderPage.sendKeys(reciaddress1);
+		delayWithGivenTime(2000);
+		for (WebElement customerElement : ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage) {
+			MouseHover(ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage.get(0));
+			click(ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage.get(0));		
+			break;
+		}   	    
+	}	
+
+	public void Click_ReciAddress1() {
+		click(recipientaddress1OnPhoneOrderPage);
+		recipientaddress1OnPhoneOrderPage.sendKeys(Keys.TAB);
+	}
+
 	public String getReciAddress1() {
+		HighlightElement(recipientaddress1OnPhoneOrderPage);
 		return recipientaddress1OnPhoneOrderPage.getAttribute("value");
 	}
 
@@ -1481,6 +1861,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public String getReciAddress2() {
+		HighlightElement(recipientaddress2OnPhoneOrderPage);
 		return recipientaddress2OnPhoneOrderPage.getAttribute("value");
 	}
 
@@ -1489,16 +1870,19 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public String getReciZipcode() {
+		HighlightElement(recipientzipcodeOnPhoneOrderPage);
 		return recipientzipcodeOnPhoneOrderPage.getAttribute("value");
 	}
 
 	public void EnterReciCity(String recicity) {
 		recipientcityOnPhoneOrderPage.clear();
 		delayWithGivenTime(1000);
-		DoubleClickAndType(recipientcityOnPhoneOrderPage, recicity);
+		recipientcityOnPhoneOrderPage.clear();
+		clickAndType(recipientcityOnPhoneOrderPage, recicity);
 	}
 
 	public String getReciCity() {
+		HighlightElement(recipientcityOnPhoneOrderPage);
 		return recipientcityOnPhoneOrderPage.getAttribute("value");
 	}
 
@@ -1516,15 +1900,16 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public String getReciPhone() {
+		HighlightElement(recipientphoneOnPhoneOrderPage);
 		return recipientphoneOnPhoneOrderPage.getAttribute("value");
 	}
 
 	public void SelectReciLocation(String recilocation) {
-	//	HighlightElement(recipientlocationOnPhoneOrderPage);
-	//	recipientlocationOnPhoneOrderPage.click();
-	//	delayWithGivenTime(1000);
-	//	Select select = new Select(recipientlocationOnPhoneOrderPage);
-	//	select.selectByVisibleText(recilocation);
+		//	HighlightElement(recipientlocationOnPhoneOrderPage);
+		//	recipientlocationOnPhoneOrderPage.click();
+		//	delayWithGivenTime(1000);
+		//	Select select = new Select(recipientlocationOnPhoneOrderPage);
+		//	select.selectByVisibleText(recilocation);
 		dropDown(recipientlocationOnPhoneOrderPage, recilocation, "VisibleText");
 	}
 
@@ -1569,6 +1954,21 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		}
 	}
 
+	public void EnterViewShortCode(String shortcode, String value) {
+		viewShortcodeTextboxOnPhoneOrderPage.clear();
+		delayWithGivenTime(1000);
+		viewShortcodeTextboxOnPhoneOrderPage.sendKeys("@");
+		delayWithGivenTime(1000);
+		viewShortcodeTextboxOnPhoneOrderPage.sendKeys(shortcode);
+		delayWithGivenTime(1000);
+		for (WebElement viewShortCodeElement : listOfShortcodesOnPhoneOrderPage) {
+			if (viewShortCodeElement.getText().contains(value)) {
+				viewShortCodeElement.click();
+				break;
+			}
+		}
+	}
+	
 	public String getEnteredViewShortCode() {
 		HighlightElement(viewShortcodeTextboxOnPhoneOrderPage);
 		return viewShortcodeTextboxOnPhoneOrderPage.getAttribute("value");
@@ -1625,9 +2025,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public void SelectCashRegistry_On_CashPaymentType(String cashregistry) {
-	//	click(cashRegisterDDOnPhoneOrderPage);
-	//	SelectDropDownVisibleText(cashRegisterDDOnPhoneOrderPage, cashregistry);
-	dropDown(cashRegisterDDOnPhoneOrderPage, cashregistry, "VisibleText");
+		//	click(cashRegisterDDOnPhoneOrderPage);
+		//	SelectDropDownVisibleText(cashRegisterDDOnPhoneOrderPage, cashregistry);
+		dropDown(cashRegisterDDOnPhoneOrderPage, cashregistry, "VisibleText");
 	}
 
 	public void ClickPlaceOrderButton() {
@@ -2783,17 +3183,17 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public void DragWithPixel() {
 		int offsetX = BalanceAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup.getSize().getWidth() - 1; // Get the width
-																										// of the header
-																										// and use a
-																										// slight offset
+		// of the header
+		// and use a
+		// slight offset
 
 		// Create an instance of Actions class
 		Actions actions = new Actions(getDriver());
 
 		// Perform the drag and drop action to resize the column header
 		actions.moveToElement(BalanceAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup, offsetX, 0).clickAndHold()
-				.moveByOffset(50, 0) // Change the offset values as needed
-				.release().perform();
+		.moveByOffset(50, 0) // Change the offset values as needed
+		.release().perform();
 	}
 
 	public boolean Verify_BalanceAmtHeader_DefaultOrder() {
@@ -2932,18 +3332,18 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public boolean Verify_DeliveryHeader_DefaultOrder() {
-	    List<String> actualOrder = new ArrayList<>();	    
-	    // Retrieve the text from each web element and store it in the actualOrder list
-	    for (WebElement productTotalElement : ListOfDelivery_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup) {
-	        actualOrder.add(productTotalElement.getText().trim());
-	    }
-	    List<String> expectedOrder = new ArrayList<>(actualOrder);
-	   
-	    return actualOrder.equals(expectedOrder);
+		List<String> actualOrder = new ArrayList<>();	    
+		// Retrieve the text from each web element and store it in the actualOrder list
+		for (WebElement productTotalElement : ListOfDelivery_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup) {
+			actualOrder.add(productTotalElement.getText().trim());
+		}
+		List<String> expectedOrder = new ArrayList<>(actualOrder);
+
+		return actualOrder.equals(expectedOrder);
 	}
 
-	
-	
+
+
 	public boolean Verify_Downarrow_Appears_OnDeliveryLabel_OnUnpaidInvoiceTab_OnCustomerDetailsPopup() {
 		HighlightElement(InvoiceLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup);
 		return Invoice_downarrow_UnpaidInvoiceTab_OnCustomerDetailsPopup.isDisplayed();
@@ -3132,7 +3532,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 		// Create a copy of the list and sort it
 		List<String> expectedTotalLabel = new ArrayList<>(originalTotalLabel);
-	
+
 
 		// Compare the original list with the sorted list
 		if (originalTotalLabel.containsAll(expectedTotalLabel)) {
@@ -3144,8 +3544,8 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 			return false;
 		}
 	}
-	
-	
+
+
 	public void Click_OrderDate_Label_OnUnpaidTab_OnCustomerDetailsPopup() {
 		click(OrderDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 	}
@@ -3334,7 +3734,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 		if (!allOptionsDisplayed) {
 			System.out.println("Missing pagination values in dropdown: " + expectedPaginationValues.stream()
-					.filter(value -> !actualPaginationValues.contains(value)).collect(Collectors.joining(", ")));
+			.filter(value -> !actualPaginationValues.contains(value)).collect(Collectors.joining(", ")));
 		}
 
 		return allOptionsDisplayed;
@@ -3357,65 +3757,70 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public String get_TotalPageNumber_Appears_OnUnpaidTab() {
 		HighlightElement(pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage);
-		
-		 String paginationText = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText();
 
-	        // Use regular expressions to extract the total number of items
-	        Pattern pattern = Pattern.compile("of\\s(\\d+)\\sitems");
-	        Matcher matcher = pattern.matcher(paginationText);
+		String paginationText = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText();
 
-	        if (matcher.find()) {
-	            String totalItems = matcher.group(1);
-	            System.out.println("Total number of items: " + totalItems);
-	        } else {
-	            System.out.println("Total number of items not found.");
-	        }
-			
+		// Use regular expressions to extract the total number of items
+		Pattern pattern = Pattern.compile("of\\s(\\d+)\\sitems");
+		Matcher matcher = pattern.matcher(paginationText);
+
+		if (matcher.find()) {
+			String totalItems = matcher.group(1);
+			System.out.println("Total number of items: " + totalItems);
+		} else {
+			System.out.println("Total number of items not found.");
+		}
+
 		return matcher.group(1);
 	}
 
 
 	public String get_FirstPageNumber_Appears_OnUnpaidTab() {
-	    HighlightElement(pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage);
-	    
-	    String paginationText = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText();
+		HighlightElement(pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage);
 
-	    // Use regular expressions to extract the first number of items
-	    Pattern pattern = Pattern.compile("(\\d+)");
-	    Matcher matcher = pattern.matcher(paginationText);
+		String paginationText = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText();
 
-	    if (matcher.find()) {
-	        String firstPageNumber = matcher.group(0);
-	        System.out.println("First page number: " + firstPageNumber);
-	        return firstPageNumber;
-	    } else {
-	        System.out.println("First page number not found.");
-	        return null;
-	    }
+		// Use regular expressions to extract the first number of items
+		Pattern pattern = Pattern.compile("(\\d+)");
+		Matcher matcher = pattern.matcher(paginationText);
+
+		if (matcher.find()) {
+			String firstPageNumber = matcher.group(0);
+			System.out.println("First page number: " + firstPageNumber);
+			return firstPageNumber;
+		} else {
+			System.out.println("First page number not found.");
+			return null;
+		}
 	}
 
-	
-	
+
+
 	public String get_TotalPagenumber_Appears_OnUnpaidTab_OnCustomerDetailsPopup() {
 		HighlightElement(pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage);
-		
-		 String paginationText = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText();
 
-		 Pattern pattern = Pattern.compile("(\\d+\\s-\\s\\d+)");
-	        Matcher matcher = pattern.matcher(paginationText);
+		String paginationText = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText();
 
-	        if (matcher.find()) {
-	            String itemRange = matcher.group(1);
-	            System.out.println("Item range: " + itemRange);
-	        } else {
-	            System.out.println("Item range not found.");
-	        }
-			
+		Pattern pattern = Pattern.compile("(\\d+\\s-\\s\\d+)");
+		Matcher matcher = pattern.matcher(paginationText);
+
+		if (matcher.find()) {
+			String itemRange = matcher.group(1);
+			System.out.println("Item range: " + itemRange);
+		} else {
+			System.out.println("Item range not found.");
+		}
+
 		return matcher.group(1);
 	}
 
 	public void Select_SalesPersonOn_PhoneOrderEntryPage(String salesperson) {
 		dropDown(salesPersonDDOnPhoneOrderPage, salesperson, "VisibleText");
+	}
+	
+	public String get_SelectedSalesPersonOn_PhoneOrderEntryPage() {
+		s=new Select(salesPersonDDOnPhoneOrderPage);
+		return s.getFirstSelectedOption().getText();
 	}
 
 	public void SelectNumberDropdown_inPaginationSection_OnUnpaidTab_OnCustomerDetailsPopup() {
@@ -3433,7 +3838,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		String itemsCountText = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText(); // e.g., "1																												// items"
 		int displayedItemsCount = Integer.parseInt(itemsCountText.split(" ")[4]);
 		System.out.println("Number of items displayed on Order details Tab: " + displayedItemsCount);
-		
+
 		List<WebElement> tableRows = getDriver().findElements(By.xpath("//tbody[@role='rowgroup']//tr"));
 		int actualRowsCount = tableRows.size();
 
@@ -3445,7 +3850,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 			return false;
 		}
 	}
-	
+
 	public String Validate_InvoiceHeader_ReorderFunctionality() {
 		dragAndDrop(InvoiceLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup,PaidAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup);
 		delayWithGivenTime(2000);
@@ -3456,115 +3861,115 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		dragAndDrop(PaidAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup,InvoiceLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup);
 		delayWithGivenTime(1000);
 	}
-	
+
 	public String Validate_PaidAmt_ReOrderFunctionality() {
 		dragAndDrop(PaidAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup,InvoiceLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup);
 		delayWithGivenTime(1000);
 		return PaidAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup.getText();
 	}
-	
+
 	public void Reorder_PaidAmtHeader() {
 		dragAndDrop(InvoiceLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup,PaidAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup);
 		delayWithGivenTime(1000);
 	}
-	
+
 	public String Validate_BalanceAmt_ReOrderFunctionality() {
 		dragAndDrop(BalanceAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup,ProductTotalLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup);
 		delayWithGivenTime(1000);
 		return ProductTotalLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup.getText();
 	}
-	
+
 	public void Reorder_BalanceAmtHeader() {
 		dragAndDrop(ProductTotalLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup,BalanceAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup);
 		delayWithGivenTime(1000);
 	}
-	
+
 	public String Validate_ProductTotal_ReOrderFunctionality() {
 		dragAndDrop(ProductTotalLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup,BalanceAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup);
 		delayWithGivenTime(1000);
 		return BalanceAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup.getText();
 	}
-	
+
 	public void Reorder_ProductTotalHeader() {
 		dragAndDrop(BalanceAmtLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup,ProductTotalLabel_UnpaidInvoiceTab_OnCustomerDetailsPopup);
 		delayWithGivenTime(1000);
 	}
-	
+
 	public String Validate_Delivery_ReOrderFunctionality() {
 		dragAndDrop(DeliveryLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,TaxLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 		return TaxLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup.getText();
 	}
-	
+
 	public void Reorder_DeliveryHeader() {
 		dragAndDrop(TaxLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,DeliveryLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 	}
-	
+
 	public String Validate_Tax_ReOrderFunctionality() {
 		dragAndDrop(TaxLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,DeliveryLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 		return DeliveryLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup.getText();
 	}
-	
+
 	public void Reorder_TaxHeader() {
 		dragAndDrop(DeliveryLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,TaxLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 	}
-	
+
 	public String Validate_Latefee_ReOrderFunctionality() {
 		dragAndDrop(LatefeeLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,TotalLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 		return TotalLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup.getText();
 	}
-	
+
 	public void Reorder_LatefeeHeader() {
 		dragAndDrop(TotalLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,LatefeeLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 	}
-	
+
 	public String Validate_Total_ReOrderFunctionality() {
 		dragAndDrop(TotalLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,LatefeeLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 		return LatefeeLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup.getText();
 	}
-	
+
 	public void Reorder_TotalHeader() {
 		dragAndDrop(LatefeeLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,TotalLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 	}
-	
+
 	public String Validate_OrderDate_ReOrderFunctionality() {
 		dragAndDrop(OrderDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,DeliveryDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 		return DeliveryDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup.getText();
 	}
-	
+
 	public void Reorder_OrderDateHeader() {
 		dragAndDrop(DeliveryDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,OrderDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 	}
-	
+
 	public String Validate_DeliveryDate_ReOrderFunctionality() {
 		dragAndDrop(DeliveryDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,OrderDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 		return OrderDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup.getText();
 	}
-	
+
 	public void Reorder_DeliveryDateHeader() {
 		dragAndDrop(OrderDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup,DeliveryDateLabelOn_UnpaidInvoiceTable_UnpaidTab_CustomerDetailsPopup);
 		delayWithGivenTime(1000);
 	}
-	
+
 	public boolean Verify_ExportToExcel_OnUnpaidInvoiceTab_CustomerDetailsPopup() {
 		HighlightElement(exportToExcel_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage);
 		return (exportToExcel_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.isDisplayed());
 	}
-	
+
 	public void Click_ExportToExcel_OnUnpaidInvoiceTab_CustomerDetailsPopup() {
 		jsClick(exportToExcel_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage);
 	}
-	
+
 	public boolean VerifyFileIsDownloaded(String pathfile, String filename) {
 		File filelocation = new File(pathfile);
 		File[] totalfiles = filelocation.listFiles();
@@ -3580,47 +3985,47 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	public void ClickOn_PaymentDetails_CustomerDetailsPopup() {
 		jsClick(PaymentDetailsTab);
 	}
-	
+
 	public boolean Verify_ExportToExcel_OnPaymentDetailsTab() {
 		HighlightElement(exportExcel_PaymentDetailsTab);
 		return exportExcel_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public void Click_ExportToExcel_OnPaymentDetailsTab() {
 		jsClick(exportExcel_PaymentDetailsTab);
 	}
-	
+
 	public String get_Lastrowcell1_Paymentdetailstab() {
 		fluentWait(tablerow1cell1_PaymentDetailsTab);
 		HighlightElement(tablerow1cell1_PaymentDetailsTab);
 		return tablerow1cell1_PaymentDetailsTab.getText();
 	}
-	
+
 	public void EnterInvoiceNo_Paymentdetailstab(String invoiceno) {
 		fluentWait(InvoiceSearchTextBox_PaymentDetailsTab);
 		delayWithGivenTime(500);
 		InvoiceSearchTextBox_PaymentDetailsTab.click();
 		delayWithGivenTime(500);
-		
+
 		(InvoiceSearchTextBox_PaymentDetailsTab).clear();
 		delayWithGivenTime(500);
-		
+
 		InvoiceSearchTextBox_PaymentDetailsTab.sendKeys(invoiceno);
 		//clickAndType(InvoiceSearchTextBox_PaymentDetailsTab, invoiceno);
-		
+
 	}
-	
+
 	public String get_InvoiceNo_Paymentdetailstab() {
 		HighlightElement(InvoiceSearchTextBox_PaymentDetailsTab);
 		return InvoiceSearchTextBox_PaymentDetailsTab.getAttribute("value");
 	}
-	
+
 	public boolean Verify_TableGridOnPaymentDetailsTab_IsAppear() {
 		fluentWait(PaymentDetailsTabTable);
 		HighlightElement(PaymentDetailsTabTable);
 		return PaymentDetailsTabTable.isDisplayed();
 	}
-	
+
 	public boolean Verify_InvoiceNo_Paymentdetailstab(String threedigitinvoicenumber) {				
 		//int totalinvoicecount = ListOfInvoice_PaymentDetailsTab.size();
 		boolean isValid = false;
@@ -3634,62 +4039,62 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		}
 		return isValid;
 	}
-	
+
 	public boolean Verify_NoCustomerPaymentsFound_PaymentDetailsTab() {
 		HighlightElement(NoCustomerFound_PaymentDetailsTab);
 		return 	NoCustomerFound_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public boolean Verify_InvoiceSearchBox_ClearButton_Appears() {
 		HighlightElement(clearbutton_InvoiceSearchTextBox_PaymentDetailsTab);
 		return	clearbutton_InvoiceSearchTextBox_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public void Click_InvoiceSearchBox_ClearButton() {
 		jsClick(clearbutton_InvoiceSearchTextBox_PaymentDetailsTab);
 	}
-	
+
 	public void Enter_PayAmountSearchBox_OnPaymentDetailsTab(String payamount) {
 		payAmountSearchBox_PaymentDetailsTab.clear();
 		delayWithGivenTime(500);
 		clickAndType(payAmountSearchBox_PaymentDetailsTab, payamount);
 	}
-	
+
 	public String get_PayAmount_Paymentdetailstab() {
 		HighlightElement(payAmountSearchBox_PaymentDetailsTab);
 		return payAmountSearchBox_PaymentDetailsTab.getAttribute("value");
 	}
-	
-	
+
+
 	public boolean Verify_PayAmount_Paymentdetailstab(String threedigitpayamount) {                
-	    boolean isValid = false;
-	    for (WebElement suggestion : ListOfPayAmount_PaymentDetailsTab) {
-	        HighlightElement(suggestion);
-	        System.out.println("Displayed suggestion on Pay Amount: " + suggestion.getText());
-	        if (suggestion.getText().trim().equals(threedigitpayamount)) {
-	            isValid = true;
-	            System.out.println("Found matching Pay Amount: " + threedigitpayamount);
-	            break; 
-	        }
-	    }
-	    return isValid;
+		boolean isValid = false;
+		for (WebElement suggestion : ListOfPayAmount_PaymentDetailsTab) {
+			HighlightElement(suggestion);
+			System.out.println("Displayed suggestion on Pay Amount: " + suggestion.getText());
+			if (suggestion.getText().trim().equals(threedigitpayamount)) {
+				isValid = true;
+				System.out.println("Found matching Pay Amount: " + threedigitpayamount);
+				break; 
+			}
+		}
+		return isValid;
 	}
 
 	public int Verify_NoOfPayAmountDisplayedCount_PaymentDetails() {
 		int no_of_paymentamount = ListOfPayAmount_PaymentDetailsTab.size();
 		return no_of_paymentamount;
 	}
-	
+
 	public boolean Verify_PayAmountSearchBox_ClearButton_Appears() {
 		HighlightElement(clearbutton_PayAmountSearchBox_PaymentDetailsTab);
 		return	clearbutton_PayAmountSearchBox_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public void Click_PayAmountSearchBox_ClearButton() {
 		jsClick(clearbutton_PayAmountSearchBox_PaymentDetailsTab);
 	}
-	
-	
+
+
 	/*
 	 * LocalDate currentDate = LocalDate.now();
 	 * 
@@ -3702,26 +4107,26 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	 * jsClearAndType(recipientDeliverydateOnPhoneOrderPage, formattedNextDay); //
 	 * DoubleClickAndType();
 	 */
-	
-	
-	
+
+
+
 	public void Enter_PayDateSearchBox_OnPaymentDetailsTab() { //String paydate
 		payDateSearchBox_PaymentDetailsTab.clear();
 		delayWithGivenTime(500);
 		LocalDate currentDate = LocalDate.now();
 		LocalDate previousDay =currentDate.plusDays(-1);
-		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-		 String formattedPreviousDay = previousDay.format(formatter);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		String formattedPreviousDay = previousDay.format(formatter);
 		clickAndType(payDateSearchBox_PaymentDetailsTab, formattedPreviousDay);
 	}
-	
-	
+
+
 	public void Enter_PayDateSearchBox_OnPaymentDetailsTab(String paydate) {
 		payDateSearchBox_PaymentDetailsTab.clear();
 		delayWithGivenTime(500);
 		clickAndType(payDateSearchBox_PaymentDetailsTab, paydate);
 	}
-	
+
 	public String previousDate() {
 		LocalDate currentDate = LocalDate.now();
 		LocalDate previousDay =currentDate.plusDays(-1);
@@ -3729,7 +4134,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		String formattedPreviousDay = previousDay.format(formatter);
 		return formattedPreviousDay;
 	}
-	
+
 	public String NextDate() {
 		LocalDate currentDate = LocalDate.now();
 		LocalDate previousDay =currentDate.plusDays(1);
@@ -3737,39 +4142,39 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		String formattedPreviousDay = previousDay.format(formatter);
 		return formattedPreviousDay;
 	}
-	
-	
+
+
 	public String get_PayDate_Paymentdetailstab() {
 		HighlightElement(payDateSearchBox_PaymentDetailsTab);
 		return payDateSearchBox_PaymentDetailsTab.getAttribute("value");
 	}
-	
-	
+
+
 	public boolean Verify_PayDate_Paymentdetailstab(String paydate) {             
-	    boolean isValid = false;
-	    for (WebElement suggestion : ListOfPayDate_PaymentDetailsTab) {
-	        HighlightElement(suggestion);
-	        if (suggestion.getText().trim().equals(paydate)) {
-	            isValid = true;
-	            System.out.println("Found matching Pay Date : " + paydate);
-	            break; 
-	        }
-	    }
-	    return isValid;
+		boolean isValid = false;
+		for (WebElement suggestion : ListOfPayDate_PaymentDetailsTab) {
+			HighlightElement(suggestion);
+			if (suggestion.getText().trim().equals(paydate)) {
+				isValid = true;
+				System.out.println("Found matching Pay Date : " + paydate);
+				break; 
+			}
+		}
+		return isValid;
 	}
 
-	
-	
-	
+
+
+
 	public boolean Verify_PayDateSearchBox_ClearButton_Appears() {
 		HighlightElement(clearbutton_PayDateSearchBox_PaymentDetailsTab);
 		return	clearbutton_PayDateSearchBox_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public void Click_PayDateSearchBox_ClearButton() {
 		jsClick(clearbutton_PayDateSearchBox_PaymentDetailsTab);
 	}
-	
+
 	public boolean Verify_FilterIconOptions_PayDateOnPaymentDetailsTab_OnCustomerDetailsPopup() {
 		HighlightElement(filterIconOnPayDate_PaymentDetailsTab);
 		click(filterIconOnPayDate_PaymentDetailsTab);
@@ -3789,64 +4194,64 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 		if (!allOptionsDisplayed) {
 			System.out.println("Missing pagination values in dropdown: " + expectedPayDateFilterValues.stream()
-					.filter(value -> !actualPayDateFilterValues.contains(value)).collect(Collectors.joining(", ")));
+			.filter(value -> !actualPayDateFilterValues.contains(value)).collect(Collectors.joining(", ")));
 		}
 
 		return allOptionsDisplayed;
 	}
-	
+
 	public void Click_CalendarIconOnPayDate_OnPaymentDetailsTab() {
 		click(calendarIconOnPayDate_PaymentDetailsTab);
 	}
-	
-	
+
+
 	public void SelectTheDate_FromDatePickerIcon_OnPaymentDetailsTab() {
 		LocalDate currentDate = LocalDate.now();
-	    int targetDay = currentDate.getDayOfMonth();
-	    String targetMonth = currentDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
-	    int targetYear = currentDate.getYear();
+		int targetDay = currentDate.getDayOfMonth();
+		String targetMonth = currentDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+		int targetYear = currentDate.getYear();
 
-        // Locate the month and year display
-      HighlightElement(calendar_MonthYear_PayDate_PaymentDetailsTab);  
-      calendar_MonthYear_PayDate_PaymentDetailsTab.isDisplayed();
-        // Loop to navigate to the correct month and year
-        while (true) {
-            String displayedMonthYear = calendar_MonthYear_PayDate_PaymentDetailsTab.getText();
-            String[] parts = displayedMonthYear.split(" ");
-            String displayedMonth = parts[0];
-            int displayedYear = Integer.parseInt(parts[1]);
+		// Locate the month and year display
+		HighlightElement(calendar_MonthYear_PayDate_PaymentDetailsTab);  
+		calendar_MonthYear_PayDate_PaymentDetailsTab.isDisplayed();
+		// Loop to navigate to the correct month and year
+		while (true) {
+			String displayedMonthYear = calendar_MonthYear_PayDate_PaymentDetailsTab.getText();
+			String[] parts = displayedMonthYear.split(" ");
+			String displayedMonth = parts[0];
+			int displayedYear = Integer.parseInt(parts[1]);
 
-            if (displayedYear == targetYear && displayedMonth.equals(targetMonth)) {
-                break;
-            }
+			if (displayedYear == targetYear && displayedMonth.equals(targetMonth)) {
+				break;
+			}
 
-            if (displayedYear > targetYear || (displayedYear == targetYear && !displayedMonth.equals(targetMonth) && displayedMonth.compareTo(targetMonth) > 0)) {
-                // Click the previous arrow if the displayed date is after the target date
-                WebElement prevArrow = getDriver().findElement(By.xpath("//span[@class='k-icon k-i-arrow-60-left']"));
-                prevArrow.click();
-            } else {
-                // Click the next arrow if the displayed date is before the target date
-                WebElement nextArrow = getDriver().findElement(By.xpath("//span[@class='k-icon k-i-arrow-60-right']"));
-                nextArrow.click();
-            }
-        }
+			if (displayedYear > targetYear || (displayedYear == targetYear && !displayedMonth.equals(targetMonth) && displayedMonth.compareTo(targetMonth) > 0)) {
+				// Click the previous arrow if the displayed date is after the target date
+				WebElement prevArrow = getDriver().findElement(By.xpath("//span[@class='k-icon k-i-arrow-60-left']"));
+				prevArrow.click();
+			} else {
+				// Click the next arrow if the displayed date is before the target date
+				WebElement nextArrow = getDriver().findElement(By.xpath("//span[@class='k-icon k-i-arrow-60-right']"));
+				nextArrow.click();
+			}
+		}
 
-        // Select the desired date
-        for (WebElement date :  ListOfdates_PayDate_PaymentDetailsTab) {
-            if (date.getText().equals(String.valueOf(targetDay))) {
-                click(date);
-                break;
-            }
-        }
+		// Select the desired date
+		for (WebElement date :  ListOfdates_PayDate_PaymentDetailsTab) {
+			if (date.getText().equals(String.valueOf(targetDay))) {
+				click(date);
+				break;
+			}
+		}
 
 	}
-	
-	
+
+
 	public void Click_FilterIconOptions_PayDateOnPaymentDetailsTab_OnCustomerDetailsPopup() {
 		HighlightElement(filterIconOnPayDate_PaymentDetailsTab);
 		click(filterIconOnPayDate_PaymentDetailsTab);
 	}
-	
+
 	public void Click_FilterIconOptions_PayDateOnPaymentDetailsTab_OnCustomerDetailsPopup(String filterValue) {
 		HighlightElement(filterIconOnPayDate_PaymentDetailsTab);
 		click(filterIconOnPayDate_PaymentDetailsTab);
@@ -3854,248 +4259,248 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		for(int i = 0; i < ListOfFilterOptionsOnPayDate_PaymentDetailsTab.size(); i++) {
 			if(ListOfFilterOptionsOnPayDate_PaymentDetailsTab.get(i).getText().contains(filterValue)) {
 				HighlightElement(ListOfFilterOptionsOnPayDate_PaymentDetailsTab.get(i));
-			//	click(ListOfFilterOptionsOnPayDate_PaymentDetailsTab.get(i));
+				//	click(ListOfFilterOptionsOnPayDate_PaymentDetailsTab.get(i));
 				ListOfFilterOptionsOnPayDate_PaymentDetailsTab.get(i).click();
 				break;
 			}
-			
+
 		}
 	}
-	
+
 	public void Enter_MOPSearchBox_OnPaymentDetailsTab(String mop) {
 		MOPSearchBox_PaymentDetailsTab.clear();
 		delayWithGivenTime(500);
 		clickAndType(MOPSearchBox_PaymentDetailsTab, mop);
 	}
-	
+
 	public String get_MOPSearchBox_Paymentdetailstab() {
 		HighlightElement(MOPSearchBox_PaymentDetailsTab);
 		return MOPSearchBox_PaymentDetailsTab.getAttribute("value");
 	}
-	
-	
+
+
 	public boolean Verify_MOP_Paymentdetailstab(String mop) {                
-	    boolean isValid = false;
-	    for (WebElement suggestion : ListOfMOP_PaymentDetailsTab) {
-	        HighlightElement(suggestion);
-	        System.out.println("Displayed suggestion of MOP: " + suggestion.getText());
-	        if (suggestion.getText().trim().equals(mop)) {
-	            isValid = true;
-	            System.out.println("Found matching Mode of Payment: " + mop);
-	            break; 
-	        }
-	    }
-	    return isValid;
+		boolean isValid = false;
+		for (WebElement suggestion : ListOfMOP_PaymentDetailsTab) {
+			HighlightElement(suggestion);
+			System.out.println("Displayed suggestion of MOP: " + suggestion.getText());
+			if (suggestion.getText().trim().equals(mop)) {
+				isValid = true;
+				System.out.println("Found matching Mode of Payment: " + mop);
+				break; 
+			}
+		}
+		return isValid;
 	}
 
-	
+
 	public boolean Verify_MOPSearchBox_ClearButton_Appears() {
 		HighlightElement(clearbutton_MOPSearchBox_PaymentDetailsTab);
 		return	clearbutton_MOPSearchBox_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public void Click_MOPSearchBox_ClearButton() {
 		jsClick(clearbutton_MOPSearchBox_PaymentDetailsTab);
 	}
-	
+
 	public void Enter_CheckNoSearchBox_OnPaymentDetailsTab(String checkno) {
 		ChecknoSearchBox_PaymentDetailsTab.clear();
 		delayWithGivenTime(500);
 		clickAndType(ChecknoSearchBox_PaymentDetailsTab, checkno);
 	}
-	
+
 	public String get_CheckNoSearchBox_Paymentdetailstab() {
 		HighlightElement(ChecknoSearchBox_PaymentDetailsTab);
 		return ChecknoSearchBox_PaymentDetailsTab.getAttribute("value");
 	}
-	
-	
+
+
 	public boolean Verify_CheckNo_Paymentdetailstab(String checkno) {                
-	    boolean isValid = false;
-	    for (WebElement suggestion : ListOfCheckno_PaymentDetailsTab) {
-	        HighlightElement(suggestion);
-	        System.out.println("Displayed suggestion of Check No: " + suggestion.getText());
-	        if (suggestion.getText().trim().equals(checkno)) {
-	            isValid = true;
-	            System.out.println("Found matching Check No: " + checkno);
-	            break; 
-	        }
-	    }
-	    return isValid;
+		boolean isValid = false;
+		for (WebElement suggestion : ListOfCheckno_PaymentDetailsTab) {
+			HighlightElement(suggestion);
+			System.out.println("Displayed suggestion of Check No: " + suggestion.getText());
+			if (suggestion.getText().trim().equals(checkno)) {
+				isValid = true;
+				System.out.println("Found matching Check No: " + checkno);
+				break; 
+			}
+		}
+		return isValid;
 	}
 
-	
+
 	public boolean Verify_CheckNoSearchBox_ClearButton_Appears() {
 		HighlightElement(clearbutton_ChecknoSearchBox_PaymentDetailsTab);
 		return	clearbutton_ChecknoSearchBox_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public void Click_CheckNoSearchBox_ClearButton() {
 		jsClick(clearbutton_ChecknoSearchBox_PaymentDetailsTab);
 	}
-	
+
 	public void Enter_CCNumberSearchBox_OnPaymentDetailsTab(String checkno) {
 		CCNumberSearchBox_PaymentDetailsTab.clear();
 		delayWithGivenTime(500);
 		clickAndType(CCNumberSearchBox_PaymentDetailsTab, checkno);
 	}
-	
+
 	public String get_CCNumberSearchBox_Paymentdetailstab() {
 		HighlightElement(CCNumberSearchBox_PaymentDetailsTab);
 		return CCNumberSearchBox_PaymentDetailsTab.getAttribute("value");
 	}
-	
-	
+
+
 	public boolean Verify_CCNumber_Paymentdetailstab(String ccnumber) {                
-	    boolean isValid = false;
-	    for (WebElement suggestion : ListOfCCNumber_PaymentDetailsTab) {
-	        HighlightElement(suggestion);
-	        System.out.println("Displayed suggestion of Credit Card Number: " + suggestion.getText());
-	        if (suggestion.getText().trim().equals(ccnumber)) {
-	            isValid = true;
-	            System.out.println("Found matching Credit Card Number: " + ccnumber);
-	            break; 
-	        }
-	    }
-	    return isValid;
+		boolean isValid = false;
+		for (WebElement suggestion : ListOfCCNumber_PaymentDetailsTab) {
+			HighlightElement(suggestion);
+			System.out.println("Displayed suggestion of Credit Card Number: " + suggestion.getText());
+			if (suggestion.getText().trim().equals(ccnumber)) {
+				isValid = true;
+				System.out.println("Found matching Credit Card Number: " + ccnumber);
+				break; 
+			}
+		}
+		return isValid;
 	}
 
-	
+
 	public boolean Verify_CCNumberSearchBox_ClearButton_Appears() {
 		HighlightElement(clearbutton_CCNumberSearchBox_PaymentDetailsTab);
 		return	clearbutton_CCNumberSearchBox_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public void Click_CCNumberSearchBox_ClearButton() {
 		jsClick(clearbutton_CCNumberSearchBox_PaymentDetailsTab);
 	}
-	
+
 	public boolean Verify_PaginationSection_OnPaymentDetailsTab() {
 		HighlightElement(paginationSection_PaymentDetailsTab);
 		return paginationSection_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public boolean Verify_PageListNumber_OnPaymentDetailsTab() {
 		HighlightElement(pagelistnumber_PaymentDetailsTab);
 		return pagelistnumber_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public boolean Verify_PaginationInfo_OnPaymentDetailsTab() {
 		HighlightElement(paginationInfo_PaymentDetailsTab);
 		return paginationInfo_PaymentDetailsTab.isDisplayed();
 	}
-	
+
 	public String get_PaginationInfo_PaymentDetailsTab() {
 		HighlightElement(paginationInfo_PaymentDetailsTab);		
-		 String paginationText = paginationInfo_PaymentDetailsTab.getText();
+		String paginationText = paginationInfo_PaymentDetailsTab.getText();
 
-		 Pattern pattern = Pattern.compile("(\\d+\\s-\\s\\d+)");
-	        Matcher matcher = pattern.matcher(paginationText);
+		Pattern pattern = Pattern.compile("(\\d+\\s-\\s\\d+)");
+		Matcher matcher = pattern.matcher(paginationText);
 
-	        if (matcher.find()) {
-	            String itemRange = matcher.group(1);
-	            System.out.println("Item range: " + itemRange);
-	        } else {
-	            System.out.println("Item range not found.");
-	        }
-			
+		if (matcher.find()) {
+			String itemRange = matcher.group(1);
+			System.out.println("Item range: " + itemRange);
+		} else {
+			System.out.println("Item range not found.");
+		}
+
 		return matcher.group(1);
 	}
-	
+
 	public String get_TotalInfo_Appears_OnUnpaidTab() {
 		HighlightElement(paginationInfo_PaymentDetailsTab);
-		
-		 String paginationText = paginationInfo_PaymentDetailsTab.getText();
 
-	        // Use regular expressions to extract the total number of items
-	        Pattern pattern = Pattern.compile("of\\s(\\d+)\\sitems");
-	        Matcher matcher = pattern.matcher(paginationText);
+		String paginationText = paginationInfo_PaymentDetailsTab.getText();
 
-	        if (matcher.find()) {
-	            String totalItems = matcher.group(1);
-	            System.out.println("Total number of items: " + totalItems);
-	        } else {
-	            System.out.println("Total number of items not found.");
-	        }
-			
+		// Use regular expressions to extract the total number of items
+		Pattern pattern = Pattern.compile("of\\s(\\d+)\\sitems");
+		Matcher matcher = pattern.matcher(paginationText);
+
+		if (matcher.find()) {
+			String totalItems = matcher.group(1);
+			System.out.println("Total number of items: " + totalItems);
+		} else {
+			System.out.println("Total number of items not found.");
+		}
+
 		return matcher.group(1);
 	}
-	
+
 	public void ClickThreeDots_Pagination_PaymentDetails() {
 		click(threedotsOnPagination_PaymentDetailsTab);
 	}
-	
-	public boolean Verify_11to20Pages_Pagination_PaymentDetails() {
-		 List<WebElement> paginationNumbers = getDriver().findElements(By.xpath("//ul[@class='k-pager-numbers k-reset']//li/a"));
 
-		    // Verify pagination numbers from 11 to 20
-		    boolean isPaginationCorrect = true;
-		    for (WebElement paginationNumber : paginationNumbers) {
-		        String text = paginationNumber.getText();
-		        if (!text.equals("...")) {
-		            try {
-		                int pageNumber = Integer.parseInt(text);
-		                if (pageNumber < 11 || pageNumber > 20) {
-		                    isPaginationCorrect = false;
-		                    break;
-		                }
-		            } catch (NumberFormatException e) {
-		                isPaginationCorrect = false;
-		                break;
-		            }
-		        }
-		    }
-		    
-		    // Print the result
-		    if (isPaginationCorrect) {
-		        System.out.println("Pagination numbers from 11 to 20 are displayed correctly.");
-		        return true;
-		    } else {
-		        System.out.println("Pagination numbers from 11 to 20 are NOT displayed correctly.");
-		        return false;
-		    }
+	public boolean Verify_11to20Pages_Pagination_PaymentDetails() {
+		List<WebElement> paginationNumbers = getDriver().findElements(By.xpath("//ul[@class='k-pager-numbers k-reset']//li/a"));
+
+		// Verify pagination numbers from 11 to 20
+		boolean isPaginationCorrect = true;
+		for (WebElement paginationNumber : paginationNumbers) {
+			String text = paginationNumber.getText();
+			if (!text.equals("...")) {
+				try {
+					int pageNumber = Integer.parseInt(text);
+					if (pageNumber < 11 || pageNumber > 20) {
+						isPaginationCorrect = false;
+						break;
+					}
+				} catch (NumberFormatException e) {
+					isPaginationCorrect = false;
+					break;
+				}
+			}
 		}
-	
+
+		// Print the result
+		if (isPaginationCorrect) {
+			System.out.println("Pagination numbers from 11 to 20 are displayed correctly.");
+			return true;
+		} else {
+			System.out.println("Pagination numbers from 11 to 20 are NOT displayed correctly.");
+			return false;
+		}
+	}
+
 	public void Click_Pagenumber2_Pagination_PaymentDetails() {
 		click(page2_PaymentDetailsTab);
 	}
-	
-public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
-	  List<WebElement> paginationNumbers = getDriver().findElements(By.xpath("//ul[@class='k-pager-numbers k-reset']//li/a"));
 
-	    // Find the highest page number
-	    int highestPageNumber = 0;
-	    for (WebElement paginationNumber : paginationNumbers) {
-	        String text = paginationNumber.getText();
-	        if (!text.equals("...")) {
-	            try {
-	                int pageNumber = Integer.parseInt(text);
-	                if (pageNumber > highestPageNumber) {
-	                    highestPageNumber = pageNumber;
-	                }
-	            } catch (NumberFormatException e) {
-	            	e.getMessage();
-	            }
-	        }
-	    }
+	public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
+		List<WebElement> paginationNumbers = getDriver().findElements(By.xpath("//ul[@class='k-pager-numbers k-reset']//li/a"));
 
-	    // Verify the highest page number is displayed
-	    WebElement currentPageElement = getDriver().findElement(By.xpath("//ul[@class='k-pager-numbers k-reset']//li//span[@class='k-state-selected']"));
-	    int currentPageNumber = Integer.parseInt(currentPageElement.getText());
+		// Find the highest page number
+		int highestPageNumber = 0;
+		for (WebElement paginationNumber : paginationNumbers) {
+			String text = paginationNumber.getText();
+			if (!text.equals("...")) {
+				try {
+					int pageNumber = Integer.parseInt(text);
+					if (pageNumber > highestPageNumber) {
+						highestPageNumber = pageNumber;
+					}
+				} catch (NumberFormatException e) {
+					e.getMessage();
+				}
+			}
+		}
 
-	    if (currentPageNumber == highestPageNumber) {
-	        System.out.println("Last page is displayed correctly.");
-	        return true;
-	    } else {
-	        System.out.println("Last page is NOT displayed correctly.");
-	        return false;
-	    }
+		// Verify the highest page number is displayed
+		WebElement currentPageElement = getDriver().findElement(By.xpath("//ul[@class='k-pager-numbers k-reset']//li//span[@class='k-state-selected']"));
+		int currentPageNumber = Integer.parseInt(currentPageElement.getText());
+
+		if (currentPageNumber == highestPageNumber) {
+			System.out.println("Last page is displayed correctly.");
+			return true;
+		} else {
+			System.out.println("Last page is NOT displayed correctly.");
+			return false;
+		}
 	}
-	
+
 	public void Click_InvoiceHeader_PaymentDetails() {
 		click(invoicelabel_paymentdetailsTab);
 	}
-	
+
 	public boolean Verify_InvoiceHeader_Sorted_ascending_PaymentDetailsTab() {
 		// Store the invoice numbers in a list
 		List<String> originalInvoiceNumbers = new ArrayList<>();
@@ -4153,13 +4558,13 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 			return true;
 		}
 	}
-	
-	
-	
+
+
+
 	public void Click_PayAmountHeader_PaymentDetails() {
 		click(payamountlabel_paymentdetailsTab);
 	}
-	
+
 	public boolean Verify_PayAmountHeader_Sorted_ascending_PaymentDetailsTab() {
 		// Store the invoice numbers in a list
 		List<String> originalInvoiceNumbers = new ArrayList<>();
@@ -4217,11 +4622,11 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 			return true;
 		}
 	}
-	
+
 	public void Click_PayDateHeader_PaymentDetails() {
 		click(payDatelabel_paymentdetailsTab);
 	}
-	
+
 	public boolean Verify_PayDateHeader_Sorted_ascending_PaymentDetailsTab() {
 		// Store the invoice numbers in a list
 		List<String> originalInvoiceNumbers = new ArrayList<>();
@@ -4271,18 +4676,18 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		}
 		delayWithGivenTime(2000);
 		List<String> defaultorder = new ArrayList<>(actualpaydate);
-		
+
 		if (actualpaydate.equals(defaultorder)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public void Click_MOPHeader_PaymentDetails() {
 		click(moplabel_paymentdetailsTab);
 	}
-	
+
 	public boolean Verify_MOPHeader_Sorted_ascending_PaymentDetailsTab() {
 		// Store the invoice numbers in a list
 		List<String> originalMOP = new ArrayList<>();
@@ -4332,18 +4737,18 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		}
 		delayWithGivenTime(2000);
 		List<String> defaultorder = new ArrayList<>(actualpaydate);
-		
+
 		if (actualpaydate.equals(defaultorder)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public void Click_CheckNoHeader_PaymentDetails() {
 		click(checknolabel_paymentdetailsTab);
 	}
-	
+
 	public boolean Verify_CheckNoHeader_Sorted_ascending_PaymentDetailsTab() {
 		// Store the invoice numbers in a list
 		List<String> original = new ArrayList<>();
@@ -4393,18 +4798,18 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		}
 		delayWithGivenTime(2000);
 		List<String> defaultorder = new ArrayList<>(actual);
-		
+
 		if (actual.equals(defaultorder)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public void Click_CCNoHeader_PaymentDetails() {
 		click(ccnumberlabel_paymentdetailsTab);
 	}
-	
+
 	public boolean Verify_CCNoHeader_Sorted_ascending_PaymentDetailsTab() {
 		// Store the invoice numbers in a list
 		List<String> original = new ArrayList<>();
@@ -4454,32 +4859,32 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		}
 		delayWithGivenTime(2000);
 		List<String> defaultorder = new ArrayList<>(original);
-		
+
 		if (original.equals(defaultorder)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public void Click_OrderDetailsTab_CustomerDetailsPopup() {
 		jsClick(OrderDetailsTab);
 	}
-	
+
 	public boolean Verify_ExportToExcel_OrderDetailsTab_CustomerDetailsPopup() {
 		HighlightElement(exporttoexcelbutton_orderdetailsTab);
 		return exporttoexcelbutton_orderdetailsTab.isDisplayed();
 	}
-	
+
 	public void Click_ExportToExcelButton_OrderDetailsTab_CustomerDetailsPopup() {
 		jsClick(exporttoexcelbutton_orderdetailsTab);
 	}
-	
+
 	public boolean Verify_OrderDetailsTableGrid_IsAppears_OrderDetailsTab_CustomerDetailsPopup() {
 		HighlightElement(OrderDetailsTable);
 		return OrderDetailsTable.isDisplayed();
 	}
-	
+
 	public void Enter_InvoiceNo_OrderDetailsTab_CustomerDetailsPopup(String InvoiceNo) {
 		fluentWait(InvoiceNoSearchBox_OrderDetailsTab);
 		delayWithGivenTime(500);		
@@ -4487,12 +4892,12 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		delayWithGivenTime(500);		
 		clickAndType(InvoiceNoSearchBox_OrderDetailsTab, InvoiceNo);
 	}
-	
+
 	public String get_InvoiceNo_Orderdetailstab() {
 		HighlightElement(InvoiceNoSearchBox_OrderDetailsTab);
 		return InvoiceNoSearchBox_OrderDetailsTab.getAttribute("value");
 	}
-	
+
 	public boolean Verify_InvoiceNo_Orderdetailstab(String threedigitinvoicenumber) {				
 		boolean isValid = false;
 		for (WebElement suggestion : ListOfInvoiceNo_OrderDetailsTab) {
@@ -4505,45 +4910,45 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		}
 		return isValid;
 	}
-	
+
 	public boolean Verify_AllTheInvoiceNo_AppearsOn_OrderDetailsTab() {
 		int InvoiceNo_count =	ListOfInvoiceNo_OrderDetailsTab.size();
 		if (InvoiceNo_count == 25) {
-	        return true;
-	    } else {
-	        System.out.println("The count of invoices is not 25. It is: " + InvoiceNo_count);
-	        return false;
-	    }
+			return true;
+		} else {
+			System.out.println("The count of invoices is not 25. It is: " + InvoiceNo_count);
+			return false;
+		}
 	}
-	
+
 	public void Click_clearbutton_InvoiceNoSearchBox_OrderDetailsTab() {
 		jsClick(clearbutton_InvoiceNoSearchBox_OrderDetailsTab);
 	}
-	
+
 	public boolean Verify_Clearbutton_InvoiceNoSearchBox_OrderDetailsTab() {
 		HighlightElement(clearbutton_InvoiceNoSearchBox_OrderDetailsTab);
 		return clearbutton_InvoiceNoSearchBox_OrderDetailsTab.isDisplayed();
 	}
-	
+
 	public String getFirstRowInvoiceNo_OrderDetailsTab() {
 		HighlightElement(FirstInvoiceNo_OrderDetailsTab);
 		return (FirstInvoiceNo_OrderDetailsTab.getText());
 	}
-	
+
 	public boolean get_ClearBtnAppears_OnInvoiceSearchBox_OrderDetailsTab() {
 		HighlightElement(clearbutton_InvoiceNoSearchBox_OrderDetailsTab);
 		return clearbutton_InvoiceNoSearchBox_OrderDetailsTab.isDisplayed();
 	}
-	
+
 	public void Click_ClearBtn_InvoiceSearchBox_OrderDetailsTab() {
 		click(clearbutton_InvoiceNoSearchBox_OrderDetailsTab);
 	}
-	
+
 	public boolean Verify_NoCustomerOrdersFoundMessage_Appears_OrderDetailsTab() {
 		HighlightElement(NoCustomerOrderFoundMessage_OrderDetailsTab);
 		return NoCustomerOrderFoundMessage_OrderDetailsTab.isDisplayed();
 	}
-	
+
 	public void Enter_TotalAmount_OrderDetailsTab_CustomerDetailsPopup(String TotalAmount) {
 		fluentWait(TotalAmountSearchBox_OrderDetailsTab);
 		delayWithGivenTime(500);		
@@ -4551,12 +4956,12 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		delayWithGivenTime(500);		
 		clickAndType(TotalAmountSearchBox_OrderDetailsTab, TotalAmount);
 	}
-	
+
 	public String get_TotalAmount_Orderdetailstab() {
 		HighlightElement(TotalAmountSearchBox_OrderDetailsTab);
 		return TotalAmountSearchBox_OrderDetailsTab.getAttribute("value");
 	}
-	
+
 	public boolean Verify_TotalAmount_Orderdetailstab(String threedigitinvoicenumber) {				
 		boolean isValid = false;
 		for (WebElement suggestion : TotalAmountList_OrderDetailsTab) {
@@ -4568,26 +4973,26 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		}
 		return isValid;
 	}
-	
+
 	public void Click_clearbutton_TotalAmountSearchBox_OrderDetailsTab() {
 		jsClick(clearbutton_TotalAmountSearchBox_OrderDetailsTab);
 	}
-	
+
 	public boolean Verify_Clearbutton_TotalAmountSearchBox_OrderDetailsTab() {
 		HighlightElement(clearbutton_TotalAmountSearchBox_OrderDetailsTab);
 		return clearbutton_TotalAmountSearchBox_OrderDetailsTab.isDisplayed();
 	}
-	
+
 	public boolean Verify_AllTheTotalAmounts_AppearsOn_OrderDetailsTab() {
 		int InvoiceNo_count =	TotalAmountList_OrderDetailsTab.size();
 		if (InvoiceNo_count == 25) {
-	        return true;
-	    } else {
-	        System.out.println("The count of total amount is not 25. It is: " + InvoiceNo_count);
-	        return false;
-	    }
+			return true;
+		} else {
+			System.out.println("The count of total amount is not 25. It is: " + InvoiceNo_count);
+			return false;
+		}
 	}
-	
+
 	public void Enter_Status_OrderDetailsTab_CustomerDetailsPopup(String status) {
 		fluentWait(StatusSearchBox_OrderDetailsTab);
 		delayWithGivenTime(500);		
@@ -4595,12 +5000,12 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		delayWithGivenTime(500);		
 		clickAndType(StatusSearchBox_OrderDetailsTab, status);
 	}
-	
+
 	public String get_Status_Orderdetailstab() {
 		HighlightElement(StatusSearchBox_OrderDetailsTab);
 		return StatusSearchBox_OrderDetailsTab.getAttribute("value");
 	}
-	
+
 	public boolean Verify_Status_Orderdetailstab(String threeCharacterstatus) {				
 		boolean isValid = false;
 		for (WebElement suggestion : ListOfStatus_OrderDetailsTab) {
@@ -4613,26 +5018,26 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		}
 		return isValid;
 	}
-	
+
 	public void Click_clearbutton_StatusSearchBox_OrderDetailsTab() {
 		jsClick(clearbutton_StatusSearchBox_OrderDetailsTab);
 	}
-	
+
 	public boolean Verify_Clearbutton_StatusSearchBox_OrderDetailsTab() {
 		HighlightElement(clearbutton_StatusSearchBox_OrderDetailsTab);
 		return clearbutton_StatusSearchBox_OrderDetailsTab.isDisplayed();
 	}
-	
+
 	public boolean Verify_AllTheStatus_AppearsOn_OrderDetailsTab() {
 		int InvoiceNo_count =	ListOfStatus_OrderDetailsTab.size();
 		if (InvoiceNo_count == 25) {
-	        return true;
-	    } else {
-	        System.out.println("The count of total amount is not 25. It is: " + InvoiceNo_count);
-	        return false;
-	    }
+			return true;
+		} else {
+			System.out.println("The count of total amount is not 25. It is: " + InvoiceNo_count);
+			return false;
+		}
 	}
-	
+
 	public void Enter_Name_OrderDetailsTab_CustomerDetailsPopup(String name) {
 		fluentWait(NameSearchBox_OrderDetailsTab);
 		delayWithGivenTime(500);		
@@ -4640,41 +5045,41 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		delayWithGivenTime(500);		
 		clickAndType(NameSearchBox_OrderDetailsTab, name);
 	}
-	
+
 	public String get_Name_Orderdetailstab() {
 		HighlightElement(NameSearchBox_OrderDetailsTab);
 		return NameSearchBox_OrderDetailsTab.getAttribute("value");
 	}
-	
+
 	public boolean Verify_Name_Orderdetailstab(String threeCharactername) {				
 		boolean isValid = false;
 		for (WebElement suggestion : ListOfName_OrderDetailsTab) {
-			
+
 			if (suggestion.getText().contains(threeCharactername)) {
 				isValid = true;
 			}
 		}
 		return isValid;
 	}
-	
+
 	public void Click_clearbutton_NameSearchBox_OrderDetailsTab() {
 		jsClick(clearbutton_NameSearchBox_OrderDetailsTab);
 	}
-	
+
 	public boolean Verify_Clearbutton_NameSearchBox_OrderDetailsTab() {
 		HighlightElement(clearbutton_NameSearchBox_OrderDetailsTab);
 		return clearbutton_NameSearchBox_OrderDetailsTab.isDisplayed();
 	}
-	
+
 	public boolean Verify_AllTheName_AppearsOn_OrderDetailsTab() {
 		int InvoiceNo_count =	ListOfName_OrderDetailsTab.size();
 		if (InvoiceNo_count == 25) {
-	        return true;
-	    } else {
-	        return false;
-	    }
+			return true;
+		} else {
+			return false;
+		}
 	}
-	
+
 	public void Enter_Address_OrderDetailsTab_CustomerDetailsPopup(String address) {
 		fluentWait(AddressSearchBox_OrderDetailsTab);
 		delayWithGivenTime(500);		
@@ -4682,41 +5087,41 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		delayWithGivenTime(500);		
 		clickAndType(AddressSearchBox_OrderDetailsTab, address);
 	}
-	
+
 	public String get_Address_Orderdetailstab() {
 		HighlightElement(AddressSearchBox_OrderDetailsTab);
 		return AddressSearchBox_OrderDetailsTab.getAttribute("value");
 	}
-	
+
 	public boolean Verify_Address_Orderdetailstab(String threeCharacteraddress) {				
 		boolean isValid = false;
 		for (WebElement suggestion : ListOfAddress_OrderDetailsTab) {
-			
+
 			if (suggestion.getText().contains(threeCharacteraddress)) {
 				isValid = true;
 			}
 		}
 		return isValid;
 	}
-	
+
 	public void Click_clearbutton_AddressSearchBox_OrderDetailsTab() {
 		jsClick(clearbutton_AddressSearchBox_OrderDetailsTab);
 	}
-	
+
 	public boolean Verify_Clearbutton_AddressSearchBox_OrderDetailsTab() {
 		HighlightElement(clearbutton_AddressSearchBox_OrderDetailsTab);
 		return clearbutton_AddressSearchBox_OrderDetailsTab.isDisplayed();
 	}
-	
+
 	public boolean Verify_AllTheAddress_AppearsOn_OrderDetailsTab() {
 		int InvoiceNo_count =	ListOfAddress_OrderDetailsTab.size();
 		if (InvoiceNo_count == 25) {
-	        return true;
-	    } else {
-	        return false;
-	    }
+			return true;
+		} else {
+			return false;
+		}
 	}
-	
+
 	public void Enter_OrderDate_OrderDetailsTab_CustomerDetailsPopup(String orderdate) {
 		fluentWait(OrderDateSearchBox_OrderDetailsTab);
 		delayWithGivenTime(500);		
@@ -4724,41 +5129,41 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		delayWithGivenTime(500);		
 		clickAndType(OrderDateSearchBox_OrderDetailsTab, orderdate);
 	}
-	
+
 	public String get_OrderDate_Orderdetailstab() {
 		HighlightElement(OrderDateSearchBox_OrderDetailsTab);
 		return OrderDateSearchBox_OrderDetailsTab.getAttribute("value");
 	}
-	
+
 	public boolean Verify_OrderDate_Orderdetailstab(String threeCharacterorderdate) {				
 		boolean isValid = false;
 		for (WebElement suggestion : ListOfOrderDate_OrderDetailsTab) {
-			
+
 			if (suggestion.getText().contains(threeCharacterorderdate)) {
 				isValid = true;
 			}
 		}
 		return isValid;
 	}
-	
+
 	public void Click_clearbutton_OrderDateSearchBox_OrderDetailsTab() {
 		jsClick(clearbutton_OrderDateSearchBox_OrderDetailsTab);
 	}
-	
+
 	public boolean Verify_Clearbutton_OrderDateSearchBox_OrderDetailsTab() {
 		HighlightElement(clearbutton_OrderDateSearchBox_OrderDetailsTab);
 		return clearbutton_OrderDateSearchBox_OrderDetailsTab.isDisplayed();
 	}
-	
+
 	public boolean Verify_AllTheOrderDate_AppearsOn_OrderDetailsTab() {
 		int InvoiceNo_count =	ListOfOrderDate_OrderDetailsTab.size();
 		if (InvoiceNo_count == 25) {
-	        return true;
-	    } else {
-	        return false;
-	    }
+			return true;
+		} else {
+			return false;
+		}
 	}
-	
+
 	public void Enter_Description_OrderDetailsTab_CustomerDetailsPopup(String description) {
 		fluentWait(DescriptionSearchBox_OrderDetailsTab);
 		delayWithGivenTime(500);		
@@ -4766,41 +5171,41 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		delayWithGivenTime(500);		
 		clickAndType(DescriptionSearchBox_OrderDetailsTab, description);
 	}
-	
+
 	public String get_Description_Orderdetailstab() {
 		HighlightElement(DescriptionSearchBox_OrderDetailsTab);
 		return DescriptionSearchBox_OrderDetailsTab.getAttribute("value");
 	}
-	
+
 	public boolean Verify_Description_Orderdetailstab(String threeCharacterdescription) {				
 		boolean isValid = false;
 		for (WebElement suggestion : ListOfDescription_OrderDetailsTab) {
-			
+
 			if (suggestion.getText().contains(threeCharacterdescription)) {
 				isValid = true;
 			}
 		}
 		return isValid;
 	}
-	
+
 	public void Click_clearbutton_DescriptionSearchBox_OrderDetailsTab() {
 		jsClick(clearbutton_DescriptionSearchBox_OrderDetailsTab);
 	}
-	
+
 	public boolean Verify_Clearbutton_DescriptionSearchBox_OrderDetailsTab() {
 		HighlightElement(clearbutton_DescriptionSearchBox_OrderDetailsTab);
 		return clearbutton_DescriptionSearchBox_OrderDetailsTab.isDisplayed();
 	}
-	
+
 	public boolean Verify_AllTheDescription_AppearsOn_OrderDetailsTab() {
 		int InvoiceNo_count =	ListOfDescription_OrderDetailsTab.size();
 		if (InvoiceNo_count == 25) {
-	        return true;
-	    } else {
-	        return false;
-	    }
+			return true;
+		} else {
+			return false;
+		}
 	}
-	
+
 	public boolean Verify_NoOfpagesDropdown_OnOrderDetailsTab_OnCustomerDetailsPopup() {
 		HighlightElement(pagelistdropdown_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage);
 		click(pagelistdropdown_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage);
@@ -4820,7 +5225,7 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 
 		if (!allOptionsDisplayed) {
 			System.out.println("Missing pagination values in dropdown: " + expectedPaginationValues.stream()
-					.filter(value -> !actualPaginationValues.contains(value)).collect(Collectors.joining(", ")));
+			.filter(value -> !actualPaginationValues.contains(value)).collect(Collectors.joining(", ")));
 		}
 
 		return allOptionsDisplayed;
@@ -4831,12 +5236,12 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 		System.out.println("Displayed invoice total count is : " + totalinvoicecount);
 		return totalinvoicecount;
 	}
-	
+
 	public boolean Verify_NoOfitemDisplayed_OnUnpaidTab_OnCustomerDetailsPopup() {
 		String itemsCountText = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText(); // e.g., "1																												// items"
 		int displayedItemsCount = Integer.parseInt(itemsCountText.split(" ")[4]);
 		System.out.println("Number of items displayed on Order details Tab: " + displayedItemsCount);		
-		
+
 		List<WebElement> tableRows = getDriver().findElements(By.xpath("//tbody[@role='rowgroup']//tr"));
 		int actualRowsCount = tableRows.size();
 
@@ -4847,9 +5252,9 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 			System.out.println("Actual Number of items displayed on Order details Tab is incorrect: " + actualRowsCount);
 			return false;
 		}
-		
+
 	}
-	
+
 	public void Click_StatementsTab_CustomerDetailsPopup() {
 		jsClick(StatementsTab);
 	}
@@ -4857,110 +5262,895 @@ public boolean Verify_LastPageNumber_OnPaymentDetailsTab() {
 	public boolean ClickAndVerifyDropDownOptions_StatementsTab() {
 		click(monthdropdown_statementsTab);
 		delayWithGivenTime(2000);
-		
-		 LocalDate currentDate = LocalDate.now();
-	     // Get the previous month
-	     LocalDate previousMonthDate = currentDate.minusMonths(1);
-	     String previousMonth = previousMonthDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
 
-	     s= new Select(monthdropdown_statementsTab);
-	       
-	     List<WebElement> dropdownOptions = s.getOptions();
-	       
-	     for (WebElement option : dropdownOptions) {
-	      if (option.getText().contains(previousMonth)) {
-	            	HighlightElement(option);
-	                System.out.println("Previous month is displayed: " + previousMonth);
-	                return true;
-	           }
-	        }
+		LocalDate currentDate = LocalDate.now();
+		// Get the previous month
+		LocalDate previousMonthDate = currentDate.minusMonths(1);
+		String previousMonth = previousMonthDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
 
-	        System.out.println("Previous month is not displayed: " + previousMonth);
-	        return false;
-	    }
-	
+		s= new Select(monthdropdown_statementsTab);
+
+		List<WebElement> dropdownOptions = s.getOptions();
+
+		for (WebElement option : dropdownOptions) {
+			if (option.getText().contains(previousMonth)) {
+				HighlightElement(option);
+				System.out.println("Previous month is displayed: " + previousMonth);
+				return true;
+			}
+		}
+
+		System.out.println("Previous month is not displayed: " + previousMonth);
+		return false;
+	}
+
 	public boolean Verify_Selectmonth_IsEmpty_StatementsTab() {
 		HighlightElement(monthdropdown_statementsTab);
 		click(monthdropdown_statementsTab);
-		
+
 		s= new Select(monthdropdown_statementsTab);
 		return s.getOptions().isEmpty();
 	}
-	
+
 	public void SelectMonth_StatementsTab(String month) {	
 		dropDown(monthdropdown_statementsTab, month, "VisibleText");
 	}
-	
+
 	public String getSelectedOptions_OnDropdown_StatementsTab() {
 		s= new Select(monthdropdown_statementsTab);
 		return s.getFirstSelectedOption().getText();		
 	}
-	
+
 	public void Click_DownloadBtn_OnStatementsTab() {
 		jsClick(downloadstatementbutton_statementsTab);
 	}
-	
+
 	public boolean Validate_GeneratedStatementRecord() {
 		getDriver().switchTo().activeElement();
 		return iframereport_statementsTab.isDisplayed();		
 	}
-	
+
 	public boolean Verify_NoStatementFoundMessage_OnStatementsTab() {
 		HighlightElement(NoStatementsFoundMessage_statementsTab);
 		return (NoStatementsFoundMessage_statementsTab.isDisplayed());
 	}
-	
+
 	public void Click_CustomerHistory_OnCustomerDetailsSection() {
 		click(custHistoryIcon_OnCustDetailsSection);
 	}
-	
+
 	public boolean Verify_CustomerHistoryPopupAppears_OnCustomerDetailsSection() {
 		HighlightElement(previousOrdersHistoryHeaderPopup_OnCustDetailsSection);
 		return previousOrdersHistoryHeaderPopup_OnCustDetailsSection.isDisplayed();
 	}
-	
+
 	public void Click_PreviousOrder_OnCustomerHistoryPopup(String invoiceNumber) {
-	    for (WebElement order : ListOfPreviousOrdersInvoices_InOrderHistoryTable_CustHistoryPopup) {
-	        if(order.getText().contains(invoiceNumber)) {
-	        	jsClick(order);
-		        break;
-	        }
-	    	
-	    }
+		for (WebElement order : ListOfPreviousOrdersInvoices_InOrderHistoryTable_CustHistoryPopup) {
+			if(order.getText().contains(invoiceNumber)) {
+				jsClick(order);
+				break;
+			}
+
+		}
 	}
 
 	public void Click_PreviousOrder_OnCustomerHistoryPopup() {
-	    for (WebElement order : ListOfPreviousOrdersInvoices_InOrderHistoryTable_CustHistoryPopup) {	      
-	        	jsClick(order);
-		        break;	    	
-	    }
-	}
-	
-	public boolean Verify_TextmepromotionCheckboxIsChecked_OnPhoneorderPage() {
-	    HighlightElement(TextMepromotionsCheckBox_OnCustDetailsPopup);
-	    boolean isChecked = TextMepromotionsCheckBox_OnCustDetailsPopup.isSelected();
-	    if (isChecked) {
-	        System.out.println("The 'Text me promotions' checkbox is checked.");
-	    } else {
-	        System.out.println("The 'Text me promotions' checkbox is not checked.");
-	    }
-	    return isChecked;
+		for (WebElement order : ListOfPreviousOrdersInvoices_InOrderHistoryTable_CustHistoryPopup) {	      
+			jsClick(order);
+			break;	    	
+		}
 	}
 
-	
+	public boolean Verify_TextmepromotionCheckboxIsChecked_OnPhoneorderPage() {
+		HighlightElement(TextMepromotionsCheckBox_OnCustDetailsPopup);
+		boolean isChecked = TextMepromotionsCheckBox_OnCustDetailsPopup.isSelected();
+		if (isChecked) {
+			System.out.println("The 'Text me promotions' checkbox is checked.");
+		} else {
+			System.out.println("The 'Text me promotions' checkbox is not checked.");
+		}
+		return isChecked;
+	}
+
+
 	public void Click_TextmePromotionCheckBox_OnphoneOrderPage() {
 		jsClick(TextMepromotionsCheckBox_OnCustDetailsPopup);
 	}
-	
+
 	public void Click_SMSToogleOn_CustDetailsPopup() {
 		jsClick(smstooglebutton_OnCustDetailsPopup);
 	}
+
+	public boolean Verify_RecipientName_Autosuggestion() {
+		int i=0;
+		for( i=0;i<ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.size();i++) {
+			int count = ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.size();
+			if(count>0) {
+				System.out.println("The autosuggestion listed count is:" + count);
+				return true;
+			}
+		}
+		return false;		
+	}
+
+
+	public void SearchAndSelect_RecipientNameFromAutoSuggestion(String recifirstname) {
+		for(int i = 0; i < ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.size(); i++) {
+			if(ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.get(i).getText().contains(recifirstname)) {
+				click(ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.get(i));
+				break;
+			}
+		}
+	}
+
+	public boolean Verify_AddressverifiedByGoogle_ToastMsgAppears() {
+		HighlightElement(addressverifiedmsg);
+		return addressverifiedmsg.isDisplayed();
+	}
+
+	public String Verify_ToastMsgText() {
+		HighlightElement(addressverifiedmsg);
+		return addressverifiedmsg.getText();
+	}
 	
+	public String Verify_RecipientKMS_Appears() {
+		//	HighlightElement(recipientKMS);
+		String Recipient_KMS = recipientKMS.getText();
+		System.out.println(Recipient_KMS);
+		return Recipient_KMS;
+	}
+
+	public boolean Verify_RecipientSectionAppears() {
+		HighlightElement(recipientsectionOnPhoneOrderPage);
+		return recipientsectionOnPhoneOrderPage.isDisplayed();
+	}
+
+	public void Select_DeliveryOnTime_Dropdown(String deliveryontime) {
+		dropDown(selectDeliverytimeonDropdown_RecipientSectionOnPhoneOrderPage, deliveryontime, "VisibleText");
+	}
+
+	public String getSelected_DeliveryOnTimeOptions_OnDropdown_RecipientSection() {
+		s= new Select(selectDeliverytimeonDropdown_RecipientSectionOnPhoneOrderPage);
+		return (s.getFirstSelectedOption().getText());		
+	}
+
+	public void EnterTimeOnRecipientSection(String time) {
+		recipientDeliverytimeOnPhoneOrderPage.sendKeys(time);
+	}
+
+	public String getEnteredTimeOnRecipientSection() {
+		HighlightElement(recipientDeliverytimeOnPhoneOrderPage);
+		return recipientDeliverytimeOnPhoneOrderPage.getAttribute("value");
+	}
+
+	public String getCurrentTime() {
+		// Get the current time
+		LocalDateTime currentTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+		String formattedTime = currentTime.format(formatter);
+		System.out.println("Current Time: " + formattedTime);
+		return formattedTime;
+	}
+
+	public void Enter_DeliveryTime_OnRecipientSection() {
+		// Set the time 5:30 PM
+		LocalTime time530PM = LocalTime.of(17, 30);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+		String formattedTime = time530PM.format(formatter);
+		delayWithGivenTime(500);
+		jsClearAndType(recipientDeliverytimeOnPhoneOrderPage,formattedTime);
+	}
+
+	public void Click_ClearTimeButton_OnRecipientSection() {
+		jsClick(ClearTimeButton_recipientSectionOnPhoneOrderPage);
+	}
+
+	public boolean Verify_MapIconIsAppear_OnRecipientAddress1() {
+		HighlightElement(googleIcon_ReciAddress1_OnPhoneOrderPage);
+		return googleIcon_ReciAddress1_OnPhoneOrderPage.isDisplayed();
+	}
+
+	public void Click_MapIconOn_RecipientAddress1() {
+		jsClick(googleIcon_ReciAddress1_OnPhoneOrderPage);
+	}
+
+	public boolean Verify_MapDirectionPopup_IsAppear() {
+		HighlightElement(mapdirectionsPopup_ReciAddress1_OnPhoneOrderPage);
+		return mapdirectionsPopup_ReciAddress1_OnPhoneOrderPage.isDisplayed();
+	}
+
+	public void Click_Row1DirectionInstructions_OnMapDirectionPopup(){
+		getDriver().switchTo().frame(mapiframe_ReciAddress1_OnPhoneOrderPage);
+		delayWithGivenTime(1000);
+		jsClick(directionsRow1_ReciAddress1_OnPhoneOrderPage);
+	}
+
+	public boolean Verify_TooltipTextIsAppear_OnMapDirectionPopup() {
+		delayWithGivenTime(1000);
+		HighlightElement(tooltiptext_MapDirectionPopup_ReciAddress1_OnPhoneOrderPage);
+		return tooltiptext_MapDirectionPopup_ReciAddress1_OnPhoneOrderPage.isDisplayed();
+	}
+
+	public boolean Verify_TooltipClosed_OnMapDirectionPopup() {
+		try {
+			delayWithGivenTime(2000);
+			return tooltiptext_MapDirectionPopup_ReciAddress1_OnPhoneOrderPage.isDisplayed();			
+		} catch (NoSuchElementException e) {
+			return false;		
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public void Click_CloseIcon_OnMapDirectionPopup() {
+		jsClick(TooltipCloseIcon_MapDirectionPopup_ReciAddress1_OnPhoneOrderPage);
+	}
+
+	public void Click_SatelliteMapIcon_OnMapDirectionPopup_ReciAddress1() {
+		HighlightElement(SateliteTab_MapDirectionPopupReciAddress1_OnPhoneOrderPage);
+		jsClick(SateliteTab_MapDirectionPopupReciAddress1_OnPhoneOrderPage);
+	}
+
+	public void MouseHoverSatelliteTabAndClickLabel_SatelliteMapIcon() {
+		MouseHover(SateliteTab_MapDirectionPopupReciAddress1_OnPhoneOrderPage);
+		delayWithGivenTime(2000);
+		click(satelliteTabLabel_MapDirectionPopupReciAddress1_OnPhoneOrderPage);		
+	}
+
+	public void ClickMapTab_OnMapDirectionPopup_ReciAddress1() {
+		jsClick(MapTab_MapDirectionPopupReciAddress1_OnPhoneOrderPage);
+	}
+
+	public void MouseHoverMapTabAndClickTerrain_OnMapDirectionPopup_ReciAddress1() {
+		MouseHover(MapTab_MapDirectionPopupReciAddress1_OnPhoneOrderPage);
+		delayWithGivenTime(2000);
+		click(satelliteTabTerrain_MapDirectionPopupReciAddress1_OnPhoneOrderPage);		
+	}
+
+	public void Click_PlusIcon_OnMapDirectionPopup_ReciAddress1() {
+		jsClick(plusIcon_MapDirectionPopupReciAddress1_OnPhoneOrderPage);
+	}
+
+	public void Click_MinusIcon_OnMapDirectionPopup_ReciAddress1() {
+		jsClick(minusIcon_MapDirectionPopupReciAddress1_OnPhoneOrderPage);
+	}
+
+	public boolean VerifyMapIsZoomIn() {
+		System.out.println("Zoom in : Attrbute value " +VerifyZoomIn_MapDirectionPopupReciAddress1_OnPhoneOrderPage.getAttribute("style"));
+		boolean zoomin = VerifyZoomIn_MapDirectionPopupReciAddress1_OnPhoneOrderPage.getAttribute("style").contains("matrix(1, 0, 0, 1, -230, -242);");
+		return zoomin;
+	}
+
+	public boolean VerifyMapIsZoomOut() {
+		System.out.println("Zoom out === Attrbute value === " +VerifyZoomIn_MapDirectionPopupReciAddress1_OnPhoneOrderPage.getAttribute("style"));
+		boolean zoomout = VerifyZoomIn_MapDirectionPopupReciAddress1_OnPhoneOrderPage.getAttribute("style").contains("matrix(1, 0, 0, 1, -243, -121);");
+		return zoomout;
+	}
+
+	public void DragAndDrop_DragPegman_OnMapDirectionPopup_ReciAddress1() {
+		dragAndDrop(DragPegman_MapDirectionPopupReciAddress1_OnPhoneOrderPage,DragPegman_MapDirectionPopupReciAddress1_OnPhoneOrderPage);
+	}
+
+
+	public void Click_FullscreenIcon_OnMapDirectionPopup_ReciAddress1() {
+		jsClick(FullScreen_MapDirectionPopupReciAddress1_OnPhoneOrderPage);
+	}
+
+	public boolean Verify_MapDirectionPopup_DisplayedFullScreenMode() {
+		return FullScreen_MapDirectionPopupReciAddress1_OnPhoneOrderPage.getAttribute("aria-pressed").contains("true"); 
+	}
+
+
+	public void Click_CloseIconOnMapDirectionPopup_ReciAddress1() {
+		getDriver().switchTo().defaultContent();
+		delayWithGivenTime(1000);
+		jsClick(CloseIcon_MapDirectionPopupReciAddress1_OnPhoneOrderPage);
+	}
+
+	public boolean MapDirectionPopup_isClosed() {
+		try {
+			delayWithGivenTime(1000);
+			return mapdirectionsPopup_ReciAddress1_OnPhoneOrderPage.isDisplayed();
+
+		} catch (NoSuchElementException e) {
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public String getRecipientState() {
+		HighlightElement(recipientstateOnPhoneOrderPage);
+		return recipientstateOnPhoneOrderPage.getAttribute("value");
+	}
+
+	public boolean Verify_RecipientAttentionField_IsDisplayed() {
+		HighlightElement(recipientattentionOnPhoneOrderPage);
+		return recipientattentionOnPhoneOrderPage.isDisplayed();
+	}	
+
+	public void EnterRecipientAttention(String recipientattention) {
+		HighlightElement(recipientattentionOnPhoneOrderPage);
+		recipientattentionOnPhoneOrderPage.clear();
+		recipientattentionOnPhoneOrderPage.sendKeys(recipientattention);
+		//recipientattentionOnPhoneOrderPage.sendKeys(Keys.TAB);
+	}
+
+	public String get_RecipientAttention() {
+		HighlightElement(recipientattentionOnPhoneOrderPage);
+		return recipientattentionOnPhoneOrderPage.getAttribute("value");
+	}
+
+	public void SearchAndSelectReciAttention(String reciaAttention) {			   		
+		for (WebElement customerElement : ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage) {
+			MouseHover(ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage.get(0));
+			click(ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage.get(0));		
+			break;
+		}
+	}
+
+	public boolean Verify_Autosuggestion_Displayed_OnReciAttention() {
+		HighlightElement(recipientattentionOnPhoneOrderPage);
+		recipientattentionOnPhoneOrderPage.clear();
+		delayWithGivenTime(1000);
+		for(int i=0;i<ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage.size();i++) {
+			int ReciAddress1_size=	ListOfReciAddress1_Autosuggestions_OnPhoneOrderPage.size();
+			if(ReciAddress1_size>0) {
+				return true;
+			}
+		}return false;
+
+	}
+
+	public void ClickSelectOptions_OnRecipient() {
+		actionClick(recipientSelectOptionsBtnOnPhoneOrderPage);
+		Actions action = new Actions(getDriver());
+		action.keyDown(Keys.ENTER).build().perform();
+		action.keyUp(Keys.ENTER).build().perform();
+	}
+
+	public void Click_SelectAllOption() {
+		jsClick(selectallOption_RecipientSelectOptionsDropDown);
+	}
+	
+	
+	public void Click_ConfidentialOption() {
+		jsClick(confidentialOption_RecipientSelectOptionsDropDown);
+	}
+	
+	public void Click_FrequentAddrOption() {
+		jsClick(FrequentAddrOption_RecipientSelectOptionsDropDown);
+	}
+	
+	public void Click_SaveFuneralOption() {
+		jsClick(saveFuneralOption_RecipientSelectOptionsDropDown);
+	}
+	
+	public void SelectTheOptions_OnRecipient(String recipient) {			
+		for(WebElement ele : recipientSelectOptionsListOnPhoneOrderPage) {
+			if(ele.getText().equalsIgnoreCase(recipient)) {
+				ele.click();
+				break;
+			}
+		}
+		delayWithGivenTime(1000);
+		click(recipientSelectOptionsBtnOnPhoneOrderPage);
+	}
+	
+	public void Select_Location_OnRecipientSection(String recilocation) {
+		dropDown(recipientLocation,recilocation,"VisibleText");
+	}
+	
+	public String getSelectedLocation_OnRecipientSection() {
+		s = new Select(recipientLocation);
+		return s.getFirstSelectedOption().getText();
+	}
+	
+	
+	public void Select_Zone_OnRecipientSection(String recizone) {
+		dropDown(recipientzone,recizone,"VisibleText");
+	}
+	
+	public String getSelectedZone_OnRecipientSection() {
+		 s = new Select(recipientzone);
+		return s.getFirstSelectedOption().getText();
+	}
+
+	public String getDeliveryFees_PaymentSection_OnPhoneOrder() {
+		HighlightElement(deliveryFee_PhoneOrder_PaymentSection);
+		return deliveryFee_PhoneOrder_PaymentSection.getAttribute("value");
+	}
+	
+	public String getSelectedOption() {
+		return selectedRecipientOptionsOnPhoneOrderPage.getText();
+	}
+	
+	public boolean Verify_OrderDetailsSectionAppears() {
+		HighlightElement(OrderDetailsSection);
+		return OrderDetailsSection.isDisplayed();
+	}
+	
+	public boolean Verify_SendRemainder_OnOrderDetailsIsAppears() {
+		try {
+			delayWithGivenTime(2000);
+			HighlightElement(sendreminderlabel_OrderDetailsTab);
+			return sendreminderlabel_OrderDetailsTab.isDisplayed();			
+		} catch (NoSuchElementException e) {
+			return false;		
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public void Click_SendRemainderCheckBox() {
+		jsClick(sendreminderlabel_OrderDetailsTab);
+	}
+	
+	public boolean Verify_SendRemainderCheckBoxIsSelected() {		
+		System.out.println("Send remainder checkbox is selected:" +sendRemainderCheckbox_OrderDetailsSection.isSelected());
+		return sendRemainderCheckbox_OrderDetailsSection.isSelected();
+	}
+	
+	
+	public boolean Verify_PrintTicketCheckBoxIsSelected() {		
+		System.out.println("Print ticket checkbox is selected:" +printTicketCheckBox_OrderDetailsSection.isSelected());
+		return printTicketCheckBox_OrderDetailsSection.isSelected();
+	}
+	
+	public void Click_ViewShortCodes_Hyperlink() {
+		jsClick(ViewShortCodesLink_OrderDetailsSection);
+	}
+	
+	public boolean Verify_ViewShortCodes_HyperlinkIsDisplayed() {
+		HighlightElement(ViewShortCodesLink_OrderDetailsSection);
+		return ViewShortCodesLink_OrderDetailsSection.isDisplayed();
+	}
+	
+	public boolean Verify_ViewShortCodes_PopupIsDisplayed() {
+		HighlightElement(ShortCodes_Popup_OrderDetailsSection);
+		return ShortCodes_Popup_OrderDetailsSection.isDisplayed();
+	}
+	
+	public void SetCode_OnViewShortCodesPopup(String code) {
+		clickAndType(codeTextBox_ShortCodesPopup_OrderDetailsSection,code);
+	}
+	
+	public String get_EnteredCode_OnViewShortCodesPopup() {
+		HighlightElement(codeTextBox_ShortCodesPopup_OrderDetailsSection);
+		return codeTextBox_ShortCodesPopup_OrderDetailsSection.getAttribute("value");
+	}
+	
+	public void SetValue_OnViewShortCodesPopup(String value) {
+		clickAndType(valueTextBox_ShortCodesPopup_OrderDetailsSection,value);
+	}
+	
+	public String get_EnteredValue_OnViewShortCodesPopup() {
+		HighlightElement(valueTextBox_ShortCodesPopup_OrderDetailsSection);
+		return valueTextBox_ShortCodesPopup_OrderDetailsSection.getAttribute("value");
+	}
+	
+	public void Click_AddButton_OnViewShortCodesPopup() {
+		jsClick(addButton_ShortCodesPopup_OrderDetailsSection);
+	}
+	
+	public boolean Verify_AddedShortCode_IsDisplayed_OnViewShortCodesPopup() {
+		HighlightElement(LastShortCode_OrderDetailsSection);		
+		String Code = LastShortCode_OrderDetailsSection.getText();
+		HighlightElement(LastValues_OrderDetailsSection);
+		String value = LastValues_OrderDetailsSection.getText();
+		System.out.println(Code + "  " + value);
+		if(Code.equals("At") && value.equals("Automation Test")) {			
+			return true;
+		}else {
+			System.out.println("Added ShortCode is not displayed");
+			return false;
+		}
+	}
+	
+	public void Click_CloseIcon_OnViewShortCodesPopup() {
+		jsClick(closeIcon_ShortCodesPopup_OrderDetailsSection);
+	}
+	public boolean Verify_DeleteIconDisplayed() {
+		return LastdeleteIcon_OrderDetailsSection.isDisplayed();
+	}
+	
+	public void Click_DeleteIcon_OnShortCodesPopup() {
+		actionClick(LastdeleteIcon_OrderDetailsSection);
+	}
+		
+	public void Click_DeleteButtonDeleteConfirmation() {
+		delayWithGivenTime(1000);
+		click(YesButtonDeleteConfirmation_ShortCodesPopup_OrderDetailsSection);
+	}
+	
+	public boolean Verify_ConfirmationPopup() {
+		delayWithGivenTime(1000);
+		HighlightElement(ConfirmationAlert_ShortCodesPopup_OrderDetailsSection);
+		return ConfirmationAlert_ShortCodesPopup_OrderDetailsSection.isDisplayed();
+	}
+	
+	public boolean Verify_DeleteConfirmation() {
+		delayWithGivenTime(1000);
+		if(ConfirmationPopup.isDisplayed()) {
+		HighlightElement(ConfirmationAlertIcon_ShortCodesPopup_OrderDetailsSection);
+		ConfirmationAlertIcon_ShortCodesPopup_OrderDetailsSection.isDisplayed();
+		HighlightElement(ConfirmationAlert_ShortCodesPopup_OrderDetailsSection);
+		ConfirmationAlert_ShortCodesPopup_OrderDetailsSection.isDisplayed();
+		HighlightElement(ConfirmationAlertMessage_ShortCodesPopup_OrderDetailsSection);
+		ConfirmationAlertMessage_ShortCodesPopup_OrderDetailsSection.isDisplayed();
+		HighlightElement(YesButtonDeleteConfirmation_ShortCodesPopup_OrderDetailsSection);
+			YesButtonDeleteConfirmation_ShortCodesPopup_OrderDetailsSection.isDisplayed();
+		HighlightElement(NoButtonDeleteConfirmation_ShortCodesPopup_OrderDetailsSection);
+		NoButtonDeleteConfirmation_ShortCodesPopup_OrderDetailsSection.isDisplayed();
+		return true;
+		}else {
+			return false;
+		}	
+	}
+	
+	public void Click_NoButtonDeleteConfirmation() {
+		jsClick(NoButtonDeleteConfirmation_ShortCodesPopup_OrderDetailsSection);
+	}
+	
+	public boolean Verify_ProductSectionLabel_Appears() {
+		HighlightElement(productsectionOnPhoneOrderPage);
+		return productsectionOnPhoneOrderPage.isDisplayed();
+	}
+	
+	public boolean Verify_ProductSuggestions_Appears(String proditemcode) {
+		prod_details_Itemcode1.clear();
+		prod_details_Itemcode1.sendKeys(proditemcode);
+		delayWithGivenTime(2000);
+		List<String> expectedProducts = Arrays.asList("rrd-Red Rose Small-199", "rrd-Red Rose Deluxe-299","rrd-Red Rose Premium -399","rrd-2-Wedding Reception Flower -789");
+		Set<String> actualProducts = new HashSet<>();
+
+		for (WebElement products : listOfItemsUnderItemcode1) {
+			HighlightElement(products);
+			actualProducts.add(products.getText());
+		}
+
+		if(expectedProducts.containsAll(actualProducts)) {
+			System.out.println("All expected products are displayed" + actualProducts);
+			System.out.println("Expected products are displayed as: " + expectedProducts);
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
+	public void Click_ProductRemoveIcon_Row1() {
+		jsClick(removeIconProdDetails1);
+	}
+	
+	public boolean Verify_ProductRow1Details_Removed() {
+		try {
+			return prod_details_Itemcode1.isDisplayed();
+		} catch (NoSuchElementException e) {
+			return true;			
+		}catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public boolean Verify_AutosugestionsList_OnItemDescription_Appears(String proditemdescription) {
+		prod_details_ItemDescription2OnPhoneOrderPage.clear();
+		prod_details_ItemDescription2OnPhoneOrderPage.sendKeys(proditemdescription);
+		delayWithGivenTime(2000);
+		List<String> expectedProducts = Arrays.asList("Flwrs-red roses -50",
+				"Roses-Red rose flowers -14",
+				"RED12-Red Rose -18.32",
+				"FlwrsShailja_1-red roses -50",
+				"rrd-Red Rose Small-199",
+				"rrd-Red Rose Deluxe-299",
+				"rrd-Red Rose Premium -399",
+				"rrd-2-Wedding Reception Flower -789",
+				"RDWB-Premium Red Roses Double Wrapped Bouquet -40",
+				"RDWB-Premium Red Roses Double Wrapped Bouquet Premium Red Roses Double Wrapped Bouquet - Special-60");
+		Set<String> actualProducts = new HashSet<>();
+		for (WebElement products : listOfRow2_ItemDescription_OnPhoneOrderPage) {
+			HighlightElement(products);
+			actualProducts.add(products.getText());
+		}
+		if(expectedProducts.containsAll(actualProducts)) {
+			System.out.println("All expected products descriptions are displayed" + actualProducts);
+			System.out.println("Expected products descriptions are displayed as: " + expectedProducts);
+		return true;
+		}else {
+			System.out.println("Expected products descriptions are not displayed" + actualProducts);
+			System.out.println("Expected products  descriptions are displayed as: " + expectedProducts);
+			return false;
+		}
+	}
+	
+	public void SearchAndSelect_WithItemDescription(String proditemShortdesc,String proditemdescription) {
+		prod_details_ItemDescription2OnPhoneOrderPage.clear();
+		prod_details_ItemDescription2OnPhoneOrderPage.sendKeys(proditemShortdesc);
+		delayWithGivenTime(2000);
+		for (WebElement products : listOfRow2_ItemDescription_OnPhoneOrderPage) {
+			if(products.getText().contains(proditemdescription)) {
+				jsClick(products);
+				break;				
+			}
+		}
+		
+	}
+	
+	public void Click_AddIcon_Row3() {
+		jsClick(addIconProdDetails3_OnPhoneOrderPage);
+	}
+	
+	public boolean Verify_Row4_ProductDetailsItemcode_Appears() {
+		int row_count =	listOfRow_ProductDetails_OnPhoneOrderPage.size();
+		if(row_count==3) {
+			HighlightElement(prod_details_Itemcode4_OnPhoneOrderPage);
+			prod_details_Itemcode4_OnPhoneOrderPage.isDisplayed();
+			return true;
+		}else {
+			return false;
+		}		
+	}
+	
+	public String get_ItemCodeRow2_ProductDetails() {
+		HighlightElement(prod_details_Itemcode2_OnPhoneOrderPage);
+		return prod_details_Itemcode2_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public String get_ItemDescriptionRow2_ProductDetails() {
+		HighlightElement(prod_details_ItemDescription2_OnPhoneOrderPage);
+		return prod_details_ItemDescription2_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public String get_ItemQtyRow2_ProductDetails() {
+		HighlightElement(prod_details_ItemQty2_OnPhoneOrderPage);
+		return prod_details_ItemQty2_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public String get_ItemPriceRow2_ProductDetails() {
+		HighlightElement(prod_details_ItemPrice2_OnPhoneOrderPage);
+		return prod_details_ItemPrice2_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void EnterSpecialInstructions_ProductDetailsSection(String SpecialInstructions) {
+		HighlightElement(Splinstruction_Textbox_OnPhoneOrderPage);
+		Splinstruction_Textbox_OnPhoneOrderPage.clear();
+		clickAndType(Splinstruction_Textbox_OnPhoneOrderPage, SpecialInstructions);
+	}
+	
+	public String get_SpecialInstructions_ProductDetailsSection() {
+		HighlightElement(Splinstruction_Textbox_OnPhoneOrderPage);
+		return Splinstruction_Textbox_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void EnterDriverInstructions_ProductDetailsSection(String DriverInstructions) {
+		HighlightElement(Driverinstruction_Textbox_OnPhoneOrderPage);
+		Driverinstruction_Textbox_OnPhoneOrderPage.clear();
+		clickAndType(Driverinstruction_Textbox_OnPhoneOrderPage, DriverInstructions);
+	}
+	
+	public String get_DriverInstructions_ProductDetailsSection() {
+		HighlightElement(Driverinstruction_Textbox_OnPhoneOrderPage);
+		return Driverinstruction_Textbox_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	
+	public void EnterCustomerPrivateNotesInstructions_ProductDetailsSection(String customerPrivateNotesInstructions) {
+		HighlightElement(customerPrivateNotes_Textbox_OnPhoneOrderPage);
+		customerPrivateNotes_Textbox_OnPhoneOrderPage.clear();
+		clickAndType(customerPrivateNotes_Textbox_OnPhoneOrderPage, customerPrivateNotesInstructions);
+	}
+	
+	public String get_CustomerPrivateNotesInstructions_ProductDetailsSection() {
+		HighlightElement(customerPrivateNotes_Textbox_OnPhoneOrderPage);
+		return customerPrivateNotes_Textbox_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Select_ProductTaxType(String taxtype) {
+		dropDown(producttaxType_OnPhoneOrderPage, taxtype, "VisibleText");
+	}
+	
+	public String get_selected_ProductTaxType() {
+		s=new Select(producttaxType_OnPhoneOrderPage);
+		return (s.getFirstSelectedOption().getText());
+	}
+	
+	public void Enter_ProductTaxId(String prodtaxid) {
+		producttaxId_OnPhoneOrderPage.clear();
+		clickAndType(producttaxId_OnPhoneOrderPage, prodtaxid);
+	}
+	
+	public String get_ProductTaxId() {
+		HighlightElement(producttaxId_OnPhoneOrderPage);
+		return producttaxId_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Select_ProdSourceCode(String prodsourcecode) {
+		dropDown(productSourceCode_OnPhoneOrderPage, prodsourcecode, "VisibleText");		
+	}
+	
+	public String get_selected_ProdSourceCode() {
+		s=new Select(productSourceCode_OnPhoneOrderPage);
+		return (s.getFirstSelectedOption().getText());
+	}
+	
+	public void Select_ProdCustType(String custType) {
+		dropDown(productcustomerType_OnPhoneOrderPage, custType, "VisibleText");
+	}
+	
+	public String get_selected_ProdCustType() {
+		s=new Select(productcustomerType_OnPhoneOrderPage);
+		return (s.getFirstSelectedOption().getText());
+	}
+	
+	public void Enter_GiftCardNumber_OnPhoneOrderPage(String giftcardnumber) {
+		HighlightElement(giftCardNumber_PhoneOrder_PaymentSection);
+		giftCardNumber_PhoneOrder_PaymentSection.clear();
+		clickAndType(giftCardNumber_PhoneOrder_PaymentSection, giftcardnumber);
+	}
+	
+	public String get_GiftCardNumber_OnPhoneOrderPage() {
+		HighlightElement(giftCardNumber_PhoneOrder_PaymentSection);
+		return giftCardNumber_PhoneOrder_PaymentSection.getAttribute("value");
+	}
+	
+	
+	public String get_GiftCardDisplayedCustName_OnPhoneOrderPage() {
+		giftCardNumber_PhoneOrder_PaymentSection.sendKeys(Keys.TAB);
+		HighlightElement(giftCardCustName_PhoneOrder_PaymentSection);
+		return giftCardCustName_PhoneOrder_PaymentSection.getAttribute("value");
+	}
+	
+	public String get_GiftCardCurrentBalanceDisplayed_OnPhoneOrderPage() {
+		HighlightElement(giftCardCurrentBalance_PhoneOrder_PaymentSection);
+		return giftCardCurrentBalance_PhoneOrder_PaymentSection.getAttribute("value");
+	}
+	
+	public String get_GiftCardDisplayed_Amount_OnPhoneOrderPage() {
+		HighlightElement(giftCardAmount_PhoneOrder_PaymentSection);
+		return giftCardAmount_PhoneOrder_PaymentSection.getAttribute("value");
+	}
+	
+	public String Validate_GiftCardAmountCalculation() {
+		double currentbalance = Double.parseDouble(get_GiftCardCurrentBalanceDisplayed_OnPhoneOrderPage());
+		double amount = Double.parseDouble(getGrandTotalAmount());
+		double current_balance = currentbalance - amount;
+		System.out.println("Current Balance);" + current_balance);
+		return Double.toString(current_balance);
+	}
+	
+	
+	public void Enter_WireIn_Fname(String firstname) {
+		wireinFirstName_OnPhoneOrderPage.clear();
+		clickAndType(wireinFirstName_OnPhoneOrderPage, firstname);
+	}
+	
+	public String get_Entered_WireIn_Fname() {
+		HighlightElement(wireinFirstName_OnPhoneOrderPage);
+		return wireinFirstName_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	
+	public void Enter_WireIn_Lname(String lastname) {
+		wireinLastName_OnPhoneOrderPage.clear();
+		clickAndType(wireinLastName_OnPhoneOrderPage, lastname);
+	}
+	
+	public String get_Entered_WireIn_Lname() {
+		HighlightElement(wireinLastName_OnPhoneOrderPage);
+		return wireinLastName_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Enter_WireIn_ShopCode(String shopcode) {
+		wireinShopCode_OnPhoneOrderPage.clear();
+		clickAndType(wireinShopCode_OnPhoneOrderPage, shopcode);
+	}
+	
+	public String get_Entered_WireIn_ShopCode() {
+		HighlightElement(wireinShopCode_OnPhoneOrderPage);
+		return wireinShopCode_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Enter_WireIn_ShopName(String shopcode) {
+		wireinShopName_OnPhoneOrderPage.clear();
+		clickAndType(wireinShopName_OnPhoneOrderPage, shopcode);
+	}
+	
+	public String get_Entered_WireIn_ShopName() {
+		HighlightElement(wireinShopName_OnPhoneOrderPage);
+		return wireinShopName_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Select_WireInMethod(String wireinmethod) {
+		dropDown(wireinMethods_OnPhoneOrderPage, wireinmethod, "VisibleText");
+	}
+	
+	public String get_Selected_WireInMethod() {
+		s=new Select(wireinMethods_OnPhoneOrderPage);
+		return (s.getFirstSelectedOption().getText());
+	}
+	
+	public void Enter_WireIn_OrderNumber(String ordernumber) {
+		wireinOrderNum_OnPhoneOrderPage.clear();
+		clickAndType(wireinOrderNum_OnPhoneOrderPage, ordernumber);
+	}
+	
+	public String get_Entered_WireIn_OrderNumber() {
+		HighlightElement(wireinOrderNum_OnPhoneOrderPage);
+		return wireinOrderNum_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Enter_WireIn_PhoneNumber(String phonenumber) {
+		wireinPhone_OnPhoneOrderPage.clear();
+		clickAndType(wireinPhone_OnPhoneOrderPage, phonenumber);
+	}
+	
+	public String get_Entered_WireIn_PhoneNumber() {
+		HighlightElement(wireinPhone_OnPhoneOrderPage);
+		return wireinPhone_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Enter_WireIn_Email(String email) {
+		wireinEmail_OnPhoneOrderPage.clear();
+		clickAndType(wireinEmail_OnPhoneOrderPage, email);
+	}
+	
+	public String get_Entered_WireIn_Email() {
+		HighlightElement(wireinEmail_OnPhoneOrderPage);
+		return wireinEmail_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Enter_WireIn_ShopAddress(String shopaddress) {
+		wireinShopAddress_OnPhoneOrderPage.clear();
+		clickAndType(wireinShopAddress_OnPhoneOrderPage, shopaddress);
+	}
+	
+	public String get_Entered_WireIn_ShopAddress() {
+		HighlightElement(wireinShopAddress_OnPhoneOrderPage);
+		return wireinShopAddress_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Enter_WireIn_Comments(String comments) {
+		wireinComments_OnPhoneOrderPage.clear();
+		clickAndType(wireinComments_OnPhoneOrderPage, comments);
+	}
+	
+	public String get_Entered_WireIn_Comments() {
+		HighlightElement(wireinComments_OnPhoneOrderPage);
+		return wireinComments_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Select_WireOut_PaymentMethod(String paymentmethod) {
+		dropDown(wireoutMethods_OnPhoneOrderPage, paymentmethod, "VisibleText");
+	}
+	
+	public String get_Selected_WireIn_PaymentMethod() {
+		s=new Select(wireoutMethods_OnPhoneOrderPage);
+		return (s.getFirstSelectedOption().getText());
+	}
+	
+	public void Enter_WireoutFlorist(String florist) {
+		wireoutFlorist_OnPhoneOrderPage.clear();
+		clickAndType(wireoutFlorist_OnPhoneOrderPage, florist);		
+	}
+	
+	public String get_Amount_wireout_paymentsection() {
+		String amountStr = wireoutAmt_OnPhoneOrderPage.getText();
+		String amountValue = amountStr.replaceAll("[^0-9.]", "");
+		return amountValue;
+	}
+	
+	public void set_Amount_wireout_paymentsection() {
+		wireoutAmount_OnPhoneOrderPage.clear();
+		clickAndType(wireoutAmount_OnPhoneOrderPage, get_Amount_wireout_paymentsection());
+	}
 	
 }
 	
+	
 
-	
-	
+
+
+
+
 
 

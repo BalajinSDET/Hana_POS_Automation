@@ -129,6 +129,18 @@ public class HanaDashBoardPage extends TestBaseClass {
 	
 	@FindBy(id="CustomersMenu")
 	private WebElement CustomersMenu;
+	
+	@FindBy(xpath="//li[@id='ConfigurationMenu']")
+	private WebElement ConfigurationMenu;
+	
+	@FindBy(xpath="//a[@class='li_Configuration']")
+	private WebElement settingsSubmenu;
+	
+	@FindBy(xpath="(//span[normalize-space()='Marketing'])[1]")
+	private WebElement MarketingMenu;
+	
+	@FindBy(xpath="//a[@class='dropdown-item li_Reminder']")
+	private WebElement Reminder_FromMarkingMenu;
 
 	public String VerifyPageTitleonDashboard() {
 		return getDriver().getTitle();
@@ -191,7 +203,7 @@ public class HanaDashBoardPage extends TestBaseClass {
 	}
 	public void ClickOrder() {
 		fluentWait(OrdersMenu);
-		click(OrdersMenu);
+		jsClick(OrdersMenu);
 	}
 
 	public DashboardOrderPage ClickAllOrder() {
@@ -223,4 +235,24 @@ public class HanaDashBoardPage extends TestBaseClass {
 		CustomersMenu.click();
 		//jsClick(CustomersMenu);
 	}
+	
+	public void Click_ConfigurationMenu() {
+		jsClick(ConfigurationMenu);
+	}
+	
+	
+	public void Click_settingsSubmenu() {
+		MouseHover(ConfigurationMenu);
+		ThreadWait(2000);
+		jsClick(settingsSubmenu);
+		switchToWindowbyIndex(1);
+		//settingsSubmenu.click();
+	}
+	
+	public void Click_Marketing_RemainderMenu() {
+		MouseHover(MarketingMenu);
+		delayWithGivenTime(1000);
+		click(Reminder_FromMarkingMenu);
+	}
+	
 }

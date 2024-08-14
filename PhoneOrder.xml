@@ -56,7 +56,14 @@
     <class name="com.hanapos.OrderEntry_Alais_PhoneOrderTest.Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pagination_FT"/>
     <class name="com.hanapos.OrderEntry_Alais_PhoneOrderTest.Hana_T127_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Sorting_FT"/>
 
-<class name="com.hanapos.OrderEntry_Alais_PhoneOrderTest.Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_FT"/>
+
+
+
+
+
+
+
+	<class name="com.hanapos.OrderEntry_Alais_PhoneOrderTest.Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_FT"/>
 	
 
     </classes>

@@ -227,6 +227,7 @@ public class CustomerPage extends TestBaseClass {
 	
 	public String getCustDetailsFirstNameTextBox() {
 		HighlightElement(CustDetailsFirstNameTextBox);
+		System.out.println(CustDetailsFirstNameTextBox.getAttribute("value"));
 		return CustDetailsFirstNameTextBox.getAttribute("value");
 	}
 	
@@ -323,7 +324,7 @@ public class CustomerPage extends TestBaseClass {
 	
 	public void Click_CustomerId_OnCustomerTable() {
 		for(int i = 0; i<ListOfCustomerID_OnCustomerTableRow.size(); i++) {
-			ListOfCustomerID_OnCustomerTableRow.getLast().click();
+				jsClick(ListOfCustomerID_OnCustomerTableRow.getLast());
 				break;
 			}
 		}

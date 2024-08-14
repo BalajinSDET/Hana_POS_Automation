@@ -1,1 +1,0 @@
-{"uuid":"c3bea525-3837-4e1f-a2f6-51cf3b0f06ee","name":"Phone Order Functional Suite","children":["bc8036c2-4d9a-40c9-9a32-5ba65661d018"],"befores":[{"name":"loadConfig","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1722242687384,"stop":1722242687390}],"afters":[],"start":1722242687349,"stop":1722243989743}

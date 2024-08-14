@@ -1303,7 +1303,7 @@ public class CashAndCarryPage extends TestBaseClass{
 		delayWithGivenTime(3000);
 
 		for(int i=0;i<itemcodelist.size();i++) {
-			if(itemcodelist.get(i).getText().equals("rrd-Red Rose Deluxe-309")) {
+			if(itemcodelist.get(i).getText().contains("rrd-Red Rose Deluxe")) {
 				jsClick(itemcodelist.get(i));
 				break;
 			}
@@ -1315,12 +1315,14 @@ public class CashAndCarryPage extends TestBaseClass{
 		DoubleClickAndType(ItemCode,itemcode);
 		delayWithGivenTime(3000);
 
-		for(int i=0;i<itemcodelist.size();i++) {
-			if(itemcodelist.get(i).getText().equals(itemdescription)) {
-				jsClick(itemcodelist.get(i));
+		for(WebElement ele:itemcodelist) {
+			if(ele.getText().contains(itemdescription)) {
+				jsClick(ele);
 				break;
 			}
+			
 		}
+	
 	}
 	
 	public void searchAndselectWithItemDescription(String itemdescription) {
@@ -1849,13 +1851,13 @@ public class CashAndCarryPage extends TestBaseClass{
 
 	public String ValidateGrandTotal() {
 		double subTotal = Double.parseDouble(DefaultSubTotalValues.getText().replace("$", "").trim());
-		double gst = Double.parseDouble(GSTDefaultValue.getText().replace("$", "").trim());
-		double psthstqst = Double.parseDouble(PSTHSTQSTDefaultValues.getText().replace("$", "").trim());
+		//double gst = Double.parseDouble(GSTDefaultValue.getText().replace("$", "").trim());
+		//double psthstqst = Double.parseDouble(PSTHSTQSTDefaultValues.getText().replace("$", "").trim());
 		double tax = Double.parseDouble(TaxDefaultValues.getText().replace("$", "").trim());
 		double discount = Double.parseDouble(DiscountDefaultValues.getText().replace("$", "").trim());
+		// gst + psthstqst ---- functionality removed in UI july 2024
 
-
-		double expectedGrandTotal = (subTotal + gst + psthstqst + tax) - discount;
+		double expectedGrandTotal = (subTotal + tax) - discount;
 
 		// Format the numbers to two decimal places
 		DecimalFormat df = new DecimalFormat("#.00");
@@ -2768,14 +2770,22 @@ public class CashAndCarryPage extends TestBaseClass{
 		return GiftCardSalePopup.isDisplayed();
 	}
 	
-	public void ClickOnInstantDenomination(String instantdenomination) {
-		int i=0;
-		for(i=0;i<GiftCardPriceListButton.size();i++) {
-			if(GiftCardPriceListButton.get(i).getText().contains(instantdenomination)) {
-				click(GiftCardPriceListButton.get(i));
+	public void set_DefaultDenomination() {
+		jsClick(EditButtonOnGiftCardPopup);
+		delayWithGivenTime(1000);
+		EditGiftCardDenomination1TextBox.clear();
+		EditGiftCardDenomination1TextBox.sendKeys("30");
+		jsClick(EditGiftCardDenominationSaveButton);
+	}
+	
+	public void ClickOnInstantDenomination(String instantdenomination) {		
+		for(WebElement ele:GiftCardPriceListButton) {
+			if(ele.getText().equals(instantdenomination)) {
+				jsClick(ele);
 				break;
 			}
-	}
+		}	
+		
 }
 
 	public String getGiftAmountValue() {

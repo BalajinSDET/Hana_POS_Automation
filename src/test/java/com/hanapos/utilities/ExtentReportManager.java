@@ -45,7 +45,7 @@ public class ExtentReportManager extends TestBaseClass implements ITestListener 
 		timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		repName = "Hana-Test-AutomationReport-" + timeStamp + ".html";
 		sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName);
-
+		sparkReporter = new ExtentSparkReporter(".\\reports\\extentreport\\Hanapos_AutomationReport.html");
 		sparkReporter.config().setDocumentTitle("Hana POS Automation"); 
 		sparkReporter.config().setReportName("Hana POS Automation Test Report"); 
 		sparkReporter.config().setTheme(Theme.DARK);
@@ -89,7 +89,7 @@ public class ExtentReportManager extends TestBaseClass implements ITestListener 
 	        LogUtil.saveBrowserLogs(getDriver(), logFilePath);
 
 	        try {
-				String imgPath = new TestBaseClass().captureScreen(result.getName());
+				String imgPath = new TestBaseClass().captureScreenshot(result.getName());
 				test.addScreenCaptureFromPath(imgPath);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -108,14 +108,15 @@ public class ExtentReportManager extends TestBaseClass implements ITestListener 
 			
 			
 			 //To open report on desktop..
-			String pathOfExtentReport =	 System.getProperty("user.dir") + "\\reports\\" + repName;
-			File extentReport = new File(pathOfExtentReport);
+		//	String pathOfExtentReport =	 System.getProperty("user.dir") + "\\reports\\" + repName;
+		//	File extentReport = new File(pathOfExtentReport);
 			 
-			 try {
-				 Desktop.getDesktop().browse(extentReport.toURI()); 
-			 } catch (IOException e) {
-				 e.printStackTrace(); 
-				 }
+		//	 try {
+		//		 Desktop.getDesktop().browse(ex
+		//	tentReport.toURI()); 
+		//	 } catch (IOException e) {
+		//		 e.printStackTrace(); 
+		//		 }
 			 
 	}
 

@@ -1107,7 +1107,7 @@ public class TestBaseClass implements FrameworkDesign {
 	//System.getProperty("user.dir") +
 	public String captureScreenshot(String screenshotName) {
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		String dest =  ".//reports//screenshots//" + screenshotName  + "_" + timeStamp + ".png";
+		String dest =  "./reports/screenshots/" + screenshotName  + "_" + timeStamp + ".png";
         try {
             Robot robot = new Robot();
             Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());

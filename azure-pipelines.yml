@@ -10,13 +10,17 @@ pool:
   vmImage: windows-latest
 
 steps:
-- task: Maven@3
+- task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.17'
+    jdkVersionOption: 'default'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'test'
+    testResultsFiles: '**/TEST-*.xml'
+    goals: 'package'
+
+- task: PublishHtmlReport@1
+  inputs:
+    reportDir: 'reports/extentreport'

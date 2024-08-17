@@ -165,23 +165,15 @@ public class Hana_T14_Add_Product_FT extends TestBaseClass{
 				cashandcarrypayment.GetTenderPrice();
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-			delayWithGivenTime(1000);
-				
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(2000);
-		//	ThreadWait(1000);
-		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	executorService.shutdown();		
+;		
 		//	RobotDismissAlert();
 		//	ThreadWait(1000);
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(500);
+			delayWithGivenTime(2000);
 			
 			// Test Step - 14
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
-			logger.info("User select the payment type as cash tab");
-			
+			logger.info("User select the payment type as cash tab");			
 			
 			// Test Step - 15
 			ThreadWait(1000);
@@ -193,11 +185,14 @@ public class Hana_T14_Add_Product_FT extends TestBaseClass{
 			ThreadWait(1000);
 			
 			//Test Step - 16  
-			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"));				
+			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 16 - Dashboard order page is not displayed");				
 			logger.info("User verify that the order page is navigated to dashboard order page");
-			delayWithGivenTime(1000);
+			delayWithGivenTime(2000);
 			
-			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber());		
+			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage());
+			
+			delayWithGivenTime(2000);
+			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step - 16 - Invoice number is not displayed on hana dashboard order page");		
 		
 		} catch (Exception e) {
 			e.printStackTrace();

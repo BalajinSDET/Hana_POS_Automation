@@ -162,6 +162,7 @@ public class Hana_T68_Payments_Donation_Payment_Section_FT extends TestBaseClass
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+		
 			delayWithGivenTime(1000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
@@ -176,11 +177,7 @@ public class Hana_T68_Payments_Donation_Payment_Section_FT extends TestBaseClass
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
 
-		//	delayWithGivenTime(3000);			
-			getDriver().switchTo().activeElement();
-		//	ExecutorService executorService = Executors.newFixedThreadPool(2);
-		//	executorService.submit(() -> handleOpenWebClientPrintPopup());
-		//	executorService.shutdown();
+	
 		//	RobotAcceptAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(1000);
@@ -197,9 +194,13 @@ public class Hana_T68_Payments_Donation_Payment_Section_FT extends TestBaseClass
 
 			// Test Step - 17
 			delayWithGivenTime(1000);
-			softassert.assertTrue(dashboardorder.Validate_Donation_MOP_DisplayedOnOrderPage(),"Mode of payment donation is not displayed");			
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_Walkins_Pickup_Donation_OnOrderPage());
 			delayWithGivenTime(1000);
-			softassert.assertTrue(dashboardorder.getStatusOnOrderPage());
+			
+			softassert.assertTrue(dashboardorder.Validate_Donation_MOP_DisplayedOnOrderPage(),"Test STep - 17 - Mode of payment donation is not displayed");			
+			delayWithGivenTime(1000);
+			
+			softassert.assertEquals(dashboardorder.getStatusOnOrderPage(),"Delivered","Test Step - 17 - Status on order page is not delivered");
 			softassert.assertAll();
 		} catch (Exception e) {
 			Assert.fail("An exception occurred: " + e.getMessage());

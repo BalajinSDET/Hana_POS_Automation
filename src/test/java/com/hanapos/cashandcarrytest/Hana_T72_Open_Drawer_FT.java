@@ -74,9 +74,6 @@ public class Hana_T72_Open_Drawer_FT extends TestBaseClass{
 			
 			// Test Step - 7
 			cashandcarry.ClickVerifyBtnOnPasswordPopup();
-			delayWithGivenTime(1000);
-			getDriver().switchTo().activeElement();
-			//RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(1000);			
 			softassert.assertAll();

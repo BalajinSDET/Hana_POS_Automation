@@ -118,11 +118,12 @@ public class Hana_T42_Payment_Convert_Delivery_FT extends TestBaseClass{
 			delayWithGivenTime(2000);
 			cashandcarry.ClickParticularProdTitle();
 			logger.info("User click on the particular product tile");
-			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"ballonsYY");
+			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"ballonsYY","Test Step - 09 - product tile added item is not displayed");
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 			
 			// Test Step - 10
-			cashandcarry.EnterCustomerName(customername);
+			cashandcarry.EnterCustomerName(customername,customername
+					);
 			logger.info("User search and select the created customer ");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion(occasion);
@@ -136,24 +137,20 @@ public class Hana_T42_Payment_Convert_Delivery_FT extends TestBaseClass{
 			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
 			logger.info("User navigated to Cash And Carry payment page successfully");
 			
-			// Test Step - 11
-			cashandcarrypayment.ClickConvertToDeliveryBtn();
-			delayWithGivenTime(2000);
-			
-			
-			// Test Step -  13
-			delayWithGivenTime(2000);
-			dismissAlert();
-			//	RobotDismissAlert();
+			/*
+			 * // Test Step - 11 cashandcarrypayment.ClickConvertToDeliveryBtn();
+			 * delayWithGivenTime(2000);
+			 * 
+			 * // Test Step - 13 Thread.sleep(3000);
+			 *  JsDismissAlert();
+			 */
 			
 			// Test Step - 14
-			delayWithGivenTime(2000);
 			cashandcarrypayment.ClickConvertToDeliveryBtn();
 			delayWithGivenTime(2000);
 			
 			// Test Step - 15
-			delayWithGivenTime(2000);
-			RobotAccept_LeaveKey_Alert();
+			JsAcceptAlert();
 			
 			// Test Step -16
 			delayWithGivenTime(2000);

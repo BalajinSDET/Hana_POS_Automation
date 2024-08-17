@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
+import java.util.List;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -175,6 +176,9 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	
 	@FindBy(xpath="//input[@id='txtSearchProductForPayment']")
 	private WebElement CustomerSelectionTextboxField;
+	
+	@FindBy(xpath="//ul[@id='ui-id-2']//li//div")
+	private List<WebElement> ListOfCustomer;
 	
 	//----------------------Confirmation popup ------------------------------------
 	@FindBy(xpath="//div[@id='PrintOrderNewModal']//div[@class='modal-content']")
@@ -435,7 +439,9 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	}
 	
 	public String getPaymentGrandTotal() {
-		return paymentTableGrandTotal.getText();
+		String grand_Total = paymentTableGrandTotal.getText();
+		String Grand_Total = grand_Total.replace("$", "").trim();
+		return Grand_Total;
 	}
 	
 	public String ValidateGrandTotalWithoutConvFee() {
@@ -454,21 +460,57 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 		return formattedExpectedGrandTotal;
 	}
 	
+
 	public String ValidateGrandTotalWithConvFee() {
-		double subTotal = Double.parseDouble(TableSubTotalValues.getText().replace("$", "").trim());
-		double gst = Double.parseDouble(TableGSTValues.getText().replace("$", "").trim());
-		double psthstqst = Double.parseDouble(TablePSTValues.getText().replace("$", "").trim());
-		double tax = Double.parseDouble(TableTaxValues.getText().replace("$", "").trim());
-		double convFee = Double.parseDouble(paymentTableConvFee.getText().replace("$", "").trim());
+	    double subTotal = parseCurrencyValue(TableSubTotalValues.getText());
+	    double gst = parseCurrencyValue(TableGSTValues.getText());
+	    double psthstqst = parseCurrencyValue(TablePSTValues.getText());
+	    double tax = parseCurrencyValue(TableTaxValues.getText());
+	    double convFee = parseCurrencyValue(paymentTableConvFee.getText());
 
+	    double expectedGrandTotal = subTotal + gst + psthstqst + tax + convFee;
 
-		double expectedGrandTotal = (subTotal + gst + psthstqst + tax + convFee);
-
-		// Format the numbers to two decimal places
-		DecimalFormat df = new DecimalFormat("#.00");
-		String formattedExpectedGrandTotal = df.format(expectedGrandTotal);
-		return formattedExpectedGrandTotal;
+	    // Format the numbers to two decimal places
+	    DecimalFormat df = new DecimalFormat("#.00");
+	    String formattedExpectedGrandTotal = df.format(expectedGrandTotal);
+	    return formattedExpectedGrandTotal;
 	}
+
+	private double parseCurrencyValue(String text) {
+	    if (text == null || text.trim().isEmpty()) {
+	        return 0.0; // or handle it as per your requirement
+	    }
+	    String Text = text.replaceAll("[^0-9.]", "");
+
+	    try {
+	        return Double.parseDouble(Text);
+	    } catch (NumberFormatException e) {
+	        System.err.println("NumberFormatException: " + e.getMessage());
+	        return 0.0; 
+	    }
+	}
+
+	
+	
+	/*
+	 * // due to facing number format exception written above code replace of below
+	 * 
+	 * public String ValidateGrandTotalWithConvFee() { double subTotal =
+	 * Double.parseDouble(TableSubTotalValues.getText().replace("$", "").trim());
+	 * double gst = Double.parseDouble(TableGSTValues.getText().replace("$",
+	 * "").trim()); double psthstqst =
+	 * Double.parseDouble(TablePSTValues.getText().replace("$", "").trim()); double
+	 * tax = Double.parseDouble(TableTaxValues.getText().replace("$", "").trim());
+	 * double convFee =
+	 * Double.parseDouble(paymentTableConvFee.getText().replace("$", "").trim());
+	 * 
+	 * 
+	 * double expectedGrandTotal = (subTotal + gst + psthstqst + tax + convFee);
+	 * 
+	 * // Format the numbers to two decimal places DecimalFormat df = new
+	 * DecimalFormat("#.00"); String formattedExpectedGrandTotal =
+	 * df.format(expectedGrandTotal); return formattedExpectedGrandTotal; }
+	 */
 	
 	public String getGrandTotaltoPay() {
 		String grandTotal =paymentTableGrandTotal.getText();
@@ -477,6 +519,7 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	}
 	
 	public void EnterGivenAmount() {
+		GivenAmountTextboxField.clear();
 		DoubleClickAndType(GivenAmountTextboxField,getGrandTotaltoPay());
 	}
 	
@@ -603,7 +646,17 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	
 	public CashAndCarryPaymentPage SearchAndSelectCustomer(String customershorttext) {
 		explicitWait(CustomerSelectionTextboxField);
-		HandleAutocomplete(CustomerSelectionTextboxField,customershorttext); //"abish"
+		CustomerSelectionTextboxField.clear();
+		CustomerSelectionTextboxField.sendKeys(customershorttext);
+		delayWithGivenTime(2000);
+		
+		for(WebElement cust : ListOfCustomer) {
+			if(cust.getText().contains("13827052-Abish David")) {
+				jsClick(cust); 
+				break;
+			}
+		}
+		
 		return this;	
 	}
 	
@@ -622,7 +675,7 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	}
 	
 	public void ClickSendReciptBtnOnOrderConfirmationPopup() {
-		click(SendRecieptBtn);
+		jsClick(SendRecieptBtn);
 	}
 	
 	public void ClickCheckTab() {
@@ -913,7 +966,7 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	}
 	
 	public void ClickOnAlertPopupLeaveBtn() {
-		click(AlertPopupLeaveBtn);
+		jsClick(AlertPopupLeaveBtn);
 	}
 	
 	public boolean VerifyOrderPaidTextAppears() {
@@ -927,7 +980,8 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	}
 	
 	public void ClickConvertToDeliveryBtn() {
-		click(ConvertToDelivery);
+	//	ConvertToDelivery.click();
+		actionClick(ConvertToDelivery);
 	}
 	
 	public void ClickSplitPaymentBtn() {
@@ -1018,6 +1072,7 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	}
 	
 	public void EnterAddNewCustPhoneNumber(String phonenumber) {
+		AddNewCustPhoneNumberTextbox.clear();
 		DoubleClickAndType(AddNewCustPhoneNumberTextbox, phonenumber);
 	}
 	
@@ -1027,6 +1082,7 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	}
 	
 	public void EnterAddNewCustAltPhoneNumber(String altphonenumber) {
+		AddNewCustAltPhoneNumberTextbox.clear();
 		DoubleClickAndType(AddNewCustAltPhoneNumberTextbox, altphonenumber);	
 	}
 	

@@ -112,24 +112,14 @@ public class Hana_T22_ChooseDefaultvalues_Cash_and_Carry_FT extends TestBaseClas
 			logger.info("User selected Source Code as "+sourcecode);
 			
 			//TestStep - 13
-			
-			/*
-			 * if(cashandcarry.verifyErrorToastMsg()==true){
-			 * softassert.assertTrue(cashandcarry.verifyErrorToastMsg()
-			 * ,"***Toast error message is not displayed***"); } else{ softassert.
-			 * fail("***Test Step - 13 - Toast error message is not displayed on Choose Default Values popup***"
-			 * ); }
-			 */
 			softassert.fail("***Test Step - 13 - Toast error message for providing negative value on field is not displayed on Choose Default Values popup***" );
 			cashandcarry.ClickUpdateBtnOnChooseDefaultValues();
 			logger.info("User clicked on Update button on Choose Default Values popup");
 			delayWithGivenTime(2000);
-			softassert.assertTrue(cashandcarry.VerifySuccessMessageIsDisplayed(),"***Default values success toast message is not displayed***");
+			softassert.assertTrue(cashandcarry.VerifySuccessMessageIsDisplayed(),"Test Step - 13 - ***Default values success toast message is not displayed***");
 			logger.info("User verify the Default values success toast message is displayed..");
 			delayWithGivenTime(2000);
-			
-			
-			
+						
 			// TestStep - 14
 			cashandcarry.ClickCloseIconOnChooseDefaultValuesPopup();
 			logger.info("User clicked on Close icon on Choose Default Values popup");
@@ -212,13 +202,15 @@ public class Hana_T22_ChooseDefaultvalues_Cash_and_Carry_FT extends TestBaseClas
 			// Test Step - 28
 			cashandcarrypayment.SearchAndSelectCustomer(customershortname);
 			logger.info("User selected Customer as abish");
+			cashandcarrypayment.EnterGivenAmount();
 			cashandcarrypayment.ClickProcessPaymentBtn();
 			logger.info("User clicked on Process Payment button");
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
 			logger.info("User verified the order payment done successfully text is displayed");
-			delayWithGivenTime(1000);
+			
+			delayWithGivenTime(2000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				softassert.assertTrue(cashandcarrypayment.VerifyOrderConfirmationPopup(),"Order confirmation popup is not displayed");
 				logger.info("User verify the order confirmation popup is displayed");
@@ -231,11 +223,6 @@ public class Hana_T22_ChooseDefaultvalues_Cash_and_Carry_FT extends TestBaseClas
 				logger.info("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-			delayWithGivenTime(1000);
-				
-			getDriver().switchTo().activeElement();
-			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(1000);
 			
 			// Test Step - 29
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();

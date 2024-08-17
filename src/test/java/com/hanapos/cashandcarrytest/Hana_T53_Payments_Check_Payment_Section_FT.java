@@ -173,20 +173,17 @@ public class Hana_T53_Payments_Check_Payment_Section_FT extends TestBaseClass{
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
 			
-			delayWithGivenTime(2000);	
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);	
-			Click_OpenWebClientPrinterPopup();
-			//RobotAcceptAlert();
+		
 			logger.info("User click the cancel button on webclientprint window popup");
 		
 
 			// Test Step - 15
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			delayWithGivenTime(4000);
 			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Cash And Carry page is not displayed");
 			logger.info("User verify the Cash and Carry page is displayed..");
+			
 			delayWithGivenTime(2000);
 			cashandcarry.SearchAndSelectTheItemCode(searchandselectitemcode);
 			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe");	
@@ -238,8 +235,7 @@ public class Hana_T53_Payments_Check_Payment_Section_FT extends TestBaseClass{
 			logger.info("User click on Pay button");
 			cashandcarrypayment = new CashAndCarryPaymentPage();
 			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
-			logger.info("User navigated to Cash And Carry payment page successfully");
-			
+			logger.info("User navigated to Cash And Carry payment page successfully");			
 			
 			delayWithGivenTime(2000);
 			softassert.assertEquals(cashandcarrypayment.VerifyCreditCardTabIsSelected(),"true", "By defaultCredit card tab section is not displayed");
@@ -289,6 +285,7 @@ public class Hana_T53_Payments_Check_Payment_Section_FT extends TestBaseClass{
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			
 			delayWithGivenTime(1000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
@@ -303,13 +300,8 @@ public class Hana_T53_Payments_Check_Payment_Section_FT extends TestBaseClass{
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
 				
-			delayWithGivenTime(2000);	
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(1000);
 		
-			RobotAcceptAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(2000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			
 			

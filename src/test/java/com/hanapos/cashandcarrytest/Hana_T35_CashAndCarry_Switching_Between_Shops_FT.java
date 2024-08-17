@@ -64,12 +64,7 @@ public class Hana_T35_CashAndCarry_Switching_Between_Shops_FT extends TestBaseCl
 			
 			// Test Step - 5
 			delayWithGivenTime(1000);
-			/*
-			 * if(cashandcarry.ISErrorToastMessageDisplayed()==true) {
-			 * softassert.fail("Error toast message is displayed");
-			 * logger.info("Error toast message is displayed---> Bug");
-			 * cashandcarry.ClickCloseIconOnErrorToastMessage(); }
-			 */
+
 			softassert.assertEquals(cashandcarry.getShopNameSelectedOption(),"--Select Shop--","Select Shop not is displayed"); //"Hana POS (Canada)"
 			logger.info("User select the shop name as "+prop.getProperty("shopname"));
 			

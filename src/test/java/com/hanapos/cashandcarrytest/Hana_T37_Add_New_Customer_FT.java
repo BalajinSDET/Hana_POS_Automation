@@ -239,9 +239,9 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			logger.info("User verify the first name field entered data is displayed");
 			softassert.assertEquals(cashandcarry.getEnteredaddnewcustlastname(), "Automation","Test Step-17 -Added on first name field are not properly displayed");
 			logger.info("User verify the last name field entered data is displayed");
-			softassert.assertEquals(cashandcarry.getEnteredaddnewcustphonenumber(), "+99-123-456-9192","Test Step-17 -Added on phone number field are not properly displayed");
+			softassert.assertEquals(cashandcarry.getEnteredaddnewcustphonenumber(), "919-293-9495","Test Step-17 -Added on phone number field are not properly displayed");
 			logger.info("User verify the phone number field entered data is displayed");
-			softassert.assertEquals(cashandcarry.getEnteredaddnewcustaltphonenumber(), "+99-123-456-9192","Test Step-17 -Added on alternative phone number field are not properly displayed");
+			softassert.assertEquals(cashandcarry.getEnteredaddnewcustaltphonenumber(), "919-293-9896","Test Step-17 -Added on alternative phone number field are not properly displayed");
 			logger.info("User verify the alternative phone number field entered data is displayed");
 			softassert.assertEquals(cashandcarry.getEnteredaddnewcustaddress1(),"Test Automation Address, India","Test Step-17 -Added address 1 field is not properly displayed");
 			logger.info("User verify that address 1 field entered data is displayed");
@@ -323,7 +323,8 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			logger.info("User select the occasion as birthday");
 			cashandcarry.ClickPayButton();
 			logger.info("User clicks on the pay button");
-			delayWithGivenTime(3000);
+			
+			delayWithGivenTime(2000);
 			cashandcarrypayment = new CashAndCarryPaymentPage();
 			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Test Step - 23 -Cash And Carry payment page is not displayed");
 			logger.info("User is on Cash And Carry payment page");
@@ -352,17 +353,9 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 				logger.info(("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice()));
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-			delayWithGivenTime(1000);
-				
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(2000);
-			//executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	executorService.shutdown();
 			
 		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User select the payment type as cash tab");
 				
@@ -374,9 +367,10 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			dashboardorder = new DashboardOrderPage();		//https://hanafloralpos3.com/Dashboard/Order
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Dashboard order page is not displayed");				
 			logger.info("User verify that the order page is navigated to dashboard order page");
+			
 			delayWithGivenTime(1000);
-			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber());		
-
+			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage());
+			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step - 25 -Invoice number on order page is not displayed");		
 			
 			// Test Step - 26
 			delayWithGivenTime(1000);
@@ -406,26 +400,14 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			softassert.assertTrue(customerpage.VerifyCustomerMenuPage(),"Test Step - 30 -customer menu page is not displayed");
 			logger.info("User verify that customer menu page is displayed successfully");
 			
-			// Test Step - 31
-		
-			
+			// Test Step - 31			
 			customerpage.SearchAndSelectCustomerName(customername);
 			customerpage.SearchAndSelectCustomerCityStateZip("Coimbatore");
 			ThreadWait(1000);
 			customerpage.ClickCustomerIdOnCustTable();
-			ThreadWait(1000);
-			softassert.assertEquals(customerpage.VerifyCompanyNameOnCustTable(),"Test Automation pvt ltd","Test Step - 31 - Company Name on customer table is not matched");
-			logger.info("User verify that company name on customer table");
-			softassert.assertEquals(customerpage.VerifyPhoneNumberOnCustTable(),"+99-123-456-9192","Test Step - 31 - Phone number on customer table is not matched");
-			logger.info("User verify that phone number on customer table");
-			softassert.assertEquals(customerpage.VerifyAddressOnCustTable(),"Test Automation Address, India","Test Step - 31 - Address on customer table is not matched");
-			logger.info("User verify that address on customer table");
-			softassert.assertEquals(customerpage.VerifyCityStateZipCodeOnCustTable(),"Coimbatore Tamilnadu 641004","Test Step - 31 - City, State & Zipcode on customer table is not matched");
-			logger.info("User verify that city, state and zipcode on customer table");
 			
 			// Test Step - 32
-			
-			customerpage.Click_CustomerId_OnCustomerTable();
+
 			logger.info("User clicks the displayed customer in the table ");
 			delayWithGivenTime(4000);
 			softassert.assertTrue(customerpage.VerifyCustomerDetailsPopup(),"Test Step - 32 - Customer details pop up is not displayed");

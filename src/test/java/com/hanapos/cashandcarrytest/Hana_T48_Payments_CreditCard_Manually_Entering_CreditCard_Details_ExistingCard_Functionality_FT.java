@@ -121,7 +121,7 @@ public class Hana_T48_Payments_CreditCard_Manually_Entering_CreditCard_Details_E
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 			
 			// Test Step - 10
-			cashandcarry.EnterCustomerName(customername);
+			cashandcarry.EnterCustomerName(customername,customername);
 			logger.info("User search and select the created customer ");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion(occasion);
@@ -163,27 +163,19 @@ public class Hana_T48_Payments_CreditCard_Manually_Entering_CreditCard_Details_E
 			// Test Step - 13 
 			cashandcarrypayment.ClickCreditCardPresentToogleBtn();
 			cashandcarrypayment.EnterFirstNameOnCreditCardTab(ccfname);
-			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.getEnteredCreditCardFirstName(),"Automation","First name is not displayed");
 			cashandcarrypayment.EnterLastNameOnCreditCardTab(cclname);
-			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.getEnteredCreditCardLastName(),"Test","Last name is not displayed");
 			cashandcarrypayment.SelectCreditCardTypeOnCreditCardTab(creditcardtype);
 			cashandcarrypayment.EnterCreditCardNumberOnCreditCardTab(cccardnumber);
-			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardNumber(),"378282246310005","credit card number entered data is not displayed");
 			cashandcarrypayment.EnterCreditCardExpireDateOnCreditCardTab(ccexpiredate);
-			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardExpireDate(),"0628","credit card expire date entered data is not displayed");	
 			cashandcarrypayment.EnterCreditCardCVVOnCreditCardTab(cccvv);
-			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardCVV(),"567","credit card cvv entered data is not displayed");
 			cashandcarrypayment.EnterCreditCardZipCodeOnCreditCardTab(cczipcode);
-			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardZipCode(),"32012","credit card zipcode entered data is not displayed");
-			delayWithGivenTime(3000);
 			softassert.assertTrue(cashandcarrypayment.VerifyProcessPaymentButton(),"Process payment button is not displayed");
-			delayWithGivenTime(3000);
 			
 			// Test Step - 14 to 21 - are done by manually	
 			softassert.assertAll();

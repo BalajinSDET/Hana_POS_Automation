@@ -107,13 +107,13 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 			if(cashandcarry.GetAddedItemExtPrice()=="$82.00") {
 				softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$82.00");
 			}else if(cashandcarry.GetAddedItemExtPrice()=="$80.00") {
-				softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$82.00");
+				softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$80.00");
 			}
 			
 			if(cashandcarry.GetAddedItemPrice()=="$82.00") {
 				softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$82.00");
-			}else if(cashandcarry.GetAddedItemPrice()=="$82.00") {
-				softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$82.00");
+			}else if(cashandcarry.GetAddedItemPrice()=="$80.00") {
+				softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$80.00");
 			}
 			
 			softassert.assertEquals(cashandcarry.GetAddedItemDiscountAmount(), "$ 0.00");
@@ -160,11 +160,9 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 				cashandcarrypayment.GetTenderPrice();
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}					
-			getDriver().switchTo().activeElement();
 
 		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(2000);
 			
 			// Test Step - 14
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
@@ -180,11 +178,15 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 						
 			// Test Step - 16
 			delayWithGivenTime(1000);
-			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber());	
+			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage());
+			
+			delayWithGivenTime(2000);
+			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step - 16 - Invoice number is not displayed on hana dashboard order page");		
+		
 			
 			// Test Step - 17
 			delayWithGivenTime(2000);
-			softassert.assertEquals(dashboardorder.GetSenderorCustomerOnOrderPage().contains("WALKIN | Cash And Carry Sale"),true);
+			softassert.assertEquals(dashboardorder.GetSenderorCustomerOnOrderPage().contains("WALKIN | Cash And Carry Sale"),true,"Test Step - 17 - Sender or customer is not displayed on hana dashboard order page for respective invoice");
 						
 			softassert.assertAll();
 		} catch (Exception e) {

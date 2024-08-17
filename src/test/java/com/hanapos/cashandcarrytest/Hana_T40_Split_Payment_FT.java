@@ -121,44 +121,49 @@ public class Hana_T40_Split_Payment_FT extends TestBaseClass{
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 			
 			// Test Step - 10
-			cashandcarry.EnterCustomerName(customername);
+			cashandcarry.EnterCustomerName(customername,customername);
 			logger.info("User search and select the created customer ");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion(occasion);
 			logger.info("User select the occasion as Birthday");
-			delayWithGivenTime(2000);
+			
 			
 			// Test Step - 11
 			cashandcarry.ClickOnSplitPaymentToogleButton();
+			delayWithGivenTime(2000);
 			
 			// Test Step - 12
 			cashandcarry.ClickPayButton();
 			logger.info("User click on Pay button");
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment = new CashAndCarryPaymentPage();
-			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
+			
+			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Test Step - 12 - Cash And Carry payment page is not displayed");
 			logger.info("User navigated to Cash And Carry payment page successfully");
 			delayWithGivenTime(500);
+			
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg(),"Test Step - 12 - Success toast message is not displayed"); 		
 			logger.info("User verified the order invoice is generated successfully");
 			delayWithGivenTime(500);
-			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg().contains("Invoice Number is:"),true,"Invoice Number is: ---> Text is not displayed");		
 			
-			// Test Step - 13
-			delayWithGivenTime(500);	
+			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg().contains("Invoice Number is:"),true,"Invoice Number is: ---> Text is not displayed");		
+			delayWithGivenTime(500);
+			
+			// Test Step - 13	
 			softassert.assertEquals(cashandcarrypayment.getTopLeftCornerInvNo(),cashandcarrypayment.getGeneratedInvoiceNumber(),"Test Step - 13 - Invoice number is not displayed in the top left corner");
 			logger.info("User verified the invoice number is displayed in the top left corner and toast message displayed invoice number are same");
 			
-			// Test Step - 14		
-			softassert.assertEquals(cashandcarrypayment.getRow1ProductInTable().contains("Red Rose Deluxe"),true);
-			softassert.assertEquals(cashandcarrypayment.getRow2ProductInTable().contains("ballonsYY - Ballons small 1 X $40.00"),true);
+			// Test Step - 14
+			delayWithGivenTime(2000);
+			softassert.assertEquals(cashandcarrypayment.getRow1ProductInTable().contains("Red Rose Deluxe"),true,"Test Step - 14 - Product name - 1 - is not displayed in the table");
+			softassert.assertEquals(cashandcarrypayment.getRow2ProductInTable().contains("ballonsYY - Ballons small 1 X $40.00"),true,"Test Step - 14 - Product name - 2 - is not displayed in the table");
 
 			// Test Step - 15
-			delayWithGivenTime(2000);
+		//	delayWithGivenTime(2000);
 			System.out.println("Test Step - 15 - Grand total amount is : "+cashandcarrypayment.getPaymentGrandTotal());
-			System.out.println("Test Step - 15 - Grand total amount without conversion fee is : "+cashandcarrypayment.ValidateGrandTotalWithoutConvFee());
+		//	System.out.println("Test Step - 15 - Grand total amount without conversion fee is : "+cashandcarrypayment.ValidateGrandTotalWithoutConvFee());
 			System.out.println("Test Step - 15 - Grand total amount with conversion fee is : "+cashandcarrypayment.ValidateGrandTotalWithConvFee());
-			softassert.assertEquals(cashandcarrypayment.getPaymentGrandTotal().contains(cashandcarrypayment.ValidateGrandTotalWithConvFee()),true,"Test step - 15 - Grand total amount is not calculated correctly");
+			softassert.assertEquals(cashandcarrypayment.getPaymentGrandTotal(),cashandcarrypayment.ValidateGrandTotalWithConvFee(),"Test step - 15 - Grand total amount is not calculated correctly");
 			
 			
 			// Test Step - 16
@@ -186,24 +191,21 @@ public class Hana_T40_Split_Payment_FT extends TestBaseClass{
 			cashandcarrypayment.ClickCheckTab();
 			cashandcarrypayment.EnterAmountOnCheckTab(checkamount);
 			cashandcarrypayment.ClickProcessPaymentBtn();
-			delayWithGivenTime(2000);
-			getDriver().switchTo().activeElement();
-	//		delayWithGivenTime(2000);
-	//		RobotDismissAlert();
+		
 			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.VerifyPaymentTypeOnTableRow1(),"Check");
 			softassert.assertEquals(cashandcarrypayment.VerifyPaidAmountOnTableRow1().contains(cashandcarrypayment.getEnteredAmountOnCheckTab()),true);		
 			
 			// Test Step - 17
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickCashTab();
 			
 			// Test Step - 18
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			softassert.assertFalse(cashandcarrypayment.VerifyProcessPaymentButton(),"Test step - 18 - Process payment button is not disabled");
 			
 			// Test Step - 19
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.SelectRegistryOnCashTab(selectregistry);
 			
 			// Test Step - 20 
@@ -211,10 +213,7 @@ public class Hana_T40_Split_Payment_FT extends TestBaseClass{
 			cashandcarrypayment.EnterGivenAmountOnCashTab(cashamount);
 			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickProcessPaymentBtn();
-			delayWithGivenTime(2000);
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(1000);
-		//	RobotDismissAlert();
+		
 			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.VerifyPaymentTypeOnTableRow2(),"Cash","cash payment is not displayed");
 			softassert.assertEquals(cashandcarrypayment.VerifyPaidAmountOnTableRow2().contains(cashandcarrypayment.getEnteredGivenAmountOnCashTab()),true,"amount is not matched");		
@@ -222,40 +221,34 @@ public class Hana_T40_Split_Payment_FT extends TestBaseClass{
 			// Test Step - 21 & 22 are done to replace for credit card payment
 			
 			// Test Step - 23
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOnPOHPaymentTab();
 			
 			// Test Step - 24 
 			softassert.assertTrue(cashandcarrypayment.VerifyProcessPaymentButton(),"Process payment button is disabled");
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.EnterPOHAmountOnPOHPaymentTab(pohamount);
 			cashandcarrypayment.ClickProcessPaymentBtn();
-			delayWithGivenTime(2000);
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(1000);
-		//	RobotDismissAlert();
+		
 			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.VerifyPaymentTypeOnTableRow3(),"Paid Outside Hana");
 			softassert.assertEquals(cashandcarrypayment.VerifyPaidAmountOnTableRow3().contains(cashandcarrypayment.getEnteredPOHAmountOnPOHPaymentTab()),true);		
 			
 			// Test Step - 25
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOnGiftCardPaymentTab();
 			
 			// Test Step - 26
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.EnterGiftCardNumberOnGiftCardPaymentTab(giftcardnum);
 			softassert.assertEquals(cashandcarrypayment.getDisplayedCustNameOnGiftCardPaymentTab(), "Test Automation");
 			softassert.assertEquals(cashandcarrypayment.getDisplayedPaymentAmtOnGiftCardPaymentTab().contains(cashandcarrypayment.getTableDisplayedBalanceAmt()),true);
 			
 			// Test Step - 27
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.EnterPaymentAmtOnGiftCardPaymentTab(giftamt);
 			cashandcarrypayment.ClickProcessPaymentBtn();
-			delayWithGivenTime(1000);
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(2000);
-		//	RobotDismissAlert();
+			
 			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.VerifyPaymentTypeOnTableRow4(),"Gift Card");
 			softassert.assertEquals(cashandcarrypayment.VerifyPaidAmountOnTableRow4().contains(cashandcarrypayment.getDisplayedPaymentAmtOnGiftCardPaymentTab()),true);		
@@ -315,7 +308,7 @@ public class Hana_T40_Split_Payment_FT extends TestBaseClass{
 			logger.info("User click on the particular product tile");
 			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"ballonsYY");
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
-			cashandcarry.EnterCustomerName(customername);
+			cashandcarry.EnterCustomerName(customername,customername);
 			logger.info("User search and select the created customer ");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion(occasion);
@@ -336,19 +329,17 @@ public class Hana_T40_Split_Payment_FT extends TestBaseClass{
 			logger.info("User verified the order invoice is generated successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg().contains("Invoice Number is:"),true,"Invoice Number is: ---> Text is not displayed");		
 
-			delayWithGivenTime(2000);	
+			delayWithGivenTime(1000);	
 		//	softassert.assertEquals(cashandcarrypayment.getTopLeftCornerInvNo(),cashandcarrypayment.getGeneratedInvoiceNumber());
 			logger.info("User verified the invoice number is displayed in the top left corner and toast message displayed invoice number are same");
 		
 			softassert.assertEquals(cashandcarrypayment.getRow1ProductInTable().contains("Red Rose Deluxe"),true);
 			softassert.assertEquals(cashandcarrypayment.getRow2ProductInTable().contains("ballonsYY - Ballons small 1 X $40.00"),true);
-			delayWithGivenTime(2000);
-			delayWithGivenTime(2000);
-			System.out.println("Test Step - 15 - Grand total amount is : "+cashandcarrypayment.getPaymentGrandTotal());
-			System.out.println("Test Step - 15 - Grand total amount without conversion fee is : "+cashandcarrypayment.ValidateGrandTotalWithoutConvFee());
-			System.out.println("Test Step - 15 - Grand total amount with conversion fee is : "+cashandcarrypayment.ValidateGrandTotalWithConvFee());
-			softassert.assertEquals(cashandcarrypayment.getPaymentGrandTotal().contains(cashandcarrypayment.ValidateGrandTotalWithConvFee()),true,"Test step - 15 - Grand total amount is not calculated correctly");
-			delayWithGivenTime(2000);
+			
+			delayWithGivenTime(1000);
+			softassert.assertEquals(cashandcarrypayment.getPaymentGrandTotal(),cashandcarrypayment.ValidateGrandTotalWithConvFee(),"Test step - 31 - Grand total amount is not calculated correctly");
+		
+			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickCreditCardTab();
 			if(cashandcarrypayment.VerifyCreditCardPresentToogleBtnIsAppear()==true) {
 				cashandcarrypayment.ClickCreditCardPresentToogleBtn();
@@ -370,18 +361,15 @@ public class Hana_T40_Split_Payment_FT extends TestBaseClass{
 			cashandcarrypayment.EnterNameOnCheck(nameoncheck);
 			cashandcarrypayment.EnterAmountOnCheckTab(checkamount);
 			cashandcarrypayment.ClickProcessPaymentBtn();
-			delayWithGivenTime(2000);
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(2000);
-		//	RobotDismissAlert();
+			
 			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.VerifyPaymentTypeOnTableRow1(),"Check");
 			softassert.assertEquals(cashandcarrypayment.VerifyPaidAmountOnTableRow1().contains(cashandcarrypayment.getEnteredAmountOnCheckTab()),true);		
 			
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickCashTab();
 
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			softassert.assertFalse(cashandcarrypayment.VerifyProcessPaymentButton()," Test Step - 33: Process payment button is not disabled on Cash tab");
 
 			delayWithGivenTime(1000);
@@ -391,37 +379,31 @@ public class Hana_T40_Split_Payment_FT extends TestBaseClass{
 			cashandcarrypayment.EnterGivenAmountOnCashTab(cashamount);
 			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickProcessPaymentBtn();
-			delayWithGivenTime(2000);
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(2000);
-		//	RobotDismissAlert();
-			delayWithGivenTime(2000);
+			
+			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarrypayment.VerifyPaymentTypeOnTableRow2(),"Cash");
 			softassert.assertEquals(cashandcarrypayment.VerifyPaidAmountOnTableRow2().contains(cashandcarrypayment.getEnteredGivenAmountOnCashTab()),true);		
 			
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOnPOHPaymentTab();
 			//	softassert.assertTrue(cashandcarrypayment.VerifyProcessPaymentButton(),"Process payment button is disabled on POH payment tab");
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.EnterPOHAmountOnPOHPaymentTab(pohamount);
 			cashandcarrypayment.ClickProcessPaymentBtn();
-			delayWithGivenTime(2000);
-			getDriver().switchTo().activeElement();
-		//	ThreadWait(2000);
-		//	RobotDismissAlert();
-		//	delayWithGivenTime(1000);
+			delayWithGivenTime(1000);
+		
 			softassert.assertEquals(cashandcarrypayment.VerifyPaymentTypeOnTableRow3(),"Paid Outside Hana");
 			softassert.assertEquals(cashandcarrypayment.VerifyPaidAmountOnTableRow3().contains(cashandcarrypayment.getEnteredPOHAmountOnPOHPaymentTab()),true);		
 
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOnGiftCardPaymentTab();
 
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.EnterGiftCardNumberOnGiftCardPaymentTab(giftcardnum);
 			softassert.assertEquals(cashandcarrypayment.getDisplayedCustNameOnGiftCardPaymentTab(), "Test Automation");
 			softassert.assertEquals(cashandcarrypayment.getDisplayedPaymentAmtOnGiftCardPaymentTab().contains(cashandcarrypayment.getTableDisplayedBalanceAmt()),true);
 			
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickCashTab();
 			
 			// Test Step - 32
@@ -430,20 +412,16 @@ public class Hana_T40_Split_Payment_FT extends TestBaseClass{
 					
 			// Test Step - 33
 			cashandcarrypayment.ClickProcessPaymentBtn();
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			
 			if(cashandcarrypayment.SuccessToastMsg()==true) {
 				softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg().contains("Please tender $0.00 to Customer"),true,"Please tender $0.00 to Customer message is not displayed");
 			}else {
 					softassert.fail("***Please tender $0.00 to Customer message is not displayed***");
 				}
-
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(2000);
-		//	RobotDismissAlert();			
-			delayWithGivenTime(2000);
-			softassert.assertEquals(cashandcarrypayment.VerifyFullyPaidMessage(), "Order Fully Paid. No more payments required.","Order fully paid message is not displayed");
-			delayWithGivenTime(2000);		
+			
+			delayWithGivenTime(1000);
+			softassert.assertEquals(cashandcarrypayment.VerifyFullyPaidMessage(), "Order Fully Paid. No more payments required.","Order fully paid message is not displayed");		
 			
 		} catch (Exception e) {
 			e.printStackTrace();

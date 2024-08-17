@@ -82,11 +82,13 @@ public class Hana_T09_WalkinsSetting_CashRegistery_Merchant_Copy_with_Merchant_C
 			logger.info("User search and selected the item code");
 			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe");	;
 			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1");
+			
 			if(cashandcarry.ItemPriceValueIsExist()=="299") {
 				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Test Step - 7 - Item price is not matched with search and selected item code");
 			}else if(cashandcarry.ItemPriceValueIsExist()=="309") {
 				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309","Test Step - 7 - Item price is not matched with search and selected item code");
 			}
+			
 			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0");
 			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0");
 			
@@ -212,14 +214,8 @@ public class Hana_T09_WalkinsSetting_CashRegistery_Merchant_Copy_with_Merchant_C
 				logger.info("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());
 				
-			}
-			delayWithGivenTime(1000);
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(1000);
-		//	executorService = Executors.newFixedThreadPool(2);
-		//	executorService.submit(() -> handleOpenWebClientPrintPopup());
-		//	executorService.shutdown();	
-			RobotAcceptAlert();		
+			}	
+		//	RobotAcceptAlert();		
 			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User repeat the test step from 6 to 12 and click the open webclientprint button");

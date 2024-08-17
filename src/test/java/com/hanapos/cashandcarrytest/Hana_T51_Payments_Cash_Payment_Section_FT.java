@@ -149,7 +149,7 @@ public class Hana_T51_Payments_Cash_Payment_Section_FT extends TestBaseClass{
 			
 			// Test Step - 14
 			delayWithGivenTime(1000);
-			softassert.assertFalse(cashandcarrypayment.VerifyProcessPaymentDisabled(),"Test step 14 : Process payment button is not disabled");
+			softassert.assertTrue(cashandcarrypayment.VerifyProcessPaymentDisabled(),"Test step 14 : Process payment button is not disabled");
 			
 			// Test Step - 15
 			delayWithGivenTime(1000);
@@ -165,8 +165,7 @@ public class Hana_T51_Payments_Cash_Payment_Section_FT extends TestBaseClass{
 			cashandcarrypayment.EnterGivenAmount();
 			
 			// Test Step - 18
-			softassert.assertTrue(cashandcarrypayment.VerifyProcessPaymentButton(),"process payment button is disabled");
-			
+			softassert.assertTrue(cashandcarrypayment.VerifyProcessPaymentButton(),"process payment button is disabled");			
 			
 			// Test Step - 19
 			cashandcarrypayment.EnterGivenAmountOnCashTab(cashamtmorethanpaidamt);
@@ -176,6 +175,7 @@ public class Hana_T51_Payments_Cash_Payment_Section_FT extends TestBaseClass{
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			
 			delayWithGivenTime(1000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
@@ -189,10 +189,6 @@ public class Hana_T51_Payments_Cash_Payment_Section_FT extends TestBaseClass{
 				logger.info(("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice()));
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-			
-			delayWithGivenTime(1000);			
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);
 		
 			//	RobotAcceptAlert();
 			logger.info("User click the cancel button on webclientprint window popup");

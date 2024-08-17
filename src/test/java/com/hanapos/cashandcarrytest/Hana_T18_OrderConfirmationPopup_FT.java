@@ -82,8 +82,8 @@ public class Hana_T18_OrderConfirmationPopup_FT extends TestBaseClass{
 			// Test Step - 7
 			cashandcarry.SearchAndSelectTheItemCode(searchandselectitemcode);
 
-			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe");	
-			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1");
+			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe","Test Step - 7 - Item description is not matched with search and selected item code");	
+			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1","Test Step - 7 - Item quantity is not matched with search and selected item code");
 			
 			if(cashandcarry.ItemPriceValueIsExist()=="299") {
 				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Item price is not matched with search and selected item code");
@@ -122,14 +122,17 @@ public class Hana_T18_OrderConfirmationPopup_FT extends TestBaseClass{
 			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"ballonsYY");
 
 			// Test Step - 10
+			delayWithGivenTime(1000);
 			cashandcarry.EnterCustomerName(customername);
+			delayWithGivenTime(1000);
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion(occasion);
 			cashandcarry.ClickPayButton();
 
 			logger.info("User fillout the customer details and click on Pay button");
 			cashandcarrypayment = new CashAndCarryPaymentPage();
-			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
+			delayWithGivenTime(2000);
+			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Test Step - 10 - Cash And Carry payment page is not displayed");
 			logger.info("User is on Cash And Carry payment page");
 
 			// Test Step - 11
@@ -137,13 +140,13 @@ public class Hana_T18_OrderConfirmationPopup_FT extends TestBaseClass{
 			cashandcarrypayment.EnterGivenAmount();
 			logger.info("User select the payment type as cash tab");
 					
-			// Test Step - 12	
-			
+			// Test Step - 12			
 			cashandcarrypayment.ClickProcessPaymentBtn();
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
-			delayWithGivenTime(1000);
+			
+			delayWithGivenTime(2000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
 				cashandcarrypayment.GetOrderConfirmationMsgAndInvoiceNo();		
@@ -152,20 +155,17 @@ public class Hana_T18_OrderConfirmationPopup_FT extends TestBaseClass{
 				cashandcarrypayment.GetTenderPrice();
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-			delayWithGivenTime(2000);
-				
-			getDriver().switchTo().activeElement();
+			
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(2000);
 						
 			// Test Step - 13
 			softassert.assertEquals(cashandcarrypayment.GetConfirmationPopupCustEmail(),"hanaposqateam@gmail.com","******Test Step - 13 - Email id is not autopopulated from customer details******");		
-			softassert.assertEquals(cashandcarrypayment.GetConfirmationPopupCustSMS(), "9566550756","******Test Step - 13 - SMS Phone number is not autopopulated from customer details******");
+			softassert.assertEquals(cashandcarrypayment.GetConfirmationPopupCustSMS(), "956-655-0756","******Test Step - 13 - SMS Phone number is not autopopulated from customer details******");
 					
 			//Test Step - 14
 			cashandcarrypayment.ClickSendReciptBtnOnOrderConfirmationPopup();
 			delayWithGivenTime(1000);
-			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Receipt sent successfully.");
+			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Receipt sent successfully.","Test Step - 14 - Receipt sent successfully toast message text is not displayed");
 			// Future Enhancement..
 			//System.out.println("Received Email Invoice number is :"+EmailReader.getInstance().getInvoiceNumber());
 			logger.info("User click the send recipt button on order confirmation popup");
@@ -178,11 +178,14 @@ public class Hana_T18_OrderConfirmationPopup_FT extends TestBaseClass{
 			logger.info("User click the order menu on hana dashboard page");	
 			dashboardorder = new DashboardOrderPage();	
 			
-			//Test Step - 16										//https://hanafloralpos3.com/Dashboard/Order
-			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Dashboard order page is not navigated");				
+			//Test Step - 16										
+			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 16 - Dashboard order page is not displayed");				
 			logger.info("User verify that the order page is navigated to dashboard order page");
 			delayWithGivenTime(1000);	
-			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Invoice number is not displayed");				
+			
+			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage());
+
+			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step - 16 - Walkin sales - cash - pickup - Invoice number is not displayed");				
 		
 		} catch (Exception e) {
 			e.printStackTrace();

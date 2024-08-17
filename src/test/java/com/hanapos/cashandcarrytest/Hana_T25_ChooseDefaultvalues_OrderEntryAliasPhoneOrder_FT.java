@@ -105,7 +105,7 @@ public class Hana_T25_ChooseDefaultvalues_OrderEntryAliasPhoneOrder_FT extends T
 			// Test Step - 11
 			cashandcarry.EnterRecipientPhone("8324872387");
 			delayWithGivenTime(300);
-			softassert.assertEquals(cashandcarry.getEnteredRecipientPhoneonPhoneOrderCPDV(),"8324872387", "Entered alpha characters are accepted in recipent phone field");
+			softassert.assertEquals(cashandcarry.getEnteredRecipientPhoneonPhoneOrderCPDV(),"832-487-2387", "Entered alpha characters are accepted in recipent phone field");
 
 			// Test Step - 12
 			cashandcarry.EnterZipcodeOnPhoneOrderCPDV("sd&^&");
@@ -200,9 +200,9 @@ public class Hana_T25_ChooseDefaultvalues_OrderEntryAliasPhoneOrder_FT extends T
 
 			softassert.assertEquals(cashandcarry.getEnteredRecipientPhoneonPhoneOrderCPDV(),"", "Entered alpha characters are accepted in recipent phone field");
 
-			cashandcarry.EnterRecipientPhone("8324872387");
+			cashandcarry.EnterRecipientPhone("832-487-2387");
 
-			softassert.assertEquals(cashandcarry.getEnteredRecipientPhoneonPhoneOrderCPDV(),"8324872387", "Entered alpha characters are accepted in recipent phone field");
+			softassert.assertEquals(cashandcarry.getEnteredRecipientPhoneonPhoneOrderCPDV(),"832-487-2387", "Test Step - 24 - Entered alpha characters are accepted in recipent phone field");
 
 			cashandcarry.EnterZipcodeOnPhoneOrderCPDV("sd&^&");
 			
@@ -270,7 +270,7 @@ public class Hana_T25_ChooseDefaultvalues_OrderEntryAliasPhoneOrder_FT extends T
 			// Test Step - 28
 			softassert.assertEquals(phoneorder.getItemCodeOnCPDV(),"RRD");
 			softassert.assertEquals(phoneorder.getItemqtyOnPhoneOrderPage(),"1");
-			softassert.assertEquals(phoneorder.getDisplayedRecipientphoneOnPhoneOrderPage(),"8324872387");
+			softassert.assertEquals(phoneorder.getDisplayedRecipientphoneOnPhoneOrderPage(),"832-487-2387");
 			softassert.assertEquals(phoneorder.getDisplayedRecipientZipcodeOnPhoneOrderPage(),"32013");
 			softassert.assertEquals(phoneorder.getSelectedWireInMethodOnPhoneOrderPage(),"FSN");
 			softassert.assertEquals(phoneorder.getSelectedWireOutMethodOnPhoneOrderPage(),"Bloomnet");
@@ -296,7 +296,7 @@ public class Hana_T25_ChooseDefaultvalues_OrderEntryAliasPhoneOrder_FT extends T
 			// Test Step - 32
 			
 			delayWithGivenTime(500);
-			softassert.assertEquals(phoneorder.getRecipientPhoneOnPhoneOrderPage(),"8324872387");
+			softassert.assertEquals(phoneorder.getRecipientPhoneOnPhoneOrderPage(),"832-487-2387");
 			
 			// Test Step - 33
 			

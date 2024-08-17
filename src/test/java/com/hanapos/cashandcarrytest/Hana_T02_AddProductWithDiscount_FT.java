@@ -127,7 +127,9 @@ public class Hana_T02_AddProductWithDiscount_FT extends TestBaseClass{
 			logger.info("User select the item description as "+searchandselectitemdescription);
 			softassert.assertEquals(cashandcarry.ItemCodeValueIsExists(),"RDWB","Search and selected item description is not matched with displayed item code");	
 			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1","Search and selected item description is not matched with displayed item quantity");
+			
 			softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "40","Search and selected item description is not matched with displayed item price");
+			
 			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0","Search and selected item description is not matched with displayed item discount amount");
 			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0","Search and selected item description is not matched with displayed item discount percentage");
 			logger.info("User verify the item code, quantity, price, discount amount and discount percentage..");
@@ -148,7 +150,6 @@ public class Hana_T02_AddProductWithDiscount_FT extends TestBaseClass{
 			softassert.assertEquals(cashandcarry.getDiscountAmtOnDiscIsAddedByDiscPerAddItem(), "15.00","Discount percentage added value is not autocalculated to discount amount");	
 
 			//Test Step - 14
-			// ---Bug---
 			cashandcarry.EnterDiscountAmountOnAddItem(itemdiscountamount);
 			logger.info("User entered the discount amount as "+itemdiscountamount);
 			softassert.assertEquals(cashandcarry.getDiscountPercentageOnDiscIsAddedByDiscAmtField(), "010","Discount Amount added value is not autocalculated to discount percentage");

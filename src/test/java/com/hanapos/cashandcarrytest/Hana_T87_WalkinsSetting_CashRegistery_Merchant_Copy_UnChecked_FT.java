@@ -37,7 +37,7 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 
 	 */
 //retryAnalyzer= com.hanapos.utilities.RetryTest.class,
-	@Test(enabled=true,groups= {"Regression"}) 
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
 	public void Validate_Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT(String merchantcopynote, String clerkname, String searchandselectitemcode, String customername, String taxtype, String occasion) {
 		// Test Step - 1
 		logger.info("**** Starting Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT  ****");
@@ -156,6 +156,7 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
 			delayWithGivenTime(1000);
+		
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
 				cashandcarrypayment.GetOrderConfirmationMsgAndInvoiceNo();		
@@ -171,12 +172,7 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 			logger.info("User verified the order payment done successfully");
 			// Test Step - 13
 			
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);
-			//executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	executorService.shutdown();
-			RobotDismissAlert();
+		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
@@ -240,6 +236,7 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 			logger.info("User verified the order payment done successfully");
 			Assert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
 			delayWithGivenTime(1000);
+			
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
 				cashandcarrypayment.GetOrderConfirmationMsgAndInvoiceNo();		
@@ -251,14 +248,8 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());
 				
 			}
-			delayWithGivenTime(2000);
-			logger.info("User verified the order payment done successfully");	
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(1000);
-		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleOpenWebClientPrintPopup());
-		//	executorService.shutdown();
-			RobotAcceptAlert();	
+		
+			//RobotAcceptAlert();	
 			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User repeat the test step from 6 to 12 and click the open webclientprint button");

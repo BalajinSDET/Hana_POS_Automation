@@ -91,14 +91,21 @@ public class LoginPage extends TestBaseClass {
 	}
 	
 	public LoginPage EnterUserName(String username) {
-		if(loginPage.getText().equals("Welcome to HANA Florist POS")) {
-			clickAndType(User_name,username ); 
-		}else if(loginPage.getText().equals("Welcome to HANA POS")) {
-			clickAndType(Username,username ); 
-		}
-		
-		return this;
+	    String environment = prop.getProperty("env");	    
+	    switch (environment) {
+	        case "qa-final":
+	        case "staging":
+	            clickAndType(Username, "nanda_2");
+	            break;
+	        case "live":
+	            clickAndType(Username, username);
+	            break;
+	        default:
+	            throw new IllegalArgumentException("Unknown environment: " + environment);
+	    }	    
+	    return this;
 	}
+
 	
 	public boolean ValidateUsernameFieldIsPresence() {
 		HighlightElement(Username);
@@ -111,20 +118,12 @@ public class LoginPage extends TestBaseClass {
 	}
 
 	public LoginPage EnterPassword(String password) {
-		if(loginPage.getText().equals("Welcome to HANA Florist POS")) {
-			clickAndType(Pass_word,password ); 
-		}else if(loginPage.getText().equals("Welcome to HANA POS")) {
-			clickAndType(Password,password ); 
-		}
+		clickAndType(Password,password);
 		return this;
 	}
 
 	public HanaDashBoardPage ClickLoginButton() {
-		if(loginPage.getText().equals("Welcome to HANA Florist POS")) {
-			click(login_Btn);
-		}else if(loginPage.getText().equals("Welcome to HANA POS")) {
-			click(loginbutton);
-		}
+		click(loginbutton);
 		return new HanaDashBoardPage();
 	}
 	

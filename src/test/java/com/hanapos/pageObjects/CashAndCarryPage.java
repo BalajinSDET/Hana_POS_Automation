@@ -53,7 +53,7 @@ public class CashAndCarryPage extends TestBaseClass{
 	@FindBy(xpath="//input[@id='txtItemCode']")
 	private WebElement ItemCode;
 
-	@FindBy(xpath="//ul[@id='ui-id-3']//li")
+	@FindBy(xpath="//ul[@id='ui-id-3']//li//div")
 	private List<WebElement> itemcodelist;
 
 	@FindBy(xpath="//p[normalize-space()='Description']")
@@ -323,6 +323,9 @@ public class CashAndCarryPage extends TestBaseClass{
 
 	@FindBy(xpath="//input[@id='txtSearchProduct']")
 	private WebElement SelectCustomer;
+	
+	@FindBy(xpath="//ul[@id='ui-id-1']//li//div")
+	private List<WebElement> CustomerList_autocomplete_dropdown_Option;
 	
 	@FindBy(xpath="//ul[@id='ui-id-1']//li//div[contains(text(),'')]")
 	private List <WebElement> listOfCustomers;
@@ -1220,7 +1223,28 @@ public class CashAndCarryPage extends TestBaseClass{
 	}
 
 	public CashAndCarryPage EnterCustomerName(String customershorttext) {
-		HandleAutocomplete(SelectCustomer,customershorttext); //"abish"
+		SelectCustomer.clear();
+		clickAndType(SelectCustomer,customershorttext); //"abish"
+		delayWithGivenTime(3000);
+		for(WebElement cust : CustomerList_autocomplete_dropdown_Option) {
+			if(cust.getText().equals(prop.getProperty("customername"))) {
+				jsClick(cust);
+				break;
+			}
+		}
+		return this;
+	}
+	
+	public CashAndCarryPage EnterCustomerName(String customershorttext, String customername) {
+		SelectCustomer.clear();
+		clickAndType(SelectCustomer,customershorttext); //"abish"
+		delayWithGivenTime(3000);
+		for(WebElement cust : CustomerList_autocomplete_dropdown_Option) {
+			if(cust.getText().contains(customername)) {
+				jsClick(cust);
+				break;
+			}
+		}
 		return this;
 	}
 
@@ -1299,15 +1323,17 @@ public class CashAndCarryPage extends TestBaseClass{
 
 	public void SearchAndSelectTheItemCode(String itemcode) {
 		HighlightElement(ItemCode);
+		ItemCode.clear();
 		DoubleClickAndType(ItemCode,itemcode);
 		delayWithGivenTime(3000);
-
-		for(int i=0;i<itemcodelist.size();i++) {
-			if(itemcodelist.get(i).getText().contains("rrd-Red Rose Deluxe")) {
-				jsClick(itemcodelist.get(i));
+		
+		for(WebElement ele:itemcodelist) {	
+			if(ele.getText().contains("rrd-Red Rose Deluxe")) {
+				jsClick(ele);
 				break;
 			}
 		}
+
 	}
 
 	public void SearchAndSelect_ItemCode(String itemcode, String itemdescription) {
@@ -1798,7 +1824,7 @@ public class CashAndCarryPage extends TestBaseClass{
 
 	public void ClickCloseIconOnAddNewCustPopup() {
 		delayWithGivenTime(2000);
-		click(AddNewCustomerCloseIcon);
+		jsClick(AddNewCustomerCloseIcon);
 	}
 
 	public boolean CustomerIdIsExist() {
@@ -2998,6 +3024,7 @@ public class CashAndCarryPage extends TestBaseClass{
 	}
 	
 	public void EnterAddNewCustPhoneNumber(String phonenumber) {
+		AddNewCustPhoneNumberTextbox.clear();
 		DoubleClickAndType(AddNewCustPhoneNumberTextbox, phonenumber);
 	}
 	
@@ -3007,6 +3034,7 @@ public class CashAndCarryPage extends TestBaseClass{
 	}
 	
 	public void EnterAddNewCustAltPhoneNumber(String altphonenumber) {
+		AddNewCustAltPhoneNumberTextbox.clear();
 		DoubleClickAndType(AddNewCustAltPhoneNumberTextbox, altphonenumber);	
 	}
 	

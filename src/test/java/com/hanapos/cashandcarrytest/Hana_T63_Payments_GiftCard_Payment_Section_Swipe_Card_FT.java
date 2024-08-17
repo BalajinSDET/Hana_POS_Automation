@@ -122,7 +122,7 @@ public class Hana_T63_Payments_GiftCard_Payment_Section_Swipe_Card_FT extends Te
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 			
 			// Test Step - 10
-			cashandcarry.EnterCustomerName("Test Automation");
+			cashandcarry.EnterCustomerName("Test Automation","Test Automation");
 			logger.info("User search and select the created customer ");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion("Birthday");
@@ -172,13 +172,13 @@ public class Hana_T63_Payments_GiftCard_Payment_Section_Swipe_Card_FT extends Te
 			// Test Step - 18
 			softassert.assertEquals(cashandcarrypayment.VerifyGiftCardCurrentBalance().contains("9"),true);
 			
-			// Test Step - 19
-			
+			// Test Step - 19			
 			cashandcarrypayment.ClickProcessPaymentBtn();
 			delayWithGivenTime(2000);
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+		
 			delayWithGivenTime(1000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
@@ -193,14 +193,8 @@ public class Hana_T63_Payments_GiftCard_Payment_Section_Swipe_Card_FT extends Te
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
 			
-			delayWithGivenTime(2000);	
-			getDriver().switchTo().activeElement();
-		//	ExecutorService executorService = Executors.newFixedThreadPool(2);
-		//	executorService.submit(() -> handleOpenWebClientPrintPopup());
-		//	executorService.shutdown();
-			RobotAcceptAlert();
+			
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(2000);		
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User select the payment type as cash tab");
 					
@@ -216,6 +210,8 @@ public class Hana_T63_Payments_GiftCard_Payment_Section_Swipe_Card_FT extends Te
 			delayWithGivenTime(1000);
 			
 			// Test Step - 21
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_Walkins_Pickup_GiftCard_OnOrderPage());
+			delayWithGivenTime(1000);
 			softassert.assertTrue(dashboardorder.Validate_GiftCard_MOP_DisplayedOnOrderPage(),"Gift Card mode of pay is not displayed on orders page");		
 			softassert.assertAll();
 		} catch (Exception e) {

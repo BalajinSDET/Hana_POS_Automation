@@ -120,7 +120,7 @@ public class Hana_T47_Payments_CreditCard_Manually_Entering_CreditCard_Details_A
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 			
 			// Test Step - 10
-			cashandcarry.EnterCustomerName(customername);
+			cashandcarry.EnterCustomerName(customername,customername);
 			logger.info("User search and select the created customer ");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion(occasion);

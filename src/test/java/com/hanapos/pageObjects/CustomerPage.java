@@ -125,6 +125,9 @@ public class CustomerPage extends TestBaseClass {
 	@FindBy(xpath="//tbody[@role='rowgroup']//tr[last()]//td[4]")
 	private WebElement CustTable_CustomerID;
 	
+	@FindBy(xpath="//tbody[@role='rowgroup']//tr[1]//td[4]")
+	private WebElement CustTable_CustomerID_Row1;
+	
 	public boolean VerifyCustomerMenuPage() {
 		HighlightElement(CustomerMenuHeading);
 		fluentWait(CustomerMenuHeading);
@@ -158,6 +161,11 @@ public class CustomerPage extends TestBaseClass {
 	public void ClickCustomerIdOnCustTable() {
 		fluentWait(CustTable_CustomerID);
 		jsClick(CustTable_CustomerID);
+	}
+	
+	public void Click_CustomerId_Row1_OnCustTable() {
+		fluentWait(CustTable_CustomerID_Row1);
+		jsClick(CustTable_CustomerID_Row1);
 	}
 	
 	public void Search_and_SelectCustomerName(String customerName, String expectedcustomername) {

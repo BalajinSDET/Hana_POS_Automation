@@ -151,17 +151,11 @@ public class Hana_T10_WalkinsSetting_CashRegistery_Merchant_Copy_Without_Merchan
 			
 			// Test Step - 12
 			logger.info("User verified the order payment done successfully");
-			delayWithGivenTime(3000);
-			getDriver().switchTo().activeElement();
 			
 			// Test Step - 13			
-		//	delayWithGivenTime(3000);
-		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	ActionDismissAlert();
 		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(2000);
+		//	delayWithGivenTime(2000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();	
 		//	executorService.shutdown();
 			
@@ -240,15 +234,13 @@ public class Hana_T10_WalkinsSetting_CashRegistery_Merchant_Copy_Without_Merchan
 				logger.info("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}
-			delayWithGivenTime(3000);
-			getDriver().switchTo().activeElement();
+		//	delayWithGivenTime(3000);
+		//	getDriver().switchTo().activeElement();
 			//ActionAcceptAlert();
-			RobotAcceptAlert();	
+		//	RobotAcceptAlert();	
 		
-			delayWithGivenTime(1000);
-			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
-			
-			
+			delayWithGivenTime(2000);
+			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();			
 			logger.info("User repeat the test step from 6 to 12 and click the open webclientprint button");
 		
 			logger.info("**** Ending Hana_T10_WalkinsSetting_CashRegistery_Merchant_Copy_Without_Merchant_Copy_Notes_FunctionalityTest ****");

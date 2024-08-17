@@ -153,8 +153,9 @@ public class Hana_T56_Payments_Invoice_Payment_Section_FT extends TestBaseClass{
 			// Test Step - 15
 			delayWithGivenTime(2000);
 			cashandcarrypayment.ClickBackButton();
+			
 			delayWithGivenTime(2000);
-			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Cash And Carry page is not displayed");
+			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Test Step - 15: Cash And Carry page is not displayed");
 			logger.info("User verify the Cash and Carry page is displayed..");
 			cashandcarry.EnterCustomerName(customername);
 			logger.info("User search and select the created customer ");
@@ -173,6 +174,7 @@ public class Hana_T56_Payments_Invoice_Payment_Section_FT extends TestBaseClass{
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			
 			delayWithGivenTime(1000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
@@ -187,15 +189,10 @@ public class Hana_T56_Payments_Invoice_Payment_Section_FT extends TestBaseClass{
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
 			
-				delayWithGivenTime(2000);	
-				getDriver().switchTo().activeElement();
-				delayWithGivenTime(1000);
-			//	ExecutorService executorService = Executors.newFixedThreadPool(2);
-			// 	executorService.submit(() -> handleOpenWebClientPrintPopup());
-			//	executorService.shutdown();
+			
 			//RobotAcceptAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(2000);		
+			delayWithGivenTime(500);		
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			softassert.assertAll();
 		} catch (Exception e) {

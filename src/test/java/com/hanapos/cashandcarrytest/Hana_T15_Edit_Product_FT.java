@@ -212,6 +212,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			
 			delayWithGivenTime(1000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
@@ -222,9 +223,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
 				 
-			getDriver().switchTo().activeElement();			
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(2000);
 
 			// Test Step - 23
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
@@ -237,15 +236,17 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			logger.info("User click the order menu on hana dashboard page");
 			dashboardorder = new DashboardOrderPage();
 
-			//Test Step - 25							//https://hanafloralpos3.com/Dashboard/Order
+			//Test Step - 25							
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step:25 - Dashboard order page is not displayed");
 			logger.info("User verify that the order page is navigated to dashboard order page");
 			delayWithGivenTime(1000); 
-			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step:25 - Invoice number is not matched");
+			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage());
+
+			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step:25 - Invoice number is not displayed on order page");
 
 			// Test Step -26 
 			delayWithGivenTime(1000);		
-			softassert.assertEquals(dashboardorder.GetInvoiceAmountOnOrderPage(), "$120.00","Test Step:26 - Invoice amount on order page is not matched");
+			softassert.assertEquals(dashboardorder.GetInvoiceAmount_Walkin_pickup_Cash_OnOrderPage(), "$120.00","Test Step:26 - Invoice amount on order page is not matched");
 			
 			
 		} catch (Exception e) {

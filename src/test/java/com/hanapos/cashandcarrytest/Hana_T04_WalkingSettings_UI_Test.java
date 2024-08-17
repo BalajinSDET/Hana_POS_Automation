@@ -16,10 +16,7 @@ public class Hana_T04_WalkingSettings_UI_Test extends TestBaseClass {
 	SoftAssert softassert = new SoftAssert();
 	//retryAnalyzer= com.hanapos.utilities.RetryTest.class,
 	@Test(enabled=true,groups= {"Regression"})
-	public void Validate_Hana_T04_WalkingSetting_UIElement_Test() {
-		
-		// HANA-T04 - Verify Walking Settings UI Elements
-		
+	public void Validate_Hana_T04_WalkingSetting_UIElement_Test() {		
 		//Test Step - 1
 		logger.info("**** Starting Hana_T04_WalkingSettings_UI_CashAndCarryTest  ****");
 		logger.debug("capturing application debug logs....");

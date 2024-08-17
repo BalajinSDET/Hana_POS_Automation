@@ -121,7 +121,7 @@ public class Hana_T59_Payments_POH_Payment_Section_FT extends TestBaseClass{
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 			
 			// Test Step - 10
-			cashandcarry.EnterCustomerName("Test Automation");
+			cashandcarry.EnterCustomerName("Test Automation","Test Automation");
 			logger.info("User search and select the created customer ");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion("Birthday");
@@ -129,6 +129,7 @@ public class Hana_T59_Payments_POH_Payment_Section_FT extends TestBaseClass{
 			delayWithGivenTime(2000);
 			cashandcarry.ClickPayButton();
 			logger.info("User click on Pay button");
+			
 			cashandcarrypayment = new CashAndCarryPaymentPage();
 			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
 			logger.info("User navigated to Cash And Carry payment page successfully");
@@ -138,16 +139,17 @@ public class Hana_T59_Payments_POH_Payment_Section_FT extends TestBaseClass{
 			softassert.assertEquals(cashandcarrypayment.VerifyCreditCardTabIsSelected(),"true", "By defaultCredit card tab section is not displayed");
 			
 			// Test Step - 12
-			delayWithGivenTime(2000);
+			delayWithGivenTime(500);
 			cashandcarrypayment.ClickPOHTab();
 			
 			// Test Step - 13
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			softassert.assertTrue(cashandcarrypayment.VerifyProcessPaymentButton(),"Process payment button is disabled");
 			cashandcarrypayment.ClickProcessPaymentBtn();
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			
 			delayWithGivenTime(1000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
@@ -162,14 +164,10 @@ public class Hana_T59_Payments_POH_Payment_Section_FT extends TestBaseClass{
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
 			
-			delayWithGivenTime(2000);	
-			getDriver().switchTo().activeElement();
-		//	ExecutorService executorService = Executors.newFixedThreadPool(2);
-		//	executorService.submit(() -> handleOpenWebClientPrintPopup());
-		//	executorService.shutdown();
+		
 		//	RobotAcceptAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(2000);		
+			delayWithGivenTime(500);		
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User select the payment type as cash tab");
 					
@@ -185,8 +183,11 @@ public class Hana_T59_Payments_POH_Payment_Section_FT extends TestBaseClass{
 			delayWithGivenTime(1000);
 			
 			// Test Step - 15
-			softassert.assertTrue(dashboardorder.Validate_POH_MOP_DisplayedOnOrderPage(),"Paid Outside Hana mode of pay is not displayed on orders page");		
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_Walkins_Pickup_POH_MOP_DisplayedOnOrderPage());
+			delayWithGivenTime(1000);
+			softassert.assertTrue(dashboardorder.Validate_POH_MOP_DisplayedOnOrderPage(),"Test STep - 15: Paid Outside Hana mode of pay is not displayed on orders page");		
 			softassert.assertAll();
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail(e.getMessage());

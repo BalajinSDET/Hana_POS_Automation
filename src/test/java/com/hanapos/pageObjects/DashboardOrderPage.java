@@ -2,6 +2,7 @@ package com.hanapos.pageObjects;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,11 +11,16 @@ import org.testng.Assert;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
 
 public class DashboardOrderPage extends TestBaseClass{
-	private CashAndCarryPaymentPage cashandcarrypayment = new CashAndCarryPaymentPage();
+	private CashAndCarryPaymentPage cashandcarrypayment;
 	public DashboardOrderPage() {
 		PageFactory.initElements(getDriver(), this);
 	}
 
+	@FindBy(xpath="(//div[@class='form-group has-search']//input)[1]")
+	private WebElement Global_search_OrderPage;
+	
+	@FindBy(xpath="(//ul[@class='typeahead dropdown-menu'])[1]//li//a")
+	private List<WebElement> listOfGlobal_search_OrderPage;
 
 	@FindBy(xpath = "//span[@class='set-invoice-number']")
 	private List<WebElement> listOfInvoiceNumber;
@@ -43,7 +49,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	@FindBy(xpath="//td[contains(text(),'Donation')]")
 	private List<WebElement> listOfDonation;
 	
-	@FindBy(xpath="//td[@class='hana-grid-row-fullview order-status-col']")
+	@FindBy(xpath="//td[@class='hana-grid-row-fullview order-status-col overflowVisible']")
 	private List<WebElement> listOfOrderStatus;
 
 	@FindBy(xpath = "//table[@role='grid']//tr//td[@class='set-order-detail-text']")
@@ -140,84 +146,115 @@ public class DashboardOrderPage extends TestBaseClass{
 		return	getDriver().getCurrentUrl();
 	}
 
+	public void EnterGlobalSearch(String globalsearch) {
+		//HighlightElement(Global_search_OrderPage);
+		Global_search_OrderPage.clear();
+		delayWithGivenTime(1000);
+		Global_search_OrderPage.sendKeys(globalsearch);
+		//clickAndType(Global_search_OrderPage,globalsearch);
+		delayWithGivenTime(1000);
+		Global_search_OrderPage.sendKeys(Keys.ENTER);
+	}
+	
 	public boolean ValidateInvoiceNumber() {
+		boolean invoiceNumber = false;
 		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up") 
-				&& listOfCashMOP.get(0).getText().equals("Cash")) {
-			for (int i= 0;i<listOfInvoiceNumber.size(); ) {	
-				HighlightElement(listOfWalkinSales.get(0));
-				HighlightElement(listOfOrderDetail.get(0));
-				HighlightElement(firstrowOfOrderDetail.get(0));
-				delayWithGivenTime(1000);
-				HighlightElement(listOfInvoiceNumber.get(0));
-				listOfInvoiceNumber.get(0).isDisplayed();
-				break; 
-			}
+				&& listOfCashMOP.get(0).getText().equals("Cash")) {			
+			HighlightElement(listOfInvoiceNumber.get(0));
+			invoiceNumber =	listOfInvoiceNumber.get(0).isDisplayed();
 		
-		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+		}	return invoiceNumber;			 		
+	}
+	
+	public String getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage() {
+	    // Ensure that listOfWalkinSales, listOfPickUp, and listOfCashMOP contain elements before accessing them
+	    if (!listOfWalkinSales.isEmpty() && !listOfPickUp.isEmpty() && !listOfCashMOP.isEmpty()) {
+	      
+	    	if (listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+	            && listOfPickUp.get(0).getText().equals("Pick Up") 
+	            && listOfCashMOP.get(0).getText().equals("Cash")) {
+	                
+	            if (!listOfInvoiceNumber.isEmpty()) { // Ensure the list is not empty
+	            	System.out.println("Order Page walkin sales - pickup - Cash - Invoice Number is :"+listOfInvoiceNumber.get(0).getText());
+	                return listOfInvoiceNumber.get(0).getText();
+	            }
+	        }
+	    }
+	    return null; 
+	}
+
+	public String get_Walkins_Pickup_POH_MOP_DisplayedOnOrderPage() {
+		String paidOutsideHana_Invoice = null;
+		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+				&& listOfPickUp.get(0).getText().equals("Pick Up")
+				&& listOfPaidOutsideHana.get(0).getText().equals("Paid Outside Hana")) {
+				paidOutsideHana_Invoice = listOfInvoiceNumber.get(0).getText();
+				System.out.println("Paid Outside Hana Invoice number: "+paidOutsideHana_Invoice);
+		}return paidOutsideHana_Invoice;
 	}
 	
 	public boolean Validate_POH_MOP_DisplayedOnOrderPage() {
-		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales") 
-				&& listOfPickUp.get(0).getText().contains("Pick Up")
-				&& listOfPaidOutsideHana.get(0).getText().contains("Paid Outside Hana")) {
+		boolean paidOutsideHana = false;
+		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+				&& listOfPickUp.get(0).getText().equals("Pick Up")
+				&& listOfPaidOutsideHana.get(0).getText().equals("Paid Outside Hana")) {
 			HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
-			for(int i=0;i<listOfPaidOutsideHana.size();) {
-				listOfPaidOutsideHana.get(0).isDisplayed();
-				break;
-			}
-		}return listOfPaidOutsideHana.get(0).isDisplayed();
+			HighlightElement(listOfPaidOutsideHana.get(0));
+			paidOutsideHana = listOfPaidOutsideHana.get(0).isDisplayed();
+		}return paidOutsideHana;
+	}
+	
+	public String get_Walkins_Pickup_GiftCard_OnOrderPage() {
+		String giftcard_Invoice=null;
+		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+				&& listOfPickUp.get(0).getText().equals("Pick Up")
+				&&	listOfGiftCard.get(0).getText().equals("Gift Card")) {			
+				giftcard_Invoice=listOfInvoiceNumber.get(0).getText();
+		}return giftcard_Invoice;
 	}
 	
 	public boolean Validate_GiftCard_MOP_DisplayedOnOrderPage() {
-		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales") 
-				&& listOfPickUp.get(0).getText().contains("Pick Up")
-				&&	listOfGiftCard.get(0).getText().contains("Gift Card")) {
+		boolean giftcard_Invoice=false;
+		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+				&& listOfPickUp.get(0).getText().equals("Pick Up")
+				&&	listOfGiftCard.get(0).getText().equals("Gift Card")) {
 			HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
-			for(int i=0;i<listOfGiftCard.size();) {
-				listOfGiftCard.get(0).isDisplayed();
-				break;
-			}
-		}return listOfGiftCard.get(0).isDisplayed();
+			giftcard_Invoice=listOfInvoiceNumber.get(0).isDisplayed();
+		}return giftcard_Invoice;
+	}
+	
+	public String get_Walkins_Pickup_Donation_OnOrderPage() {
+		String donation_Invoice=null;
+		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+				&& listOfPickUp.get(0).getText().equals("Pick Up")
+				&&	listOfDonation.get(0).getText().equals("Donation")) {			
+				donation_Invoice=listOfInvoiceNumber.get(0).getText();						
+		}return donation_Invoice;
 	}
 	
 	public boolean Validate_Donation_MOP_DisplayedOnOrderPage() {
-		
-		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales") 
-				&& listOfPickUp.get(0).getText().contains("Pick Up")
-				&&	listOfDonation.get(0).getText().contains("Donation")) {
+		boolean donation_Invoice=false;
+		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+				&& listOfPickUp.get(0).getText().equals("Pick Up")
+				&&	listOfDonation.get(0).getText().equals("Donation")) {
 			HighlightElement(listOfInvoiceNumber.get(0));
-			HighlightElement(listOfOrderStatus.get(0));
-			delayWithGivenTime(1000);
-			
-			for (WebElement donation : listOfDonation) {
-		        if (donation.isDisplayed()) {
-		            return true;
-		        }
-		    }			
-		}return false;
+			donation_Invoice=listOfInvoiceNumber.get(0).isDisplayed();						
+		}return donation_Invoice;
 	}
 	
-	public boolean getStatusOnOrderPage() {
-		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales") 
-				&& listOfPickUp.get(0).getText().contains("Pick Up") ) {
-			HighlightElement(listOfInvoiceNumber.get(0));
-			
-			delayWithGivenTime(1000);
-			
-			for (WebElement status : listOfOrderStatus) {
-				HighlightElement(listOfOrderStatus.get(0));
-		        if (status.isDisplayed()) {
-		        	System.out.println("Order status is : "+status.getText());
-		        	return true;
-		        }
-		    }			
-		}return false;
+	public String getStatusOnOrderPage() {
+		String status = null;
+		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+				&& listOfPickUp.get(0).getText().equals("Pick Up")
+				&&	listOfDonation.get(0).getText().equals("Donation")) {
+				status=	listOfOrderStatus.get(0).getText();
+		}return status;
 	}
 	
-	public String GetInvoiceAmountOnOrderPage() {
+	public String GetInvoiceAmount_Walkin_pickup_Cash_OnOrderPage() {
 		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales")
 				&&listOfPickUp.get(0).getText().contains("Pick Up")
 				&&listOfCashMOP.get(0).getText().contains("Cash")) {
@@ -227,9 +264,6 @@ public class DashboardOrderPage extends TestBaseClass{
 			delayWithGivenTime(1000);
 			HighlightElement(firstrowOfOrderDetail.get(0));
 			delayWithGivenTime(1000);
-			for (int i= 0;i<listOfInvoiceAmountValue.size(); ) {				
-				break; 
-			}
 			HighlightElement(listOfInvoiceAmountValue.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceAmountValue.get(0).getText();			 		
@@ -328,21 +362,14 @@ public class DashboardOrderPage extends TestBaseClass{
 	}
 	
 	public String GetSenderorCustomerOnOrderPage() {
+		String sender_cust=null;
 		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales")
 				&&listOfPickUp.get(0).getText().contains("Pick Up")
 				&&listOfCashMOP.get(0).getText().contains("Cash")) {
-		
-			HighlightElement(firstrowOfOrderDetail.get(0));
-			delayWithGivenTime(1000);
-		
-			for (int i= 0;i<listOfSenderCustomer.size(); ) {	
-				HighlightElement(listOfSenderCustomer.get(0));
-				delayWithGivenTime(1000);
-				break; 
-			}
-			
-			
-		}	return listOfSenderCustomer.get(0).getText();			 		
+
+			sender_cust= listOfSenderCustomer.get(0).getText();
+			System.out.println("Sender or Customer : "+sender_cust);
+		}	return 	sender_cust;		 		
 	}
 	
 	public void ClickonSenderorCustomerOnOrderPage() {

@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT">
+      <class name="com.hanapos.cashandcarrytest.Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT">
         <methods>
+          <include name="Validate_Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT"/>
           <include name="loadConfig"/>
           <include name="tearDown"/>
           <include name="setup"/>
-          <include name="Validate_Hana_T51_Payments_Cash_Payment_Test" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

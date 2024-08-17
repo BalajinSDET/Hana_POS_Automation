@@ -156,15 +156,10 @@ public class Hana_T11_WalkinsSetting_CashRegistery_Customer_Copy_With_Customer_C
 			logger.info("User verified the order payment done successfully");
 			
 			// Test Step - 13	
-			delayWithGivenTime(1000);
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);
-			//executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-			//executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	executorService.shutdown();			
-			RobotDismissAlert();
+		//	delayWithGivenTime(2000);			
+		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(1000);
+			delayWithGivenTime(2000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			delayWithGivenTime(1000);
 			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Cash And Carry page is not displayed");
@@ -179,11 +174,13 @@ public class Hana_T11_WalkinsSetting_CashRegistery_Customer_Copy_With_Customer_C
 			delayWithGivenTime(1000);
 			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe");	;
 			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1");
+			
 			if(cashandcarry.ItemPriceValueIsExist()=="299") {
 				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Item price is not matched with search and selected item code");
 			}else if(cashandcarry.ItemPriceValueIsExist()=="309") {
 				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309","Item price is not matched with search and selected item code");
 			}
+			
 			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0");
 			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0");
 			cashandcarry.ClickAddItem();
@@ -239,12 +236,10 @@ public class Hana_T11_WalkinsSetting_CashRegistery_Customer_Copy_With_Customer_C
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());		
 			}
 		
-			delayWithGivenTime(2000);
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);
+		//	delayWithGivenTime(2000);
 
-			RobotAcceptAlert();	
-			delayWithGivenTime(1000);
+		//	RobotAcceptAlert();	
+			delayWithGivenTime(2000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User repeat the test step from 6 to 12 and click the open webclientprint button");		
 			logger.info("Finished Hana_T11_WalkinsSetting_CashRegistery_Customer_Copy_With_Customer_Copy_Notes_FT execution completed successfully");

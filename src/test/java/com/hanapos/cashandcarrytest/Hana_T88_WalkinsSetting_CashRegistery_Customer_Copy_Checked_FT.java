@@ -36,7 +36,7 @@ public class Hana_T88_WalkinsSetting_CashRegistery_Customer_Copy_Checked_FT exte
 
 	 */
 //retryAnalyzer= com.hanapos.utilities.RetryTest.class,
-	@Test(enabled=true,groups= {"Regression"}) 
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
 	public void Validate_Hana_T88_CashRegistery_Customer_Copy_Checked_FT(String merchantcopynote, String clerkname, String searchandselectitemcode, String customername, String taxtype, String occasion) {
 		// Test Step - 1
 		logger.info("**** Starting Validate_Hana_T88_CashRegistery_Customer_Copy_Checked_FT  ****");
@@ -159,21 +159,19 @@ public class Hana_T88_WalkinsSetting_CashRegistery_Customer_Copy_Checked_FT exte
 				cashandcarrypayment.GetTenderPrice();
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
+			
 			delayWithGivenTime(500);
 			// Test Step - 12	
 			logger.info("User verified the order payment done successfully");
+		
 			// Test Step - 13		
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(3000);
-		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	executorService.shutdown();
-			RobotDismissAlert();
+		
+		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
-			// Test Step - 14
-			
+		
+			// Test Step - 14			
 			delayWithGivenTime(2000);
 			cashandcarry.SelectEmployeeName(prop.getProperty("employeename"));
 			logger.info("User selected the employee");
@@ -197,6 +195,7 @@ public class Hana_T88_WalkinsSetting_CashRegistery_Customer_Copy_Checked_FT exte
 			cashandcarry.SelectOccasion(occasion);
 			cashandcarry.ClickPayButton();
 			delayWithGivenTime(1000);
+			
 			cashandcarrypayment = new CashAndCarryPaymentPage();
 			Assert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
 			logger.info("User is on Cash And Carry payment page");
@@ -232,6 +231,7 @@ public class Hana_T88_WalkinsSetting_CashRegistery_Customer_Copy_Checked_FT exte
 			Assert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 
 			logger.info("User verified the order payment done successfully");
 			Assert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			
 			delayWithGivenTime(1000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
@@ -243,12 +243,9 @@ public class Hana_T88_WalkinsSetting_CashRegistery_Customer_Copy_Checked_FT exte
 				logger.info("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}
-			delayWithGivenTime(1000);
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);
 
 		//	RobotAcceptAlert();	
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User repeat the test step from 6 to 12 and click the open webclientprint button");
 			softassert.assertAll();

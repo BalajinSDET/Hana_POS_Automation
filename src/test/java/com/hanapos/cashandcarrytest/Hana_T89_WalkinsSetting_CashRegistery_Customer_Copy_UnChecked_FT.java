@@ -36,7 +36,7 @@ public class Hana_T89_WalkinsSetting_CashRegistery_Customer_Copy_UnChecked_FT ex
 	 * HANA-T89 - 1 to 17 - Verify Cash and Carry Page - Walkins setting - Cash Registery - Customer Copy UnChecked- Functionality
 	 */
 //retryAnalyzer= com.hanapos.utilities.RetryTest.class,
-	@Test(enabled=true,groups= {"Regression"}) 
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
 	public void Validate_Hana_T89_CashRegistery_Customer_Copy_UnChecked_FT(String merchantcopynote, String clerkname, String searchandselectitemcode, String customername, String taxtype, String occasion) {
 		// Test Step - 1
 		logger.info("**** Starting Hana_T89_WalkinsSetting_CashRegistery_Customer_Copy_UnChecked_FT  ****");
@@ -150,6 +150,7 @@ public class Hana_T89_WalkinsSetting_CashRegistery_Customer_Copy_UnChecked_FT ex
 
 			logger.info("User verified the order payment done successfully");
 			Assert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			
 			delayWithGivenTime(500);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
@@ -160,20 +161,17 @@ public class Hana_T89_WalkinsSetting_CashRegistery_Customer_Copy_UnChecked_FT ex
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
 			delayWithGivenTime(1000);
+		
 			// Test Step - 12	
 			logger.info("User verified the order payment done successfully");
+			
 			// Test Step - 13		
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(3000);
-			//executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-			//executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-			//executorService.shutdown();
-			RobotDismissAlert();
+		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
-			// Test Step - 14
 			
+			// Test Step - 14			
 			delayWithGivenTime(1000);
 			cashandcarry.SelectEmployeeName(prop.getProperty("employeename"));
 			logger.info("User selected the employee");
@@ -244,14 +242,8 @@ public class Hana_T89_WalkinsSetting_CashRegistery_Customer_Copy_UnChecked_FT ex
 				logger.info("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());		
 			}
-			delayWithGivenTime(2000);
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(1500);
-		//	executorService = Executors.newFixedThreadPool(2);
-		//	executorService.submit(() -> handleOpenWebClientPrintPopup());
-		//	executorService.shutdown();
+			delayWithGivenTime(1000);
 		//	RobotAcceptAlert();
-			delayWithGivenTime(1500);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User repeat the test step from 6 to 12 and click the open webclientprint button");
 			softassert.assertAll();

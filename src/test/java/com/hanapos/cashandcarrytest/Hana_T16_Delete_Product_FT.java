@@ -74,7 +74,7 @@ public class Hana_T16_Delete_Product_FT extends TestBaseClass{
 			logger.info("User select the employee name");
 
 			// Test Step - 7
-			softassert.assertTrue(cashandcarry.IsPayButtonDisabled(), "Pay button is not disabled");
+			softassert.assertTrue(cashandcarry.IsPayButtonDisabled(), "Test Step - 7 - Pay button is not disabled on cash and carry page");
 
 			// Test Step - 8
 			cashandcarry.SearchAndSelectTheItemCode(searchandselectitemcode);
@@ -138,13 +138,13 @@ public class Hana_T16_Delete_Product_FT extends TestBaseClass{
 			logger.info("User click on Back button on top right corner");
 			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Cash And Carry page is not displayed");
 			logger.info("User verify the Cash and Carry page is displayed..");
-			softassert.assertEquals(cashandcarry.getAddedItemCode(),"ballonsYY");
-			softassert.assertEquals(cashandcarry.GetAddedItemDescription(),"Ballons small");
-			softassert.assertEquals(cashandcarry.GetAddedItemQty(), "1");
-			softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$40.00");
-			softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$40.00");
-			softassert.assertEquals(cashandcarry.GetAddedItemDiscountAmount(), "$ 0.00");
-			softassert.assertEquals(cashandcarry.GetAddedItemDiscountPercentage(),"0.00");
+			softassert.assertEquals(cashandcarry.getAddedItemCode(),"ballonsYY","Test Step - 12 - Added item code is not displayed on cash and carry page");
+			softassert.assertEquals(cashandcarry.GetAddedItemDescription(),"Ballons small","Test Step - 12 - Added item description is not displayed on cash and carry page");
+			softassert.assertEquals(cashandcarry.GetAddedItemQty(), "1","Test Step - 12 - Added item quantity is not displayed on cash and carry page");
+			softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$40.00","Test Step - 12 - Added item extended price is not displayed on cash and carry page");
+			softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$40.00","Test Step - 12 - Added item price is not displayed on cash and carry page");
+			softassert.assertEquals(cashandcarry.GetAddedItemDiscountAmount(), "$ 0.00","Test Step - 12 - Added item discount amount is not displayed on cash and carry page");
+			softassert.assertEquals(cashandcarry.GetAddedItemDiscountPercentage(),"0.00","Test Step - 12 - Added item discount percentage is not displayed on cash and carry page");
 
 			// Test Step - 13
 			
@@ -179,11 +179,11 @@ public class Hana_T16_Delete_Product_FT extends TestBaseClass{
 			
 			// Test Step - 14
 			// After delete the added item on pay button
-			softassert.assertEquals(cashandcarry.ValidatePayButtonDisplayedPrice(),"40.00");
+			softassert.assertEquals(cashandcarry.ValidatePayButtonDisplayedPrice(),"40.00","Test Step - 14 - Pay button displayed price is not correct as expected");
 			
 			// Test Step - 15
 			// After delete the added item on grand total
-			softassert.assertEquals(cashandcarry.ValidateGrandTotalDefaultValue(),"40.00");
+			softassert.assertEquals(cashandcarry.ValidateGrandTotalDefaultValue(),"40.00","Test Step - 15 - Grand total value is not correct as expected");
 			
 			// Test Step - 16
 			
@@ -191,7 +191,7 @@ public class Hana_T16_Delete_Product_FT extends TestBaseClass{
 			cashandcarry.ClickPayButton();
 			logger.info("User fillout the customer,tax type & occasion details and click on Pay button");
 			cashandcarrypayment = new CashAndCarryPaymentPage();
-			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
+			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Test Step - 16 - Cash And Carry payment page is not displayed");
 			logger.info("User is on Cash And Carry payment page");
 			
 			//Test Step -17
@@ -210,9 +210,9 @@ public class Hana_T16_Delete_Product_FT extends TestBaseClass{
 			softassert.assertTrue(cashandcarry.IsRow1TableAddedItemDisplayed(),"Added Item row 1 table data is not deleted");
 			delayWithGivenTime(1000);
 			
-			softassert.assertTrue(cashandcarry.IsPayButtonDisabled(),"pay button is not disabled");
-			softassert.assertEquals(cashandcarry.ValidatePayButtonDisplayedPrice(),"");
-			softassert.assertEquals(cashandcarry.ValidateGrandTotalDefaultValue(),"0.00");	
+			softassert.assertTrue(cashandcarry.IsPayButtonDisabled(),"Test Step - 20 - pay button is not disabled");
+			softassert.assertEquals(cashandcarry.ValidatePayButtonDisplayedPrice(),"","Test Step - 20 - Pay button displayed price is not correct as expected");
+			softassert.assertEquals(cashandcarry.ValidateGrandTotalDefaultValue(),"0.00","Test Step - 20 - Grand total value is not correct as expected");	
 			softassert.assertAll();
 		} catch (Exception e) {
 			e.printStackTrace();

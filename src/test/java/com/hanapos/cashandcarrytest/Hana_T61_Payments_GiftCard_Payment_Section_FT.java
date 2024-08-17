@@ -122,12 +122,12 @@ public class Hana_T61_Payments_GiftCard_Payment_Section_FT extends TestBaseClass
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 			
 			// Test Step - 10
-			cashandcarry.EnterCustomerName("Test Automation");
+			cashandcarry.EnterCustomerName("Test Automation","Test Automation");
 			logger.info("User search and select the created customer ");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion("Birthday");
 			logger.info("User select the occasion as Birthday");
-			delayWithGivenTime(2000);
+			delayWithGivenTime(500);
 			cashandcarry.ClickPayButton();
 			logger.info("User click on Pay button");
 			delayWithGivenTime(2000);
@@ -175,6 +175,7 @@ public class Hana_T61_Payments_GiftCard_Payment_Section_FT extends TestBaseClass
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			
 			delayWithGivenTime(1000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
@@ -189,12 +190,6 @@ public class Hana_T61_Payments_GiftCard_Payment_Section_FT extends TestBaseClass
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
 			
-			delayWithGivenTime(2000);	
-			getDriver().switchTo().activeElement();
-			ThreadWait(1000);
-		//	ExecutorService executorService = Executors.newFixedThreadPool(2);
-		//	executorService.submit(() -> handleOpenWebClientPrintPopup());
-		//	executorService.shutdown();
 		//	RobotAcceptAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(2000);		
@@ -213,7 +208,10 @@ public class Hana_T61_Payments_GiftCard_Payment_Section_FT extends TestBaseClass
 			delayWithGivenTime(1000);
 			
 			// Test Step - 21
-			softassert.assertTrue(dashboardorder.Validate_GiftCard_MOP_DisplayedOnOrderPage(),"Gift Card mode of pay is not displayed on orders page");		
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_Walkins_Pickup_GiftCard_OnOrderPage());
+			delayWithGivenTime(1000);
+
+			softassert.assertTrue(dashboardorder.Validate_GiftCard_MOP_DisplayedOnOrderPage(),"Test Step - 21 - Gift Card mode of pay is not displayed on orders page");		
 			softassert.assertAll();
 		} catch (Exception e) {
 			e.printStackTrace();

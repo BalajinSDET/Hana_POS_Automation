@@ -123,14 +123,14 @@ public class Hana_T79_Add_Product_With_Existing_Customer_FT extends TestBaseClas
 			//Test Step - 10	
 			delayWithGivenTime(2000);
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");
-			softassert.assertEquals(cashandcarry.getDisplayedProductTitletooltip().contains("ballonsYY-"), true);		
+			softassert.assertEquals(cashandcarry.getDisplayedProductTitletooltip().contains("ballonsYY-"), true,"Test Step - 10 product tile is not displayed on product table grid");		
 			
 			// Test Step - 11
 			delayWithGivenTime(2000);
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");
 			cashandcarry.ClickParticularProdTitle();
 			softassert.assertEquals(cashandcarry.getAddedItemCode(),"ballonsYY");
-			cashandcarry.EnterCustomerName(customershortname);
+			cashandcarry.EnterCustomerName(customershortname,customershortname);
 			logger.info("User enter the customer name");
 			cashandcarry.SelectTaxType(taxtype);
 			cashandcarry.SelectOccasion(occasion);
@@ -164,12 +164,7 @@ public class Hana_T79_Add_Product_With_Existing_Customer_FT extends TestBaseClas
 				cashandcarrypayment.GetTenderPrice();
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-		//	delayWithGivenTime(1000);
-				
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(2000);
-
-		//	RobotDismissAlert();
+		
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(1000);
 			
@@ -188,9 +183,13 @@ public class Hana_T79_Add_Product_With_Existing_Customer_FT extends TestBaseClas
 			//Test Step - 16
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 16 - Dashboard order page is not displayed");				
 			logger.info("User verify that the order page is navigated to dashboard order page");
-			delayWithGivenTime(1000);
-			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(), "Test Step - 16 invoice number is not displayed");
 			
+			delayWithGivenTime(1000);
+			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage());
+			
+			delayWithGivenTime(2000);
+			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step - 16 - Invoice number is not displayed on hana dashboard order page");		
+					
 			// Test Step - 17
 			softassert.assertEquals(dashboardorder.GetSenderorCustomerOnOrderPage().contains("Test Automation pvt ltd | Test Automation"),true, "Test Step - 17 Sender or customer name is not displayed");
 			softassert.assertAll();

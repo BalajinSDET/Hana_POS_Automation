@@ -252,7 +252,8 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
-			delayWithGivenTime(1000);
+			
+			delayWithGivenTime(2000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
 				logger.info("User verify the order confirmation popup is displayed");
@@ -265,17 +266,12 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 				logger.info(("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice()));
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-
-		//	delayWithGivenTime(2000);
 		
 		//	RobotDismissAlert();
 			logger.info("User click the cancel button on web client print window popup");
-			delayWithGivenTime(1000);
 
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User click on close button on order confirmation popup");
-			delayWithGivenTime(1000);
-
 			softassert.assertAll();
 			logger.info("**** Finished Starting HANA_T28_CashAndCarry_GiftCard_FunctionalityTest ****");
 		} catch (Exception e) {

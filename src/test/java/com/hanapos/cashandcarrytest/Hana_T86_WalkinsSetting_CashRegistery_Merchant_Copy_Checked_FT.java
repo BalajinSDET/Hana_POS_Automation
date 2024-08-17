@@ -37,7 +37,7 @@ public class Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT exte
 	 */
 	//retryAnalyzer= com.hanapos.utilities.RetryTest.class,
 
-	@Test(enabled=true,groups= {"Regression"}) 
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
 	public void Validate_Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT(String merchantcopynote, String clerkname, String searchandselectitemcode, String customername, String taxtype, String occasion) {
 		// Test Step - 1
 		logger.info("**** Starting Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT  ****");
@@ -162,23 +162,19 @@ public class Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT exte
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());
 				
 			}	
-			delayWithGivenTime(1000);
+			
 			// Test Step - 12
 
 			logger.info("User verified the order payment done successfully");
 			// Test Step - 13
 			
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(3000);
-		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	executorService.shutdown();
-			RobotDismissAlert();
+		
+		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
-			// Test Step - 14
 			
+			// Test Step - 14			
 			delayWithGivenTime(2000);
 			cashandcarry.SelectEmployeeName(prop.getProperty("employeename"));
 			logger.info("User selected the employee");
@@ -197,11 +193,13 @@ public class Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT exte
 			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0");
 			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0");
 			cashandcarry.ClickAddItem();
+			
 			cashandcarry.EnterCustomerName(customername);
 			cashandcarry.SelectTaxType(taxtype);
 			cashandcarry.SelectOccasion(occasion);
 			cashandcarry.ClickPayButton();		
 			delayWithGivenTime(2000);
+			
 			cashandcarrypayment = new CashAndCarryPaymentPage();
 			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
 			logger.info("User is on Cash And Carry payment page");
@@ -251,9 +249,6 @@ public class Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT exte
 				logger.info("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}
-			delayWithGivenTime(3000);
-			getDriver().switchTo().activeElement();
-		
 			
 		//	RobotAcceptAlert();	
 			delayWithGivenTime(1000);

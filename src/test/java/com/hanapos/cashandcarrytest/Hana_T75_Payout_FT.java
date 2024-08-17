@@ -168,13 +168,9 @@ public class Hana_T75_Payout_FT extends TestBaseClass{
 			delayWithGivenTime(1000);
 			softassert.assertTrue(cashandcarry.VerifySuccessMessageIsDisplayed(),"Success message is not displayed");
 			delayWithGivenTime(1000);
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);
-		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	executorService.shutdown();
+
 			
-			RobotDismissAlert();
+			//RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			
 			// Test Step - 21
@@ -187,12 +183,8 @@ public class Hana_T75_Payout_FT extends TestBaseClass{
 			//softassert.assertEquals(cashandcarry.getSelectedCashRegistryonReconcilePopup(),"SAM","Cash drawer popup selected cash registry is not displayed");
 			delayWithGivenTime(3000);
 			softassert.assertEquals(cashandcarry.getPayOut_Amount_OnReconcilePopup(),cashandcarry.ExpectedCalculatedPayoutAmount(),"Payout amount on reconcile popup is not displayed");
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);
-		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	executorService.shutdown();
-			RobotDismissAlert();
+			
+			//RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			delayWithGivenTime(1000);			
 			softassert.assertAll();

@@ -161,7 +161,8 @@ public class Hana_T33_Purchase_Product_With_Coupon_FT extends TestBaseClass{
 			logger.info("User verified the order payment done successfully");
 			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
 			logger.info("User verify the text of toast success message as order payment done successfully is displayed");
-			delayWithGivenTime(1000);
+			
+			delayWithGivenTime(2000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				softassert.assertTrue(cashandcarrypayment.VerifyOrderConfirmationPopup(),"Order confirmation popup is not displayed");
 				logger.info("User verify the order confirmation popup is displayed");
@@ -177,15 +178,10 @@ public class Hana_T33_Purchase_Product_With_Coupon_FT extends TestBaseClass{
 				logger.info(("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice()));
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
-			delayWithGivenTime(1000);	
-			getDriver().switchTo().activeElement();
-		//	delayWithGivenTime(2000);
-		
 		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
 			
 			// Test Step - 14
-			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User click on close button on order confirmation popup");
 			softassert.assertAll();

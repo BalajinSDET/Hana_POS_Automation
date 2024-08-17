@@ -156,15 +156,10 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			// Test Step - 12	
 			logger.info("User verified the order payment done successfully");
 			
-			// Test Step - 13		
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(2000);
-		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleCancelPopupOpenWebClientPrint());
-		//	executorService.shutdown();		
-			RobotDismissAlert();
+			// Test Step - 13			
+		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");
-			delayWithGivenTime(1000);
+			delayWithGivenTime(2000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			
 			// Test Step - 14	
@@ -193,6 +188,7 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			cashandcarry.SelectOccasion("Birthday");
 			cashandcarry.ClickPayButton();
 			delayWithGivenTime(2000);
+		
 			cashandcarrypayment = new CashAndCarryPaymentPage();
 			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
 			logger.info("User is on Cash And Carry payment page");
@@ -239,14 +235,8 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 				logger.info("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());		
 			}
+		//	RobotAcceptAlert();		
 			delayWithGivenTime(2000);
-			getDriver().switchTo().activeElement();
-			delayWithGivenTime(1000);
-		//	executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-		//	executorService.submit(() -> handleOpenWebClientPrintPopup());
-		//	executorService.shutdown();
-			RobotAcceptAlert();		
-			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickOrderConfirmationPopupCloseBtn();
 			logger.info("User repeat the test step from 6 to 12 and click the open webclientprint button");
 			

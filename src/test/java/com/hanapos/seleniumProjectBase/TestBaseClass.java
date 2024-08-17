@@ -90,7 +90,8 @@ public class TestBaseClass implements FrameworkDesign {
 	public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 	private static WindowsDriver WINdriver;
 	DesiredCapabilities capabilities = new DesiredCapabilities();
-	@Override
+	
+	@Override	
 	public void launchApplication(String browserName) {
 		logger=LogManager.getLogger(this.getClass());
 			
@@ -111,7 +112,7 @@ public class TestBaseClass implements FrameworkDesign {
 				opt.addArguments("force-device-scale-factor=1.25"); // 125% zoom .80 as 80%
 				opt.addArguments("--incognito");
 				opt.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
-			//	opt.addArguments("--disable-notifications");
+				//opt.addArguments("--disable-notifications");
 				driver.set(new ChromeDriver(opt));
 			
 			} else if (browserName.equalsIgnoreCase("FireFox")) {
@@ -134,18 +135,32 @@ public class TestBaseClass implements FrameworkDesign {
 			getDriver().manage().window().setSize(new Dimension(1920, 1080));
 			getDriver().manage().window().maximize();
 			getDriver().manage().deleteAllCookies();
-			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-			getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
+			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+			getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
 			
-			getDriver().get(prop.getProperty("appURL"));
-			
-			
+			//String appURL = getAppURLForEnvironment(prop.getProperty("environment"));
+			getDriver().get(prop.getProperty("appURL"));						
 			
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}
 	}
 
+	/*
+	 * private String getAppURLForEnvironment(String environment) { String appURL =
+	 * null;
+	 * 
+	 * switch (environment.toLowerCase()) { case "qa-final": appURL =
+	 * prop.getProperty("qa-final.appURL"); break; case "staging": appURL =
+	 * prop.getProperty("staging.appURL"); break; case "live": appURL =
+	 * prop.getProperty("live.appURL"); break; default: throw new
+	 * IllegalArgumentException("Invalid environment: " + environment); }
+	 * 
+	 * return appURL; }
+	 */
+
+	
+	
 	public static WebDriver getDriver() {
 		return driver.get();
 	}
@@ -1104,10 +1119,9 @@ public class TestBaseClass implements FrameworkDesign {
         return targetFilePath;
     }
 
-	//System.getProperty("user.dir") +
 	public String captureScreenshot(String screenshotName) {
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		String dest =  "./reports/screenshots/" + screenshotName  + "_" + timeStamp + ".png";
+		String dest =  System.getProperty("user.dir") + "/reports/screenshots/" + screenshotName  + "_" + timeStamp + ".png";
         try {
             Robot robot = new Robot();
             Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());

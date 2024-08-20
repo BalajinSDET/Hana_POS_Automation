@@ -271,9 +271,9 @@ public class TestBaseClass implements FrameworkDesign {
     }
 	
 	
-	public String randomeNumber()
+	public String generaterandomeNumber(int i)
 	{
-		String generatedString=RandomStringUtils.randomNumeric(10);
+		String generatedString=RandomStringUtils.randomNumeric(i);
 		return generatedString;
 	}
 
@@ -1122,7 +1122,8 @@ public class TestBaseClass implements FrameworkDesign {
 	public String captureScreenshot(String screenshotName) {
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		String dest =  System.getProperty("user.dir") + "/reports/screenshots/" + screenshotName  + "_" + timeStamp + ".png";
-        try {
+    //  String dest = ".\\reports\\screenshots\\" + screenshotName  + "_" + timeStamp + ".png";
+      try {
             Robot robot = new Robot();
             Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
             BufferedImage screenFullImage = robot.createScreenCapture(screenRect);

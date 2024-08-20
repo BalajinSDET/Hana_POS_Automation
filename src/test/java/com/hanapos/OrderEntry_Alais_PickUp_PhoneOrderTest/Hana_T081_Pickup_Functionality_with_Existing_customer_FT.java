@@ -189,13 +189,14 @@ public class Hana_T081_Pickup_Functionality_with_Existing_customer_FT extends Te
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
 			
 			// Test Step - 15
-		//	softassert.assertTrue(dashboardorder.Validate_PhoneOrder_Invoice(),"Test Step - 15 - Phone order invoice is not displayed");
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_InvoiceHouse());
+			delayWithGivenTime(1000);
 			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_InvoiceInHousePayment(),"Test Step - 15 - Phone order invoice in house payment is not displayed");		//https://hanafloralpos3.com/Dashboard/Order/Validate_PhoneOrder_InvoiceInHousePayment();
-			delayWithGivenTime(2000);
+			delayWithGivenTime(1000);
 			dashboardorder.ClickInvoiceInhousePayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage();
-		//	dashboardorder.ClickPhoneOrder_on_SenderorCustomer_OnOrderPage();
-			//
+		
 			//Test Step - 16
+			delayWithGivenTime(1000);
 			softassert.assertEquals(dashboardorder.getRecipientName_OnDeliveryPopup(),"Abish David", "Test Step 16 - Recipient name is not displayed on delivery popup");
 			softassert.assertEquals(dashboardorder.getRecipientPhoneNum_OnDeliveryPopup(),"956-655-0756","Test Step 16 - Recipient phone number is not displayed on delivery popup");
 			softassert.assertEquals(dashboardorder.getRecipientAddress_OnDeliveryPopup(),"3402 Park Blvd PICK UP San Diego CA 92103 US", "Test Step 16 - Recipient address is not displayed on delivery popup");

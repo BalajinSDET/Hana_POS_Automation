@@ -179,10 +179,14 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
 			
 			// Test Step - 15,20
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_Delivery_AsCashPayment());
+			delayWithGivenTime(1000);			
 			softassert.assertTrue(dashboardorder.Validate_DeliveryAsCashPayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage(),"Test Step - 15 - Phone order cash payment is not displayed");		//https://hanafloralpos3.com/Dashboard/Order/Validate_PhoneOrder_InvoiceInHousePayment();
 			delayWithGivenTime(2000);
+			
 			dashboardorder.Click_DeliveryAsCashPayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage();
-
+			delayWithGivenTime(1000);
+			
 			softassert.assertEquals(dashboardorder.getRecipientName_OnDeliveryPopup(),"Abish David", "Test Step 15 - Recipient name is not displayed on delivery popup");
 			softassert.assertEquals(dashboardorder.getRecipientPhoneNum_OnDeliveryPopup(),"956-655-0756","Test Step 15 - Recipient phone number is not displayed on delivery popup");
 			softassert.assertEquals(dashboardorder.getRecipientAddress_OnDeliveryPopup(),"3402 Park Blvd PICK UP San Diego CA 92103 US", "Test Step 15 - Recipient address is not displayed on delivery popup");
@@ -207,7 +211,9 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 			logger.info("User verify that customer menu page is displayed successfully");
 			
 			// Test Step - 17
+			delayWithGivenTime(2000);
 			customerpage.Search_and_SelectCustomerName("Mike","Mike");
+			delayWithGivenTime(2000);
 			softassert.assertEquals(customerpage.VerifyPhoneNumberOnCustTable(),"956-655-0756","Test Step - 17 -Phone number on customer table is not matched");
 			logger.info("User verify that phone number on customer table");
 			softassert.assertEquals(customerpage.VerifyAddressOnCustTable(),"2715 35th Ave","Test Step - 17 - Address on customer table is not matched");

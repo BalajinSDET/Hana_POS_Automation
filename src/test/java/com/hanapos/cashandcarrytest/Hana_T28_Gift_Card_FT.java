@@ -200,8 +200,8 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 			logger.info("User verify the gift card number is matched as "+morethan25digitgiftcardno);
 			cashandcarry.ClearGiftCardNumber();
 			
-			cashandcarry.EnterGiftCardNumber(randomeNumber());
-			logger.info("User enter gift card number as "+randomeNumber());
+			cashandcarry.EnterGiftCardNumber(generaterandomeNumber(10));
+			
 			cashandcarry.SelectExistingGiftCardCustomer(customershortname);
 			logger.info("User select existing gift card customer as "+customershortname);
 			delayWithGivenTime(3000);

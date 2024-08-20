@@ -37,7 +37,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 	 */
 	//retryAnalyzer= com.hanapos.utilities.RetryTest.class,
 
-	@Test(enabled=true,groups= {"Smoke","Regression"},dataProvider="fetch_Excel_Data",threadPoolSize = 2) 
+	@Test(enabled=true,groups= {"Smoke","Regression"},dataProvider="fetch_Excel_Data") 
 	public void  Validate_Hana_T15_Edit_Product_Test(String searchandselectitemcode,String occasion, String qtyrow1,String customername) throws InterruptedException, IOException {
 		
 		// Test Step - 1

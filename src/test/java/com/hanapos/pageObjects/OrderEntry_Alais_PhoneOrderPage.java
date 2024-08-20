@@ -120,7 +120,107 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(xpath="(//legend[@class='scheduler-border'])[5]")
 	private WebElement productsectionOnPhoneOrderPage;
 	
+	@FindBy(xpath="//span[contains(text(),'Add Gift Card')]")
+	private WebElement addgiftcardIcon_OnPhoneOrderPage;
 	
+	@FindBy(id="GiftCardCreateModalTitle")
+	private WebElement giftcardPopupTitle_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@id='divGiftCardPrice']//button[1]")
+	private WebElement Instantdenomination1_OnGiftcardPopup_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@id='divGiftCardPrice']//button[2]")
+	private WebElement Instantdenomination2_OnGiftcardPopup_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@id='divGiftCardPrice']//button[3]")
+	private WebElement Instantdenomination3_OnGiftcardPopup_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@id='divGiftCardPrice']//button[4]")
+	private WebElement Instantdenomination4_OnGiftcardPopup_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@id='divGiftCardPrice']//button[5]")
+	private WebElement Instantdenomination5_OnGiftcardPopup_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@id='divGiftCardPrice']//button[6]")
+	private WebElement Instantdenomination6_OnGiftcardPopup_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@id='divGiftCardPrice']//button[7]")
+	private WebElement Instantdenomination7_OnGiftcardPopup_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@id='divGiftCardPrice']//button[8]")
+	private WebElement Instantdenomination8_OnGiftcardPopup_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@id='divGiftCardPrice']//button[9]")
+	private WebElement Instantdenomination9_OnGiftcardPopup_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//div[@id='divGiftCardPrice']//button[10]")
+	private WebElement Instantdenomination10_OnGiftcardPopup_OnPhoneOrderPage;
+	
+	@FindBy(id="txtGiftCardAmount")
+	private WebElement giftcardAmountTextboxField;
+	
+	@FindBy(id="txtGiftCardTotal")
+	private WebElement giftcardTotalDisabledTextboxField;
+	
+	@FindBy(id="txtGiftCardProcessingFee")
+	private WebElement giftcardProcessingFeeTextboxField;
+	
+	@FindBy(id="txtGiftCardCardNumber")
+	private WebElement giftcardCardNumberTextboxField;
+	
+	@FindBy(id="txtCustomerNameForGiftCard")
+	private WebElement giftcardCustomerNameTextboxField;
+	
+	@FindBy(xpath="//ul[@id='ui-id-21']//li//div")
+	private List<WebElement> ListOfGiftCardName_Autosuggestions_OnGiftCardpopup;
+	
+	@FindBy(xpath="//div[@id='GiftCardModal']//div//div//a//i")
+	private WebElement giftcardPopupCloseIcon;
+	
+	@FindBy(xpath="//button[@id='btnSaveGiftCard']")
+	private WebElement submitbutton_OnGiftCardPopup;
+	
+	@FindBy(id="btnUpdateGiftPriceValues")
+	private WebElement editIcon_OnGiftCardPopup;
+	
+	@FindBy(id="GiftCardCreateModalTitle")
+	private WebElement editgiftcardDenominationPopup;
+	
+	@FindBy(id="txtD1")
+	private WebElement denomination1_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="txtD2")
+	private WebElement denomination2_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="txtD3")
+	private WebElement denomination3_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="txtD4")
+	private WebElement denomination4_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="txtD5")
+	private WebElement denomination5_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="txtD6")
+	private WebElement denomination6_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="txtD7")
+	private WebElement denomination7_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="txtD8")
+	private WebElement denomination8_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="txtD9")
+	private WebElement denomination9_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="txtD10")
+	private WebElement denomination10_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="btnCancelGiftCardSave")
+	private WebElement cancelbutton_OnEditDenomiantionGiftCardPopup;
+	
+	@FindBy(id="btnSaveGiftCardPrice")
+	private WebElement savebutton_OnEditDenomiantionGiftCardPopup;
 
 	// -------------------------Recipient Section --------------------------------//
 	@FindBy(xpath="//fieldset[@class='col-md-7 col-sm-7 scheduler-border borderLeft recepientinfo']")
@@ -639,6 +739,15 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath = "//td//textarea[@id='orderItemDesc2']")
 	private WebElement prod_details_ItemDescription2;
+	
+	@FindBy(xpath="(//tbody[@class='productLines']//tr[2]//td[3]//input)")
+	private WebElement prod_details_Qty2;
+	
+	@FindBy(xpath="(//tbody[@class='productLines']//tr[2]//td[4]//input)")
+	private WebElement prod_details_Unitprice2;
+	
+	@FindBy(xpath="(//tbody[@class='productLines']//tr[2]//td[5]//input)")
+	private WebElement prod_details_Extendedprice2;
 
 	@FindBy(id = "productGrid")
 	private WebElement productDetailGrid;
@@ -1538,14 +1647,26 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public String getProdDetailsItemDescription1OnPhoneOrderPage() {
 		HighlightElement(prod_details_ItemDescription1);
+		System.out.println("Item Description displayed is :  "+prod_details_ItemDescription1.getAttribute("value"));
 		return prod_details_ItemDescription1.getAttribute("value");
 	}
 
 	public String getProdDetailsItemDescription2OnPhoneOrderPage() {
 		HighlightElement(prod_details_ItemDescription2);
+		System.out.println("Item Description displayed is :  "+prod_details_ItemDescription2.getAttribute("value"));
 		return prod_details_ItemDescription2.getAttribute("value");
 	}
+	
+	public String get_ProdDetails_ItemQty2OnPhoneOrderPage() {
+		HighlightElement(prod_details_Qty2);
+		return prod_details_Qty2.getAttribute("value");
+	}
 
+	public String get_ProdDetails_ItemUnitPrice2OnPhoneOrderPage() {
+		HighlightElement(prod_details_Unitprice2);
+		return 	prod_details_Unitprice2.getAttribute("value");
+	}
+	
 	public String getDisplayedRecipientphoneOnPhoneOrderPage() {
 		HighlightElement(recipientphoneonCPDV);
 		return recipientphoneonCPDV.getAttribute("value");
@@ -1978,6 +2099,14 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return prod_details_Unitprice1.getAttribute("value");
 	}
 
+	public String get_ExtPrice1OnProdDetails() {
+		return prod_details_Extendedprice1.getAttribute("value");
+	}
+	
+	public String get_ExtPrice2OnProdDetails() {
+		return prod_details_Extendedprice2.getAttribute("value");
+	}
+	
 	public boolean validateItemDetails(String expectedDescription, String expectedPrice, String expectedExtPrice,
 			String expectedDiscountAmt, String expectedDiscountPercentage) {
 
@@ -5326,11 +5455,10 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public void Click_PreviousOrder_OnCustomerHistoryPopup(String invoiceNumber) {
 		for (WebElement order : ListOfPreviousOrdersInvoices_InOrderHistoryTable_CustHistoryPopup) {
-			if(order.getText().contains(invoiceNumber)) {
+			if(order.getText().equals(invoiceNumber)) {
 				jsClick(order);
 				break;
 			}
-
 		}
 	}
 
@@ -6143,6 +6271,274 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		wireoutAmount_OnPhoneOrderPage.clear();
 		clickAndType(wireoutAmount_OnPhoneOrderPage, get_Amount_wireout_paymentsection());
 	}
+	
+	public void Click_AddGiftCardIcon_OnPhoneorderPage() {
+		jsClick(addgiftcardIcon_OnPhoneOrderPage);
+	}
+	
+	public boolean Verify_GiftCardPopup_OnPhoneorderPage() {
+		HighlightElement(giftcardPopupTitle_OnPhoneOrderPage);
+		boolean isGiftCardPopupDisplayed = giftcardPopupTitle_OnPhoneOrderPage.isDisplayed();
+		return isGiftCardPopupDisplayed;
+	}
+	
+	public void Click_GiftCardInstantDenomination1() {
+		jsClick(Instantdenomination1_OnGiftcardPopup_OnPhoneOrderPage);
+	}
+	
+	public void Enter_GiftCardAmount_onGiftCardPopup(String giftcardamount) {
+		giftcardAmountTextboxField.clear();
+		clickAndType(giftcardAmountTextboxField, giftcardamount);
+	}
+	
+	public String get_giftcardamountTextboxField() {
+		HighlightElement(giftcardAmountTextboxField);
+		String giftcardamount =giftcardAmountTextboxField.getAttribute("value");
+		return giftcardamount;
+	}
+	
+	public String get_giftCardTotalAmount() {
+		String giftcardtotalamount = giftcardTotalDisabledTextboxField.getAttribute("value");
+		return giftcardtotalamount;
+	}
+	
+	public boolean Verify_GiftCardTotalAmount_ISDisabled() {
+		boolean giftcardtotalamount = giftcardTotalDisabledTextboxField.isDisplayed();
+		System.out.println("Gift card total amount is disabled : "+giftcardtotalamount);
+		return giftcardtotalamount;
+	}
+	
+	public void Enter_GiftcardProcessingFee(String giftcardprocessingfee) {
+		giftcardProcessingFeeTextboxField.clear();
+		clickAndType(giftcardProcessingFeeTextboxField, giftcardprocessingfee);
+	}
+	
+	public String get_GiftcardprocessingfeeTextboxField() {
+		String giftcardprocessingfee =giftcardProcessingFeeTextboxField.getAttribute("value");
+		System.out.println("Gift card processing fee : "+giftcardprocessingfee);
+		return giftcardprocessingfee;
+	}
+	
+	public void Enter_GiftCardNumberTextBoxField(String giftcardnumber) {
+		giftcardCardNumberTextboxField.clear();
+		clickAndType(giftcardCardNumberTextboxField, giftcardnumber);
+	}
+	
+	public String get_GiftCardNumberTextBoxField() {
+		String giftcardnumber =giftcardCardNumberTextboxField.getAttribute("value");
+		System.out.println("Gift card number : "+giftcardnumber);
+		return giftcardnumber;
+	}
+	
+	public void Enter_CustomerName_OnGiftCardPopup(String customername,String customerfullname) {
+		giftcardCustomerNameTextboxField.clear();
+		clickAndType(giftcardCustomerNameTextboxField, customername);
+		delayWithGivenTime(2000);
+		for(WebElement customer : ListOfGiftCardName_Autosuggestions_OnGiftCardpopup) {
+			if(customer.getText().equals(customerfullname)) {
+				jsClick(customer); 
+				break;
+			}
+		}
+	}
+	
+	public String get_GiftCardEnteredCustomerName() {
+		String giftcardcustomername =giftcardCustomerNameTextboxField.getAttribute("value");
+		return giftcardcustomername;
+	}
+	
+	public void Click_GiftCardPopupCloseIcon() {
+		jsClick(giftcardPopupCloseIcon);
+	}
+	
+	public void Click_GiftCardPopupSubmitButton() {
+		jsClick(submitbutton_OnGiftCardPopup);
+	}
+	
+	public void Click_EditIcon_OnGiftCardPopup() {
+		jsClick(editIcon_OnGiftCardPopup);
+	}
+	
+	public boolean Verify_EditGiftCardDenomination_Popup_IsDisplayed() {
+		HighlightElement(editgiftcardDenominationPopup);
+		boolean EditgiftcardDenominationPopup = editgiftcardDenominationPopup.isDisplayed();
+		return EditgiftcardDenominationPopup;
+	}
+	
+	public void Enter_Denomination1_OnEditDenominationGiftCardPopup(String denomination1) {
+		denomination1_OnEditDenomiantionGiftCardPopup.clear();
+		clickAndType(denomination1_OnEditDenomiantionGiftCardPopup, denomination1);
+	}
+	
+	public void Enter_Denomination2_OnEditDenominationGiftCardPopup(String denomination2) {
+		denomination2_OnEditDenomiantionGiftCardPopup.clear();
+		clickAndType(denomination2_OnEditDenomiantionGiftCardPopup, denomination2);
+	}
+	public void Enter_Denomination3_OnEditDenominationGiftCardPopup(String denomination3) {
+		denomination3_OnEditDenomiantionGiftCardPopup.clear();
+		clickAndType(denomination3_OnEditDenomiantionGiftCardPopup, denomination3);
+	}
+	public void Enter_Denomination4_OnEditDenominationGiftCardPopup(String denomination4) {
+		denomination4_OnEditDenomiantionGiftCardPopup.clear();
+		clickAndType(denomination4_OnEditDenomiantionGiftCardPopup, denomination4);
+	}
+	public void Enter_Denomination5_OnEditDenominationGiftCardPopup(String denomination5) {
+		denomination5_OnEditDenomiantionGiftCardPopup.clear();
+		clickAndType(denomination5_OnEditDenomiantionGiftCardPopup, denomination5);
+	}
+	public void Enter_Denomination6_OnEditDenominationGiftCardPopup(String denomination6) {
+		denomination6_OnEditDenomiantionGiftCardPopup.clear();
+		clickAndType(denomination6_OnEditDenomiantionGiftCardPopup, denomination6);
+	}
+	public void Enter_Denomination7_OnEditDenominationGiftCardPopup(String denomination7) {
+		denomination7_OnEditDenomiantionGiftCardPopup.clear();
+		clickAndType(denomination7_OnEditDenomiantionGiftCardPopup, denomination7);
+	}
+	
+	public void Enter_Denomination8_OnEditDenominationGiftCardPopup(String denomination8) {
+		denomination8_OnEditDenomiantionGiftCardPopup.clear();
+		clickAndType(denomination8_OnEditDenomiantionGiftCardPopup, denomination8);
+	}
+	
+	public void Enter_Denomination9_OnEditDenominationGiftCardPopup(String denomination9) {
+		denomination9_OnEditDenomiantionGiftCardPopup.clear();
+		clickAndType(denomination9_OnEditDenomiantionGiftCardPopup, denomination9);
+	}
+	
+	public void Enter_Denomination10_OnEditDenominationGiftCardPopup(String denomination10) {
+		denomination10_OnEditDenomiantionGiftCardPopup.clear();
+		clickAndType(denomination10_OnEditDenomiantionGiftCardPopup, denomination10);
+	}
+	
+	public void Click_CancelButton_OnEditDenominationGiftCardPopup() {
+		jsClick(cancelbutton_OnEditDenomiantionGiftCardPopup);
+	}
+	
+	public void Click_SubmitButton_OnEditDenominationGiftCardPopup() {
+		jsClick(savebutton_OnEditDenomiantionGiftCardPopup);
+	}
+	
+	public String get_Entered_Denomination1() {
+		HighlightElement(denomination1_OnEditDenomiantionGiftCardPopup);
+		return denomination1_OnEditDenomiantionGiftCardPopup.getAttribute("value");
+	}
+	
+	public String get_Entered_Denomination2() {
+		HighlightElement(denomination2_OnEditDenomiantionGiftCardPopup);
+		return denomination2_OnEditDenomiantionGiftCardPopup.getAttribute("value");
+	}
+	
+	public String get_Entered_Denomination3() {
+		HighlightElement(denomination3_OnEditDenomiantionGiftCardPopup);
+		return denomination3_OnEditDenomiantionGiftCardPopup.getAttribute("value");
+	}
+	
+	public String get_Entered_Denomination4() {
+		HighlightElement(denomination4_OnEditDenomiantionGiftCardPopup);
+		return denomination4_OnEditDenomiantionGiftCardPopup.getAttribute("value");
+	}
+	
+	public String get_Entered_Denomination5() {
+		HighlightElement(denomination5_OnEditDenomiantionGiftCardPopup);
+		return denomination5_OnEditDenomiantionGiftCardPopup.getAttribute("value");
+	}
+	
+	public String get_Entered_Denomination6() {
+		HighlightElement(denomination6_OnEditDenomiantionGiftCardPopup);
+		return denomination6_OnEditDenomiantionGiftCardPopup.getAttribute("value");
+	}
+	public String get_Entered_Denomination7() {
+		HighlightElement(denomination7_OnEditDenomiantionGiftCardPopup);
+		return denomination7_OnEditDenomiantionGiftCardPopup.getAttribute("value");
+	}
+	public String get_Entered_Denomination8() {
+		HighlightElement(denomination8_OnEditDenomiantionGiftCardPopup);
+		return denomination8_OnEditDenomiantionGiftCardPopup.getAttribute("value");
+	}
+	public String get_Entered_Denomination9() {
+		HighlightElement(denomination9_OnEditDenomiantionGiftCardPopup);
+		return denomination9_OnEditDenomiantionGiftCardPopup.getAttribute("value");
+	}
+	public String get_Entered_Denomination10() {
+		HighlightElement(denomination10_OnEditDenomiantionGiftCardPopup);
+		return denomination10_OnEditDenomiantionGiftCardPopup.getAttribute("value");
+	}
+	
+	public String get_InstantDenomination1() {
+		HighlightElement(Instantdenomination1_OnGiftcardPopup_OnPhoneOrderPage);
+		String instantdenomination1 = Instantdenomination1_OnGiftcardPopup_OnPhoneOrderPage.getText();
+		instantdenomination1 = instantdenomination1.replaceAll("$", "");
+		return instantdenomination1;
+	}
+	
+	public String get_InstantDenomination2() {
+		HighlightElement(Instantdenomination2_OnGiftcardPopup_OnPhoneOrderPage);
+		String instantdenomination2 = Instantdenomination2_OnGiftcardPopup_OnPhoneOrderPage.getText();
+		instantdenomination2 = instantdenomination2.replaceAll("$", "");
+		return instantdenomination2;
+	}
+	
+	public String get_InstantDenomination3() {
+		HighlightElement(Instantdenomination3_OnGiftcardPopup_OnPhoneOrderPage);
+		String instantdenomination3 = Instantdenomination3_OnGiftcardPopup_OnPhoneOrderPage.getText();
+		instantdenomination3 = instantdenomination3.replaceAll("$", "");
+		return instantdenomination3;
+	}
+	
+	public String get_InstantDenomination4() {
+		HighlightElement(Instantdenomination4_OnGiftcardPopup_OnPhoneOrderPage);
+		String instantdenomination4 = Instantdenomination4_OnGiftcardPopup_OnPhoneOrderPage.getText();
+		instantdenomination4 = instantdenomination4.replaceAll("$", "");
+		return instantdenomination4;
+	}
+	
+	public String get_InstantDenomination5() {
+		HighlightElement(Instantdenomination5_OnGiftcardPopup_OnPhoneOrderPage);
+		String instantdenomination5 = Instantdenomination5_OnGiftcardPopup_OnPhoneOrderPage.getText();
+		instantdenomination5 = instantdenomination5.replaceAll("$", "");
+		return instantdenomination5;
+	}
+	
+	public String get_InstantDenomination6() {
+		HighlightElement(Instantdenomination6_OnGiftcardPopup_OnPhoneOrderPage);
+		String instantdenomination6 = Instantdenomination6_OnGiftcardPopup_OnPhoneOrderPage.getText();
+		instantdenomination6 = instantdenomination6.replaceAll("$", "");
+		return instantdenomination6;
+	}
+	
+	public String get_InstantDenomination7() {
+		HighlightElement(Instantdenomination7_OnGiftcardPopup_OnPhoneOrderPage);
+		String instantdenomination7 = Instantdenomination7_OnGiftcardPopup_OnPhoneOrderPage.getText();
+		instantdenomination7 = instantdenomination7.replaceAll("$", "");
+		return instantdenomination7;
+	}
+	
+	public String get_InstantDenomination8() {
+		HighlightElement(Instantdenomination8_OnGiftcardPopup_OnPhoneOrderPage);
+		String instantdenomination8 = Instantdenomination8_OnGiftcardPopup_OnPhoneOrderPage.getText();
+		instantdenomination8 = instantdenomination8.replaceAll("$", "");
+		return instantdenomination8;
+	}
+	
+	public String get_InstantDenomination9() {
+		HighlightElement(Instantdenomination9_OnGiftcardPopup_OnPhoneOrderPage);
+		String instantdenomination9 = Instantdenomination9_OnGiftcardPopup_OnPhoneOrderPage.getText();
+		instantdenomination9 = instantdenomination9.replaceAll("$", "");
+		return instantdenomination9;
+	}
+	
+	public String get_InstantDenomination10() {
+		HighlightElement(Instantdenomination10_OnGiftcardPopup_OnPhoneOrderPage);
+		String instantdenomination10 = Instantdenomination10_OnGiftcardPopup_OnPhoneOrderPage.getText();
+		instantdenomination10 = instantdenomination10.replaceAll("$", "");
+		return instantdenomination10;
+	}
+	
+	
+	
+	
+	
+	
 	
 }
 	

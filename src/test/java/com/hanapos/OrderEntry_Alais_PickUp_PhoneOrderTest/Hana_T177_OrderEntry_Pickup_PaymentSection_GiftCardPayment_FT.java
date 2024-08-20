@@ -49,12 +49,10 @@ public class Hana_T177_OrderEntry_Pickup_PaymentSection_GiftCardPayment_FT exten
 			delayWithGivenTime(2000);
 			softassert.assertTrue(dashboard.VerifyOrderEntryOptionIsDisplayed(),"Order entry option is not displayed");
 			softassert.assertTrue(dashboard.Verify_Cashandcarry_OptionIsDisplayed(),"Cash and carry option is not displayed");
-		
-			// Test Step - 4
 			dashboard.ClickOrderEntry();
 			logger.info("User hover the mouse on New order and clicked on order entry");
 			
-			// Test Step - 5
+			// Test Step - 4
 			phoneorder = new OrderEntry_Alais_PhoneOrderPage();
 			phoneorder.ClickPickupTypeOnPhoneOrderPage();
 			delayWithGivenTime(2000);
@@ -180,6 +178,9 @@ public class Hana_T177_OrderEntry_Pickup_PaymentSection_GiftCardPayment_FT exten
 			
 			// Test Step - 18
 			delayWithGivenTime(2000);
+			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_Phoneorder_pickup_GiftCArd_OnOrderPage());
+			
+			delayWithGivenTime(2000);			
 			softassert.assertTrue(dashboardorder.Validate_MOP_As_GiftCard_OnOrderPageTable(),"Test Step - 18 - Mode of pay on order page as gift card mop type is not displayed");				
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -200,6 +200,8 @@ public class Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT extends TestBaseCla
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
 			
 			// Test Step - 18
+			delayWithGivenTime(2000);
+			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_WireInDeliveryType_Appears_OnOrderPage());		
 			delayWithGivenTime(1000);
 			softassert.assertTrue(dashboardorder.Validate_WireInOrderType_Appears_OnOrderPage(),"Test Step - 18 - Wire in order type is not displayed on order page");
 			softassert.assertEquals(dashboardorder.get_WireInOrderType_Text_OnOrderPage(),"FSN Order","Test Step - 18 - Wire in order type is not displayed on order page");
@@ -213,13 +215,10 @@ public class Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT extends TestBaseCla
 			delayWithGivenTime(1000);
 			softassert.assertTrue(dashboardorder.Validate_WireInMOP_Appears_OnOrderPage(),"Test Step - 20 - Wire in MOP is not displayed on order details page");
 			softassert.assertEquals(dashboardorder.get_WireInMOP_Text_OnOrderPage(),"FSN","Test Step - 20 - Wire in MOP type is not displayed on order page");
-
-			
-			
-			
+		
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Test case failed due to exception " + e.getMessage());
+			softassert.fail("Test case failed due to exception " + e.getMessage());
 			logger.error("Test case failed due to exception " + e.getMessage());
 		} finally {
 			softassert.assertAll();

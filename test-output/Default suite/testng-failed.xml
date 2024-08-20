@@ -7,8 +7,8 @@
         <methods>
           <include name="loadConfig"/>
           <include name="tearDown"/>
-          <include name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" invocation-numbers="0"/>
           <include name="setup"/>
+          <include name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT -->
     </classes>

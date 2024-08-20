@@ -554,30 +554,42 @@ public class DashboardOrderPage extends TestBaseClass{
 			}
 		return false;
 		}
+	
+	
+	public String getInvoiceNumber_WireInDeliveryType_Appears_OnOrderPage() {			
+		String invoicenumber = null;
+		if(Wire_ListOfOrderType_OnOrderPageTable.get(0).getText().equals("FSN Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().equals("Wire In") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().equals("FSN")) {				
+			  invoicenumber= listOfInvoiceNumber.get(0).getText();	
+			}return invoicenumber;
+	}
 		
 	public boolean Validate_WireInOrderType_Appears_OnOrderPage() {			
-		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("FSN Order") 
-				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Wire In") 
-				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("FSN")) {
-				return true;											
-			}return ListOfOrderType_OnOrderPageTable.get(0).isDisplayed();	
+		boolean wireintype = false;
+		if(Wire_ListOfOrderType_OnOrderPageTable.get(0).getText().equals("FSN Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().equals("Wire In") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().equals("FSN")) {
+			wireintype= Wire_ListOfOrderType_OnOrderPageTable.get(0).isDisplayed();												
+		}return wireintype;
 	}
 	
 	public boolean Validate_WireInDeliveryType_Appears_OnOrderPage() {			
 		boolean deliveryType = false;
-		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("FSN Order") 
-				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Wire In") 
-				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("FSN")) {				
+		if(Wire_ListOfOrderType_OnOrderPageTable.get(0).getText().equals("FSN Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().equals("Wire In") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().equals("FSN")) {				
 				deliveryType = ListOfDeliveryType_OnOrderPageTable.get(0).isDisplayed();	
 			}return deliveryType;
 	}
 	
 	public boolean Validate_WireInMOP_Appears_OnOrderPage() {			
-		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("FSN Order") 
-				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Wire In") 
-				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("FSN")) {			
-				return true;			
-			}	return ListOfMOP_OnOrderPageTable.get(0).isDisplayed();	
+		boolean WireInMop = false;
+		if(Wire_ListOfOrderType_OnOrderPageTable.get(0).getText().equals("FSN Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().equals("Wire In") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().equals("FSN")) {			
+				WireInMop = ListOfMOP_OnOrderPageTable.get(0).isDisplayed();	
+			}	return 	WireInMop;
 	}
 		
 	public String get_WireInOrderType_Text_OnOrderPage() {			

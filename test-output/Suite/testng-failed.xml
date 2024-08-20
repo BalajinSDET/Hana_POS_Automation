@@ -14,14 +14,14 @@
       </run>
     </groups>
     <classes>
-      <class name="com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT">
+      <class name="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT">
         <methods>
           <include name="loadConfig"/>
           <include name="tearDown"/>
           <include name="setup"/>
-          <include name="Validate_Hana_T51_Payments_Cash_Payment_Test" invocation-numbers="0"/>
+          <include name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT -->
     </classes>
   </test> <!-- ChromeBrowserTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

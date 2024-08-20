@@ -384,7 +384,7 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			softassert.assertEquals(dashboardorder.getCustomerTypeDeliveryPopup(),"(New Customer)","Test Step - 28 -customer type on delivery popup is not matched");
 			softassert.assertEquals(dashboardorder.getCustAndcompyNameOnDeliveryPopup(),"Test Automation pvt ltd | Test Automation","Test Step - 28 -customer and company name on delivery popup is not matched");
 			softassert.assertEquals(dashboardorder.getCustAddressOnDeliveryPopup(),"Test Automation Address, India QA Test Automation, Cbe, Tn, India","Test Step - 28 -customer address on delivery popup is not matched");
-			softassert.assertEquals(dashboardorder.getCustPhoneNumOnDeliveryPopup(),"919-293-9495 /","Test Step - 28 -customer phone number on delivery popup is not matched");
+			softassert.assertEquals(dashboardorder.getCustPhoneNumOnDeliveryPopup(),"919-293-9495","Test Step - 28 -customer phone number on delivery popup is not matched");
 			softassert.assertEquals(dashboardorder.getCustEmailOnDeliveryPopup(),"hanaposqateam@gmail.com","Test Step - 28 -customer phone number on delivery popup is not matched");
 			logger.info("User verified displayed customer type, customer name, company name, Address, Phone number & email are matched");
 			

@@ -101,8 +101,8 @@ public class Hana_T141_Pickup_CustomerSection_CustomerHistory_FT extends TestBas
 
 			// Test Step - 9
 			delayWithGivenTime(1000);
-			phoneorder.Click_PreviousOrder_OnCustomerHistoryPopup("9038000");
-			delayWithGivenTime(3000);
+			phoneorder.Click_PreviousOrder_OnCustomerHistoryPopup("9038605");
+			delayWithGivenTime(4000);
 
 			// Test Step - 10
 			softassert.assertEquals(phoneorder.getDisplayedPaymentTypeSelectedOption(), "Cash",
@@ -183,9 +183,10 @@ public class Hana_T141_Pickup_CustomerSection_CustomerHistory_FT extends TestBas
 
 			// Test Step - 17
 			delayWithGivenTime(1000);
-			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_Invoice(),
-					"Test Step - 17 - Phone order invoice is not displayed");
-
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_Cash());
+			delayWithGivenTime(1000);			
+			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_Pickup_Cash_InvoiceNumber(),"Test Step - 15 - Phone order invoice is not displayed");
+			
 			// Above test case is passed for existing customer order
 
 			// Below test case is passed for customer new order validation....
@@ -248,7 +249,7 @@ public class Hana_T141_Pickup_CustomerSection_CustomerHistory_FT extends TestBas
 
 			// Test Step - 9
 			delayWithGivenTime(1000);
-			phoneorder.Click_PreviousOrder_OnCustomerHistoryPopup("9038000");
+			phoneorder.Click_PreviousOrder_OnCustomerHistoryPopup("9038605");
 			delayWithGivenTime(3000);
 
 			// Test Step - 10
@@ -324,14 +325,16 @@ public class Hana_T141_Pickup_CustomerSection_CustomerHistory_FT extends TestBas
 			delayWithGivenTime(1000);
 			logger.info("User click the order menu on hana dashboard page");
 			dashboardorder = new DashboardOrderPage(); // https://hanafloralpos3.com/Dashboard/Order
-			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),
-					prop.getProperty("livedashboardorderURL"),
+			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),		prop.getProperty("livedashboardorderURL"),
 					"Test Step - 16 - Dashboard order page is not displayed");
 
 			// Test Step - 17
 			delayWithGivenTime(1000);
-			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_Invoice(),
-					"Test Step - 17 - Phone order invoice is not displayed");
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_Cash());
+			delayWithGivenTime(1000);
+			
+			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_Pickup_Cash_InvoiceNumber(),"Test Step - 15 - Phone order invoice is not displayed");
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

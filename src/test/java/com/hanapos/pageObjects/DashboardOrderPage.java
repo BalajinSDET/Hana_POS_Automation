@@ -269,38 +269,58 @@ public class DashboardOrderPage extends TestBaseClass{
 		}	return listOfInvoiceAmountValue.get(0).getText();			 		
 	}
 	
-	public boolean Validate_PhoneOrder_Invoice() {
+	public boolean Validate_PhoneOrder_Pickup_Cash_InvoiceNumber() {
+		boolean invoiceNumber = false;
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 				&& listOfPickUp.get(0).getText().contains("Pick Up") 
 				&& listOfCashMOP.get(0).getText().contains("Cash")) {
 			
-			HighlightElement(listOfPhoneOrder.get(0));
-			delayWithGivenTime(1000);
-			HighlightElement(listOfOrderDetail.get(0));
-			delayWithGivenTime(1000);
-			HighlightElement(firstrowOfOrderDetail.get(0));
-			delayWithGivenTime(1000);
-			HighlightElement(listOfInvoiceNumber.get(0));
-			delayWithGivenTime(1000);
-		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+			/*
+			 * HighlightElement(listOfPhoneOrder.get(0)); delayWithGivenTime(1000);
+			 * HighlightElement(listOfOrderDetail.get(0)); delayWithGivenTime(1000);
+			 * HighlightElement(firstrowOfOrderDetail.get(0)); delayWithGivenTime(1000);
+			 * HighlightElement(listOfInvoiceNumber.get(0)); delayWithGivenTime(1000);
+			 */
+			 invoiceNumber = listOfInvoiceNumber.get(0).isDisplayed();
+		
+		}	return 	invoiceNumber;		 		
 	}
+	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_Cash() {
+		String invoiceNumber = null;
+		if(listOfPhoneOrder.get(0).getText().equals("Phone Order") 
+				&& listOfPickUp.get(0).getText().equals("Pick Up") 
+				&& listOfCashMOP.get(0).getText().equals("Cash")) {
+			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		
+		}	return 	invoiceNumber;	
+	
+}
+	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_InvoiceHouse() {
+		String invoiceNumber = null;
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& listOfInvoiceHouseAccount.get(0).getText().contains("Invoice/House Account")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
 	
 	public boolean Validate_PhoneOrder_InvoiceInHousePayment() {
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
-				&& listOfPickUp.get(0).getText().contains("Pick Up") 
-				&& listOfInvoiceHouseAccount.get(0).getText().contains("Invoice/House Account")) {
-			
-		HighlightElement(listOfInvoiceHouseAccount.get(0));
-		listOfInvoiceHouseAccount.get(0).isDisplayed();
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& listOfInvoiceHouseAccount.get(0).getText().contains("Invoice/House Account")) {		
+			listOfInvoiceHouseAccount.get(0).isDisplayed();
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
 	
 	public boolean Validate_PhoneOrder_DeliveryInvoiceInHousePayment() {
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 				&& listOfPickUp.get(0).getText().contains("Delivery") 
-				&& listOfInvoiceHouseAccount.get(0).getText().contains("Invoice/House Account")) {
-			
-			HighlightElement(listOfInvoiceHouseAccount.get(0));
+				&& listOfInvoiceHouseAccount.get(0).getText().contains("Invoice/House Account")) {			
+				HighlightElement(listOfInvoiceHouseAccount.get(0));
 				listOfInvoiceHouseAccount.get(0).isDisplayed();
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -308,14 +328,9 @@ public class DashboardOrderPage extends TestBaseClass{
 	public void ClickInvoiceInhousePayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 				&& listOfPickUp.get(0).getText().contains("Pick Up") 
-				&& listOfInvoiceHouseAccount.get(0).getText().contains("Invoice/House Account")) {
-			
-			HighlightElement(listOfWalkinSales.get(0));
-			delayWithGivenTime(500);
-			HighlightElement(listOfOrderDetail.get(0));
-			delayWithGivenTime(500);
-			HighlightElement(firstrowOfOrderDetail.get(0));			
-			click(listOfSenderCustomer.get(0));
+				&& listOfInvoiceHouseAccount.get(0).getText().contains("Invoice/House Account")) {		
+				
+			jsClick(listOfSenderCustomer.get(0));
 		}	 			 		
 	}
 	
@@ -336,30 +351,28 @@ public class DashboardOrderPage extends TestBaseClass{
 	public void Click_DeliveryAsCashPayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
-			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {
-			
-			HighlightElement(ListOfOrderType_OnOrderPageTable.get(0));
-			delayWithGivenTime(500);
-			HighlightElement(ListOfDeliveryType_OnOrderPageTable.get(0));
-			delayWithGivenTime(500);
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));			
-			jsClick(ListOfOrderType_OnOrderPageTable.get(0));
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {					
+			jsClick(listOfInvoiceNumber.get(0));
 		}	 			 		
 	}
 	
+	public String get_InvoiceNumber_PhoneOrder_Delivery_AsCashPayment() {
+		String invoiceNumber = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Phone Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().equals("Delivery") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().equals("Cash")) {
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}return invoiceNumber;
+	}
+	
 	public boolean Validate_DeliveryAsCashPayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
+		boolean invoiceNumber = false;
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
-			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {
-			
-		if(ListOfOrderType_OnOrderPageTable.get(0).isDisplayed()&&ListOfDeliveryType_OnOrderPageTable.get(0).isDisplayed()&&ListOfMOP_OnOrderPageTable.get(0).isDisplayed()) {
-				HighlightElement(ListOfOrderType_OnOrderPageTable.get(0));			
-				HighlightElement(ListOfDeliveryType_OnOrderPageTable.get(0));			
-				HighlightElement(ListOfMOP_OnOrderPageTable.get(0));			
-				return true;
-			}
-		}return false;	 			 		
-	}
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {		
+			invoiceNumber = listOfSenderCustomer.get(0).isDisplayed();		 		
+	} return invoiceNumber;
+}
 	
 	public String GetSenderorCustomerOnOrderPage() {
 		String sender_cust=null;
@@ -397,13 +410,8 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 				&& listOfPickUp.get(0).getText().contains("Pick Up") 
 				&& listOfCashMOP.get(0).getText().contains("Cash")) {
-			
-			HighlightElement(listOfWalkinSales.get(0));
-			delayWithGivenTime(500);
-			HighlightElement(listOfOrderDetail.get(0));
-			delayWithGivenTime(500);
-			HighlightElement(firstrowOfOrderDetail.get(0));			
-			click(listOfSenderCustomer.get(0));
+		
+			jsClick(listOfSenderCustomer.get(0));
 		}	 			 		
 	}
 	
@@ -511,6 +519,20 @@ public class DashboardOrderPage extends TestBaseClass{
 		return deliveryType_OnInvoicePopup.getText();
 	}
 	
+	public String getInvoiceNumber_Phoneorder_pickup_GiftCArd_OnOrderPage() {
+	    // Ensure that listOfWalkinSales, listOfPickUp, and listOfCashMOP contain elements before accessing them
+		String Giftcardinvoicenumber=null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Phone Order")&&
+				ListOfDeliveryType_OnOrderPageTable.get(0).getText().equals("Pick Up")&&
+				ListOfMOP_OnOrderPageTable.get(0).getText().equals("Gift Card"))
+			{
+			System.out.println("Order Page phoneorder - pickup - gift card - Invoice Number is :"+listOfInvoiceNumber.get(0).getText());
+            Giftcardinvoicenumber= listOfInvoiceNumber.get(0).getText();
+			}
+		return Giftcardinvoicenumber;      
+	
+	}
+	
 	public boolean Validate_MOP_As_GiftCard_OnOrderPageTable() {
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Phone Order")&&
 				ListOfDeliveryType_OnOrderPageTable.get(0).getText().equals("Pick Up")&&
@@ -537,21 +559,17 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("FSN Order") 
 				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Wire In") 
 				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("FSN")) {
-					
-					System.out.println("Order Type : "+ListOfOrderType_OnOrderPageTable.get(0).getText());
-					System.out.println("Delivery Type : "+ListOfDeliveryType_OnOrderPageTable.get(0).getText());
-					System.out.println("MOP : "+ListOfMOP_OnOrderPageTable.get(0).getText());					
-					return true;
-											
+				return true;											
 			}return ListOfOrderType_OnOrderPageTable.get(0).isDisplayed();	
 	}
 	
 	public boolean Validate_WireInDeliveryType_Appears_OnOrderPage() {			
+		boolean deliveryType = false;
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("FSN Order") 
 				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Wire In") 
 				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("FSN")) {				
-					return true;
-			}return ListOfDeliveryType_OnOrderPageTable.get(0).isDisplayed();	
+				deliveryType = ListOfDeliveryType_OnOrderPageTable.get(0).isDisplayed();	
+			}return deliveryType;
 	}
 	
 	public boolean Validate_WireInMOP_Appears_OnOrderPage() {			

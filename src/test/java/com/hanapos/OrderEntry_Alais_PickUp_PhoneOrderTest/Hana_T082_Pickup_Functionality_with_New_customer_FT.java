@@ -119,6 +119,7 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			softassert.assertEquals(phoneorder.getDeliveryDateOnReciSection(),NextDate(),"Test Step - 7 - Delivery date is not displayed on phone order page recipient section");
 		
 			//Test Step - 8
+			delayWithGivenTime(2000);
 			phoneorder.SelectOccasion_On_OrderDetails_In_PhoneOrderPage(occasion);
 			phoneorder.EnterViewShortCode();			
 			delayWithGivenTime(2000);
@@ -132,17 +133,18 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			softassert.assertEquals(phoneorder.getProdDetailsItemcode1OnPhoneOrderPage(),"rrd","Test Step - 9 - Item code is not displayed on phone order page product details section");
 			softassert.assertEquals(phoneorder.getProdDetailsItemDescription1OnPhoneOrderPage(),"Red Rose Deluxe","Test Step - 9 - Item description is not displayed on phone order page product details section"); 
 			softassert.assertEquals(phoneorder.getProdItemQty1OnPhoneOrderPage(),"1","Test Step - 9 - Item quantity is not displayed on phone order page product details section");
-			
+			delayWithGivenTime(1000);
 			if(phoneorder.getUnitPriceOnProdDetails()=="299.00"){ 
 				softassert.assertEquals(phoneorder.getUnitPriceOnProdDetails(),"299.00","Test Step - 9 - Item price is not displayed on phone order page product details section");
 			}else if (phoneorder.getUnitPriceOnProdDetails()=="309.00") {
 				softassert.assertEquals(phoneorder.getUnitPriceOnProdDetails(),"309.00","Test Step - 9 - Item price is not displayed on phone order page product details section");
 			}
 			
-			delayWithGivenTime(2000);
+	
 		//	softassert.assertTrue(phoneorder.validateItemDetails("Red Rose Deluxe", "309.00", "309.00", "0.00", "0.00"),"Test Step - 9 - Item details are not displayed on phone order page product details section");
 			
 			// Test Step - 10
+			delayWithGivenTime(2000);
 			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection(paymenttype);
 			delayWithGivenTime(1000);
 			softassert.assertEquals(phoneorder.getDisplayedPaymentTypeSelectedOption(),"Cash","Test Step - 10 - Selected Payment type is not displayed on phone order page payment section");
@@ -160,6 +162,7 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			phoneorder.ClickCancelButton_On_ConfirmationPopup();
 			
 			// Test Step - 12
+			delayWithGivenTime(1000);
 			phoneorder.ClickPlaceOrderButton();
 			delayWithGivenTime(1000);
 			softassert.assertTrue(phoneorder.VerifyConfirmationPopupOnPhoneOrderPage(), "Test Step - 12 - Confirmation popup is not displayed on phone order page");
@@ -180,7 +183,10 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
 			
 			// Test Step - 15,20
-			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_Invoice(),"Test Step - 15 - Phone order invoice is not displayed");
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_Cash());
+			delayWithGivenTime(1000);
+			
+			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_Pickup_Cash_InvoiceNumber(),"Test Step - 15 - Phone order invoice is not displayed");
 			dashboardorder.ClickPhoneOrder_on_SenderorCustomer_OnOrderPage();
 			
 			softassert.assertEquals(dashboardorder.getRecipientName_OnDeliveryPopup(),"Abish David", "Test Step 15 - Recipient name is not displayed on delivery popup");

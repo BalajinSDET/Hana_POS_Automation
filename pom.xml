@@ -33,7 +33,7 @@
 						<testFailureIgnore>true</testFailureIgnore>
 					
 						<suiteXmlFiles>
-							<suiteXmlFile>SmokeTest.xml</suiteXmlFile>
+							<suiteXmlFile>${xmlFiles}</suiteXmlFile>
 						</suiteXmlFiles>
 						<!--${xmlFiles}-->
 					<!--<systemPropertyVariables>
@@ -49,7 +49,6 @@
 					<artifactId>allure-maven</artifactId>
 					<version>2.10.0</version>
 				</plugin>
-
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -219,10 +218,6 @@
     <artifactId>slf4j-api</artifactId>
     <version>2.0.16</version>
 </dependency>
-
-
-<!-- Exclude other conflicting bindings -->
-
 
 	</dependencies>
 </project>

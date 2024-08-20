@@ -133,7 +133,9 @@
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Tax_Search_Filter_FT"/>
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T112_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Total_Search_Filter_FT"/>
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T113_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_OrderDate_Search_Filter_FT"/>
-	  <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T114_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_PaymentDate_Search_Filter_FT"/>
+      
+	  <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T114_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_DeliveryDate_Search_Filter_FT"/>
+	 
 	  <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T115_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_DueDate_Search_Filter_FT"/>
 	  <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T116_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Pagination_FT"/>
 	  <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T117_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_StatementDate_Search_Filter_FT"/>

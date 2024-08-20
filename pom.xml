@@ -35,7 +35,7 @@
 						<suiteXmlFiles>
 							<suiteXmlFile>${xmlFiles}</suiteXmlFile>
 						</suiteXmlFiles>
-						<!--${xmlFiles}-->
+						<!--${xmlFiles} RegressionTest.xml-->
 					<!--<systemPropertyVariables>
 						<appURL>${url}</appURL>
 					</systemPropertyVariables>-->

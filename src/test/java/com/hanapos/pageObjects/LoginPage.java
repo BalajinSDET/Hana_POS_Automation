@@ -94,8 +94,10 @@ public class LoginPage extends TestBaseClass {
 	    String environment = prop.getProperty("env");	    
 	    switch (environment) {
 	        case "qa-final":
+	        	clickAndType(Username, "nanda_2");
+	            break;
 	        case "staging":
-	            clickAndType(Username, "nanda_2");
+	        	clickAndType(Username, username);
 	            break;
 	        case "live":
 	            clickAndType(Username, username);

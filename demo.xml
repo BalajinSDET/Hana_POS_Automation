@@ -12,7 +12,7 @@
 		<parameter name="browser" value="chrome" /> 
 		<groups>
 			<run>
-				<include name="Smoke" />
+				<include name="Smoke"/>
 						
 			</run>
 		</groups>

@@ -31,7 +31,7 @@ public abstract class Reporter{
 		extent = new ExtentReports();
 		
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());// time stamp
-		repName = "Test-Report-"+ timeStamp + ".html";
+		repName = "Hana-POS-Test-Report-"+ timeStamp + ".html";
 		
 		reporter = new ExtentSparkReporter("./reports/"+repName);	
 		reporter.loadXMLConfig("./extent-config.xml");	
@@ -66,7 +66,7 @@ public abstract class Reporter{
 			long snapNumber = 100000L;
 			snapNumber = takeSnap();
 			img = MediaEntityBuilder.createScreenCaptureFromPath
-					("./../Reports/images/"+snapNumber+".jpg").build();
+					("./../reports/images/"+snapNumber+".jpg").build();
 		}
     	if(status.equalsIgnoreCase("pass")) {
     		node.pass(dec, img);

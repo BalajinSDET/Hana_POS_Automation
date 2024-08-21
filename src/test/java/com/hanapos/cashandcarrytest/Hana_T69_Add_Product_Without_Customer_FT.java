@@ -85,7 +85,7 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 			
 			// Test Step - 8
 			cashandcarry.SearchAndSelect_ItemCode(itemcode,itemdesc);
-			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Rose Flowers ","Item Description is not matched with selected item");	
+			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Test Automation Item Deluxe","Item Description is not matched with selected item");	
 			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1","Item quantity is not matched with selected item");
 			
 			if(cashandcarry.ItemPriceValueIsExist()=="80") {
@@ -100,8 +100,8 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 			// Test Step - 9
 			cashandcarry.ClickAddItem();
 			softassert.assertTrue(cashandcarry.VerifyAddedItem());
-			softassert.assertEquals(cashandcarry.getAddedItemCode(),"RSS");
-			softassert.assertEquals(cashandcarry.GetAddedItemDescription(),"Rose Flowers");
+			softassert.assertEquals(cashandcarry.getAddedItemCode(),"TAI");
+			softassert.assertEquals(cashandcarry.GetAddedItemDescription(),"Test Automation Item Deluxe");
 			softassert.assertEquals(cashandcarry.GetAddedItemQty(), "1");
 			
 			if(cashandcarry.GetAddedItemExtPrice()=="$82.00") {
@@ -120,13 +120,14 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 			softassert.assertEquals(cashandcarry.GetAddedItemDiscountPercentage(),"0.00");
 			
 			// Test Step - 10
-			softassert.assertEquals(cashandcarry.VerifyToolTipOnLeftSideTileProduct(), "35486~Violet  Roses Standard~20.00~169514~true~false~Item~1801202","Test Step - 10 - Tooltip is not matched");
+			softassert.assertEquals(cashandcarry.VerifyToolTipOnLeftSideTileProduct(), "35486~Violet&Roses Standard~21.00~169514~true~false~Item~1801202","Test Step - 10 - Tooltip is not matched");
 			
 			// Test Step - 11
 			delayWithGivenTime(2000);
 			cashandcarry.SelectProductTile(prodtile);
 			logger.info("User click on the particular product tile");
-			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"12345");
+			delayWithGivenTime(2000);
+			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"35486");
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 
 			// Test Step - 12

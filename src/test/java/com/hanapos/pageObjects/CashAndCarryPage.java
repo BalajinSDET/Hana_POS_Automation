@@ -221,7 +221,7 @@ public class CashAndCarryPage extends TestBaseClass{
 	@FindBy(xpath="(//button[@class='btn btn-primary btnAddCustomer'][normalize-space()='Add'])[1]")
 	private WebElement AddCustomerButton;
 	
-	@FindBy(xpath="(//a[@class='QuickInsertItem'])[2]")
+	@FindBy(xpath="(//a[@class='QuickInsertItem'])[1]")
 	private WebElement flowerstd_leftside_displayedTile_Prod;
 	
 	// Add New Customer Pop up - web elements
@@ -1781,14 +1781,20 @@ public class CashAndCarryPage extends TestBaseClass{
 		jsScrollClick(CashAndCarryBalloonTitle);	
 	}
 
-	public CashAndCarryPage SelectProductTile(String prodtile) {
-		int i;
-		for( i=0;i<ListOfProdTiles.size();i++) {
-			if(ListOfProdTiles.get(i).getAttribute("title").contains(prodtile)) {
-				jsScrollClick(ListOfProdTiles.get(i));
+	public CashAndCarryPage SelectProductTile(String prodtile) {		
+		for(WebElement prodTile:ListOfProdTiles) {
+			if(prodTile.getAttribute("title").contains(prodtile)) {
+				click(prodTile);
 				break;
 			}
-		}return this;	
+		}		
+		
+		/*
+		 * int i; for( i=0;i<ListOfProdTiles.size();i++) {
+		 * if(ListOfProdTiles.get(i).getAttribute("title").contains(prodtile)) {
+		 * jsScrollClick(ListOfProdTiles.get(i)); break; } }
+		 */
+		return this;	
 		
 	}
 	
@@ -3328,9 +3334,13 @@ public class CashAndCarryPage extends TestBaseClass{
 	}
 	
 	public String VerifyToolTipOnLeftSideTileProduct() {
+	//	Actions action = new Actions(getDriver());
+	//	action.moveToElement(flowerstd_leftside_displayedTile_Prod).build().perform();
+	//	delayWithGivenTime(500);	
 		MouseHover(flowerstd_leftside_displayedTile_Prod);
-		delayWithGivenTime(1000);
-		return (flowerstd_leftside_displayedTile_Prod.getAttribute("title"));
+		delayWithGivenTime(3000);
+		String prodTile_tooltip = flowerstd_leftside_displayedTile_Prod.getAttribute("title");
+		return prodTile_tooltip;
 	}
 	
 	public void PressAltKeyH_SalesHistory() {

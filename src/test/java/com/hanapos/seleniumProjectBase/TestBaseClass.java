@@ -395,7 +395,8 @@ public class TestBaseClass implements FrameworkDesign {
 		HighlightElement(ele);
 		Actions actions = new Actions(getDriver());
 		explicitWait(ele);
-		actions.doubleClick(ele).build().perform();
+		ele.clear();
+		actions.doubleClick(ele).build().perform();	
 		ele.sendKeys(data);
 	}
 
@@ -403,6 +404,7 @@ public class TestBaseClass implements FrameworkDesign {
 	public void clickAndType(WebElement ele, String data) {
 		try {
 			HighlightElement(ele);
+			ele.clear();
 			ele.click();
 			ele.sendKeys(data);
 			//reportStep("Click and Type Successful", "PASS");
@@ -422,6 +424,7 @@ public class TestBaseClass implements FrameworkDesign {
 			WebDriverWait	wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
 			wait.until(ExpectedConditions.elementToBeClickable(ele));
 			Actions action = new Actions(getDriver());
+			ele.clear();
 			action.moveToElement(ele).sendKeys(data).build().perform();
 		} catch (StaleElementReferenceException e) {
 			throw new RuntimeException();
@@ -466,6 +469,7 @@ public class TestBaseClass implements FrameworkDesign {
 	public void jsTypeAndEnter(WebElement ele, String data) {
 		try {
 			HighlightElement(ele);
+			ele.clear();
 			JavascriptExecutor executor = (JavascriptExecutor) getDriver();
 			executor.executeScript("arguments[0].value='" + data + "'", ele);
 			ele.sendKeys(Keys.ENTER);
@@ -488,6 +492,7 @@ public class TestBaseClass implements FrameworkDesign {
 			HighlightElement(ele);
 			JavascriptExecutor executor = (JavascriptExecutor) getDriver();
 			executor.executeScript("arguments[0].scrollIntoView();", ele);
+			ele.clear();
 			clickAndType(ele, data);
 		} catch (Exception e) {
 			throw new RuntimeException();

@@ -2017,6 +2017,8 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public void EnterReciPhone(String reciphone) {
+		recipientphoneOnPhoneOrderPage.clear();
+		delayWithGivenTime(1000);
 		DoubleClickAndType(recipientphoneOnPhoneOrderPage, reciphone);
 	}
 

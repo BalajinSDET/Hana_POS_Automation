@@ -1,6 +1,7 @@
 package com.hanapos.utilities;
 
 import java.awt.Desktop;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -20,7 +21,9 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -31,6 +34,9 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
 
 
 public class ExtentReportManager extends TestBaseClass implements ITestListener {
@@ -79,23 +85,38 @@ public class ExtentReportManager extends TestBaseClass implements ITestListener 
 			test.log(Status.PASS, result.getName() + " got successfully executed");
 	}
 
-	public void onTestFailure(ITestResult result)  {
-			ExtentTest test = extentTest.get();
-	        test.assignCategory(result.getMethod().getGroups());
-	        test.log(Status.FAIL, result.getName() + " got failed");
-	        test.log(Status.INFO, result.getThrowable().getMessage());
+	private static String getTestMethodName(ITestResult iTestResult) {
+        return iTestResult.getMethod().getConstructorOrMethod().getName();
+    }
+	  
+		@Attachment(value = "Screenshot", type = "image/png")
+	    public byte[] saveScreenshotPNG(WebDriver driver) {
+	        return ((TakesScreenshot) TestBaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
+	    }
 
-	        String logFilePath = System.getProperty("user.dir") + "\\logs\\" + result.getName() + "_" + timeStamp + "-console.log";
-	        LogUtil.saveBrowserLogs(getDriver(), logFilePath);
+		public void onTestFailure(ITestResult result) {
+		    ExtentTest test = extentTest.get();
+		    test.assignCategory(result.getMethod().getGroups());
+		    test.log(Status.FAIL, result.getName() + " got failed");
+		    test.log(Status.INFO, result.getThrowable().getMessage());
 
-	        try {
-				String imgPath = new TestBaseClass().captureScreenshot(result.getName());
-				System.out.println(imgPath);
-				test.addScreenCaptureFromPath(imgPath);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-	}
+		    String logFilePath = System.getProperty("user.dir") + "\\logs\\" + result.getName() + "_" + timeStamp + "-console.log";
+		    LogUtil.saveBrowserLogs(getDriver(), logFilePath);
+
+		    try {
+
+		        Object testClass = result.getInstance();
+		        WebDriver driver = ((TestBaseClass) testClass).getDriver();
+		        
+		        if (driver != null) {
+		            String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		            test.addScreenCaptureFromBase64String(base64Screenshot, "Screenshot on failure: " + result.getName());
+		        }
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		}
+
 
 	public void onTestSkipped(ITestResult result) {
 			ExtentTest test = extentTest.get();

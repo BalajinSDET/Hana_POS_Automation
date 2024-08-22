@@ -1,6 +1,7 @@
 package com.hanapos.pageObjects;
 
 import java.io.File;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -117,6 +118,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	private WebElement taxtype_OnPhoneOrderPage;
 	
 	//======================Product Section===============================//
+	@FindBy(xpath=" //fieldset[contains(@class,'productinfo')]")
+	private WebElement productsection_OnPhoneOrderPage;
+	
 	@FindBy(xpath="(//legend[@class='scheduler-border'])[5]")
 	private WebElement productsectionOnPhoneOrderPage;
 	
@@ -707,6 +711,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	private List<WebElement> listOfShortcodesOnPhoneOrderPage;
 
 	// ======================= Product Details Section ==============
+	@FindBy(xpath="//ul[@id='ui-id-27']//li")
+	private List<WebElement> itemcode_row1_Autosuggestion;
+	
 	@FindBy(xpath = "//td//input[@id='orderItem1']")
 	private WebElement prod_details_Itemcode1;
 
@@ -781,16 +788,31 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	
 	@FindBy(xpath="//input[@id='orderItemPrice2']")
 	private WebElement prod_details_ItemPrice2_OnPhoneOrderPage;
+	
+	@FindBy(id="orderItemTaxableCkhBox1")
+	private WebElement item_row1_taxableCheckbox_OnProductDetailsSection;
 
-	// ===================== Payment type ==============================
+	// ===================== Payment type ==============================	
 	@FindBy(xpath = "//input[@id='paymentPayableBal']")
 	private WebElement payableBalanceOnPhoneOrderPage;
-
-	@FindBy(xpath = "//input[@id='paymentGrandTotalTxt']")
-	private WebElement grandTotalOnPhoneOrderPage;
+	
+	@FindBy(id="paymentSubTotalTxt")
+	private WebElement subTotalOnPhoneOrderPage;
+	
+	@FindBy(id="paymentDiscAmtTxt")
+	private WebElement discountAmt_PhoneOrder_PaymentSection;
 
 	@FindBy(id="paymentDelFeeTxt")
 	private WebElement deliveryFee_PhoneOrder_PaymentSection;
+	
+	@FindBy(id="paymentOnlyRelayTxt")
+	private WebElement relayFee_PhoneOrder_PaymentSection;
+	
+	@FindBy(id="paymentTaxAmtTxt")
+	private WebElement taxAmt_PhoneOrder_PaymentSection;
+	
+	@FindBy(xpath = "//input[@id='paymentGrandTotalTxt']")
+	private WebElement grandTotalOnPhoneOrderPage;
 	
 	// ===================Payment Type as Gift Card =============================
 	@FindBy(id="paymentGiftCardNumber")
@@ -822,6 +844,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	// ====================== Confirmation popup ==============================
 	@FindBy(xpath = "//h4[contains(text(),'Order Confirmation')]")
 	private WebElement confirmationPopupTitleOnPhoneOrderPage;
+	
+	@FindBy(xpath="(//div[@class='col-md-6 col-sm-6 text-right'])[4]")
+	private WebElement taxamount_OrderConfirmationPopupOnPhoneOrderPage;
 
 	@FindBy(xpath = "(//button[@class='btn btn-default pull-right'])[1]")
 	private WebElement cancelButtonOnPhoneOrderPage;
@@ -1624,6 +1649,17 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return AltphoneNumOnPhoneOrderPage.isEnabled();
 	}
 	
+	public void Enter_ItemCodeRow1_Product(String itemcode) {
+		clickAndType(prod_details_Itemcode1, itemcode);
+	}
+	
+	public boolean Verify_ItemCodeRow1_ProductSection_Autosuggestion_Appears() {
+		//HighlightElement(itemcode_row1_Autosuggestion); //
+		boolean isAutosuggestionDisplayed = itemcode_row1_Autosuggestion.size() > 0;
+		return isAutosuggestionDisplayed;
+	}
+	
+	
 	public void SearchandSelectItemcodeOnPhoneOrderPage(String proditemcode) {
 		DoubleClickAndType(prod_details_Itemcode1, proditemcode);
 		delayWithGivenTime(3000);
@@ -2147,6 +2183,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public String getGrandTotalAmount() {
+		System.out.println("UI displayed grand total amount is: " + grandTotalOnPhoneOrderPage.getAttribute("value"));
 		return grandTotalOnPhoneOrderPage.getAttribute("value");
 	}
 
@@ -5927,6 +5964,12 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return productsectionOnPhoneOrderPage.isDisplayed();
 	}
 	
+	public boolean Verify_ProductSection_Appears_OnPhoneorder() {
+		HighlightElement(productsection_OnPhoneOrderPage);
+		boolean isProductSectionDisplayed = productsection_OnPhoneOrderPage.isDisplayed();
+		return isProductSectionDisplayed;
+	}
+	
 	public boolean Verify_ProductSuggestions_Appears(String proditemcode) {
 		prod_details_Itemcode1.clear();
 		prod_details_Itemcode1.sendKeys(proditemcode);
@@ -6288,6 +6331,10 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		jsClick(Instantdenomination1_OnGiftcardPopup_OnPhoneOrderPage);
 	}
 	
+	public void Click_GiftCardInstantDenomination7() {
+		jsClick(Instantdenomination7_OnGiftcardPopup_OnPhoneOrderPage);
+	}
+	
 	public void Enter_GiftCardAmount_onGiftCardPopup(String giftcardamount) {
 		giftcardAmountTextboxField.clear();
 		clickAndType(giftcardAmountTextboxField, giftcardamount);
@@ -6536,12 +6583,48 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return instantdenomination10;
 	}
 	
+	public void ClickOn_Row1_Item_ProdDetails_TaxableCheckBox() {
+		click(item_row1_taxableCheckbox_OnProductDetailsSection);
+	}
 	
 	
+	public boolean Verify_Item_Row1_ProdDetails_TaxableCheckBox_IsChecked() {
+		boolean isChecked = item_row1_taxableCheckbox_OnProductDetailsSection.isEnabled();
+		return isChecked;
+	}
 	
+	public String get_TaxAmount_PaymentSection() {
+		HighlightElement(taxAmt_PhoneOrder_PaymentSection);
+		String taxamount  = taxAmt_PhoneOrder_PaymentSection.getAttribute("value").trim();
+		return taxamount;
+	}
 	
+	public String validate_grandTotal_OnPaymentSection() {
+		double subTotal = Double.parseDouble(subTotalOnPhoneOrderPage.getAttribute("value").replace("$", "").trim());
+		
+		double discountAmount = Double.parseDouble(discountAmt_PhoneOrder_PaymentSection.getAttribute("value").replace("$", "").trim());
+		double deliveryfee = Double.parseDouble(deliveryFee_PhoneOrder_PaymentSection.getAttribute("value").replace("$", "").trim());
+		double relayFee = Double.parseDouble(relayFee_PhoneOrder_PaymentSection.getAttribute("value").replace("$", "").trim());
+		double taxFee = Double.parseDouble(taxAmt_PhoneOrder_PaymentSection.getAttribute("value").replace("$", "").trim());
+
+		System.out.println("subTotal: " + subTotal);
+		System.out.println("deliveryfee: " + deliveryfee);
+		System.out.println("relayFee: " + relayFee);
+		System.out.println("taxFee: " + taxFee);
+		System.out.println("discountAmount: " + discountAmount);
+		double expectedGrandTotal = (subTotal + deliveryfee + relayFee + taxFee) - discountAmount;
+
+		// Format the numbers to two decimal places
+		DecimalFormat df = new DecimalFormat("#.00");
+		String formattedExpectedGrandTotal = df.format(expectedGrandTotal);
+		System.out.println("Calculated Expected Grand Total: " + formattedExpectedGrandTotal);
+		return formattedExpectedGrandTotal;
+	}
 	
-	
+	public String get_taxAmountOnOrderconfirmation_Popup() {
+		HighlightElement(taxamount_OrderConfirmationPopupOnPhoneOrderPage);
+		return 	taxamount_OrderConfirmationPopupOnPhoneOrderPage.getText();
+	}
 }
 	
 	

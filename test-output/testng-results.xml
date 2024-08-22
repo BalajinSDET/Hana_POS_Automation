@@ -2,22 +2,19 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-21T11:31:44 IST" name="Suite" finished-at="2024-08-21T11:34:58 IST" duration-ms="194804">
+  <suite started-at="2024-08-21T19:14:03 IST" name="Default suite" finished-at="2024-08-21T19:16:27 IST" duration-ms="144110">
     <groups>
       <group name="Regression">
-        <method signature="Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@5c669da8]" name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT"/>
+        <method signature="Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality.Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test()[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality@4f704591]" name="Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test" class="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality"/>
       </group> <!-- Regression -->
-      <group name="Smoke">
-        <method signature="Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@5c669da8]" name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT"/>
-      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2024-08-21T11:31:44 IST" name="ChromeBrowserTest" finished-at="2024-08-21T11:34:58 IST" duration-ms="194804">
-      <class name="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@5c669da8]" started-at="2024-08-21T11:31:44 IST" name="loadConfig" finished-at="2024-08-21T11:31:44 IST" duration-ms="16" status="PASS">
+    <test started-at="2024-08-21T19:14:03 IST" name="Default test" finished-at="2024-08-21T19:16:27 IST" duration-ms="144110">
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality@4f704591]" started-at="2024-08-21T19:14:03 IST" name="loadConfig" finished-at="2024-08-21T19:14:03 IST" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@5c669da8]" started-at="2024-08-21T11:31:45 IST" name="setup" finished-at="2024-08-21T11:31:50 IST" duration-ms="5118" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality@4f704591]" started-at="2024-08-21T19:14:03 IST" name="setup" finished-at="2024-08-21T19:14:09 IST" duration-ms="5953" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -28,107 +25,18 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@5c669da8]" started-at="2024-08-21T11:31:50 IST" name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-21T11:34:58 IST" duration-ms="187540" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Stuart Markwood]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2715 35th Ave]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[80634]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[956-655-0756]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Abish]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[David]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[3402 Park Blvd]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[PICK UP]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[92103]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[San Diego]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[United States]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[956-655-0756]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[Church]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Birthday]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[rrd]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[Cash]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[Cash Register2]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test()[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality@4f704591]" started-at="2024-08-21T19:14:09 IST" name="Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test" finished-at="2024-08-21T19:16:27 IST" duration-ms="137731" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[The following asserts failed:
-Test Step - 7 - Recipient phone number is not displayed on phone order page recipient section expected [956-655-0756] but found [+832-832-487-2387],
-Test Step - 16 - Payment type is not displayed on order confirmation page expected [FSN] but found []]]>
+Test Step - 15 - Item row 1 on product section taxable checkbox is not unchecked  expected [false] but found [true]]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.AssertionError: The following asserts failed:
-Test Step - 7 - Recipient phone number is not displayed on phone order page recipient section expected [956-655-0756] but found [+832-832-487-2387],
-Test Step - 16 - Payment type is not displayed on order confirmation page expected [FSN] but found []
+Test Step - 15 - Item row 1 on product section taxable checkbox is not unchecked  expected [false] but found [true]
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-at com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.java:224)
+at com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality.Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test(Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality.java:233)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -139,23 +47,33 @@ at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInv
 at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
 at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
 at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-at java.base/java.lang.Thread.run(Thread.java:1583)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@5c669da8]" started-at="2024-08-21T11:34:58 IST" name="tearDown" finished-at="2024-08-21T11:34:58 IST" duration-ms="215" status="PASS">
+        </test-method> <!-- Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality@4f704591]" started-at="2024-08-21T19:16:27 IST" name="tearDown" finished-at="2024-08-21T19:16:27 IST" duration-ms="228" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT -->
-    </test> <!-- ChromeBrowserTest -->
-  </suite> <!-- Suite -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

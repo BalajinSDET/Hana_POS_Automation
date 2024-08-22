@@ -21,9 +21,9 @@ public class Hana_T182_OrderEntryPage_Pickup_ProductSection_GiftCardSale_popup_E
 	
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T177_OrderEntry_Pickup_PaymentSection_GiftCardPayment_Functionality_Test() {
+	public void Validate_Hana_T182_OrderEntryPage_Pickup_ProductSection_GiftCardSale_popup_EditGiftCard_Denominations_Add_Functionality_Test() {
 		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting  Validate_Hana_T177_OrderEntry_Pickup_PaymentSection_GiftCardPayment_Functionality_Test ****");
+		logger.info("**** Starting  Validate_Hana_T182_OrderEntryPage_Pickup_ProductSection_GiftCardSale_popup_EditGiftCard_Denominations_Add_Functionality_Test ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1

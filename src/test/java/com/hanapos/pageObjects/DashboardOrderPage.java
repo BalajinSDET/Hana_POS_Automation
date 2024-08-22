@@ -142,6 +142,11 @@ public class DashboardOrderPage extends TestBaseClass{
 	@FindBy(xpath="//td[6]")
 	private List<WebElement> ListOfRecipient_OnOrderPageTable;
 	
+	@FindBy(xpath="(//td[@class='text-left DAmountlabel'])[4]//following::td[1]")
+	private WebElement salesTax_OnDeliveryPopup_Invoice;
+	
+	
+	
 	public String validateDashboardOrderPage() {
 		return	getDriver().getCurrentUrl();
 	}
@@ -631,7 +636,10 @@ public class DashboardOrderPage extends TestBaseClass{
 		}	jsClick(ListOfOrderType_OnOrderPageTable.get(0));			 		
 	}
 	
-	
+	public String get_SalesTax_On_DeliveryPopup_Invoice() {
+		HighlightElement(salesTax_OnDeliveryPopup_Invoice);
+		return salesTax_OnDeliveryPopup_Invoice.getText();
+	}
 	
 	
 	}

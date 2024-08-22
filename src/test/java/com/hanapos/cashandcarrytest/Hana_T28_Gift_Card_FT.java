@@ -115,24 +115,22 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 			logger.info("User verify the total gift values are matched as "+processingfee);
 			
 			// Test Step - 10
+		//	cashandcarry.EnterGiftCardNumber(giftcardno);
+		//	logger.info("User enter gift card number as "+giftcardno);
 			cashandcarry.EnterGiftCardNumber("1234567890123456");
-			logger.info("User enter gift card number as 1234567890123456");
-			delayWithGivenTime(2000);
-			cashandcarry.EnterGiftCardNumber(giftcardno);
-			logger.info("User enter gift card number as "+giftcardno);
-			softassert.assertEquals(cashandcarry.getGiftCardNumber(),"1234567890123456","Gift Card Number is not matched");
+			softassert.assertEquals(cashandcarry.getGiftCardNumber(),"1234567890123456","TestStep - 10 - Entered Gift Card Number is not displayed");
 			logger.info("User verify the gift card number is matched as 1234567890123456");
 
 			// Test Step - 11
 			delayWithGivenTime(2000);
-			cashandcarry.ClearGiftCardNumber();
+		//	cashandcarry.ClearGiftCardNumber();
 			cashandcarry.EnterGiftCardNumber(morethan25digitgiftcardno);
 			logger.info("User enter gift card number as "+morethan25digitgiftcardno);
 			softassert.assertEquals(cashandcarry.getGiftCardNumber(),"1111122222333334444455555","Gift Card Number is not matched");
 			logger.info("User verify the gift card number is matched as "+morethan25digitgiftcardno);
 			
 			// Test Step - 12
-			cashandcarry.ClearGiftCardNumber();
+		//	cashandcarry.ClearGiftCardNumber();
 			cashandcarry.EnterGiftCardNumber("12345678909990");
 			logger.info("User enter gift card number as 12345678909990");
 			softassert.assertEquals(cashandcarry.getGiftCardNumber(),"12345678909990","Gift Card Number is not matched");
@@ -186,19 +184,18 @@ public class Hana_T28_Gift_Card_FT extends TestBaseClass{
 			logger.info("User verify the total gift values are displayed as 35.00");
 
 			cashandcarry.EnterGiftCardNumber("1234567890123456");
-			logger.info("User enter gift card number as 1234567890123456");
-			delayWithGivenTime(2000);
-			cashandcarry.EnterGiftCardNumber(giftcardno);
+		//	cashandcarry.EnterGiftCardNumber(giftcardno);
 			logger.info("User enter gift card number as "+giftcardno);
-			softassert.assertEquals(cashandcarry.getGiftCardNumber(),"1234567890123456","Gift Card Number is not matched");
+			
+			softassert.assertEquals(cashandcarry.getGiftCardNumber(),"1234567890123456","TestStep - 17 - Entered Gift Card Number is not displayed");
 			logger.info("User verify the gift card number is matched as "+giftcardno);
 			delayWithGivenTime(2000);
-			cashandcarry.ClearGiftCardNumber();
+		//	cashandcarry.ClearGiftCardNumber();
 			cashandcarry.EnterGiftCardNumber(morethan25digitgiftcardno);
 			logger.info("User enter gift card number as "+morethan25digitgiftcardno);
 			softassert.assertEquals(cashandcarry.getGiftCardNumber(),"1111122222333334444455555","Gift Card Number is not matched");
 			logger.info("User verify the gift card number is matched as "+morethan25digitgiftcardno);
-			cashandcarry.ClearGiftCardNumber();
+		//	cashandcarry.ClearGiftCardNumber();
 			
 			cashandcarry.EnterGiftCardNumber(generaterandomeNumber(10));
 			

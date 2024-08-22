@@ -1,20 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="24" passed="15" failed="9" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-21T19:14:03 IST" name="Default suite" finished-at="2024-08-21T19:16:27 IST" duration-ms="144110">
+  <suite started-at="2024-08-22T18:23:18 IST" name="SmokeTestSuite" finished-at="2024-08-22T18:39:51 IST" duration-ms="993888">
     <groups>
       <group name="Regression">
-        <method signature="Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality.Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test()[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality@4f704591]" name="Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test" class="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality"/>
+        <method signature="Hana_T302_Delivery_Functionality_with_Existing_customer_FT.Validate_Hana_T302_Delivery_Functionality_with_Existing_customer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT@335b5620]" name="Validate_Hana_T302_Delivery_Functionality_with_Existing_customer" class="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT"/>
+        <method signature="Hana_T303_Delivery_Functionality_with_New_customer_FT.Validate_Hana_T303_Delivery_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT@29a0cdb]" name="Validate_Hana_T303_Delivery_Functionality_with_New_customer_Functionality_Test" class="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT"/>
+        <method signature="Hana_T081_Pickup_Functionality_with_Existing_customer_FT.Validate_Hana_T081_Pickup_Functionality_with_Existing_customer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT@676cf48]" name="Validate_Hana_T081_Pickup_Functionality_with_Existing_customer" class="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT"/>
+        <method signature="Hana_T082_Pickup_Functionality_with_New_customer_FT.Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT@5a1de7fb]" name="Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test" class="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT"/>
+        <method signature="Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@32a68f4f]" name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT"/>
+        <method signature="Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT.Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT@73194df]" name="Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT"/>
+        <method signature="Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT.Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@6eb2384f]" name="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT"/>
+        <method signature="Hana_T14_Add_Product_FT.Validate_Hana_T14_Add_Product_Test(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT@7a1234bf]" name="Validate_Hana_T14_Add_Product_Test" class="com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT"/>
+        <method signature="Hana_T15_Edit_Product_FT.Validate_Hana_T15_Edit_Product_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@2f62ea70]" name="Validate_Hana_T15_Edit_Product_Test" class="com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT"/>
+        <method signature="Hana_T16_Delete_Product_FT.Validate_Hana_T16_Delete_Product_Test(java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT@24ba9639]" name="Validate_Hana_T16_Delete_Product_Test" class="com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT"/>
+        <method signature="Hana_T18_OrderConfirmationPopup_FT.Validate_Hana_T18_Order_Confirmation_Popup_Test(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT@38aa816f]" name="Validate_Hana_T18_Order_Confirmation_Popup_Test" class="com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT"/>
+        <method signature="Hana_T28_Gift_Card_FT.Validate_Hana_T28_GiftCard_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT@7749bf93]" name="Validate_Hana_T28_GiftCard_Functionality_Test" class="com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT"/>
+        <method signature="Hana_T37_Add_New_Customer_FT.Validate_Hana_T37_Add_New_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT@7331196b]" name="Validate_Hana_T37_Add_New_Customer_Test" class="com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT"/>
+        <method signature="Hana_T43_Payments_Split_Payment_FT.Validate_Hana_T43_Payments_Split_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT@336f1079]" name="Validate_Hana_T43_Payments_Split_Payment_Test" class="com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT"/>
+        <method signature="Hana_T51_Payments_Cash_Payment_Section_FT.Validate_Hana_T51_Payments_Cash_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@4b79ac84]" name="Validate_Hana_T51_Payments_Cash_Payment_Test" class="com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT"/>
+        <method signature="Hana_T53_Payments_Check_Payment_Section_FT.Validate_Hana_T53_Payments_Check_Payment_Section_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT@53941c2f]" name="Validate_Hana_T53_Payments_Check_Payment_Section_Test" class="com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT"/>
+        <method signature="Hana_T56_Payments_Invoice_Payment_Section_FT.Validate_Hana_T56_Payments_Invoice_Payment_Section_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT@6dab9b6d]" name="Validate_Hana_T56_Payments_Invoice_Payment_Section_Test" class="com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT"/>
+        <method signature="Hana_T59_Payments_POH_Payment_Section_FT.Validate_Hana_T59_Payments_POH_Payment_Section_Test(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT@21fd5faa]" name="Validate_Hana_T59_Payments_POH_Payment_Section_Test" class="com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT"/>
+        <method signature="Hana_T61_Payments_GiftCard_Payment_Section_FT.Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT@2766ca9d]" name="Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test" class="com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT"/>
+        <method signature="Hana_T65_Payment_Add_New_Customer_FT.Validate_Hana_T65_Payments_Add_New_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT@3d3e5463]" name="Validate_Hana_T65_Payments_Add_New_Customer_Test" class="com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT"/>
+        <method signature="Hana_T68_Payments_Donation_Payment_Section_FT.Validate_Hana_T68_Payments_Donation_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT@65a15628]" name="Validate_Hana_T68_Payments_Donation_Payment_Test" class="com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT"/>
+        <method signature="Hana_T69_Add_Product_Without_Customer_FT.Validate_Hana_T69_Add_Product_Without_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT@2e6a5539]" name="Validate_Hana_T69_Add_Product_Without_Customer_Test" class="com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT"/>
+        <method signature="Hana_T79_Add_Product_With_Existing_Customer_FT.Validate_Hana_T79_Add_Product_With_Existing_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@b7c4869]" name="Validate_Hana_T79_Add_Product_With_Existing_Customer_Test" class="com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT"/>
+        <method signature="Hana_T33_Purchase_Product_With_Coupon_FT.Validate_Hana_T33_Purchase_Product_With_Coupon_Test(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT@39a2bb97]" name="Validate_Hana_T33_Purchase_Product_With_Coupon_Test" class="com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT"/>
       </group> <!-- Regression -->
+      <group name="Smoke">
+        <method signature="Hana_T302_Delivery_Functionality_with_Existing_customer_FT.Validate_Hana_T302_Delivery_Functionality_with_Existing_customer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT@335b5620]" name="Validate_Hana_T302_Delivery_Functionality_with_Existing_customer" class="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT"/>
+        <method signature="Hana_T303_Delivery_Functionality_with_New_customer_FT.Validate_Hana_T303_Delivery_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT@29a0cdb]" name="Validate_Hana_T303_Delivery_Functionality_with_New_customer_Functionality_Test" class="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT"/>
+        <method signature="Hana_T081_Pickup_Functionality_with_Existing_customer_FT.Validate_Hana_T081_Pickup_Functionality_with_Existing_customer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT@676cf48]" name="Validate_Hana_T081_Pickup_Functionality_with_Existing_customer" class="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT"/>
+        <method signature="Hana_T082_Pickup_Functionality_with_New_customer_FT.Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT@5a1de7fb]" name="Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test" class="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT"/>
+        <method signature="Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@32a68f4f]" name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT"/>
+        <method signature="Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT.Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT@73194df]" name="Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT"/>
+        <method signature="Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT.Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@6eb2384f]" name="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test" class="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT"/>
+        <method signature="Hana_T14_Add_Product_FT.Validate_Hana_T14_Add_Product_Test(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT@7a1234bf]" name="Validate_Hana_T14_Add_Product_Test" class="com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT"/>
+        <method signature="Hana_T15_Edit_Product_FT.Validate_Hana_T15_Edit_Product_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@2f62ea70]" name="Validate_Hana_T15_Edit_Product_Test" class="com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT"/>
+        <method signature="Hana_T16_Delete_Product_FT.Validate_Hana_T16_Delete_Product_Test(java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT@24ba9639]" name="Validate_Hana_T16_Delete_Product_Test" class="com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT"/>
+        <method signature="Hana_T18_OrderConfirmationPopup_FT.Validate_Hana_T18_Order_Confirmation_Popup_Test(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT@38aa816f]" name="Validate_Hana_T18_Order_Confirmation_Popup_Test" class="com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT"/>
+        <method signature="Hana_T28_Gift_Card_FT.Validate_Hana_T28_GiftCard_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT@7749bf93]" name="Validate_Hana_T28_GiftCard_Functionality_Test" class="com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT"/>
+        <method signature="Hana_T37_Add_New_Customer_FT.Validate_Hana_T37_Add_New_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT@7331196b]" name="Validate_Hana_T37_Add_New_Customer_Test" class="com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT"/>
+        <method signature="Hana_T43_Payments_Split_Payment_FT.Validate_Hana_T43_Payments_Split_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT@336f1079]" name="Validate_Hana_T43_Payments_Split_Payment_Test" class="com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT"/>
+        <method signature="Hana_T51_Payments_Cash_Payment_Section_FT.Validate_Hana_T51_Payments_Cash_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@4b79ac84]" name="Validate_Hana_T51_Payments_Cash_Payment_Test" class="com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT"/>
+        <method signature="Hana_T53_Payments_Check_Payment_Section_FT.Validate_Hana_T53_Payments_Check_Payment_Section_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT@53941c2f]" name="Validate_Hana_T53_Payments_Check_Payment_Section_Test" class="com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT"/>
+        <method signature="Hana_T56_Payments_Invoice_Payment_Section_FT.Validate_Hana_T56_Payments_Invoice_Payment_Section_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT@6dab9b6d]" name="Validate_Hana_T56_Payments_Invoice_Payment_Section_Test" class="com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT"/>
+        <method signature="Hana_T59_Payments_POH_Payment_Section_FT.Validate_Hana_T59_Payments_POH_Payment_Section_Test(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT@21fd5faa]" name="Validate_Hana_T59_Payments_POH_Payment_Section_Test" class="com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT"/>
+        <method signature="Hana_T61_Payments_GiftCard_Payment_Section_FT.Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT@2766ca9d]" name="Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test" class="com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT"/>
+        <method signature="Hana_T65_Payment_Add_New_Customer_FT.Validate_Hana_T65_Payments_Add_New_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT@3d3e5463]" name="Validate_Hana_T65_Payments_Add_New_Customer_Test" class="com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT"/>
+        <method signature="Hana_T68_Payments_Donation_Payment_Section_FT.Validate_Hana_T68_Payments_Donation_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT@65a15628]" name="Validate_Hana_T68_Payments_Donation_Payment_Test" class="com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT"/>
+        <method signature="Hana_T69_Add_Product_Without_Customer_FT.Validate_Hana_T69_Add_Product_Without_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT@2e6a5539]" name="Validate_Hana_T69_Add_Product_Without_Customer_Test" class="com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT"/>
+        <method signature="Hana_T79_Add_Product_With_Existing_Customer_FT.Validate_Hana_T79_Add_Product_With_Existing_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@b7c4869]" name="Validate_Hana_T79_Add_Product_With_Existing_Customer_Test" class="com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT"/>
+        <method signature="Hana_T33_Purchase_Product_With_Coupon_FT.Validate_Hana_T33_Purchase_Product_With_Coupon_Test(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT@39a2bb97]" name="Validate_Hana_T33_Purchase_Product_With_Coupon_Test" class="com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT"/>
+      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2024-08-21T19:14:03 IST" name="Default test" finished-at="2024-08-21T19:16:27 IST" duration-ms="144110">
-      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality@4f704591]" started-at="2024-08-21T19:14:03 IST" name="loadConfig" finished-at="2024-08-21T19:14:03 IST" duration-ms="19" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality@4f704591]" started-at="2024-08-21T19:14:03 IST" name="setup" finished-at="2024-08-21T19:14:09 IST" duration-ms="5953" status="PASS">
+    <test started-at="2024-08-22T18:23:18 IST" name="Smoke Functionality Test" finished-at="2024-08-22T18:39:51 IST" duration-ms="993888">
+      <class name="com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT@336f1079]" started-at="2024-08-22T18:27:01 IST" name="setup" finished-at="2024-08-22T18:27:07 IST" duration-ms="5779" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -25,18 +70,125 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test()[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality@4f704591]" started-at="2024-08-21T19:14:09 IST" name="Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test" finished-at="2024-08-21T19:16:27 IST" duration-ms="137731" status="FAIL">
+        <test-method signature="Validate_Hana_T43_Payments_Split_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT@336f1079]" started-at="2024-08-22T18:27:07 IST" name="Validate_Hana_T43_Payments_Split_Payment_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:29:56 IST" duration-ms="169004" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Automation]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Automation]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Test]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Add New Card]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[8866 8866 8866 8866]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[567]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[10/25]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Cash Register2]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[50]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[150]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[889900889900]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[1844223338884]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[Bank Of America]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[Hana POS Automation]]>
+              </value>
+            </param>
+          </params>
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[The following asserts failed:
-Test Step - 15 - Item row 1 on product section taxable checkbox is not unchecked  expected [false] but found [true]]]>
+***Credit card present toogle button is not displayed***,
+expected [Check] but found [Credit On File],
+cash payment is not displayed expected [Cash] but found [Check],
+expected [Paid Outside Hana] but found [Cash],
+expected [true] but found [false],
+***Credit card present toogle button is not displayed***]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.AssertionError: The following asserts failed:
-Test Step - 15 - Item row 1 on product section taxable checkbox is not unchecked  expected [false] but found [true]
+***Credit card present toogle button is not displayed***,
+expected [Check] but found [Credit On File],
+cash payment is not displayed expected [Cash] but found [Check],
+expected [Paid Outside Hana] but found [Cash],
+expected [true] but found [false],
+***Credit card present toogle button is not displayed***
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
 at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-at com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality.Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test(Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality.java:233)
+at com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT.Validate_Hana_T43_Payments_Split_Payment_Test(Hana_T43_Payments_Split_Payment_FT.java:428)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -47,33 +199,1887 @@ at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInv
 at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
 at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
 at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality@4f704591]" started-at="2024-08-21T19:16:27 IST" name="tearDown" finished-at="2024-08-21T19:16:27 IST" duration-ms="228" status="PASS">
+        </test-method> <!-- Validate_Hana_T43_Payments_Split_Payment_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT@336f1079]" started-at="2024-08-22T18:29:56 IST" name="tearDown" finished-at="2024-08-22T18:29:56 IST" duration-ms="187" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT@39a2bb97]" started-at="2024-08-22T18:38:24 IST" name="setup" finished-at="2024-08-22T18:38:28 IST" duration-ms="3900" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T33_Purchase_Product_With_Coupon_Test(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT@39a2bb97]" started-at="2024-08-22T18:38:28 IST" name="Validate_Hana_T33_Purchase_Product_With_Coupon_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:39:24 IST" duration-ms="56114" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[QA24]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[abish]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T33_Purchase_Product_With_Coupon_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT@39a2bb97]" started-at="2024-08-22T18:39:24 IST" name="tearDown" finished-at="2024-08-22T18:39:24 IST" duration-ms="155" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@b7c4869]" started-at="2024-08-22T18:31:43 IST" name="setup" finished-at="2024-08-22T18:31:47 IST" duration-ms="4425" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T79_Add_Product_With_Existing_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@b7c4869]" started-at="2024-08-22T18:31:47 IST" name="Validate_Hana_T79_Add_Product_With_Existing_Customer_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:33:17 IST" duration-ms="89740" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test Automation]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Tax Exemption]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Test Step - 17 Sender or customer name is not displayed expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Test Step - 17 Sender or customer name is not displayed expected [true] but found [false]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT.Validate_Hana_T79_Add_Product_With_Existing_Customer_Test(Hana_T79_Add_Product_With_Existing_Customer_FT.java:195)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T79_Add_Product_With_Existing_Customer_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT@b7c4869]" started-at="2024-08-22T18:33:17 IST" name="tearDown" finished-at="2024-08-22T18:33:18 IST" duration-ms="203" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT@335b5620]" started-at="2024-08-22T18:33:18 IST" name="setup" finished-at="2024-08-22T18:33:22 IST" duration-ms="4059" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T302_Delivery_Functionality_with_Existing_customer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT@335b5620]" started-at="2024-08-22T18:33:22 IST" name="Validate_Hana_T302_Delivery_Functionality_with_Existing_customer" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:35:35 IST" duration-ms="133010" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Stuart Markwood]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Abish]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Abish]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[David]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[3402 Park Blvd]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[PICK UP]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[92103]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[San Diego]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Church]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[Invoice/House Account]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T302_Delivery_Functionality_with_Existing_customer -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT@335b5620]" started-at="2024-08-22T18:35:35 IST" name="tearDown" finished-at="2024-08-22T18:35:35 IST" duration-ms="196" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT@24ba9639]" started-at="2024-08-22T18:25:43 IST" name="setup" finished-at="2024-08-22T18:25:48 IST" duration-ms="4479" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T16_Delete_Product_Test(java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT@24ba9639]" started-at="2024-08-22T18:25:48 IST" name="Validate_Hana_T16_Delete_Product_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:26:51 IST" duration-ms="63451" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T16_Delete_Product_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT@24ba9639]" started-at="2024-08-22T18:26:51 IST" name="tearDown" finished-at="2024-08-22T18:26:51 IST" duration-ms="172" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T16_Delete_Product_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT@21fd5faa]" started-at="2024-08-22T18:29:55 IST" name="setup" finished-at="2024-08-22T18:30:00 IST" duration-ms="5177" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T59_Payments_POH_Payment_Section_Test(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT@21fd5faa]" started-at="2024-08-22T18:30:00 IST" name="Validate_Hana_T59_Payments_POH_Payment_Section_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:31:47 IST" duration-ms="106826" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Index 0 out of bounds for length 0]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Index 0 out of bounds for length 0
+at org.testng.Assert.fail(Assert.java:111)
+at com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT.Validate_Hana_T59_Payments_POH_Payment_Section_Test(Hana_T59_Payments_POH_Payment_Section_FT.java:193)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T59_Payments_POH_Payment_Section_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT@21fd5faa]" started-at="2024-08-22T18:31:47 IST" name="tearDown" finished-at="2024-08-22T18:31:47 IST" duration-ms="201" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T59_Payments_POH_Payment_Section_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT@53941c2f]" started-at="2024-08-22T18:28:30 IST" name="setup" finished-at="2024-08-22T18:28:35 IST" duration-ms="4857" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T53_Payments_Check_Payment_Section_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT@53941c2f]" started-at="2024-08-22T18:28:35 IST" name="Validate_Hana_T53_Payments_Check_Payment_Section_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:30:12 IST" duration-ms="97691" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[abish]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[*&^&^&&$&^*^]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[1844020000000050]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Fedral Bank]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Hana Test Automation for pos]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Test Step - 16 expected [1844020000000010] but found [],
+Test Step - 16 expected [Bank Of America] but found [],
+Test Step - 16 expected [Hana POS] but found []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Test Step - 16 expected [1844020000000010] but found [],
+Test Step - 16 expected [Bank Of America] but found [],
+Test Step - 16 expected [Hana POS] but found []
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT.Validate_Hana_T53_Payments_Check_Payment_Section_Test(Hana_T53_Payments_Check_Payment_Section_FT.java:308)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T53_Payments_Check_Payment_Section_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT@53941c2f]" started-at="2024-08-22T18:30:14 IST" name="tearDown" finished-at="2024-08-22T18:30:14 IST" duration-ms="191" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T53_Payments_Check_Payment_Section_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT@29a0cdb]" started-at="2024-08-22T18:34:16 IST" name="setup" finished-at="2024-08-22T18:34:22 IST" duration-ms="6050" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T303_Delivery_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT@29a0cdb]" started-at="2024-08-22T18:34:22 IST" name="Validate_Hana_T303_Delivery_Functionality_with_New_customer_Functionality_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:37:13 IST" duration-ms="170935" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Stuart Markwood]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2715 35th Ave]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[80634]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Abish]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[David]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[3402 Park Blvd]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[PICK UP]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[92103]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[San Diego]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Church]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[Cash]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[Cash Register2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T303_Delivery_Functionality_with_New_customer_Functionality_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT@29a0cdb]" started-at="2024-08-22T18:37:13 IST" name="tearDown" finished-at="2024-08-22T18:37:13 IST" duration-ms="188" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT@676cf48]" started-at="2024-08-22T18:31:47 IST" name="setup" finished-at="2024-08-22T18:31:52 IST" duration-ms="4213" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T081_Pickup_Functionality_with_Existing_customer(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT@676cf48]" started-at="2024-08-22T18:31:52 IST" name="Validate_Hana_T081_Pickup_Functionality_with_Existing_customer" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:34:15 IST" duration-ms="143800" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Stuart Markwood]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Abish]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Abish]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[David]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[3402 Park Blvd]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[PICK UP]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[92103]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[San Diego]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Church]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[Invoice/House Account]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T081_Pickup_Functionality_with_Existing_customer -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT@676cf48]" started-at="2024-08-22T18:34:15 IST" name="tearDown" finished-at="2024-08-22T18:34:16 IST" duration-ms="245" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T081_Pickup_Functionality_with_Existing_customer_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT@6dab9b6d]" started-at="2024-08-22T18:28:46 IST" name="setup" finished-at="2024-08-22T18:28:50 IST" duration-ms="3751" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T56_Payments_Invoice_Payment_Section_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT@6dab9b6d]" started-at="2024-08-22T18:28:50 IST" name="Validate_Hana_T56_Payments_Invoice_Payment_Section_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:29:54 IST" duration-ms="64787" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[abish]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Net 30]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T56_Payments_Invoice_Payment_Section_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT@6dab9b6d]" started-at="2024-08-22T18:29:54 IST" name="tearDown" finished-at="2024-08-22T18:29:55 IST" duration-ms="300" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T56_Payments_Invoice_Payment_Section_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@4b79ac84]" started-at="2024-08-22T18:27:21 IST" name="setup" finished-at="2024-08-22T18:27:26 IST" duration-ms="4914" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T51_Payments_Cash_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@4b79ac84]" started-at="2024-08-22T18:27:26 IST" name="Validate_Hana_T51_Payments_Cash_Payment_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:28:30 IST" duration-ms="63800" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[abish]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[500]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T51_Payments_Cash_Payment_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT@4b79ac84]" started-at="2024-08-22T18:28:30 IST" name="tearDown" finished-at="2024-08-22T18:28:30 IST" duration-ms="224" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T51_Payments_Cash_Payment_Section_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT@2766ca9d]" started-at="2024-08-22T18:29:56 IST" name="setup" finished-at="2024-08-22T18:30:01 IST" duration-ms="5180" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT@2766ca9d]" started-at="2024-08-22T18:30:01 IST" name="Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:31:29 IST" duration-ms="87757" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT@2766ca9d]" started-at="2024-08-22T18:31:29 IST" name="tearDown" finished-at="2024-08-22T18:31:29 IST" duration-ms="191" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T61_Payments_GiftCard_Payment_Section_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@32a68f4f]" started-at="2024-08-22T18:35:35 IST" name="setup" finished-at="2024-08-22T18:35:39 IST" duration-ms="4273" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@32a68f4f]" started-at="2024-08-22T18:35:39 IST" name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:38:29 IST" duration-ms="169638" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Stuart Markwood]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2715 35th Ave]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[80634]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Abish]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[David]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[3402 Park Blvd]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[PICK UP]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[92103]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[San Diego]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Church]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[Cash]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[Cash Register2]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Test Step - 16 - Payment type is not displayed on order confirmation page expected [FSN] but found [],
+Test case failed due to exception Keys to send should be a not null CharSequence]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Test Step - 16 - Payment type is not displayed on order confirmation page expected [FSN] but found [],
+Test case failed due to exception Keys to send should be a not null CharSequence
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.java:224)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@32a68f4f]" started-at="2024-08-22T18:38:29 IST" name="tearDown" finished-at="2024-08-22T18:38:30 IST" duration-ms="195" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@6eb2384f]" started-at="2024-08-22T18:37:13 IST" name="setup" finished-at="2024-08-22T18:37:17 IST" duration-ms="4494" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@6eb2384f]" started-at="2024-08-22T18:37:17 IST" name="Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:39:51 IST" duration-ms="153516" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Stuart Markwood]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2715 35th Ave]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[80634]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Abish]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[David]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[3402 Park Blvd]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[PICK UP]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[92103]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[San Diego]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Church]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[Cash]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[Cash Register2]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Test Step - 19 - Added on first name field are not properly displayed expected [true] but found [false],
+Test Step - 19 - Added on first name field are not properly displayed expected [true] but found [false],
+Test Step - 19 - Added on phone number field are not properly displayed expected [956-655-0756] but found [],
+Test Step - 19 - Added address 1 field is not properly displayed expected [2715 35th Ave] but found []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Test Step - 19 - Added on first name field are not properly displayed expected [true] but found [false],
+Test Step - 19 - Added on first name field are not properly displayed expected [true] but found [false],
+Test Step - 19 - Added on phone number field are not properly displayed expected [956-655-0756] but found [],
+Test Step - 19 - Added address 1 field is not properly displayed expected [2715 35th Ave] but found []
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT.Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test(Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT.java:246)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@6eb2384f]" started-at="2024-08-22T18:39:51 IST" name="tearDown" finished-at="2024-08-22T18:39:51 IST" duration-ms="212" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT@65a15628]" started-at="2024-08-22T18:30:14 IST" name="setup" finished-at="2024-08-22T18:30:18 IST" duration-ms="3910" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T68_Payments_Donation_Payment_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT@65a15628]" started-at="2024-08-22T18:30:18 IST" name="Validate_Hana_T68_Payments_Donation_Payment_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:31:43 IST" duration-ms="85123" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[abish]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[---$$$@@@]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T68_Payments_Donation_Payment_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT@65a15628]" started-at="2024-08-22T18:31:43 IST" name="tearDown" finished-at="2024-08-22T18:31:43 IST" duration-ms="186" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT@73194df]" started-at="2024-08-22T18:35:57 IST" name="setup" finished-at="2024-08-22T18:36:01 IST" duration-ms="4312" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT@73194df]" started-at="2024-08-22T18:36:01 IST" name="Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:38:23 IST" duration-ms="142411" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Stuart Markwood]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Abish]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Abish]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[David]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[3402 Park Blvd]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[PICK UP]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[92103]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[San Diego]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Church]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[Invoice/House Account]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT@73194df]" started-at="2024-08-22T18:38:23 IST" name="tearDown" finished-at="2024-08-22T18:38:24 IST" duration-ms="212" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT@5a1de7fb]" started-at="2024-08-22T18:32:55 IST" name="setup" finished-at="2024-08-22T18:33:00 IST" duration-ms="4548" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT@5a1de7fb]" started-at="2024-08-22T18:33:00 IST" name="Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:35:56 IST" duration-ms="176242" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Stuart Markwood]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2715 35th Ave]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[80634]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Abish]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[David]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[3402 Park Blvd]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[PICK UP]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[92103]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[San Diego]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[United States]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[956-655-0756]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Church]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[Cash]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[Cash Register2]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Test case failed due to exception Index 0 out of bounds for length 0]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Test case failed due to exception Index 0 out of bounds for length 0
+at org.testng.Assert.fail(Assert.java:111)
+at com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT.Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test(Hana_T082_Pickup_Functionality_with_New_customer_FT.java:245)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT@5a1de7fb]" started-at="2024-08-22T18:35:56 IST" name="tearDown" finished-at="2024-08-22T18:35:57 IST" duration-ms="179" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT@7a1234bf]" started-at="2024-08-22T18:23:19 IST" name="setup" finished-at="2024-08-22T18:23:25 IST" duration-ms="6005" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T14_Add_Product_Test(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT@7a1234bf]" started-at="2024-08-22T18:23:25 IST" name="Validate_Hana_T14_Add_Product_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:24:55 IST" duration-ms="89767" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T14_Add_Product_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT@7a1234bf]" started-at="2024-08-22T18:24:55 IST" name="tearDown" finished-at="2024-08-22T18:24:55 IST" duration-ms="242" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T14_Add_Product_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@2f62ea70]" started-at="2024-08-22T18:24:55 IST" name="setup" finished-at="2024-08-22T18:25:00 IST" duration-ms="4420" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T15_Edit_Product_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@2f62ea70]" started-at="2024-08-22T18:25:00 IST" name="Validate_Hana_T15_Edit_Product_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:27:01 IST" duration-ms="120973" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[abish]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T15_Edit_Product_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT@2f62ea70]" started-at="2024-08-22T18:27:01 IST" name="tearDown" finished-at="2024-08-22T18:27:01 IST" duration-ms="205" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T15_Edit_Product_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT@3d3e5463]" started-at="2024-08-22T18:23:19 IST" name="setup" finished-at="2024-08-22T18:23:25 IST" duration-ms="5684" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T65_Payments_Add_New_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT@3d3e5463]" started-at="2024-08-22T18:23:25 IST" name="Validate_Hana_T65_Payments_Add_New_Customer_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:25:46 IST" duration-ms="141520" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Automation]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[9900778866]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[@@$$@]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[@!#$@]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[!!@@@##^&*]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[!!@@@##^&*]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[abcdefghij]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[abcdefghij]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[991234567890111]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[991234567890111]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Test Automation pvt ltd ]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[9192939495]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[9192939896]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[Test Automation address, India]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[QA Test Automation, Cbe, Tn, India]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[641004]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[Coimbatore]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[Tamilnadu]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="21">
+              <value>
+                <![CDATA[hanaposqateam@gmail.com]]>
+              </value>
+            </param>
+            <param index="22">
+              <value>
+                <![CDATA[Corporate]]>
+              </value>
+            </param>
+            <param index="23">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="24">
+              <value>
+                <![CDATA[Test Automation]]>
+              </value>
+            </param>
+            <param index="25">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T65_Payments_Add_New_Customer_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT@3d3e5463]" started-at="2024-08-22T18:25:46 IST" name="tearDown" finished-at="2024-08-22T18:25:47 IST" duration-ms="233" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT@7331196b]" started-at="2024-08-22T18:23:18 IST" name="loadConfig" finished-at="2024-08-22T18:23:18 IST" duration-ms="21" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loadConfig -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT@7331196b]" started-at="2024-08-22T18:23:19 IST" name="setup" finished-at="2024-08-22T18:23:27 IST" duration-ms="8163" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T37_Add_New_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT@7331196b]" started-at="2024-08-22T18:23:27 IST" name="Validate_Hana_T37_Add_New_Customer_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:25:42 IST" duration-ms="135097" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Automation]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[9900778866]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[@@$$@]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[@!#$@]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[!!@@@##^&*]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[!!@@@##^&*]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[abcdefghij]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[abcdefghij]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[991234567890111]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[991234567890111]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Test Automation pvt ltd ]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[9192939495]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[9192939896]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[Test Automation address, India]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[QA Test Automation, Cbe, Tn, India]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[641004]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[Coimbatore]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[Tamilnadu]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[India]]>
+              </value>
+            </param>
+            <param index="21">
+              <value>
+                <![CDATA[hanaposqateam@gmail.com]]>
+              </value>
+            </param>
+            <param index="22">
+              <value>
+                <![CDATA[Corporate]]>
+              </value>
+            </param>
+            <param index="23">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="24">
+              <value>
+                <![CDATA[Test Automation]]>
+              </value>
+            </param>
+            <param index="25">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+Test Step - 33 - Added customer type dropdown field is not displayed expected [100] but found [0]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+Test Step - 33 - Added customer type dropdown field is not displayed expected [100] but found [0]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT.Validate_Hana_T37_Add_New_Customer_Test(Hana_T37_Add_New_Customer_FT.java:493)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T37_Add_New_Customer_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT@7331196b]" started-at="2024-08-22T18:25:43 IST" name="tearDown" finished-at="2024-08-22T18:25:43 IST" duration-ms="178" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT@2e6a5539]" started-at="2024-08-22T18:31:29 IST" name="setup" finished-at="2024-08-22T18:31:34 IST" duration-ms="4159" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T69_Add_Product_Without_Customer_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT@2e6a5539]" started-at="2024-08-22T18:31:34 IST" name="Validate_Hana_T69_Add_Product_Without_Customer_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:32:55 IST" duration-ms="81555" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Hana POS (Canada)]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Automation clerk desc]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Stuart Ben]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[TAI]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Test Automation Item Deluxe]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[35486~Violet&Roses Standard~21.00~169514~true~false~Item~1801202]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T69_Add_Product_Without_Customer_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT@2e6a5539]" started-at="2024-08-22T18:32:55 IST" name="tearDown" finished-at="2024-08-22T18:32:55 IST" duration-ms="227" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT@38aa816f]" started-at="2024-08-22T18:25:47 IST" name="setup" finished-at="2024-08-22T18:25:51 IST" duration-ms="4017" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T18_Order_Confirmation_Popup_Test(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT@38aa816f]" started-at="2024-08-22T18:25:51 IST" name="Validate_Hana_T18_Order_Confirmation_Popup_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:27:20 IST" duration-ms="89603" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[abish]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Birthday]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+******Test Step - 13 - SMS Phone number is not autopopulated from customer details****** expected [956-655-0756] but found []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+******Test Step - 13 - SMS Phone number is not autopopulated from customer details****** expected [956-655-0756] but found []
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT.Validate_Hana_T18_Order_Confirmation_Popup_Test(Hana_T18_OrderConfirmationPopup_FT.java:195)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T18_Order_Confirmation_Popup_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT@38aa816f]" started-at="2024-08-22T18:27:21 IST" name="tearDown" finished-at="2024-08-22T18:27:21 IST" duration-ms="180" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T18_OrderConfirmationPopup_FT -->
+      <class name="com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT@7749bf93]" started-at="2024-08-22T18:26:51 IST" name="setup" finished-at="2024-08-22T18:26:56 IST" duration-ms="4775" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="Validate_Hana_T28_GiftCard_Functionality_Test(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT@7749bf93]" started-at="2024-08-22T18:26:56 IST" name="Validate_Hana_T28_GiftCard_Functionality_Test" data-provider="fetch_Excel_Data" finished-at="2024-08-22T18:28:46 IST" duration-ms="109740" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[$30]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[abc]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[30]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[5.00]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Abcdef]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[111112222233333444445555566]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[abish]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[$30]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Validate_Hana_T28_GiftCard_Functionality_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT@7749bf93]" started-at="2024-08-22T18:28:46 IST" name="tearDown" finished-at="2024-08-22T18:28:46 IST" duration-ms="201" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hanapos.cashandcarrytest.Hana_T28_Gift_Card_FT -->
+    </test> <!-- Smoke Functionality Test -->
+  </suite> <!-- SmokeTestSuite -->
 </testng-results>

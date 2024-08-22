@@ -156,9 +156,8 @@ public class HanaDashBoardPage extends TestBaseClass {
 	public boolean VerifyHanaDashBoardPage() {		
 		HighlightElement(HanaLogo);
 		fluentWait(HanaLogo);
-		HanaLogo.isDisplayed();
-		
-		return HanaLogo.isDisplayed();
+		boolean isLogoDisplayed = HanaLogo.isDisplayed();
+		return isLogoDisplayed;
 	}
 	
 	public void ClickOnHomeIcon() {

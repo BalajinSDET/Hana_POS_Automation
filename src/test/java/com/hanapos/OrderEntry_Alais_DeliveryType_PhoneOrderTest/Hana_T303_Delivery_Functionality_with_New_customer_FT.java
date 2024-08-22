@@ -213,6 +213,8 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 			// Test Step - 17
 			delayWithGivenTime(2000);
 			customerpage.Search_and_SelectCustomerName("Mike","Mike");
+			customerpage.SearchAndSelectCustomerAddress("2715 35th Ave");
+			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
 			delayWithGivenTime(2000);
 			softassert.assertEquals(customerpage.VerifyPhoneNumberOnCustTable(),"956-655-0756","Test Step - 17 -Phone number on customer table is not matched");
 			logger.info("User verify that phone number on customer table");

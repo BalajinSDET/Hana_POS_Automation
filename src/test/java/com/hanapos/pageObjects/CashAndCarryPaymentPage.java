@@ -1097,7 +1097,7 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	
 	public String getEnteredaddnewcustcompanyname() {
 		HighlightElement(AddNewCustCompanyNameTextbox);
-		return AddNewCustCompanyNameTextbox.getAttribute("value");
+		return AddNewCustCompanyNameTextbox.getAttribute("value").trim();
 	}
 	
 	public void EnterAddress1OnAddnewCustPopup(String address1) {

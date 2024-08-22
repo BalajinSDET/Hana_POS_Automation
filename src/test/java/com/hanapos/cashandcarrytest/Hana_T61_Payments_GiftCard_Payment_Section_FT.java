@@ -32,9 +32,6 @@ public class Hana_T61_Payments_GiftCard_Payment_Section_FT extends TestBaseClass
 		return DataLibrary.readExcelData(dataSheetName); 
 	}
 
-	/*
-	 * HANA-T37 - 1 to 33 - Verify split payment Functionality
-	 */
 //retryAnalyzer= com.hanapos.utilities.RetryTest.class,
 	@Test(enabled=true,groups= {"Smoke","Regression"},dataProvider="fetch_Excel_Data") 
 	public void  Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test(String searchandselectitemcode) throws InterruptedException, IOException {
@@ -147,11 +144,11 @@ public class Hana_T61_Payments_GiftCard_Payment_Section_FT extends TestBaseClass
 			// Test Step - 13
 			delayWithGivenTime(2000);
 			cashandcarrypayment.ClickCashTab();
-			softassert.assertTrue(cashandcarrypayment.VerifyGivenAmountOnCashTabTextboxIsDisplayed(),"Given amount on cash tab textbox is not displayed");
+			softassert.assertTrue(cashandcarrypayment.VerifyGivenAmountOnCashTabTextboxIsDisplayed(),"Test Step - 13 - In cash tab given amount textbox field is not displayed or not autopopulated");
 			
 			// Test Step - 14
 			delayWithGivenTime(1000);
-			PressF8();
+			action_PressF8();
 			softassert.assertTrue(cashandcarrypayment.VerifyIsSwipeGiftCardButtonDisplayed(),"click here swipe gift card button is not displayed");
 			
 			// Test Step - 15

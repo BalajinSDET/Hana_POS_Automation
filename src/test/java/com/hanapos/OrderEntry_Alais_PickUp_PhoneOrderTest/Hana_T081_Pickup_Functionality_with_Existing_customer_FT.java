@@ -96,7 +96,7 @@ public class Hana_T081_Pickup_Functionality_with_Existing_customer_FT extends Te
 			phoneorder.EnterReciAddress2(reciaddress2);
 			phoneorder.EnterReciZipcode(recizip);
 			delayWithGivenTime(1000);
-			phoneorder.EnterReciCity(recicity);
+			//phoneorder.EnterReciCity(recicity);
 			phoneorder.SelectReciCountry(recicountry);
 			phoneorder.EnterReciPhone(reciphone);
 			delayWithGivenTime(1000);
@@ -141,23 +141,8 @@ public class Hana_T081_Pickup_Functionality_with_Existing_customer_FT extends Te
 			delayWithGivenTime(2000);
 		//	softassert.assertTrue(phoneorder.validateItemDetails("Red Rose Deluxe", "309.00", "309.00", "0.00", "0.00"),"Test Step - 9 - Item details are not displayed on phone order page product details section");
 			
-			// Test Step - 10 
-			/*
-			 * phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection("Cash");
-			 * delayWithGivenTime(1000);
-			 * softassert.assertEquals(phoneorder.getDisplayedPaymentTypeSelectedOption(),
-			 * "Cash","Test Step - 10 - Selected Payment type is not displayed on phone order page payment section"
-			 * ); delayWithGivenTime(2000); phoneorder.EnterCashAmount();
-			 * delayWithGivenTime(3000);
-			 * phoneorder.SelectCashRegistry_On_CashPaymentType("Cash Register2");
-			 * phoneorder.ClickPlaceOrderButton(); delayWithGivenTime(1000);
-			 * getDriver().switchTo().activeElement();
-			 * softassert.assertTrue(phoneorder.VerifyConfirmationPopupOnPhoneOrderPage(),
-			 * "Test Step - 10 - Confirmation popup is not displayed on phone order page");
-			 * delayWithGivenTime(2000);
-			 */	
-			
-			// Invoice/House Account
+			// Test Step - 10			
+			// Invoice/House Account - payment method
 			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection(paymenttype);
 			delayWithGivenTime(1000);
 			phoneorder.ClickPlaceOrderButton();
@@ -185,7 +170,7 @@ public class Hana_T081_Pickup_Functionality_with_Existing_customer_FT extends Te
 			dashboard.ClickOrder();
 			delayWithGivenTime(1000);
 			logger.info("User click the order menu on hana dashboard page");	
-			dashboardorder = new DashboardOrderPage();	                      //https://hanafloralpos3.com/Dashboard/Order
+			dashboardorder = new DashboardOrderPage();	                      
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
 			
 			// Test Step - 15

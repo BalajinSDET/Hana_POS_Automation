@@ -90,6 +90,10 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(xpath="//input[@id='orderPrintSuperTicketChkBox']")
 	private WebElement printTicketCheckBox_OrderDetailsSection;
 	
+	@FindBy(xpath="//input[@id='orderPriorityFlagChkBox']")
+	private WebElement priorityCheckBox_OrderDetailsSection;
+	
+	
 	@FindBy(xpath="//input[@id='orderreminderChkBox']")
 	private WebElement sendRemainderCheckbox_OrderDetailsSection;
 
@@ -719,6 +723,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath = "//ul[@id='ui-id-15']//li//div")
 	private List<WebElement> listOfItemsUnderItemcode1;
+	
+	@FindBy(xpath="//ul[@id='ui-id-16']//li//div")
+	private List<WebElement> listOfItemsUnderItemcode2;
 
 	@FindBy(xpath = "//td//textarea[@id='orderItemDesc1']")
 	private WebElement prod_details_ItemDescription1;
@@ -740,7 +747,28 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath = "(//tbody[@class='productLines']//tr[1]//td[7]//input)")
 	private WebElement prod_details_DiscountPercentage1;
-
+	
+	@FindBy(xpath="(//tbody[@class='productLines']//tr[1]//td[11]//a[2])")
+	private WebElement prod_details_RecipeIcon1;
+	
+	@FindBy(xpath="(//span[@class='hana-recipe-lbl'])[2]")
+	private WebElement CreateRecipe_Popup;
+	
+	@FindBy(xpath="//button[@id='BtnSaveProductDown2']")
+	private WebElement SaveButton_RecipePopup;
+	
+	@FindBy(id="btnSaveRecipeSubAs")
+	private WebElement SaveAsButton_RecipeSaveAsPopup;
+	
+	@FindBy(xpath="(//span[@class='hana-recipe-lbl'])[3]")
+	private WebElement SaveAsRecipe_Popup;
+	
+	@FindBy(xpath="//input[@id='saveAsRecipeName']")
+	private WebElement SaveAsRecipeName_Textbox_Popup;
+	
+	@FindBy(id="BtnSaveProductDown3")
+	private WebElement saveButton_OnSaveAsRecipe_Popup;
+	
 	@FindBy(xpath = "//td//input[@id='orderItem2']")
 	private WebElement prod_details_Itemcode2;
 
@@ -1670,6 +1698,19 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 			}
 		}
 	}
+	
+	public void SearchandSelectItemcode2OnPhoneOrderPage(String proditemcode) {
+		DoubleClickAndType(prod_details_Itemcode2, proditemcode);
+		delayWithGivenTime(3000);
+		for (WebElement item : listOfItemsUnderItemcode2) {
+			if (item.getText().contains("rrd-Red Rose Premium -399")) {
+				click(item);
+				break;
+			}
+		}
+	}
+	
+	
 
 	public String getProdDetailsItemcode1OnPhoneOrderPage() {
 		HighlightElement(prod_details_Itemcode1);
@@ -1690,7 +1731,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	public String getProdDetailsItemDescription2OnPhoneOrderPage() {
 		HighlightElement(prod_details_ItemDescription2);
 		System.out.println("Item Description displayed is :  "+prod_details_ItemDescription2.getAttribute("value"));
-		return prod_details_ItemDescription2.getAttribute("value");
+		return prod_details_ItemDescription2.getAttribute("value").trim();
 	}
 	
 	public String get_ProdDetails_ItemQty2OnPhoneOrderPage() {
@@ -1766,6 +1807,11 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return prod_details_Quantity1.getAttribute("value");
 	}
 
+	public String getProdItemQty2OnPhoneOrderPage() {
+		HighlightElement(prod_details_Qty2);
+		return prod_details_Qty2.getAttribute("value");
+	}
+	
 	public String getRecipientPhoneOnPhoneOrderPage() {
 		HighlightElement(recipientphoneOnPhoneOrderPage);
 		return recipientphoneOnPhoneOrderPage.getAttribute("value");
@@ -2135,6 +2181,10 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public String getUnitPriceOnProdDetails() {
 		return prod_details_Unitprice1.getAttribute("value");
+	}
+	
+	public String getUnitPrice2OnProdDetails() {
+		return prod_details_Unitprice2.getAttribute("value");
 	}
 
 	public String get_ExtPrice1OnProdDetails() {
@@ -5864,6 +5914,15 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return printTicketCheckBox_OrderDetailsSection.isSelected();
 	}
 	
+	public boolean Verify_PriorityCheckBoxIsSelected() {		
+		System.out.println("Priority checkbox is selected:" +priorityCheckBox_OrderDetailsSection.isSelected());
+		return priorityCheckBox_OrderDetailsSection.isSelected();
+	}
+	
+	public void Click_PriorityCheckBox_OnOrderDetails() {
+		jsClick(priorityCheckBox_OrderDetailsSection);
+	}
+	
 	public void Click_ViewShortCodes_Hyperlink() {
 		jsClick(ViewShortCodesLink_OrderDetailsSection);
 	}
@@ -6625,6 +6684,47 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		HighlightElement(taxamount_OrderConfirmationPopupOnPhoneOrderPage);
 		return 	taxamount_OrderConfirmationPopupOnPhoneOrderPage.getText();
 	}
+	
+	public boolean Verify_ProductDetails_Row1_Recipe() {
+		HighlightElement(prod_details_RecipeIcon1);
+		return prod_details_RecipeIcon1.isDisplayed();
+	}
+	
+	public void Click_ProductDetails_Row1_Recipe() {
+		jsClick(prod_details_RecipeIcon1);
+	}
+	
+	public boolean Verify_CreateRecipe_Popup() {
+		HighlightElement(CreateRecipe_Popup);
+		return CreateRecipe_Popup.isDisplayed();
+	}
+	
+	public void Click_Recipe_SaveBtn() {
+		jsClick(SaveButton_RecipePopup);
+	}
+	
+	public void Click_SaveAsOn_RecipePopup() {
+		jsClick(SaveAsButton_RecipeSaveAsPopup);
+	}
+	
+	public boolean Verify_SaveAsPopup_IsAppears() {
+		HighlightElement(SaveAsRecipe_Popup);
+		return SaveAsRecipe_Popup.isDisplayed();
+	}
+	
+	public void Enter_Recipe_OnsaveAsPopup(String recipeName) {
+		clickAndType(SaveAsRecipeName_Textbox_Popup, recipeName);
+	}
+	
+	public String get_Entered_Recipe_OnsaveAsPopup() {
+		HighlightElement(SaveAsRecipeName_Textbox_Popup);
+		return SaveAsRecipeName_Textbox_Popup.getAttribute("value").trim();
+	}
+	
+	public void Click_SaveButton_OnSaveAsRecipePopup() {
+		jsClick(saveButton_OnSaveAsRecipe_Popup);
+	}
+	
 }
 	
 	

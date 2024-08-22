@@ -89,6 +89,9 @@ public class Order_Confirmation_Page extends TestBaseClass {
 	@FindBy(xpath="//td//span[@id='orderpaymentType']")
 	private WebElement PaymentType;
 	
+	@FindBy(xpath="//tbody[@id='tbodyitems']//td[4]")
+	private WebElement taxable;
+	
 	public boolean VerifyOrderConfirmationPage() {
 		HighlightElement(OrderConfirmationPage);
 		return OrderConfirmationPage.isDisplayed();	
@@ -209,4 +212,10 @@ public class Order_Confirmation_Page extends TestBaseClass {
 		HighlightElement(PaymentType);
 		return PaymentType.getText();
 	}
+	
+	public String get_Taxable() {
+		HighlightElement(taxable);
+		return taxable.getText();
+	}
+	
 }

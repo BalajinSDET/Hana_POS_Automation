@@ -49,7 +49,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	@FindBy(xpath="//td[contains(text(),'Donation')]")
 	private List<WebElement> listOfDonation;
 	
-	@FindBy(xpath="//td[@class='hana-grid-row-fullview order-status-col overflowVisible']")
+	@FindBy(xpath="//table[@role='grid']//tr[1]//td[4]")
 	private List<WebElement> listOfOrderStatus;
 
 	@FindBy(xpath = "//table[@role='grid']//tr//td[@class='set-order-detail-text']")
@@ -61,10 +61,10 @@ public class DashboardOrderPage extends TestBaseClass{
 	@FindBy(xpath="//span[@class='set-value-column-text-bold']")
 	private List<WebElement> listOfInvoiceAmountValue;
 	
-	@FindBy(xpath="//td[@class='hana-grid-row-fullview smallSize order-sender-customer-col']")
+	@FindBy(xpath="//table[@role='grid']//tr[1]//td[6]")
 	private List<WebElement> listOfSenderCustomer;
 	
-	@FindBy(xpath="//td[@class='hana-grid-row-fullview smallSize order-orderdetail-col']")
+	@FindBy(xpath="//table[@role='grid']//tr[1]//td[5]")
 	private List<WebElement> listOfOrderDetailOnInvoicePopup;
 	
 	@FindBy(xpath="//span[normalize-space()='Pick Up Walkin Sales']")
@@ -145,7 +145,8 @@ public class DashboardOrderPage extends TestBaseClass{
 	@FindBy(xpath="(//td[@class='text-left DAmountlabel'])[4]//following::td[1]")
 	private WebElement salesTax_OnDeliveryPopup_Invoice;
 	
-	
+	@FindBy(xpath="//div[@class='fa fa-flag IsFlagColor']")
+	private WebElement RedflagIcon_OnOrderpage;
 	
 	public String validateDashboardOrderPage() {
 		return	getDriver().getCurrentUrl();
@@ -205,9 +206,7 @@ public class DashboardOrderPage extends TestBaseClass{
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&& listOfPaidOutsideHana.get(0).getText().equals("Paid Outside Hana")) {
 			HighlightElement(listOfInvoiceNumber.get(0));
-			delayWithGivenTime(1000);
-			HighlightElement(listOfPaidOutsideHana.get(0));
-			paidOutsideHana = listOfPaidOutsideHana.get(0).isDisplayed();
+			paidOutsideHana = listOfInvoiceNumber.get(0).isDisplayed();
 		}return paidOutsideHana;
 	}
 	
@@ -225,9 +224,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfGiftCard.get(0).getText().equals("Gift Card")) {
-			HighlightElement(listOfInvoiceNumber.get(0));
-			delayWithGivenTime(1000);
-			giftcard_Invoice=listOfInvoiceNumber.get(0).isDisplayed();
+				giftcard_Invoice=listOfInvoiceNumber.get(0).isDisplayed();
 		}return giftcard_Invoice;
 	}
 	
@@ -245,8 +242,8 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfDonation.get(0).getText().equals("Donation")) {
-			HighlightElement(listOfInvoiceNumber.get(0));
-			donation_Invoice=listOfInvoiceNumber.get(0).isDisplayed();						
+				HighlightElement(listOfInvoiceNumber.get(0));
+				donation_Invoice=listOfInvoiceNumber.get(0).isDisplayed();						
 		}return donation_Invoice;
 	}
 	
@@ -255,6 +252,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfDonation.get(0).getText().equals("Donation")) {
+				HighlightElement(listOfOrderStatus.get(0));
 				status=	listOfOrderStatus.get(0).getText();
 		}return status;
 	}
@@ -384,7 +382,6 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales")
 				&&listOfPickUp.get(0).getText().contains("Pick Up")
 				&&listOfCashMOP.get(0).getText().contains("Cash")) {
-
 			sender_cust= listOfSenderCustomer.get(0).getText();
 			System.out.println("Sender or Customer : "+sender_cust);
 		}	return 	sender_cust;		 		
@@ -639,6 +636,11 @@ public class DashboardOrderPage extends TestBaseClass{
 	public String get_SalesTax_On_DeliveryPopup_Invoice() {
 		HighlightElement(salesTax_OnDeliveryPopup_Invoice);
 		return salesTax_OnDeliveryPopup_Invoice.getText();
+	}
+	
+	public boolean Verify_RedFlagIcon_IsAppears() {
+		HighlightElement(RedflagIcon_OnOrderpage);
+		return RedflagIcon_OnOrderpage.isDisplayed();
 	}
 	
 	

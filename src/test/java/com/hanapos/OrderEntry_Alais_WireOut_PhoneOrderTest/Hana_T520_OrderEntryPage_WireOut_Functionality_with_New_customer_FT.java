@@ -211,6 +211,9 @@ public class Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT
 			
 			// Test Step - 17
 			customerpage.Search_and_SelectCustomerName("Stuart","Stuart");
+			customerpage.SearchAndSelectCustomerAddress("2715 35th Ave");
+			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
+			ThreadWait(1000);
 			softassert.assertEquals(customerpage.VerifyPhoneNumberOnCustTable(),"956-655-0756","Test Step - 17 -Phone number on customer table is not matched");
 			logger.info("User verify that phone number on customer table");
 			softassert.assertEquals(customerpage.VerifyAddressOnCustTable(),"2715 35th Ave","Test Step - 17 - Address on customer table is not matched");

@@ -392,10 +392,10 @@ public class TestBaseClass implements FrameworkDesign {
 	}
 
 	public void DoubleClickAndType(WebElement ele, String data) {
+		ele.clear();
 		HighlightElement(ele);
 		Actions actions = new Actions(getDriver());
-		explicitWait(ele);
-		ele.clear();
+		explicitWait(ele);		
 		actions.doubleClick(ele).build().perform();	
 		ele.sendKeys(data);
 	}
@@ -403,8 +403,8 @@ public class TestBaseClass implements FrameworkDesign {
 	@Override
 	public void clickAndType(WebElement ele, String data) {
 		try {
-			HighlightElement(ele);
 			ele.clear();
+			HighlightElement(ele);		
 			ele.click();
 			ele.sendKeys(data);
 			//reportStep("Click and Type Successful", "PASS");
@@ -420,11 +420,11 @@ public class TestBaseClass implements FrameworkDesign {
 	@Override
 	public void actionType(WebElement ele, String data) {
 		try {
+			ele.clear();
 			HighlightElement(ele);
 			WebDriverWait	wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
 			wait.until(ExpectedConditions.elementToBeClickable(ele));
 			Actions action = new Actions(getDriver());
-			ele.clear();
 			action.moveToElement(ele).sendKeys(data).build().perform();
 		} catch (StaleElementReferenceException e) {
 			throw new RuntimeException();
@@ -436,8 +436,8 @@ public class TestBaseClass implements FrameworkDesign {
 	@Override
 	public void clearAndType(WebElement ele, String data) {
 		try {
-			HighlightElement(ele);
 			ele.clear();
+			HighlightElement(ele);
 			ele.sendKeys(data);
 		} catch (ElementNotInteractableException e) {
 			throw new RuntimeException();
@@ -650,6 +650,11 @@ public class TestBaseClass implements FrameworkDesign {
 			 }} catch (AWTException e) {
 				e.printStackTrace();
 			}
+	}
+	
+	public void action_PressF8() {
+		Actions actions=new Actions(getDriver());     
+		actions.sendKeys(Keys.F8).perform();
 	}
 	
 	public void BackButton() {

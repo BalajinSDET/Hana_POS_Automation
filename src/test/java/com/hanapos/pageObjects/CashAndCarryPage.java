@@ -3717,11 +3717,7 @@ public class CashAndCarryPage extends TestBaseClass{
         } else {
             System.out.println("The difference field is not highlighted in red.");
         }
-	}
-	
-	
-	
-	
+	}	
 }
 	
 

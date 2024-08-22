@@ -16,6 +16,12 @@
 			</run>
 		</groups>
 		<classes>
+			<class name="com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT" />
+			<class
+				name="com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT" />
+			<class
+				name="com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT" />	
+			<class name="com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT" />			
 			<class name="com.hanapos.cashandcarrytest.Hana_T01_UI_Elements_Test" />
 			<class
 				name="com.hanapos.cashandcarrytest.Hana_T02_AddProductWithDiscount_FT" />
@@ -60,13 +66,9 @@
 				name="com.hanapos.cashandcarrytest.Hana_T33_Purchase_Product_With_Coupon_FT" />
 			<class
 				name="com.hanapos.cashandcarrytest.Hana_T35_CashAndCarry_Switching_Between_Shops_FT" />
-			<class
-				name="com.hanapos.cashandcarrytest.Hana_T37_Add_New_Customer_FT" />
 			<class name="com.hanapos.cashandcarrytest.Hana_T40_Split_Payment_FT" />
 			<class
 				name="com.hanapos.cashandcarrytest.Hana_T42_Payment_Convert_Delivery_FT" />
-			<class
-				name="com.hanapos.cashandcarrytest.Hana_T43_Payments_Split_Payment_FT" />
 			<class
 				name="com.hanapos.cashandcarrytest.Hana_T46_Payments_CreditCard_SwipeCard_FT" />
 			<class
@@ -88,8 +90,6 @@
 			<class
 				name="com.hanapos.cashandcarrytest.Hana_T63_Payments_GiftCard_Payment_Section_Swipe_Card_FT" />
 			<class
-				name="com.hanapos.cashandcarrytest.Hana_T65_Payment_Add_New_Customer_FT" />
-			<class
 				name="com.hanapos.cashandcarrytest.Hana_T68_Payments_Donation_Payment_Section_FT" />
 			<class
 				name="com.hanapos.cashandcarrytest.Hana_T69_Add_Product_Without_Customer_FT" />
@@ -97,10 +97,7 @@
 			<class name="com.hanapos.cashandcarrytest.Hana_T72_Open_Drawer_FT" />
 			<class name="com.hanapos.cashandcarrytest.Hana_T75_Payout_FT" />
 			<class name="com.hanapos.cashandcarrytest.Hana_T78_Reconcile_FT" />
-			<class
-				name="com.hanapos.cashandcarrytest.Hana_T79_Add_Product_With_Existing_Customer_FT" />
-			<class
-				name="com.hanapos.cashandcarrytest.Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT" />
+			<class name="com.hanapos.cashandcarrytest.Hana_T86_WalkinsSetting_CashRegistery_Merchant_Copy_Checked_FT" />
 			<class
 				name="com.hanapos.cashandcarrytest.Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT" />
 			<class

@@ -23,6 +23,12 @@ public class CustomerPage extends TestBaseClass {
 	@FindBy(xpath="(//input[@data-text-field='CityStateZip'])[1]")
 	private WebElement CustomerCityStateZipSearchBox;
 	
+	@FindBy(xpath="(//input[@data-text-field='Cust_phone'])")
+	private WebElement CustomerPhoneSearchBox;
+	
+	@FindBy(xpath="(//input[@data-text-field='Cust_address1'])")
+	private WebElement CustomerAddressSearchBox;
+	
 	@FindBy(xpath="(//ul[@class='k-list k-reset'])[5]//li")
 	private List<WebElement> CustomerList;
 	
@@ -123,7 +129,7 @@ public class CustomerPage extends TestBaseClass {
 	private WebElement CustDetailsCustomerTypeDropDown;
 	
 	@FindBy(xpath="//tbody[@role='rowgroup']//tr[last()]//td[4]")
-	private WebElement CustTable_CustomerID;
+	private WebElement CustTable_CustomerID_LastRow;
 	
 	@FindBy(xpath="//tbody[@role='rowgroup']//tr[1]//td[4]")
 	private WebElement CustTable_CustomerID_Row1;
@@ -158,9 +164,17 @@ public class CustomerPage extends TestBaseClass {
 	    }				
 	}
 	
-	public void ClickCustomerIdOnCustTable() {
-		fluentWait(CustTable_CustomerID);
-		jsClick(CustTable_CustomerID);
+	public void SearchAndSelectCustomerPhone(String phone) {
+		clickAndType(CustomerPhoneSearchBox, phone);
+	}
+	
+	public void SearchAndSelectCustomerAddress(String address) {
+		clickAndType(CustomerAddressSearchBox, address);
+	}
+	
+	public void ClickCustomerId_LastRow_OnCustTable() {
+		fluentWait(CustTable_CustomerID_LastRow);
+		jsClick(CustTable_CustomerID_LastRow);
 	}
 	
 	public void Click_CustomerId_Row1_OnCustTable() {
@@ -256,7 +270,7 @@ public class CustomerPage extends TestBaseClass {
 	
 	public String getCustDetailsCityTextBox() {
 		HighlightElement(CustDetailsCityTextBox);
-		return CustDetailsCityTextBox.getAttribute("value");
+		return CustDetailsCityTextBox.getAttribute("value").trim();
 	}
 	
 	public String getCustDetailsStateTextBox() {

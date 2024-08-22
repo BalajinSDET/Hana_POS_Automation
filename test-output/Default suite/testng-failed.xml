@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality">
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT">
         <methods>
-          <include name="Validate_Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality_Test"/>
           <include name="loadConfig"/>
           <include name="tearDown"/>
           <include name="setup"/>
+          <include name="Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

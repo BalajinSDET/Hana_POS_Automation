@@ -12,7 +12,7 @@ import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
 
-public class Hana_T185_OrderEntryPage_Pickup_ProductSection_Tax_Functionality extends TestBaseClass {
+public class Hana_T193_OrderEntryPage_Pickup_ProductSection_CreateRecipe_SaveAs_Functionality extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
@@ -21,11 +21,12 @@ public class Hana_T185_OrderEntryPage_Pickup_ProductSection_Tax_Functionality ex
 	
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T185_OrderEntryPage_Pickup_ProductSection_Tax_Functionality_Test() {
+	public void Validate_Hana_T193_OrderEntryPage_Pickup_ProductSection_CreateRecipe_SaveAs_Functionality_Test() {
 		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting  Validate_Hana_T185_OrderEntryPage_Pickup_ProductSection_Tax_Functionality_Test ****");
+		logger.info("**** Starting  Validate_Hana_T193_OrderEntryPage_Pickup_ProductSection_CreateRecipe_SaveAs_Functionality_Test ****");
 		logger.debug("capturing application debug logs....");
 		try {
+			
 			// Test Step - 1
 			lp = new LoginPage();
 			softassert.assertTrue(lp.LoginPageIsDisplayed(),"Login page is not displayed");
@@ -107,8 +108,7 @@ public class Hana_T185_OrderEntryPage_Pickup_ProductSection_Tax_Functionality ex
 			softassert.assertTrue(phoneorder.getEnteredViewShortCode().equalsIgnoreCase("Happy Birthday! Hope You Have An Amazing Day!"),"Test Step - 9 -Entered Short code is not displayed on phone order page order details section");
 			delayWithGivenTime(2000);	
 			
-			// Test Step - 10
-			
+			// Test Step - 10			
 			softassert.assertTrue(phoneorder.Verify_ProductSuggestions_Appears("rrd"),"Test Step - 10 - In Item code row 1 on product section autosuggestions are not displayed");
 			
 			// Test Step - 11
@@ -124,109 +124,30 @@ public class Hana_T185_OrderEntryPage_Pickup_ProductSection_Tax_Functionality ex
 				softassert.assertEquals(phoneorder.getUnitPriceOnProdDetails(),"309.00","Test Step - 11 - Item price is not displayed on phone order page product details section");
 			}
 			
-			delayWithGivenTime(2000);
-			
 			// Test Step - 12
-			softassert.assertTrue(phoneorder.Verify_ProductSuggestions_Appears("rrd"),"Test Step - 12 - In Item code row 1 on product section autosuggestions are not displayed");
 			delayWithGivenTime(2000);
-			phoneorder.SearchandSelectItemcodeOnPhoneOrderPage("rrd");
+			softassert.assertTrue(phoneorder.Verify_ProductDetails_Row1_Recipe(),"Test Step - 12 - Recipe icon is not displayed on row 1 product");		
+			
+			// Test Step - 13
+			phoneorder.Click_ProductDetails_Row1_Recipe();
 			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.getProdDetailsItemcode1OnPhoneOrderPage(),"rrd","Test Step - 12 - Item code is not displayed on phone order page product details section");
-			softassert.assertEquals(phoneorder.getProdDetailsItemDescription1OnPhoneOrderPage(),"Red Rose Deluxe","Test Step - 12 - Item description is not displayed on phone order page product details section"); 
-			softassert.assertEquals(phoneorder.getProdItemQty1OnPhoneOrderPage(),"1","Test Step - 12 - Item quantity is not displayed on phone order page product details section");
-			
-			if(phoneorder.getUnitPriceOnProdDetails()=="299.00"){ 
-				softassert.assertEquals(phoneorder.getUnitPriceOnProdDetails(),"299.00","Test Step - 12 - Item price is not displayed on phone order page product details section");
-			}else if (phoneorder.getUnitPriceOnProdDetails()=="309.00") {
-				softassert.assertEquals(phoneorder.getUnitPriceOnProdDetails(),"309.00","Test Step - 12 - Item price is not displayed on phone order page product details section");
-			}
-			
-			
-			// Test Step - 13			
-			softassert.assertTrue(phoneorder.Verify_Item_Row1_ProdDetails_TaxableCheckBox_IsChecked(),"Test Step - 13 - Item row 1 on product section taxable checkbox is not checked as default");
+			softassert.assertTrue(phoneorder.Verify_CreateRecipe_Popup(),"Test Step - 13 - Create Recipe popup is not displayed");
 			
 			// Test Step - 14
-			phoneorder.Select_ProductTaxType("QA Tax");
-			softassert.assertEquals(phoneorder.get_selected_ProductTaxType(),"QA Tax","Test Step - 14 - Selected product tax type is not displayed on phone order page");
-			delayWithGivenTime(2000);
-			if(phoneorder.get_TaxAmount_PaymentSection()=="2.99"){ 
-			softassert.assertEquals(phoneorder.get_TaxAmount_PaymentSection(), "2.99","Test Step - 14 - Tax amount is not displayed on phone order page payment section");
-			}else if(phoneorder.get_TaxAmount_PaymentSection()=="3.09") {
-				softassert.assertEquals(phoneorder.get_TaxAmount_PaymentSection(), "3.09","Test Step - 14 - Tax amount is not displayed on phone order page payment section");
-			}	
+			phoneorder.Click_Recipe_SaveBtn();
+			delayWithGivenTime(1000);
+			phoneorder.Click_SaveAsOn_RecipePopup();
+			softassert.assertTrue(phoneorder.Verify_SaveAsPopup_IsAppears(),"Test Step - 14 - Save as popup is not displayed after clicks on save as button");
 			
-			// Test Step- 15
+			// Test Step - 15
+			phoneorder.Enter_Recipe_OnsaveAsPopup("Test Automation");
 			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.validate_grandTotal_OnPaymentSection(),phoneorder.getGrandTotalAmount(),"Test Step - 15 - Grand total is not displayed on phone order page payment section");
+			softassert.assertEquals(phoneorder.get_Entered_Recipe_OnsaveAsPopup(), "Test Automation","Test Step - 15 - Entered Recipe name on save as recipe popup is not displayed");
 			
 			// Test Step - 16
-			phoneorder.SearchandSelectItemcode2OnPhoneOrderPage("rrd");
-			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.getProdDetailsItemcode2OnPhoneOrderPage(),"rrd","Test Step - 16 - Item code is not displayed on phone order page product details section");
-			softassert.assertEquals(phoneorder.getProdDetailsItemDescription2OnPhoneOrderPage(),"Red Rose Premium","Test Step - 16 - Item description is not displayed on phone order page product details section"); 
-			softassert.assertEquals(phoneorder.getProdItemQty2OnPhoneOrderPage(),"1","Test Step - 16 - Item quantity is not displayed on phone order page product details section");
+			phoneorder.Click_SaveButton_OnSaveAsRecipePopup();
+			softassert.assertEquals(phoneorder.verifySuccessToastMessageText(),"Recipe saved...","Test Step - 16 - Recipe saved toast messages are not displayed");
 			
-			if(phoneorder.getUnitPriceOnProdDetails()=="399.00"){ 
-				softassert.assertEquals(phoneorder.getUnitPrice2OnProdDetails(),"399.00","Test Step - 16 - Item price is not displayed on phone order page product details section");
-			}else if (phoneorder.getUnitPriceOnProdDetails()=="409.00") {
-				softassert.assertEquals(phoneorder.getUnitPrice2OnProdDetails(),"409.00","Test Step - 16 - Item price is not displayed on phone order page product details section");
-			}
-
-			phoneorder.Select_ProductTaxType("QA Tax");
-			softassert.assertEquals(phoneorder.get_selected_ProductTaxType(),"QA Tax","Test Step - 16 - Selected product tax type is not displayed on phone order page");
-			delayWithGivenTime(2000);
-			if(phoneorder.get_TaxAmount_PaymentSection()=="6.28"){ 
-			softassert.assertEquals(phoneorder.get_TaxAmount_PaymentSection(), "6.28","Test Step - 16 - Tax amount is not displayed on phone order page payment section");
-			}else if(phoneorder.get_TaxAmount_PaymentSection()=="7.18") {
-				softassert.assertEquals(phoneorder.get_TaxAmount_PaymentSection(), "7.18","Test Step - 16 - Tax amount is not displayed on phone order page payment section");
-			}	
-			
-			// Test Step - 17
-			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.validate_grandTotal_OnPaymentSection(),phoneorder.getGrandTotalAmount(),"Test Step - 17 - Grand total is not displayed on phone order page payment section");
-			
-			// Test Step - 18
-			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection("Invoice/House Account");
-			delayWithGivenTime(1000);
-			phoneorder.ClickPlaceOrderButton();
-			delayWithGivenTime(1000);
-			getDriver().switchTo().activeElement();
-			
-			// Test Step - 19
-			softassert.assertTrue(phoneorder.VerifyConfirmationPopupOnPhoneOrderPage(), "Test Step - 19 - Confirmation popup is not displayed on phone order page");
-			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.get_taxAmountOnOrderconfirmation_Popup(), "6.28","Test Step - 19 - Tax amount on order confirmation page is not displayed");			
-			
-			// Test Step - 20
-			phoneorder.ClickSubmitButton_On_ConfirmationPopup();
-			delayWithGivenTime(2000);
-			orderconfirmationpage = new Order_Confirmation_Page();
-			softassert.assertTrue(orderconfirmationpage.VerifyOrderConfirmationPage(), "Test Step - 20 - Order confirmation page is not displayed");
-			
-			// Test Step - 21
-			softassert.assertEquals(orderconfirmationpage.get_Taxable(),"Yes","Test Step - 21 - Product 1 Taxable Yes is not displayed on order confirmation page");
-			softassert.assertEquals(orderconfirmationpage.get_Taxable2(),"Yes","Test Step - 21 - Product 2 Taxable Yes is not displayed on order confirmation page");
-
-			// Test Step - 22
-			delayWithGivenTime(1000);
-			dashboard.ClickOrder();
-			delayWithGivenTime(1000);
-			logger.info("User click the order menu on hana dashboard page");	
-			dashboardorder = new DashboardOrderPage();	                   
-			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 22 - Dashboard order page is not displayed");				
-			
-			// Test Step - 23
-			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_InvoiceHouse());
-			delayWithGivenTime(1000);
-			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_InvoiceInHousePayment(),"Test Step - 23 - Phone order invoice in house payment is not displayed");		//https://hanafloralpos3.com/Dashboard/Order/Validate_PhoneOrder_InvoiceInHousePayment();
-			delayWithGivenTime(1000);
-			
-			// Test Step - 24
-			dashboardorder.ClickInvoiceInhousePayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage();
-			
-			// Test Step - 25
-			delayWithGivenTime(1000);
-			softassert.assertEquals(dashboardorder.get_SalesTax_On_DeliveryPopup_Invoice(), "$06.28","Test Step - 25 - Sales tax on delivery popup invoice is not displayed");			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

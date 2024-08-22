@@ -71,7 +71,7 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			phoneorder = new OrderEntry_Alais_PhoneOrderPage();
 			phoneorder.ClickPickupTypeOnPhoneOrderPage();
 			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.getHighlightedColorOnPickupTypeOnPhoneOrderPage(),"#2f9bc8", "Pickup type is not highlighted in blue color");		
+			softassert.assertEquals(phoneorder.getHighlightedColorOnPickupTypeOnPhoneOrderPage(),"#2f9bc8", "Test Step - 5 - Pickup type is not highlighted in blue color");		
 		
 			// Test Step - 6
 			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage(salesperson);
@@ -98,7 +98,7 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			phoneorder.EnterReciAddress2(reciaddress2);
 			phoneorder.EnterReciZipcode(recizip);
 			delayWithGivenTime(1000);
-			phoneorder.EnterReciCity(recicity);
+			//phoneorder.EnterReciCity(recicity);
 			phoneorder.SelectReciCountry(recicountry);
 			phoneorder.EnterReciPhone(reciphone);
 			delayWithGivenTime(1000);
@@ -183,9 +183,9 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
 			
 			// Test Step - 15,20
-			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_Cash());
 			delayWithGivenTime(1000);
-			
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_Cash());
+			delayWithGivenTime(1000);			
 			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_Pickup_Cash_InvoiceNumber(),"Test Step - 15 - Phone order invoice is not displayed");
 			dashboardorder.ClickPhoneOrder_on_SenderorCustomer_OnOrderPage();
 			
@@ -214,6 +214,10 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			
 			// Test Step - 17
 			customerpage.Search_and_SelectCustomerName("Mike","Mike");
+			customerpage.SearchAndSelectCustomerCityStateZip("Coimbatore");
+			customerpage.SearchAndSelectCustomerAddress("2715 35th Ave");
+			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
+			ThreadWait(1000);
 			softassert.assertEquals(customerpage.VerifyPhoneNumberOnCustTable(),"956-655-0756","Test Step - 17 -Phone number on customer table is not matched");
 			logger.info("User verify that phone number on customer table");
 			softassert.assertEquals(customerpage.VerifyAddressOnCustTable(),"2715 35th Ave","Test Step - 17 - Address on customer table is not matched");

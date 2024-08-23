@@ -191,6 +191,7 @@ public class Hana_T79_Add_Product_With_Existing_Customer_FT extends TestBaseClas
 			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step - 16 - Invoice number is not displayed on hana dashboard order page");		
 					
 			// Test Step - 17
+			delayWithGivenTime(1000);
 			softassert.assertEquals(dashboardorder.GetSenderorCustomerOnOrderPage().contains("Test Automation pvt ltd | StuartTn JonesQw"),true, "Test Step - 17 Sender or customer name is not displayed");
 			softassert.assertAll();
 		} catch (Exception e) {

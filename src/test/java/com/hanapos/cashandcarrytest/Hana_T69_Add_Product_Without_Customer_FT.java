@@ -127,7 +127,7 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 			cashandcarry.SelectProductTile(prodtile);
 			logger.info("User click on the particular product tile");
 			delayWithGivenTime(2000);
-			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"35486");
+			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"35486","Test Step - 11 - selected product tile is not displayed");
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 
 			// Test Step - 12

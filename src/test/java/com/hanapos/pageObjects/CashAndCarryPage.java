@@ -1241,7 +1241,7 @@ public class CashAndCarryPage extends TestBaseClass{
 		delayWithGivenTime(3000);
 		for(WebElement cust : CustomerList_autocomplete_dropdown_Option) {
 			if(cust.getText().contains(customername)) {
-				jsClick(cust);
+				click(cust);
 				break;
 			}
 		}
@@ -1783,17 +1783,13 @@ public class CashAndCarryPage extends TestBaseClass{
 
 	public CashAndCarryPage SelectProductTile(String prodtile) {		
 		for(WebElement prodTile:ListOfProdTiles) {
+			delayWithGivenTime(1000);
 			if(prodTile.getAttribute("title").contains(prodtile)) {
-				click(prodTile);
+				jsClick(prodTile);
 				break;
 			}
 		}		
-		
-		/*
-		 * int i; for( i=0;i<ListOfProdTiles.size();i++) {
-		 * if(ListOfProdTiles.get(i).getAttribute("title").contains(prodtile)) {
-		 * jsScrollClick(ListOfProdTiles.get(i)); break; } }
-		 */
+	
 		return this;	
 		
 	}
@@ -3334,11 +3330,11 @@ public class CashAndCarryPage extends TestBaseClass{
 	}
 	
 	public String VerifyToolTipOnLeftSideTileProduct() {
-	//	Actions action = new Actions(getDriver());
-	//	action.moveToElement(flowerstd_leftside_displayedTile_Prod).build().perform();
-	//	delayWithGivenTime(500);	
-		MouseHover(flowerstd_leftside_displayedTile_Prod);
-		delayWithGivenTime(3000);
+		Actions action = new Actions(getDriver());
+		action.moveToElement(flowerstd_leftside_displayedTile_Prod).build().perform();
+		delayWithGivenTime(500);	
+	//	MouseHover(flowerstd_leftside_displayedTile_Prod);
+		delayWithGivenTime(2000);
 		String prodTile_tooltip = flowerstd_leftside_displayedTile_Prod.getAttribute("title");
 		return prodTile_tooltip;
 	}

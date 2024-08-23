@@ -382,6 +382,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales")
 				&&listOfPickUp.get(0).getText().contains("Pick Up")
 				&&listOfCashMOP.get(0).getText().contains("Cash")) {
+			HighlightElement(listOfSenderCustomer.get(0));
 			sender_cust= listOfSenderCustomer.get(0).getText();
 			System.out.println("Sender or Customer : "+sender_cust);
 		}	return 	sender_cust;		 		

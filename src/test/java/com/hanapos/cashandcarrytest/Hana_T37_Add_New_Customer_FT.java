@@ -422,6 +422,7 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			
 			// Test Step - 31			
 			customerpage.SearchAndSelectCustomerName(customername);
+			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
 			customerpage.SearchAndSelectCustomerCityStateZip("Coimbatore");
 			ThreadWait(1000);
 			customerpage.ClickCustomerId_LastRow_OnCustTable();

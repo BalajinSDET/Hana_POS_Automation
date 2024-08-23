@@ -214,7 +214,6 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			
 			// Test Step - 17
 			customerpage.Search_and_SelectCustomerName("Mike","Mike");
-			customerpage.SearchAndSelectCustomerCityStateZip("Coimbatore");
 			customerpage.SearchAndSelectCustomerAddress("2715 35th Ave");
 			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
 			ThreadWait(1000);

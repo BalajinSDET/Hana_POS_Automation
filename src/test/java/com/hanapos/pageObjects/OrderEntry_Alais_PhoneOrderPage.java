@@ -754,6 +754,36 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(xpath="(//span[@class='hana-recipe-lbl'])[2]")
 	private WebElement CreateRecipe_Popup;
 	
+	@FindBy(id="drdItemComponentType")
+	private WebElement Item_gallerydropdown_Popup;
+	
+	@FindBy(xpath="//div[@id='itemComponentTypeFilterDataWrap']")
+	private WebElement Item_gallerydropdown_OptionsPopup;
+	
+	@FindBy(xpath="//div[@id='itemComponentTypeFilterDataWrap']//div//p")
+	private List<WebElement> listOfItem_gallerydropdown_Popup;
+	
+	@FindBy(id="searchByComponentType")
+	private WebElement Item_gallerydropdown_SearchTextbox_Popup;
+	
+	@FindBy(id="recipeAutoComplete")
+	private WebElement Recipe_SearchTextbox_Popup;
+	
+	@FindBy(xpath="//table[@role='grid']//tr[1]//td[2]//input")
+	private WebElement RecipeName_Row1;
+	
+	@FindBy(xpath="//table[@role='grid']//tr[2]//td[2]//input")
+	private WebElement RecipeName_Row2;
+	
+	@FindBy(xpath="//table[@role='grid']//tr[3]//td[2]//input")
+	private WebElement RecipeName_Row3;
+	
+	@FindBy(xpath="//ul[@id='ui-id-1']")
+	private WebElement SearchRecipe_Autosuggestion;
+	
+	@FindBy(xpath="//ul[@id='ui-id-1']//li//div")
+	private List <WebElement> listOfRecipe_Autosuggestion;
+	
 	@FindBy(xpath="//button[@id='BtnSaveProductDown2']")
 	private WebElement SaveButton_RecipePopup;
 	
@@ -819,6 +849,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	
 	@FindBy(id="orderItemTaxableCkhBox1")
 	private WebElement item_row1_taxableCheckbox_OnProductDetailsSection;
+	
+	@FindBy(xpath="//input[@id='Recipename']")
+	private WebElement RecipeName_OnRecipePopup;
 
 	// ===================== Payment type ==============================	
 	@FindBy(xpath = "//input[@id='paymentPayableBal']")
@@ -2101,7 +2134,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	public void EnterReciPhone(String reciphone) {
 		recipientphoneOnPhoneOrderPage.clear();
 		delayWithGivenTime(1000);
-		DoubleClickAndType(recipientphoneOnPhoneOrderPage, reciphone);
+		clickAndType(recipientphoneOnPhoneOrderPage, reciphone);
 	}
 
 	public String getReciPhone() {
@@ -5592,12 +5625,22 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 
 	public void SearchAndSelect_RecipientNameFromAutoSuggestion(String recifirstname) {
-		for(int i = 0; i < ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.size(); i++) {
-			if(ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.get(i).getText().contains(recifirstname)) {
-				click(ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.get(i));
-				break;
-			}
+		/*
+		 * for(int i = 0; i <
+		 * ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.size(); i++) {
+		 * if(ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.get(i).getText().
+		 * contains(recifirstname)) {
+		 * click(ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage.get(i)); break; }
+		 * }
+		 */
+	for(WebElement autosuggestions:ListOfReciFirstName_Autosuggestions_OnPhoneOrderPage) {
+		if(autosuggestions.getText().contains(recifirstname)) {
+			delayWithGivenTime(2000);
+			jsClick(autosuggestions);
+			break;
 		}
+	}
+	
 	}
 
 	public boolean Verify_AddressverifiedByGoogle_ToastMsgAppears() {
@@ -6723,6 +6766,82 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	
 	public void Click_SaveButton_OnSaveAsRecipePopup() {
 		jsClick(saveButton_OnSaveAsRecipe_Popup);
+	}
+	
+	public void Search_Recipe_SearchBox(String recipeName) {
+		clickAndType(Recipe_SearchTextbox_Popup, recipeName);
+	}
+	
+	public boolean Verify_SearchRecipeAutosuggestion() {
+		delayWithGivenTime(2000);
+		HighlightElement(SearchRecipe_Autosuggestion);
+		boolean isRecipeSuggestionDisplayed = SearchRecipe_Autosuggestion.isDisplayed();
+		return isRecipeSuggestionDisplayed;
+	}
+	
+	public String Verify_RecipeName_Autosuggestion() {
+		delayWithGivenTime(2000);
+		HighlightElement(listOfRecipe_Autosuggestion.get(0));
+		return (listOfRecipe_Autosuggestion.get(0).getText().trim());
+	}
+	
+	public void Click_SearchAndSelectRecipeName() {
+		for(WebElement ele : listOfRecipe_Autosuggestion) {
+			if(ele.getText().contains("Test QA Delphinium Pink - Hot, Chrysanthemum Spray/Pompon - Cushion Red")) {
+				jsClick(ele);
+			}
+		}
+	}
+	
+	public String Verify_RecipeItemRow1_OnTableIsDisplayed() {
+		HighlightElement(RecipeName_Row1);
+		String row1Item = RecipeName_Row1.getAttribute("value").trim();
+		return row1Item;
+	}
+	
+	public String Verify_RecipeItemRow2_OnTableIsDisplayed() {
+		HighlightElement(RecipeName_Row2);
+		String row2Item = RecipeName_Row2.getAttribute("value").trim();
+		return row2Item;
+	}
+	
+	public String Verify_RecipeItemRow3_OnTableIsDisplayed() {
+		HighlightElement(RecipeName_Row3);
+		String row3Item = RecipeName_Row3.getAttribute("value").trim();
+		return row3Item;
+	}
+	
+	public String get_recipename_OnRecipenameTextbox() {
+		HighlightElement(RecipeName_OnRecipePopup);
+		return 	RecipeName_OnRecipePopup.getAttribute("value").trim();
+	}
+	
+	public void Select_ItemGallery_onCreateRecipe(String itemName) {
+		dropDown(Item_gallerydropdown_Popup, itemName, "VisibleText");
+	}
+	
+	public boolean Verify_ImageGallery_ListOfOptionsIsDisplayed() {
+		HighlightElement(Item_gallerydropdown_OptionsPopup);
+		return Item_gallerydropdown_OptionsPopup.isDisplayed();
+	}
+	
+	public void Click_ListOfItemGallery_IsDisplayed(String galleryname) {
+		for(WebElement ele : listOfItem_gallerydropdown_Popup) { 
+			if(galleryname.equals(ele.getText())) {
+				delayWithGivenTime(2000);
+				click(ele);
+				break;				
+			}
+		}
+	}
+	
+	public void SearchandSelect_ItemGallery(String itemName) {
+		clickAndType(Item_gallerydropdown_SearchTextbox_Popup, itemName);
+		delayWithGivenTime(3000);
+		/*
+		 * for(WebElement ele : listOfItem_gallerydropdown_Popup) {
+		 * if(ele.getText().equals(itemName)) { jsClick(ele); break; } }
+		 */
 	}
 	
 }

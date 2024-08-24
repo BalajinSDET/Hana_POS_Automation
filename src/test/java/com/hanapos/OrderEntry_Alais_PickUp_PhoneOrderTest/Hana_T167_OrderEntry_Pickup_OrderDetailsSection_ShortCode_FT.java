@@ -16,9 +16,7 @@ public class Hana_T167_OrderEntry_Pickup_OrderDetailsSection_ShortCode_FT extend
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
-	private Marketing_RemaindersPage remainders;
-	
-	private Order_Confirmation_Page orderconfirmationpage;
+
 	
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 

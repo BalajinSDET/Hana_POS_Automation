@@ -16,8 +16,7 @@ public class Hana_T162_OrderEntry_Pickup_OrderDetailsSection_SendRemainder_UnChe
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
-	private Marketing_RemaindersPage remainders;
-	
+	private Marketing_RemaindersPage remainders;	
 	private Order_Confirmation_Page orderconfirmationpage;
 	
 	//,dataProvider="fetch_Excel_Data"

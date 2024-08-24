@@ -17,7 +17,7 @@ public class Hana_T179_OrderEntryPage_Pickup_ProductSection_GiftCard_FT extends 
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 	private Order_Confirmation_Page orderconfirmationpage;
-	private DashboardOrderPage dashboardorder;
+
 	
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 

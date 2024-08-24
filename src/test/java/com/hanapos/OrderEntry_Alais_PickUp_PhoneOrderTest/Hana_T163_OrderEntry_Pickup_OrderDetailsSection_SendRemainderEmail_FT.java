@@ -15,9 +15,7 @@ import com.hanapos.seleniumProjectBase.TestBaseClass;
 public class Hana_T163_OrderEntry_Pickup_OrderDetailsSection_SendRemainderEmail_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
-	private OrderEntry_Alais_PhoneOrderPage phoneorder;
-	private Marketing_RemaindersPage remainders;
-	
+	private OrderEntry_Alais_PhoneOrderPage phoneorder;	
 	private Order_Confirmation_Page orderconfirmationpage;
 	
 	//,dataProvider="fetch_Excel_Data"

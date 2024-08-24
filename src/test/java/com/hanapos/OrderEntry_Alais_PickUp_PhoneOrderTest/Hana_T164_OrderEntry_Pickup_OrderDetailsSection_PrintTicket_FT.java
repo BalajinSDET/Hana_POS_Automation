@@ -16,8 +16,6 @@ public class Hana_T164_OrderEntry_Pickup_OrderDetailsSection_PrintTicket_FT exte
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
-	private Marketing_RemaindersPage remainders;
-	
 	private Order_Confirmation_Page orderconfirmationpage;
 	
 	//,dataProvider="fetch_Excel_Data"

@@ -82,7 +82,7 @@ public class Hana_T186_OrderEntryPage_Pickup_ProductSection_TaxExempt_Functional
 			
 			// Test Step - 8
 			phoneorder.EnterReciFirstName("Abi");
-			phoneorder.SearchAndSelect_RecipientNameFromAutoSuggestion("Abish David 114 N CHURCH ST PICK UP (9566550756)");
+			phoneorder.SearchAndSelect_RecipientNameFromAutoSuggestion("Abish David 114 N CHURCH ST PICK UP (9566550756,9566550756)");
 			delayWithGivenTime(2000);
 			phoneorder.SelectReciCountry("United States");
 			phoneorder.EnterReciPhone("956-655-0756");

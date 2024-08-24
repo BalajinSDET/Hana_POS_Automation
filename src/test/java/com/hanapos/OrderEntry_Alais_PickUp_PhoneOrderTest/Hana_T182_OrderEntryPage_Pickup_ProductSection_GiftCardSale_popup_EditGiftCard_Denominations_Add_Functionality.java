@@ -16,8 +16,7 @@ public class Hana_T182_OrderEntryPage_Pickup_ProductSection_GiftCardSale_popup_E
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
-	private Order_Confirmation_Page orderconfirmationpage;
-	private DashboardOrderPage dashboardorder;
+
 	
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 

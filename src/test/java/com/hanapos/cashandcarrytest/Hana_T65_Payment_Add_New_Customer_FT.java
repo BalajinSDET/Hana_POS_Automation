@@ -86,7 +86,7 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 
 			// Test Step - 7
 			cashandcarry.SearchAndSelectTheItemCode(searchandselectitemcode);
-			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe");	
+			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe","Test Step - 7 - Item description is not matched with search and selected item code");	
 			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1");
 			
 			if(cashandcarry.ItemPriceValueIsExist()=="299") {
@@ -101,8 +101,8 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 			// Test Step - 8
 			cashandcarry.ClickAddItem();
 			softassert.assertTrue(cashandcarry.VerifyAddedItem());
-			softassert.assertEquals(cashandcarry.getAddedItemCode(),"rrd");
-			softassert.assertEquals(cashandcarry.GetAddedItemDescription(),"Red Rose Deluxe");
+			softassert.assertEquals(cashandcarry.getAddedItemCode(),"rrd","Test Step - 8 - Added item code is not matched displayed in product table grid");
+			softassert.assertEquals(cashandcarry.GetAddedItemDescription(),"Red Rose Deluxe","Test Step - 8 - Added item description is not matched displayed in product table grid");
 			softassert.assertEquals(cashandcarry.GetAddedItemQty(), "1");
 			
 			if(cashandcarry.GetAddedItemExtPrice()=="$299.00") {
@@ -124,7 +124,7 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 			delayWithGivenTime(2000);
 			cashandcarry.ClickParticularProdTitle();
 			logger.info("User click on the particular product tile");
-			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"ballonsYY");
+			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"ballonsYY","Test Step - 9 - Selected product item tile is not displayed in product table grid");
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 			
 			// Test Step - 10	
@@ -397,7 +397,7 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 			
 			// Test Step - 31
 			customerpage.SearchAndSelectCustomerName(customername);
-			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
+			customerpage.SearchAndSelectCustomerPhone("919-293-9495");
 			customerpage.SearchAndSelectCustomerCityStateZip("Coimbatore Tamilnadu 641004");
 			ThreadWait(1000);
 			

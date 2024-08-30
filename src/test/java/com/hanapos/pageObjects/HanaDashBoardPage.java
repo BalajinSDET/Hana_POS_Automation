@@ -21,6 +21,15 @@ public class HanaDashBoardPage extends TestBaseClass {
 
 	@FindBy(xpath = "(//button[@id='dropdownMenu1'])[1]")
 	private WebElement NewOrderMenuBtn;
+	
+	@FindBy(xpath="(//button[@id='dropdownMenu1'])[2]")
+	private WebElement DispatchMenuBtn;
+	
+	@FindBy(xpath = "//a[@class='li_Dispatch']")
+	private WebElement quickDispatch;
+
+	@FindBy(xpath = "//a[@class='li_AdvanceDispatch']")
+	private WebElement advanceDispatch;
 
 	@FindBy(xpath = "//a[@class='li_NewOrder']")
 	private WebElement OrderEntry;
@@ -194,12 +203,24 @@ public class HanaDashBoardPage extends TestBaseClass {
 		fluentWait(CashAndCarry);
 		ThreadWait(500);
 		HighlightElement(OrderEntry);	
-		action.moveToElement(OrderEntry).click().build().perform();	
-		
-		
+		action.moveToElement(OrderEntry).click().build().perform();			
 		//MouseHoverAndClick(NewOrderMenuBtn, OrderEntry);
 		return new CashAndCarryPage();
 	}
+	
+	
+	public void Hover_Dispatch_And_Click_QuickDispatch() {	
+		fluentWait(DispatchMenuBtn);
+		Actions action = new Actions(getDriver());			
+		action.moveToElement(DispatchMenuBtn).build().perform();					
+		delayWithGivenTime(1500);	
+		fluentWait(quickDispatch);
+		ThreadWait(500);
+		HighlightElement(quickDispatch);	
+		action.moveToElement(quickDispatch).click().build().perform();			
+	}
+	
+	
 	public void ClickOrder() {
 		fluentWait(OrdersMenu);
 		jsClick(OrdersMenu);
@@ -228,6 +249,18 @@ public class HanaDashBoardPage extends TestBaseClass {
 		return CashAndCarry.isDisplayed();
 	}
 	
+	public boolean Verify_QuickDispatch_OptionIsDisplayed() {
+		MouseHover(DispatchMenuBtn);
+		//HighlightElement(quickDispatch);
+		return quickDispatch.isDisplayed();
+	}
+	
+	public boolean Verify_AdvanceDispatch_OptionIsDisplayed() {
+		MouseHover(DispatchMenuBtn);
+		//HighlightElement(advanceDispatch);
+		return advanceDispatch.isDisplayed();
+	}
+	
 	public void ClickCustomersMenu() {
 		ThreadWait(2000);
 		fluentWait(CustomersMenu);
@@ -245,7 +278,6 @@ public class HanaDashBoardPage extends TestBaseClass {
 		ThreadWait(2000);
 		jsClick(settingsSubmenu);
 		switchToWindowbyIndex(1);
-		//settingsSubmenu.click();
 	}
 	
 	public void Click_Marketing_RemainderMenu() {

@@ -1,6 +1,8 @@
 package com.hanapos.pageObjects;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -94,6 +96,9 @@ public class Order_Confirmation_Page extends TestBaseClass {
 	
 	@FindBy(xpath="(//tbody[@id='tbodyitems']//td[4])[2]")
 	private WebElement taxable2;
+	
+	@FindBy(xpath="//span[@id='orderinvoice1']")
+	private WebElement invoiceNumber_on_Order_Confirmationpage;
 	
 	public boolean VerifyOrderConfirmationPage() {
 		HighlightElement(OrderConfirmationPage);
@@ -224,6 +229,19 @@ public class Order_Confirmation_Page extends TestBaseClass {
 	public String get_Taxable2() {
 		HighlightElement(taxable2);
 		return taxable2.getText();
+	}
+	
+	public String get_InvoiceNumber() {		
+		return (invoiceNumber_on_Order_Confirmationpage.getText());
+	}
+	
+	public void CopyInvoiceNumber() {
+		DoubleClick(invoiceNumber_on_Order_Confirmationpage);
+		Actions actions = new Actions(getDriver());		
+		 actions.keyDown(Keys.CONTROL)
+         .sendKeys("c")
+         .keyUp(Keys.CONTROL)
+         .perform();
 	}
 	
 }

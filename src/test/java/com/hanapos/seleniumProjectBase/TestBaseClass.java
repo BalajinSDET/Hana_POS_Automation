@@ -22,6 +22,8 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -78,6 +80,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.hanapos.utilities.SafeRobot;
+
 import io.appium.java_client.windows.WindowsDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -90,19 +93,19 @@ public class TestBaseClass implements FrameworkDesign {
 	public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 	private static WindowsDriver WINdriver;
 	DesiredCapabilities capabilities = new DesiredCapabilities();
-	
+
 	@Override	
 	public void launchApplication(String browserName) {
 		logger=LogManager.getLogger(this.getClass());
-			
-		
-		
+
+
+
 		String downloadPath=System.getProperty("user.dir");
 		try {
 			if (browserName.equalsIgnoreCase("Chrome")) {
 				WebDriverManager.chromedriver().timeout(30).setup();
 				ChromeOptions opt = new ChromeOptions();	
-				
+
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 
 				chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -114,14 +117,14 @@ public class TestBaseClass implements FrameworkDesign {
 				opt.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
 				//opt.addArguments("--disable-notifications");
 				driver.set(new ChromeDriver(opt));
-			
+
 			} else if (browserName.equalsIgnoreCase("FireFox")) {
 				WebDriverManager.firefoxdriver().setup();
 				FirefoxOptions opt = new FirefoxOptions();
 				opt.merge(capabilities);
 				capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 				driver.set(new FirefoxDriver(opt));
-		
+
 			} else if (browserName.equalsIgnoreCase("EDGE")) {
 				WebDriverManager.edgedriver().timeout(60).setup(); 
 				EdgeOptions opt = new EdgeOptions();
@@ -131,16 +134,16 @@ public class TestBaseClass implements FrameworkDesign {
 				capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 				driver.set(new EdgeDriver(opt));
 			}
-		
+
 			getDriver().manage().window().setSize(new Dimension(1920, 1080));
 			getDriver().manage().window().maximize();
 			getDriver().manage().deleteAllCookies();
 			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 			getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
-			
+
 			//String appURL = getAppURLForEnvironment(prop.getProperty("environment"));
 			getDriver().get(prop.getProperty("appURL"));						
-			
+
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}
@@ -159,37 +162,37 @@ public class TestBaseClass implements FrameworkDesign {
 	 * return appURL; }
 	 */
 
-	
-	
+
+
 	public static WebDriver getDriver() {
 		return driver.get();
 	}
 
 	public String getAppURL() {
 		switch (prop.getProperty("appURL")) {
-        case "qa-final":
-            return "https://hanadevpos3-qa-final.azurewebsites.net/";
-        case "staging":
-            return "https://hanafloralpos3-staging.azurewebsites.net/";
-        case "live":
-            return "https://hanafloralpos3.com/Account/Login";
-        default:
-            throw new IllegalStateException("Unexpected value: " + prop.getProperty("appURL"));
-    }
+		case "qa-final":
+			return "https://hanadevpos3-qa-final.azurewebsites.net/";
+		case "staging":
+			return "https://hanafloralpos3-staging.azurewebsites.net/";
+		case "live":
+			return "https://hanafloralpos3.com/Account/Login";
+		default:
+			throw new IllegalStateException("Unexpected value: " + prop.getProperty("appURL"));
+		}
 	}
-	
+
 	public void WindowDriver() {
-	try {
-		
-		capabilities.setCapability("app", "Root");
-        capabilities.setCapability("platformName", "Windows");
-        capabilities.setCapability("deviceName", "WindowsPC");		
-		WINdriver = new WindowsDriver(new URL("http://127.0.0.1:4723"), capabilities);
+		try {
+
+			capabilities.setCapability("app", "Root");
+			capabilities.setCapability("platformName", "Windows");
+			capabilities.setCapability("deviceName", "WindowsPC");		
+			WINdriver = new WindowsDriver(new URL("http://127.0.0.1:4723"), capabilities);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 
 	@BeforeSuite(groups = {"Smoke", "Sanity", "Regression"})
 	@Override
@@ -220,10 +223,10 @@ public class TestBaseClass implements FrameworkDesign {
 
 	@AfterMethod(groups = {"Smoke", "Sanity", "Regression"})
 	public void tearDown() {	
-			getDriver().quit();
+		getDriver().quit();
 	}	
-	
-	
+
+
 	@Override
 	public void HighlightElement(WebElement ele) {
 		fluentWait(ele);
@@ -231,46 +234,46 @@ public class TestBaseClass implements FrameworkDesign {
 		JS.executeScript("arguments[0].scrollIntoView();", ele);
 		JS.executeScript("arguments[0].style.border='3px solid red'", ele);
 	}
-	
+
 	String filePath="C:\\Users\\Balaji\\eclipse-workspace\\Hana_POS_Automation\\testFiles\\";
-	
+
 	public void Click_CancelPrinterPopup() {
-		 String imagePath = "C:\\Users\\Balaji\\eclipse-workspace\\Hana_POS_Automation\\testFiles\\CancelPrinter.png";
-		 Screen s = new Screen();
+		String imagePath = "C:\\Users\\Balaji\\eclipse-workspace\\Hana_POS_Automation\\testFiles\\CancelPrinter.png";
+		Screen s = new Screen();
 		try {
-			 	Pattern pattern = new Pattern(imagePath).similar(0.1); // Allow 70% similarity
-	            s.wait(pattern, 10); // Wait up to 10 seconds for the image to appear
-	            s.click(pattern); //
+			Pattern pattern = new Pattern(imagePath).similar(0.1); // Allow 70% similarity
+			s.wait(pattern, 10); // Wait up to 10 seconds for the image to appear
+			s.click(pattern); //
 		} catch (FindFailed e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public void Click_OpenWebClientPrinterPopup() {        
-        String imagePath = "C:\\Users\\Balaji\\eclipse-workspace\\Hana_POS_Automation\\testFiles\\DllOpenPopup.png";
-        Screen s = new Screen();
-        try {
-            // Check if the image file exists
-            java.io.File imageFile = new java.io.File(imagePath);
-            if (!imageFile.exists()) {
-                System.out.println("Image file does not exist at path: " + imagePath);
-                return;
-            }
-            System.out.println("Searching for image in region: " + s.getBounds());
 
-            Pattern pattern = new Pattern(imagePath).similar(0.8); // Allow 70% similarity
-            s.wait(pattern, 10); // Wait up to 10 seconds for the image to appear
-            ThreadWait(2000);
-            s.click(pattern); // Click the image
-            ThreadWait(2000);
-            System.out.println("Image clicked successfully.");
-        } catch (FindFailed e) {
-            e.printStackTrace();
-            System.out.println("Failed to find the image on the screen.");
-        }
-    }
-	
-	
+	public void Click_OpenWebClientPrinterPopup() {        
+		String imagePath = "C:\\Users\\Balaji\\eclipse-workspace\\Hana_POS_Automation\\testFiles\\DllOpenPopup.png";
+		Screen s = new Screen();
+		try {
+			// Check if the image file exists
+			java.io.File imageFile = new java.io.File(imagePath);
+			if (!imageFile.exists()) {
+				System.out.println("Image file does not exist at path: " + imagePath);
+				return;
+			}
+			System.out.println("Searching for image in region: " + s.getBounds());
+
+			Pattern pattern = new Pattern(imagePath).similar(0.8); // Allow 70% similarity
+			s.wait(pattern, 10); // Wait up to 10 seconds for the image to appear
+			ThreadWait(2000);
+			s.click(pattern); // Click the image
+			ThreadWait(2000);
+			System.out.println("Image clicked successfully.");
+		} catch (FindFailed e) {
+			e.printStackTrace();
+			System.out.println("Failed to find the image on the screen.");
+		}
+	}
+
+
 	public String generaterandomeNumber(int i)
 	{
 		String generatedString=RandomStringUtils.randomNumeric(i);
@@ -282,13 +285,13 @@ public class TestBaseClass implements FrameworkDesign {
 		String generatedString=RandomStringUtils.randomAlphabetic(2);
 		return generatedString;
 	}
-	
+
 	public BigDecimal round(double value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
-        BigDecimal bd = BigDecimal.valueOf(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
-        return bd;
-    }
+		if (places < 0) throw new IllegalArgumentException();
+		BigDecimal bd = BigDecimal.valueOf(value);
+		bd = bd.setScale(places, RoundingMode.HALF_UP);
+		return bd;
+	}
 
 	@Override
 	public void click(WebElement ele) {
@@ -498,10 +501,9 @@ public class TestBaseClass implements FrameworkDesign {
 			throw new RuntimeException();
 		}
 	}
-	
+
 	public void ThreadWait(int i) {
-		try {
-		
+		try {		
 			Thread.sleep(i);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -517,7 +519,7 @@ public class TestBaseClass implements FrameworkDesign {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void RobotPressEnter() {
 		try {			
 			Actions action = new Actions(getDriver());
@@ -526,7 +528,7 @@ public class TestBaseClass implements FrameworkDesign {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void PressEscapeKey() {
 		try {			
 			Actions action = new Actions(getDriver());
@@ -535,7 +537,7 @@ public class TestBaseClass implements FrameworkDesign {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void ActionArrowDown() {
 		try {
 			Robot robot = new Robot();
@@ -545,34 +547,34 @@ public class TestBaseClass implements FrameworkDesign {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void RobotEscapeKey() {
 		try {
 			delayWithGivenTime(1000);
 			SafeRobot robot = SafeRobot.getInstance();
-		 synchronized (robot) {
-			robot.keyPress(KeyEvent.VK_ESCAPE);
-			robot.keyRelease(KeyEvent.VK_ESCAPE);
-		 	}
-		 } catch (AWTException e) {
-		
+			synchronized (robot) {
+				robot.keyPress(KeyEvent.VK_ESCAPE);
+				robot.keyRelease(KeyEvent.VK_ESCAPE);
+			}
+		} catch (AWTException e) {
+
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void RobotArrowDownAndEnter() {
 		try {
 			SafeRobot robot = SafeRobot.getInstance();
-		 synchronized (robot) {
-			robot.keyPress(KeyEvent.VK_DOWN);
-			robot.keyRelease(KeyEvent.VK_DOWN);
+			synchronized (robot) {
+				robot.keyPress(KeyEvent.VK_DOWN);
+				robot.keyRelease(KeyEvent.VK_DOWN);
 
-			// Press enter key
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-		 }
-		 } catch (AWTException e) {
-		
+				// Press enter key
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+			}
+		} catch (AWTException e) {
+
 			e.printStackTrace();
 		}
 	}
@@ -580,9 +582,9 @@ public class TestBaseClass implements FrameworkDesign {
 	@Override
 	public void dropDown(WebElement ele, String value, String usingmethod) {
 		Select select = new Select(ele);
-		
+
 		try {
-		//	HighlightElement(ele);
+			//	HighlightElement(ele);
 			switch (usingmethod) {
 			case "index":			
 				select.selectByIndex(Integer.parseInt(value));
@@ -607,7 +609,7 @@ public class TestBaseClass implements FrameworkDesign {
 		Select select = new Select(ele);
 		select.selectByVisibleText(value);
 	}
-	
+
 	@Override
 	public void switchToAlert() {
 		try {
@@ -631,98 +633,98 @@ public class TestBaseClass implements FrameworkDesign {
 			text = alert.getText();
 			alert.accept();
 		} catch (NoAlertPresentException e) {
-			 JavascriptExecutor js = (JavascriptExecutor) getDriver();
-		     js.executeScript("window.confirm = function(msg) { return true; }");
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
+			js.executeScript("window.confirm = function(msg) { return true; }");
 		} catch (WebDriverException e) {
 			System.out.println("WebDriverException : " + e.getMessage());
 		}
 		System.out.println("Displayed alert text is : " + text);
 	}
-	
+
 	public void PressF8() {
-		 
-			try {
-				SafeRobot robot = SafeRobot.getInstance();
-				// Press Tab key to focus on the "F8" to navigate gift card tab
-			 synchronized (robot) {
+
+		try {
+			SafeRobot robot = SafeRobot.getInstance();
+			// Press Tab key to focus on the "F8" to navigate gift card tab
+			synchronized (robot) {
 				robot.keyPress(KeyEvent.VK_F8);
 				robot.keyRelease(KeyEvent.VK_F8);
-			 }} catch (AWTException e) {
+			}} catch (AWTException e) {
 				e.printStackTrace();
 			}
 	}
-	
+
 	public void action_PressF8() {
 		Actions actions=new Actions(getDriver());     
 		actions.sendKeys(Keys.F8).perform();
 	}
-	
+
 	public void BackButton() {
-	
+
 		try {
-			  SafeRobot robot = SafeRobot.getInstance();
+			SafeRobot robot = SafeRobot.getInstance();
 			// Press Tab key to focus on the "left arrow" button
-			  synchronized (robot) {
-			robot.keyPress(KeyEvent.VK_ALT);
-			robot.keyPress(KeyEvent.VK_B);
-			robot.keyRelease(KeyEvent.VK_B);
-			robot.keyRelease(KeyEvent.VK_ALT);
-			  }} catch (AWTException e) {
+			synchronized (robot) {
+				robot.keyPress(KeyEvent.VK_ALT);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_ALT);
+			}} catch (AWTException e) {
+				e.printStackTrace();
+			}
+	}
+
+
+	public void handleOpenWebClientPrintPopup() {
+		try {
+			synchronized (lock) {
+				// Wait for the popup to appear
+				//delayWithGivenTime(2000);
+
+				// Use Robot class to simulate pressing the "Tab" key and "Enter" key
+				SafeRobot robot = SafeRobot.getInstance();
+
+				// Press Tab key to focus on the "left arrow" button
+				robot.keyPress(KeyEvent.VK_LEFT);
+				robot.keyRelease(KeyEvent.VK_LEFT);
+				Thread.sleep(500);
+				// Press Enter key to click the "Open WebClientprint" button
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	public void handleOpenWebClientPrintPopup() {
-        try {
-            synchronized (lock) {
-                // Wait for the popup to appear
-            	//delayWithGivenTime(2000);
-            
-                // Use Robot class to simulate pressing the "Tab" key and "Enter" key
-            	  SafeRobot robot = SafeRobot.getInstance();
 
-                // Press Tab key to focus on the "left arrow" button
-                robot.keyPress(KeyEvent.VK_LEFT);
-    			robot.keyRelease(KeyEvent.VK_LEFT);
-    			Thread.sleep(500);
-                // Press Enter key to click the "Open WebClientprint" button
-                robot.keyPress(KeyEvent.VK_ENTER);
-                robot.keyRelease(KeyEvent.VK_ENTER);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-	
 	public void handleCancelPopupOpenWebClientPrint() {
-        try {
-            synchronized (lock) {
-                // Wait for the popup to appear
-            	//delayWithGivenTime(2000);
-            	Thread.sleep(2000);
-                // Use Robot class to simulate pressing the "Tab" key and "Enter" key
-            	  SafeRobot robot = SafeRobot.getInstance();
+		try {
+			synchronized (lock) {
+				// Wait for the popup to appear
+				//delayWithGivenTime(2000);
+				Thread.sleep(2000);
+				// Use Robot class to simulate pressing the "Tab" key and "Enter" key
+				SafeRobot robot = SafeRobot.getInstance();
 
-                // Press Enter key to click the "Cancel" button
-    			robot.keyPress(KeyEvent.VK_ESCAPE);
-    			robot.keyRelease(KeyEvent.VK_ESCAPE);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-	
+				// Press Enter key to click the "Cancel" button
+				robot.keyPress(KeyEvent.VK_ESCAPE);
+				robot.keyRelease(KeyEvent.VK_ESCAPE);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void JsAcceptAlert() {
 		getDriver().switchTo().activeElement();
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-	    js.executeScript("window.confirm = function(msg) { return true; }");
+		js.executeScript("window.confirm = function(msg) { return true; }");
 	}
-	
+
 	public void JsDismissAlert() {
 		getDriver().switchTo().activeElement();
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
-	    js.executeScript("window.confirm = function(msg) { return false; }");
+		js.executeScript("window.confirm = function(msg) { return false; }");
 	}
 
 	@Override
@@ -735,13 +737,13 @@ public class TestBaseClass implements FrameworkDesign {
 			Alert alert = getDriver().switchTo().alert();
 			text = alert.getText();
 			alert.dismiss();
-			
+
 		} catch (NoAlertPresentException e) {
 			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			js.executeScript("window.confirm = function(msg) { return false; }");
-		//	RobotDismissAlert();
+			//	RobotDismissAlert();
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			System.out.println("WebDriverException : " + e.getMessage());
 		}
@@ -764,61 +766,61 @@ public class TestBaseClass implements FrameworkDesign {
 	}
 
 	public void RobotDismissAlert() {
-	    try {
-	        SafeRobot safeRobot = SafeRobot.getInstance();
-	        synchronized (SafeRobot.class) {
-	            safeRobot.delay(1000); // Initial delay
-	            safeRobot.keyPress(KeyEvent.VK_ESCAPE);
-	            safeRobot.keyRelease(KeyEvent.VK_ESCAPE);
-	        }
-	    } catch (AWTException e) {
-	        e.printStackTrace();
-	    }
-		
+		try {
+			SafeRobot safeRobot = SafeRobot.getInstance();
+			synchronized (SafeRobot.class) {
+				safeRobot.delay(1000); // Initial delay
+				safeRobot.keyPress(KeyEvent.VK_ESCAPE);
+				safeRobot.keyRelease(KeyEvent.VK_ESCAPE);
+			}
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public void ActionDismissAlert() {
 		delayWithGivenTime(1000);
-		 Actions actions = new Actions(getDriver());
-		 actions.sendKeys(Keys.ESCAPE).perform();
+		Actions actions = new Actions(getDriver());
+		actions.sendKeys(Keys.ESCAPE).perform();
 	}
-	
+
 
 	public void ActionAcceptAlert() {
 		delayWithGivenTime(1000);
-		 Actions actions = new Actions(getDriver());
-		 actions.sendKeys(Keys.ARROW_LEFT).perform();
-		 delayWithGivenTime(1000);
-		 actions.sendKeys(Keys.ENTER).perform();
+		Actions actions = new Actions(getDriver());
+		actions.sendKeys(Keys.ARROW_LEFT).perform();
+		delayWithGivenTime(1000);
+		actions.sendKeys(Keys.ENTER).perform();
 	}
-	
+
 	public void RobotAcceptAlert() {
-	    try {
-	        SafeRobot safeRobot = SafeRobot.getInstance();
-	        synchronized (SafeRobot.class) {
-	            safeRobot.delay(1000); // Initial delay
-	            safeRobot.keyPress(KeyEvent.VK_LEFT);
-	            safeRobot.keyRelease(KeyEvent.VK_LEFT);
-	            safeRobot.delay(1000); // Delay between key presses
-	            safeRobot.keyPress(KeyEvent.VK_ENTER);
-	            safeRobot.keyRelease(KeyEvent.VK_ENTER);
-	        }
-	    } catch (AWTException e) {
-	        e.printStackTrace();
-	    }
+		try {
+			SafeRobot safeRobot = SafeRobot.getInstance();
+			synchronized (SafeRobot.class) {
+				safeRobot.delay(1000); // Initial delay
+				safeRobot.keyPress(KeyEvent.VK_LEFT);
+				safeRobot.keyRelease(KeyEvent.VK_LEFT);
+				safeRobot.delay(1000); // Delay between key presses
+				safeRobot.keyPress(KeyEvent.VK_ENTER);
+				safeRobot.keyRelease(KeyEvent.VK_ENTER);
+			}
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
 	}
 
 
 	public void RobotAccept_LeaveKey_Alert() {
-		
+
 		try {
 			SafeRobot robot = SafeRobot.getInstance();
-			 synchronized (robot) {
-			delayWithGivenTime(1000);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyRelease(KeyEvent.VK_ENTER);
-			 }
-		 } catch (AWTException e) {			
+			synchronized (robot) {
+				delayWithGivenTime(1000);
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+			}
+		} catch (AWTException e) {			
 			e.printStackTrace();
 		}
 	}
@@ -962,13 +964,136 @@ public class TestBaseClass implements FrameworkDesign {
 		}
 	}
 
+	public String Eastern_TimeZone() {
+		LocalDateTime systemDateTime = LocalDateTime.now();
+
+		ZoneId systemZone = ZoneId.systemDefault();
+		ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
+
+		// Define the Eastern Time (US & Canada) zone
+		ZoneId easternTimeZone = ZoneId.of("America/New_York");  // Eastern Time Zone
+
+		ZonedDateTime easternZonedDateTime = systemZonedDateTime.withZoneSameInstant(easternTimeZone);
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mma");
+		String formattedEasternTime = easternZonedDateTime.format(formatter).toUpperCase();;
+
+		return formattedEasternTime;
+	}
+
+	public String Atlantic_TimeZone() {
+		LocalDateTime systemDateTime = LocalDateTime.now();
+
+		ZoneId systemZone = ZoneId.systemDefault();
+		ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
+
+		// Define the Atlantic Standard Time zone (UTC-04:00)
+		ZoneId atlanticTimeZone = ZoneId.of("America/Halifax"); // Use "America/Halifax" for AST
+
+		ZonedDateTime atlanticZonedDateTime = systemZonedDateTime.withZoneSameInstant(atlanticTimeZone);
+		
+		// Remove the space at mm a to get hh:mma = 05:30AM || h:mma = 5:30AM  
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy h:mma");
+		String formattedAtlanticTime = atlanticZonedDateTime.format(formatter).toUpperCase();
+		
+		return formattedAtlanticTime;
+	}
+
+	public String Atlantic_TimeZone_NumberDateFormat() {
+		LocalDateTime systemDateTime = LocalDateTime.now();
+
+		ZoneId systemZone = ZoneId.systemDefault();
+		ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
+
+		// Define the Atlantic Standard Time zone (UTC-04:00)
+		ZoneId atlanticTimeZone = ZoneId.of("America/Halifax"); // Use "America/Halifax" for AST
+
+		ZonedDateTime atlanticZonedDateTime = systemZonedDateTime.withZoneSameInstant(atlanticTimeZone);
+		
+		// Remove the space at mm a to get hh:mma = 05:30AM || h:mma = 5:30AM  
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy h:mma");
+		String formattedAtlanticTime = atlanticZonedDateTime.format(formatter).toUpperCase();
+
+		return formattedAtlanticTime;
+	}
+	
+	public String Central_TimeZone() {
+        LocalDateTime systemDateTime = LocalDateTime.now();
+
+        ZoneId systemZone = ZoneId.systemDefault();
+        ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
+        
+        // Define the Central Time (US & Canada) zone
+        ZoneId centralTimeZone = ZoneId.of("America/Chicago");  // Central Time Zone (UTC-06:00)
+        
+        // Convert system date-time to Central Time
+        ZonedDateTime centralZonedDateTime = systemZonedDateTime.withZoneSameInstant(centralTimeZone);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mma");
+        String formattedCentralTime = centralZonedDateTime.format(formatter).toUpperCase();;
+
+		return formattedCentralTime;
+	}
+
+	public String Mountain_TimeZone() {
+		LocalDateTime systemDateTime = LocalDateTime.now();
+
+		ZoneId systemZone = ZoneId.systemDefault(); 
+		ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
+
+		// Define the Mountain Time (US & Canada) zone
+		ZoneId mountainTimeZone = ZoneId.of("America/Denver");  // Mountain Time Zone (UTC-07:00)
+
+		ZonedDateTime mountainZonedDateTime = systemZonedDateTime.withZoneSameInstant(mountainTimeZone);
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mma");
+		String formattedMountainTime = mountainZonedDateTime.format(formatter).toUpperCase();;
+
+		return formattedMountainTime;
+	}
+
+	public String Pacific_TimeZone() {
+		LocalDateTime systemDateTime = LocalDateTime.now();
+
+		ZoneId systemZone = ZoneId.systemDefault();
+		ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
+
+		// Define the Pacific Time (US & Canada) zone (UTC-08:00)
+		ZoneId pacificTimeZone = ZoneId.of("America/Los_Angeles");
+
+		ZonedDateTime pacificZonedDateTime = systemZonedDateTime.withZoneSameInstant(pacificTimeZone);
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mma");
+		String formattedPacificTime = pacificZonedDateTime.format(formatter).toUpperCase();;
+
+		return formattedPacificTime;
+	}
+
+	public String Alaska_TimeZone() {
+		LocalDateTime systemDateTime = LocalDateTime.now();
+		// Remove the space at mm a to get h:mma = 5:30AM
+		DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy h:mma");
+
+		ZoneId systemZone = ZoneId.systemDefault(); 
+		ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
+
+		// Define the Alaska Time zone (America/Anchorage)
+		ZoneId alaskaTimeZone = ZoneId.of("America/Anchorage");  // Alaska Time (UTC-09:00)
+
+		ZonedDateTime alaskaZonedDateTime = systemZonedDateTime.withZoneSameInstant(alaskaTimeZone);
+
+		String formattedAlaskaTime = alaskaZonedDateTime.format(inputFormatter).toUpperCase();;
+
+		return formattedAlaskaTime;
+	}
+
 	public String CurrentDate() {
 		LocalDate currentDate = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 		String formattedCurrentDate = currentDate.format(formatter);
 		return (formattedCurrentDate);
 	}
-	
+
 	public String previousDate() {
 		LocalDate currentDate = LocalDate.now();
 		LocalDate previousDay =currentDate.plusDays(-1);
@@ -976,8 +1101,16 @@ public class TestBaseClass implements FrameworkDesign {
 		String formattedPreviousDay = previousDay.format(formatter);
 		return formattedPreviousDay;
 	}
-	
+
 	public String NextDate() {
+		LocalDate currentDate = LocalDate.now();
+		LocalDate previousDay =currentDate.plusDays(1);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		String formattedPreviousDay = previousDay.format(formatter);
+		return formattedPreviousDay;
+	}
+
+	public String Next_20Days_Date() {
 		LocalDate currentDate = LocalDate.now();
 		LocalDate previousDay =currentDate.plusDays(1);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
@@ -990,7 +1123,6 @@ public class TestBaseClass implements FrameworkDesign {
 		try {
 			Set<String> windowIds = getDriver().getWindowHandles();
 			List<String> windowIdslist = new ArrayList<>(windowIds);
-			String parentWinId = windowIdslist.get(0);
 			String childWindowId = windowIdslist.get(i);
 			System.out.println("Total Number of Windows Currently Opened are : " + windowIdslist.size());
 			getDriver().switchTo().window(childWindowId);
@@ -1082,7 +1214,7 @@ public class TestBaseClass implements FrameworkDesign {
 			String javaScript = "var evObj = document.createEvent('MouseEvents');"
 					+ "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);"
 					+ "arguments[0].dispatchEvent(evObj);";
-			JavascriptExecutor js = (JavascriptExecutor) driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			js.executeScript(javaScript, ele);			
 			return true;
 		}catch(Exception e) {
@@ -1096,12 +1228,12 @@ public class TestBaseClass implements FrameworkDesign {
 		try {
 			HighlightElement(hoverele);
 			fluentWait(clickeele);
-		
+
 			Actions action = new Actions(getDriver());			
 			action.moveToElement(hoverele).build().perform();			
-			
+
 			delayWithGivenTime(2000);
-			
+
 			HighlightElement(clickeele);	
 			action.moveToElement(clickeele).click().build().perform();
 		} catch (Exception e) {
@@ -1116,35 +1248,35 @@ public class TestBaseClass implements FrameworkDesign {
 		TakesScreenshot takesScreenshot = (TakesScreenshot) getDriver();
 		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		//System.getProperty("user.dir") +
-		 String targetDir =  ".\\screenshots\\";
-		 String targetFilePath = targetDir + tname + "_" + timeStamp + ".png";
-	        
+		String targetDir =  ".\\screenshots\\";
+		String targetFilePath = targetDir + tname + "_" + timeStamp + ".png";
+
 		try {
-            Files.createDirectories(Paths.get(targetDir));
-            Files.copy(sourceFile.toPath(), Paths.get(targetFilePath));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null; 
-        }        
-        return targetFilePath;
-    }
+			Files.createDirectories(Paths.get(targetDir));
+			Files.copy(sourceFile.toPath(), Paths.get(targetFilePath));
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null; 
+		}        
+		return targetFilePath;
+	}
 
 	public String captureScreenshot(String screenshotName) {
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		String dest =  System.getProperty("user.dir") + "/reports/screenshots/" + screenshotName  + "_" + timeStamp + ".png";
-    //  String dest = ".\\reports\\screenshots\\" + screenshotName  + "_" + timeStamp + ".png";
-      try {
-            Robot robot = new Robot();
-            Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-            BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
-            File screenshotFile = new File(dest);
-            ImageIO.write(screenFullImage, "png", screenshotFile);
-        } catch (AWTException | IOException e) {
-            e.printStackTrace();
-        }
-        return dest;
-    }
-	
+		//  String dest = ".\\reports\\screenshots\\" + screenshotName  + "_" + timeStamp + ".png";
+		try {
+			Robot robot = new Robot();
+			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+			BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
+			File screenshotFile = new File(dest);
+			ImageIO.write(screenFullImage, "png", screenshotFile);
+		} catch (AWTException | IOException e) {
+			e.printStackTrace();
+		}
+		return dest;
+	}
+
 
 	@Override
 	public void uploadFile(WebElement ele, String filepath) {
@@ -1169,6 +1301,21 @@ public class TestBaseClass implements FrameworkDesign {
 		}
 
 	}
+
+	public void sendImageFile(String querySelector, String imageName) throws InterruptedException {
+		String text = "";
+		try {
+			JavascriptExecutor jse = ( JavascriptExecutor ) getDriver ();
+			WebElement chooseImage = ( WebElement ) jse.executeScript ( " return "+querySelector+"");
+			File file = new File("./testFiles/"+imageName+".png");
+			chooseImage.sendKeys(file.getAbsolutePath());
+		} catch (StaleElementReferenceException e) {
+			throw new RuntimeException();
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+	}
+
 
 	@Override
 	public void VerifyFileDownLoad(WebElement ele, String pathfile, String filename) {
@@ -1305,21 +1452,21 @@ public class TestBaseClass implements FrameworkDesign {
 			delayWithGivenTime(2000);
 			fluentWait(ele);
 			Actions actions = new Actions(getDriver());
-		//	actions.moveToElement(hoverElement).moveToElement(clickElement).click().build().perform();
+			//	actions.moveToElement(hoverElement).moveToElement(clickElement).click().build().perform();
 			actions.sendKeys(ele, Keys.DOWN).sendKeys(Keys.ENTER).build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
 	}
-	
+
 	public static String rgbaToHex(String color) {
-        String[] numbers = color.replace("rgba(", "").replace("rgb(", "").replace(")", "").split(",");
-        int r = Integer.parseInt(numbers[0].trim());
-        int g = Integer.parseInt(numbers[1].trim());
-        int b = Integer.parseInt(numbers[2].trim());
-        return String.format("#%02x%02x%02x", r, g, b);
-    }
+		String[] numbers = color.replace("rgba(", "").replace("rgb(", "").replace(")", "").split(",");
+		int r = Integer.parseInt(numbers[0].trim());
+		int g = Integer.parseInt(numbers[1].trim());
+		int b = Integer.parseInt(numbers[2].trim());
+		return String.format("#%02x%02x%02x", r, g, b);
+	}
 
 
-	
+
 }

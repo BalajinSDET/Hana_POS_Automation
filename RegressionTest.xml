@@ -121,7 +121,6 @@
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T094_Pickup_CustomerSection_PhoneNumberFieldLookup_FT"/>
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T095_Pickup_CustomerSection_AltPhoneNumberFieldLookup_FT"/>
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T096_Pickup_CustomerSection_ClearCustomer_FT"/>
-      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_FT"/>
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T101_Pickup_CustomerSection_Edit_Customer_CustomerDetails_CreditCard_AddNewCard_FT"/>
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT"/>
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T104_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_FT"/>
@@ -183,12 +182,35 @@
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T172_OrderEntry_Pickup_OrderDetailsSection_FT"/>
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T174_OrderEntry_Pickup_ProductSection_FT"/>
       <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T177_OrderEntry_Pickup_PaymentSection_GiftCardPayment_FT"/>	
-		<class name="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT"/>
-     	<class name="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT"/>
-		<class name="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT"/>
-     	<class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT"/>
-	 	<class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT"/>	
-		
+	  <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T179_OrderEntryPage_Pickup_ProductSection_GiftCard_FT"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T182_OrderEntryPage_Pickup_ProductSection_GiftCardSale_popup_EditGiftCard_Denominations_Add_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T183_OrderEntryPage_Pickup_ProductSection_GiftCardSale_popup_Edit_GiftCard_Denominations_Edit_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T184_OrderEntryPage_Pickup_ProductSection_TaxableProductLevel_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T185_OrderEntryPage_Pickup_ProductSection_Tax_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T186_OrderEntryPage_Pickup_ProductSection_TaxExempt_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T187_OrderEntryPage_Pickup_OrderDetailsSection_Priority_FT"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T193_OrderEntryPage_Pickup_ProductSection_CreateRecipe_SaveAs_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T194_OrderEntryPage_Pickup_ProductSection_CreateRecipe_SearchRecipe_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T195_OrderEntryPage_Pickup_ProductSection_CreateRecipe_ItemGallery_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T197_OrderEntryPage_Pickup_ProductSection_CreateRecipe_MarkupSettings_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T198_OrderEntryPage_Pickup_ProductSection_CreateRecipe_DisplayImagesEnabled_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T199_OrderEntryPage_Pickup_ProductSection_CreateRecipe_DisplayImagesDisabled_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T200_OrderEntryPage_Pickup_ProductSection_CreateRecipe_SaveToProduct_Disabled_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T201_OrderEntryPage_Pickup_ProductSection_CreateRecipe_SaveToProduct_Enabled_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T202_OrderEntryPage_Pickup_ProductSection_CreateRecipe_LabourCostClear_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T203_OrderEntryPage_Pickup_ProductSection_CreateRecipe_Component_Delete_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T204_OrderEntryPage_Pickup_ProductSection_CreateRecipe_Add_Notes_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T205_OrderEntryPage_Pickup_ProductSection_CreateRecipe_Save_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T206_OrderEntryPage_Pickup_ProductSection_CreateRecipe_Functionality"/>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T212__OrderEntryPage_Pickup_Payment_Section_Cash_Functionality"/>
+
+	  <class name="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T302_Delivery_Functionality_with_Existing_customer_FT"/>
+      <class name="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrderTest.Hana_T303_Delivery_Functionality_with_New_customer_FT"/>
+	  <class name="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT"/>
+      <class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT"/>
+	  <class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrderTest.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT"/>	
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_FT"/>
+
 
 	  	
 	

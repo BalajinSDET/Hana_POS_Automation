@@ -1495,7 +1495,12 @@ public class CashAndCarryPage extends TestBaseClass{
 	}
 
 	public void SetDiscount(String discount) {
-		clickAndType(DiscountPercentTextbox, discount); //DiscountPercentTextbox
+		DiscountPercentTextbox.clear();
+		delayWithGivenTime(1000);
+		DiscountPercentTextbox.sendKeys(discount);
+		delayWithGivenTime(1000);
+		DiscountPercentTextbox.sendKeys(Keys.TAB);
+		//clickAndType(DiscountPercentTextbox, discount); //DiscountPercentTextbox
 	}
 
 	public void EnterDiscount(String discount) {
@@ -1956,7 +1961,7 @@ public class CashAndCarryPage extends TestBaseClass{
 	}
 
 	public boolean verifyChangeDiscountOnProductLevelIsDispalyed() {
-		HighlightElement(changediscountitemlink);
+	//	HighlightElement(changediscountitemlink);
 		return changediscountitemlink.isDisplayed();
 	}
 

@@ -18,6 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -444,15 +445,35 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	
 	@FindBy(xpath="//input[@id='wireoutAmount']")
 	private WebElement wireoutAmount_OnPhoneOrderPage;
+
+	//======================= Check Payment Section =======================
 	
+	@FindBy(xpath="(//div[@class='popover-content'])[1]")
+	private WebElement BankNameRequired_Popup_ErrorMsg_On_Phoneorderpage;
 	
+	@FindBy(id="paymentBankName")
+	private WebElement BankName_CheckPaymentSection_On_PhoneOrderPage;
 	
+	@FindBy(id="paymentNameOnCheck")
+	private WebElement NameOnCheck_CheckPaymentSection_On_PhoneOrderPage;
 	
+	@FindBy(id="paymentCheckNumber")
+	private WebElement CheckNumber_CheckPaymentSection_On_PhoneOrderPage;
 	
+	@FindBy(id="paymentCheckCashRegister")
+	private WebElement CheckCashRegister_Dropdown_CheckPaymentSection_On_PhoneOrderPage;
 	
+	@FindBy(xpath="//input[@id='paymentCheckDate']")
+	private WebElement CheckDate_CheckPaymentSection_On_PhoneOrderPage;
 	
+	@FindBy(id="paymentAccNumber")
+	private WebElement CheckAccountNumber_CheckPaymentSection_On_PhoneOrderPage;
+	
+	@FindBy(id="paymentRoutingNumber")
+	private WebElement Check_RoutingNumber_CheckPaymentSection_On_PhoneOrderPage;
 	
 	// ================= Pickup section ============================
+	
 	@FindBy(id = "drpShopUser")
 	private WebElement salesPersonDDOnPhoneOrderPage;
 
@@ -571,11 +592,37 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(xpath="(//span[@class='switchery switchery-default'])[5]")
 	private WebElement smstooglebutton_OnCustDetailsPopup;
 
+	//================ Payment Section as Credit card ==========================
+	
+	@FindBy(xpath="//input[@id='paymentFirstName']")
+	private WebElement CreditCard_PaymentType_FirstName_OnCustDetailsPopup;
 
+	@FindBy(xpath="//input[@id='paymentLastName']")
+	private WebElement CreditCard_PaymentType_LastName_OnCustDetailsPopup;
+	
+	@FindBy(xpath="//input[@id='paymentBillZipCode']")
+	private WebElement CreditCard_PaymentType_ZipCode_OnCustDetailsPopup;
+	
+	@FindBy(xpath="//input[@id='paymentBillCity']")
+	private WebElement CreditCard_PaymentType_City_Dropdown_OnCustDetailsPopup;
+	
+	@FindBy(xpath="//input[@id='paymentBillState']")
+	private WebElement CreditCard_PaymentType_State_OnCustDetailsPopup;
+	
+	@FindBy(xpath="//select[@id='paymentBillCountry']")
+	private WebElement CreditCard_PaymentType_Country_OnCustDetailsPopup;
+	
+	@FindBy(xpath="//input[@id='paymentCCNumber']")
+	private WebElement CreditCard_PaymentType_CreditCardNumber_OnCustDetailsPopup;
+	
+	@FindBy(xpath="//input[@id='paymentCCExpDate']")
+	private WebElement CreditCard_PaymentType_ExpDate_OnCustDetailsPopup;
+	
+	@FindBy(xpath="//input[@id='paymentCCV']")
+	private WebElement CreditCard_PaymentType_CVV_OnCustDetailsPopup;
+	
 
-
-	// ============= Credit Card tab on Customer Details
-	// ===========================
+	// ============= Credit Card tab on Customer Details ===========================
 	@FindBy(xpath = "(//li[@id='CustomerCardLi'])[1]")
 	private WebElement creditCardTabOnCustDetailsPopup;
 
@@ -769,6 +816,27 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(id="recipeAutoComplete")
 	private WebElement Recipe_SearchTextbox_Popup;
 	
+	@FindBy(id="markup_settings")
+	private WebElement MarkupSettings_Icon;
+	
+	@FindBy(xpath="(//span[@class='hana-recipe-lbl'])[4]")
+	private WebElement MarkupSettings_Popup;
+	
+	@FindBy(xpath="(//span[@class='hana-recipe-lbl'])[4]/following::button[1]//i")
+	private WebElement CloseButton_Markupsettings_Popup;
+	
+	@FindBy(xpath="(//span[@class='hana-recipe-lbl'])[2]/following::button[1]//i")
+	private WebElement CloseIcon_CreateRecipe_Popup;
+	
+	@FindBy(xpath="//button[text()='Not Needed']")
+	private WebElement NotNeeded_ButtonConfirmationAlert_CreateRecipe_Popup;
+	
+	@FindBy(xpath="(//input[@class='form-control ComponentMarkupPer'])[1]")
+	private WebElement MarkupPercentage_Textbox_Field1;
+	
+	@FindBy(id="BtnUpdateComponent")
+	private WebElement save_Button_Markupsettings_Popup;
+	
 	@FindBy(xpath="//table[@role='grid']//tr[1]//td[2]//input")
 	private WebElement RecipeName_Row1;
 	
@@ -778,6 +846,12 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(xpath="//table[@role='grid']//tr[3]//td[2]//input")
 	private WebElement RecipeName_Row3;
 	
+	@FindBy(xpath="//table[@role='grid']//tr[3]//td[4]//input")
+	private WebElement retail_Price_textbox_Row3;
+	
+	@FindBy(xpath="//table[@role='grid']//tr[3]//td[5]//input")
+	private WebElement item_Quantity_Row3;
+	
 	@FindBy(xpath="//ul[@id='ui-id-1']")
 	private WebElement SearchRecipe_Autosuggestion;
 	
@@ -786,6 +860,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	
 	@FindBy(xpath="//button[@id='BtnSaveProductDown2']")
 	private WebElement SaveButton_RecipePopup;
+	
+	@FindBy(id="btnSaveRecipeSub")
+	private WebElement SaveButton_RecipeSaveAsPopup;
 	
 	@FindBy(id="btnSaveRecipeSubAs")
 	private WebElement SaveAsButton_RecipeSaveAsPopup;
@@ -852,7 +929,64 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	
 	@FindBy(xpath="//input[@id='Recipename']")
 	private WebElement RecipeName_OnRecipePopup;
-
+	
+	@FindBy(xpath="(//label[@class='control-label switch'])[1]")
+	private WebElement savetoproduct_ToogleButton_OnCreateRecipePopup;
+	
+	@FindBy(xpath="(//label[@class='control-label switch'])[2]")
+	private WebElement displayImages_ToogleButton_OnCreateRecipePopup;
+	
+	@FindBy(xpath="//a[@class='btnClearLabour']")
+	private WebElement clearLabourButton_OnCreateRecipePopup;
+	
+	@FindBy(xpath="(//p[@class='hana-tbody-tr-ml'])[3]")
+	private WebElement labourcost_label;
+	
+	@FindBy(xpath="(//p[@class='hana-tbody-tr-ml'])[3]/following::td[1]//label")
+	private WebElement labourCost_amount;
+	
+	@FindBy(id="btnDelete_3")
+	private WebElement deleteIcon3_productTableGrid_OnCreateRecipePopup;
+	
+	@FindBy(xpath="(//ul[@Class='nav nav-tabs recipe-nav']//li//a)[1]")
+	private WebElement privateNote_Tab_OnCreateRecipePopup;
+	
+	@FindBy(xpath="(//div[@Class='tab-content hana-tabcontent-padding']//div)[1]//textarea")
+	private WebElement privateNote_textbox_OnCreateRecipePopup;
+	
+	@FindBy(xpath="(//ul[@Class='nav nav-tabs recipe-nav']//li//a)[2]")
+	private WebElement publicNote_Tab_OnCreateRecipePopup;
+	
+	@FindBy(xpath="(//div[@Class='tab-content hana-tabcontent-padding']//div)[2]//textarea")
+	private WebElement publicNote_textbox_OnCreateRecipePopup;
+	
+	@FindBy(xpath="(//ul[@Class='nav nav-tabs recipe-nav']//li//a)[3]")
+	private WebElement photo_button_OnCreateRecipePopup;
+	
+	@FindBy(xpath="(//div[@Class='tab-content hana-tabcontent-padding']//div)[3]//label")
+	private WebElement addFile_button_OnCreateRecipePopup;
+	
+	@FindBy(xpath="//img[@class='RecipeBgImage hana-RecipeBgImage']")
+	private WebElement image1_PhotoTab_AddNotes_OnCreateRecipePopup;
+	
+	@FindBy(xpath="(//a[@class='text-danger removeImageRecipe'])[1]")
+	private WebElement deleteIcon_Image1_PhotoTab_AddNotes_OnCreateRecipePopup;
+	
+	@FindBy(xpath="//input[@id='RecipeQty']")
+	private WebElement recipeQty_Textbox_OnCreateRecipePopup;
+	
+	@FindBy(xpath="(//div[contains(@class, 'create-recipe-div-boxes') and contains(@class, 'p-r-0')])[2]")
+	private WebElement recipe_total_details_OnCreateRecipePopup;
+	
+	//================ Payment type as donation ========================
+	
+	@FindBy(id="paymentEINNumber")
+	private WebElement EINNumber_PhoneOrder_PaymentSection;
+	
+	
+	
+	
+	
 	// ===================== Payment type ==============================	
 	@FindBy(xpath = "//input[@id='paymentPayableBal']")
 	private WebElement payableBalanceOnPhoneOrderPage;
@@ -897,6 +1031,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath = "//button[@id='btnPlaceOrder']")
 	private WebElement placeOrderButtonOnPhoneOrderPage;
+	
+	@FindBy(xpath="//span[@id='paymentChangeGivenBack']")
+	private WebElement change_GivenBack_atPayment_Section_OnPhoneOrderPage;
 
 	// =================Payments as Invoice/House Account ==================
 	@FindBy(xpath = "(//input[@id='paymentPONumber'])[1]")
@@ -1034,13 +1171,13 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(xpath = "(//select[@id='paymentconfirm-cashregister'])[1]")
 	private WebElement cashregister_ConfirmationSection_UnpaidTabOnPhoneOrderPage;
 
-	@FindBy(xpath = "(//button[contains(@class,'btn btn-primary')][normalize-space()='Print Receipt'])[1]")
+	@FindBy(xpath = "(//select[@id='paymentconfirm-cashregister'])[1]/following::button[1]")
 	private WebElement printReceiptButton_ConfirmationSection_UnpaidTabOnPhoneOrderPage;
 
-	@FindBy(xpath = "(//button[contains(@class,'btn btn-primary')][normalize-space()='Email Receipt'])[1]")
+	@FindBy(xpath = "(//input[@id='paymentconfirmemail'])[1]/following::button[1]")
 	private WebElement emailReceiptButton_ConfirmationSection_UnpaidTabOnPhoneOrderPage;
 
-	@FindBy(xpath = "(//input[@type='text'])[159]")
+	@FindBy(xpath = "(//input[@id='paymentconfirmemail'])[1]")
 	private WebElement emailtextbox_ConfirmationSection_UnpaidTabOnPhoneOrderPage;
 
 	@FindBy(xpath = "(//button[@id='btn-unpaid-back'])[1]")
@@ -1721,15 +1858,25 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 	
 	
-	public void SearchandSelectItemcodeOnPhoneOrderPage(String proditemcode) {
+	public void SearchandSelectItemcodeOnPhoneOrderPage(String proditemcode,String itemdescription) {
 		DoubleClickAndType(prod_details_Itemcode1, proditemcode);
 		delayWithGivenTime(3000);
-		for (WebElement item : listOfItemsUnderItemcode1) {
-			if (item.getText().contains("rrd-Red Rose Deluxe")) {
-				click(item);
-				break;
-			}
-		}
+		
+		boolean itemFound = false;
+	    for (WebElement item : listOfItemsUnderItemcode1) {
+	        if (item.getText().contains(itemdescription)) {
+	            // Perform JavaScript click when the matching item is found
+	        	actionClick(item);
+	            itemFound = true;
+	            break;
+	        }
+		
+	    }
+
+	    if (!itemFound) {
+	        System.out.println("Item with description " + itemdescription + " not found.");
+	    }
+	    
 	}
 	
 	public void SearchandSelectItemcode2OnPhoneOrderPage(String proditemcode) {
@@ -2156,6 +2303,15 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return (select.getFirstSelectedOption().getText());
 	}
 
+	public void Enter_DeliveryDate_On_ReciSection() {
+		LocalDate currentDate = LocalDate.now();
+		LocalDate nextDay = currentDate.plusDays(0);
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		String formattedNextDay = nextDay.format(formatter);
+		jsClearAndType(recipientDeliverydateOnPhoneOrderPage, formattedNextDay); // DoubleClickAndType();
+	}
+	
 	public void EnterDeliveryDateOnReciSection() {
 		LocalDate currentDate = LocalDate.now();
 
@@ -2267,19 +2423,43 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public String getGrandTotalAmount() {
 		System.out.println("UI displayed grand total amount is: " + grandTotalOnPhoneOrderPage.getAttribute("value"));
-		return grandTotalOnPhoneOrderPage.getAttribute("value");
+		return grandTotalOnPhoneOrderPage.getAttribute("value").trim();
 	}
 
 	public void EnterCashAmount() {
-		System.out.println("Amount need to be paid is: " + getGrandTotalAmount());
 		DoubleClickAndType(paidAmountOnPhoneOrderPage, getGrandTotalAmount());
 	}
 
+	public void Enter_CashPaymentType_Amount() {
+		double grandTotal = Double.parseDouble(getGrandTotalAmount());
+		double current_balance = grandTotal + 100;
+	//	System.out.println("Cash Payment Type Amount Current Balance is :" + current_balance);
+		String Morebalance = Double.toString(current_balance);
+		paidAmountOnPhoneOrderPage.clear();
+		delayWithGivenTime(1000);
+		DoubleClickAndType(paidAmountOnPhoneOrderPage,Morebalance);
+	}
+	
+	public String get_Entered_CashPaymentType_Amount() {
+		HighlightElement(paidAmountOnPhoneOrderPage);
+		return paidAmountOnPhoneOrderPage.getAttribute("value").trim();
+	}	
+	
+	public String get_MoreThanPayableAmount() {
+		double grandTotal = Double.parseDouble(get_Entered_CashPaymentType_Amount());
+		double current_balance = grandTotal;
+		return Double.toString(current_balance);
+	}
+	
 	public void SelectCashRegistry_On_CashPaymentType(String cashregistry) {
-		//	click(cashRegisterDDOnPhoneOrderPage);
-		//	SelectDropDownVisibleText(cashRegisterDDOnPhoneOrderPage, cashregistry);
 		dropDown(cashRegisterDDOnPhoneOrderPage, cashregistry, "VisibleText");
 	}
+	
+	public String get_Selected_CashRegistry() {
+		s = new Select(cashRegisterDDOnPhoneOrderPage);
+		return s.getFirstSelectedOption().getText();
+	}
+	
 
 	public void ClickPlaceOrderButton() {
 		jsClick(placeOrderButtonOnPhoneOrderPage);
@@ -2937,6 +3117,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public String get_emailreceipt_UnpaidInvoiceTab() {
+		HighlightElement(emailtextbox_ConfirmationSection_UnpaidTabOnPhoneOrderPage);
 		return emailtextbox_ConfirmationSection_UnpaidTabOnPhoneOrderPage.getAttribute("value");
 	}
 
@@ -2949,7 +3130,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public void Click_EmailRecieptButton_ConfirmationSection_UnpaidInvoiceTab() {
-		click(emailReceiptButton_ConfirmationSection_UnpaidTabOnPhoneOrderPage);
+		actionClick(emailReceiptButton_ConfirmationSection_UnpaidTabOnPhoneOrderPage);
 	}
 
 	public boolean Verify_UnpaidInvoiceTable_UnpaidInvoiceTab() {
@@ -4006,6 +4187,19 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.isDisplayed();
 	}
 
+	public String get_first_NumberOfPage() {
+		String[] parts = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText().split(" ");
+        String firstNumber = parts[0]; 
+        System.out.println("First number of page after hypen : "+firstNumber);
+        return firstNumber;
+}
+	
+	public String get_Second_NumberOfPage() {
+			String[] parts = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText().split(" ");
+	        String secondNumber = parts[2]; 
+	        System.out.println("Second number of page after hypen : "+secondNumber);
+	        return secondNumber;
+	}
 	public String get_TotalPageNumber_Appears_OnUnpaidTab() {
 		HighlightElement(pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage);
 
@@ -4086,20 +4280,16 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public boolean Verify_NoOfItemDisplayed_OnUnpaidTab_OnCustomerDetailsPopup() {
-		String itemsCountText = pagenumber_Label_UnpaidTabOn_CustomerDetailsPopupOnPhoneOrderPage.getText(); // e.g., "1																												// items"
-		int displayedItemsCount = Integer.parseInt(itemsCountText.split(" ")[4]);
-		System.out.println("Number of items displayed on Order details Tab: " + displayedItemsCount);
-
 		List<WebElement> tableRows = getDriver().findElements(By.xpath("//tbody[@role='rowgroup']//tr"));
 		int actualRowsCount = tableRows.size();
-
-		if (displayedItemsCount == actualRowsCount) {
-			System.out.println("Actual number of items displayed is correct: " + actualRowsCount);
+		if(actualRowsCount==50) {
+			System.out.println("Actual rows count : "+actualRowsCount);
 			return true;
-		} else {
-			System.out.println("Actual Number of items displayed on Order details Tab is incorrect: " + actualRowsCount);
+		}
+		else {
 			return false;
 		}
+	
 	}
 
 	public String Validate_InvoiceHeader_ReorderFunctionality() {
@@ -5153,6 +5343,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		boolean isValid = false;
 		for (WebElement suggestion : ListOfInvoiceNo_OrderDetailsTab) {
 			if (suggestion.getText().contains(threedigitinvoicenumber)) {
+				HighlightElement(suggestion);
 				isValid = true;
 				System.out.println("Displayed invoice autosuggestion total count is : "
 						+ ListOfInvoiceNo_OrderDetailsTab.size());
@@ -6750,6 +6941,10 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		jsClick(SaveAsButton_RecipeSaveAsPopup);
 	}
 	
+	public void Click_SaveOption_RecipePopup() {
+		jsClick(SaveButton_RecipeSaveAsPopup);
+	}
+	
 	public boolean Verify_SaveAsPopup_IsAppears() {
 		HighlightElement(SaveAsRecipe_Popup);
 		return SaveAsRecipe_Popup.isDisplayed();
@@ -6811,6 +7006,10 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return row3Item;
 	}
 	
+	public void Enter_RecipeNameTextboxField(String recipeName) {
+		clickAndType(RecipeName_OnRecipePopup, recipeName);
+	}
+	
 	public String get_recipename_OnRecipenameTextbox() {
 		HighlightElement(RecipeName_OnRecipePopup);
 		return 	RecipeName_OnRecipePopup.getAttribute("value").trim();
@@ -6818,6 +7017,11 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	
 	public void Select_ItemGallery_onCreateRecipe(String itemName) {
 		dropDown(Item_gallerydropdown_Popup, itemName, "VisibleText");
+	}
+	
+	public String get_Selected_ItemGallery_onCreateRecipe() {
+		s= new Select(Item_gallerydropdown_Popup);
+		return s.getFirstSelectedOption().getText().trim();
 	}
 	
 	public boolean Verify_ImageGallery_ListOfOptionsIsDisplayed() {
@@ -6842,6 +7046,370 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		 * for(WebElement ele : listOfItem_gallerydropdown_Popup) {
 		 * if(ele.getText().equals(itemName)) { jsClick(ele); break; } }
 		 */
+	}
+	
+	
+	public void SearchandSelect_ItemGallery_CreateRecipePopup(String itemName) {
+		clickAndType(Item_gallerydropdown_SearchTextbox_Popup, itemName);
+		delayWithGivenTime(3000);		
+		  for(WebElement ele : listOfItem_gallerydropdown_Popup) {
+		  if(ele.getText().contains(itemName)) { 
+			  jsClick(ele); break; 
+			  }
+		  }
+		 
+	}
+	
+	public boolean Verify_CreateRecipe_Popup_SettingsIcon_IsDisplayed() {
+		HighlightElement(MarkupSettings_Icon);
+		return MarkupSettings_Icon.isDisplayed();
+	}
+	
+	public void Click_CreateRecipePopup_Settings_Button() {
+		jsClick(MarkupSettings_Icon);
+	}
+	
+	public boolean Verify_MarkupSettings_Popup_IsDisplayed() {
+		HighlightElement(MarkupSettings_Popup);
+		return MarkupSettings_Popup.isDisplayed();
+	}
+	
+	public void Enter_MarkupPercentage_Field1(String percentage) {
+		clickAndType(MarkupPercentage_Textbox_Field1, percentage);
+	}
+	
+	public String get_entered_markupPercentage_Field1() {
+		HighlightElement(MarkupPercentage_Textbox_Field1);
+		return MarkupPercentage_Textbox_Field1.getAttribute("value").trim();
+	}
+	
+	public void Click_SaveBtn_Markup_SettingsPopup() {
+		jsClick(save_Button_Markupsettings_Popup);
+	}
+	
+	public void Click_CloseIconButton_MarkupSettingsPopup() {
+		jsClick(CloseButton_Markupsettings_Popup);
+	}
+	
+	public void Click_CloseIcon_CreateRecipePopup() {
+		jsClick(CloseIcon_CreateRecipe_Popup);
+	}
+	
+	
+	public void Click_NoNeedConfirmationAlert_CreateRecipe_Popup() {
+		jsClick(NotNeeded_ButtonConfirmationAlert_CreateRecipe_Popup);
+	}
+	
+	public void Click_DisplayImage_ToogleButton_CreateRecipePopup() {
+		if(!displayImages_ToogleButton_OnCreateRecipePopup.getAttribute("style").contains("rgb(197, 231, 244)")) {
+			click(displayImages_ToogleButton_OnCreateRecipePopup);
+		}
+	}
+	
+	public void Click_DisplayImage_ToogleButton_On_CreateRecipePopup() { 
+		if(displayImages_ToogleButton_OnCreateRecipePopup.getAttribute("style").contains("rgb(197, 231, 244)")) {
+			click(displayImages_ToogleButton_OnCreateRecipePopup);
+		}
+	}
+	
+	public boolean Verify_SaveToProduct_ToogleButton_On_CreateRecipePopup() { // red color background 
+		HighlightElement(savetoproduct_ToogleButton_OnCreateRecipePopup);
+		System.out.println(savetoproduct_ToogleButton_OnCreateRecipePopup.getAttribute("style"));
+		return savetoproduct_ToogleButton_OnCreateRecipePopup.getAttribute("style").contains("border: 3px solid red");
+	}
+	
+	public void Click_SaveToProduct_ToogleButton_On_CreateRecipePopup() {
+		if(Verify_SaveToProduct_ToogleButton_On_CreateRecipePopup()==true) {
+			click(savetoproduct_ToogleButton_OnCreateRecipePopup);
+		}
+	}
+	
+	public boolean Verify_Clearhyperlink_OnCreateRecipePopup_IsDisplayed() {
+		HighlightElement(clearLabourButton_OnCreateRecipePopup);
+		return clearLabourButton_OnCreateRecipePopup.isDisplayed();
+	}
+	
+	public String Verify_Clearhyperlink_Tooltip_OnCreateRecipePopup() {
+		HighlightElement(clearLabourButton_OnCreateRecipePopup);
+		Actions action = new Actions(getDriver());
+		explicitWait(clearLabourButton_OnCreateRecipePopup);
+		action.moveToElement(clearLabourButton_OnCreateRecipePopup).build().perform();
+		delayWithGivenTime(1500);
+		String title = clearLabourButton_OnCreateRecipePopup.getAttribute("data-original-title");
+		return title;
+		// get title method not working
+		//return HandleTooltip(clearLabourButton_OnCreateRecipePopup);
+	}
+	
+	public void Click_Clearhyperlink_OnCreateRecipePopup() {
+		jsClick(clearLabourButton_OnCreateRecipePopup);
+	}
+	
+	public boolean Verify_labourcost_label() {
+		HighlightElement(labourcost_label);
+		return labourcost_label.isDisplayed();
+	}
+	
+	public boolean Verify_labourcost_amount() {
+		HighlightElement(labourCost_amount);
+		return labourCost_amount.isDisplayed();
+	}
+
+	public String get_labourcost_amount() {
+		HighlightElement(labourCost_amount);
+		return (labourCost_amount.getText().trim());
+	}
+	
+	public boolean Verify_DeleteIcon3_isDisplayed() {
+		HighlightElement(deleteIcon3_productTableGrid_OnCreateRecipePopup);
+		return deleteIcon3_productTableGrid_OnCreateRecipePopup.isDisplayed();
+	}
+	
+	public String Verify_Tooltip_OnDeleteIcon_IsDisplayed() {
+		return HandleTooltip(deleteIcon3_productTableGrid_OnCreateRecipePopup);
+	}
+	
+	public void Click_DeleteIcon3_OnCreateRecipePopup() {
+		jsClick(deleteIcon3_productTableGrid_OnCreateRecipePopup);
+	}
+	
+	public boolean Verify_Row3_ProductIsDelete() {
+		try {
+			if(Verify_RecipeItemRow3_OnTableIsDisplayed()!="Lily - Gloriosa Blue") {
+			return true;
+		}	else {
+			return false;
+		}
+	}
+	catch(NoSuchElementException e) {
+		return true;
+	}}
+	
+	public void Enter_PrivateNotes_CreateRecipe_Popup(String privatenotes) {
+		jsClearAndType(privateNote_textbox_OnCreateRecipePopup, privatenotes);
+	}
+	
+	public String get_entered_privatenotes_CreateRecipe_Popup() {
+		HighlightElement(privateNote_textbox_OnCreateRecipePopup);
+		return (privateNote_textbox_OnCreateRecipePopup.getAttribute("value"));
+	}
+	
+	public void Clear_PrivateNotes_CreateRecipe_Popup() {
+		privateNote_textbox_OnCreateRecipePopup.clear();
+	}
+	
+	public void Click_Private_NotesTab_AddNotesSection() {
+		actionScrollClick(privateNote_Tab_OnCreateRecipePopup);
+	}
+	
+	
+	public void Clear_PublicNotes_CreateRecipe_Popup() {
+		publicNote_textbox_OnCreateRecipePopup.clear();
+	}
+	
+	public void Click_Public_NotesTab_AddNotesSection() {
+		actionScrollClick(publicNote_Tab_OnCreateRecipePopup);
+	}
+	
+	public void Enter_PublicNotes_CreateRecipe_Popup(String privatenotes) {
+		jsClearAndType(publicNote_textbox_OnCreateRecipePopup, privatenotes);
+	}
+	
+	public String get_entered_publicnotes_CreateRecipe_Popup() {
+		HighlightElement(publicNote_textbox_OnCreateRecipePopup);
+		return (publicNote_textbox_OnCreateRecipePopup.getAttribute("value"));
+	}
+	
+	public void Click_PhotoTab_AddNotesSection() {
+		actionScrollClick(photo_button_OnCreateRecipePopup);
+	}
+	
+	public void Upload_photo_AddFile_Button_OnCreateRecipePopup(String filename) {
+		String projectPath = System.getProperty("user.dir");
+	    String fullFilePath = projectPath + File.separator + "testFiles" + File.separator + filename;	
+		
+		uploadFile(addFile_button_OnCreateRecipePopup, fullFilePath);
+	}
+	
+	public boolean Verify_ImageIsDisplayed_After_UploadTheFile() {
+		delayWithGivenTime(2000);
+		HighlightElement(image1_PhotoTab_AddNotes_OnCreateRecipePopup);
+		return image1_PhotoTab_AddNotes_OnCreateRecipePopup.isDisplayed();
+	}
+	
+	public void Delete_Image1_Photo_AddFile_Button_OnCreateRecipePopup() {
+		jsClick(deleteIcon_Image1_PhotoTab_AddNotes_OnCreateRecipePopup);
+	}
+	
+	public void Enter_Quantity_OnCreateRecipe_Popup(String quantity) {
+		clickAndType(recipeQty_Textbox_OnCreateRecipePopup, quantity);
+	}
+	
+	public String get_Entered_Quantity_OnCreateRecipe_Popup() {
+		HighlightElement(recipeQty_Textbox_OnCreateRecipePopup);
+		return recipeQty_Textbox_OnCreateRecipePopup.getAttribute("value");
+	}
+	
+	public void Enter_Retail_Price_OnComponentTable_At_Row3(String retailprice) {
+		clickAndType(retail_Price_textbox_Row3, retailprice); 
+	}
+	
+	public String get_Entered_Retail_Price_OnComponentTable_At_Row3() {
+		HighlightElement(retail_Price_textbox_Row3);
+		return retail_Price_textbox_Row3.getAttribute("value").trim();
+	}
+	
+	public void Enter_Quantity_OnComponentTable_At_Row3(String quantity) {
+		clickAndType(item_Quantity_Row3, quantity);
+	}
+	
+	public String get_Entered_Quantity_OnComponentTable_At_Row3() {
+		HighlightElement(item_Quantity_Row3);
+		return item_Quantity_Row3.getAttribute("value").trim();
+	}
+	
+	public boolean Verify_totalRecipe_details_Section_IsDisplayed() {
+		HighlightElement(recipe_total_details_OnCreateRecipePopup);
+		return recipe_total_details_OnCreateRecipePopup.isDisplayed();
+	}
+	
+	public String Verify_Change_GivenBackTo_Customer_amount_IsDisplayed() {
+		HighlightElement(change_GivenBack_atPayment_Section_OnPhoneOrderPage);
+		return change_GivenBack_atPayment_Section_OnPhoneOrderPage.getText();
+	}
+	
+	public String Verify_BankNameIsRequired_Validation_Message_IsDisplayed() {
+	//	HighlightElement(BankNameRequired_Popup_ErrorMsg_On_Phoneorderpage);
+		return (BankNameRequired_Popup_ErrorMsg_On_Phoneorderpage.getText());
+	}
+	
+	public void Enter_BankName_On_TextBox(String bankname) {
+		jsClearAndType(BankName_CheckPaymentSection_On_PhoneOrderPage, bankname);
+	}
+	
+	public String get_Entered_BankName_On_TextBox() {
+		HighlightElement(BankName_CheckPaymentSection_On_PhoneOrderPage);
+		return BankName_CheckPaymentSection_On_PhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Enter_NameOnCheck_On_TextBox(String nameoncheck) {
+		jsClearAndType(NameOnCheck_CheckPaymentSection_On_PhoneOrderPage, nameoncheck);
+	}
+	
+	public String get_Entered_NameOnCheck_On_TextBox() {
+		HighlightElement(NameOnCheck_CheckPaymentSection_On_PhoneOrderPage);
+		return NameOnCheck_CheckPaymentSection_On_PhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Enter_CheckNumber_On_TextBox(String checkno) {
+		jsClearAndType(CheckNumber_CheckPaymentSection_On_PhoneOrderPage, checkno);
+	}
+	
+	public String get_Entered_CheckNumber_On_TextBox() {
+		HighlightElement(CheckNumber_CheckPaymentSection_On_PhoneOrderPage);
+		return CheckNumber_CheckPaymentSection_On_PhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Select_CheckCashRegistry_Dropdown(String checkcashregistry) {
+		dropDown(CheckCashRegister_Dropdown_CheckPaymentSection_On_PhoneOrderPage, checkcashregistry, "VisibleText");
+	}
+	
+	public String get_Selected_CheckCashRegistry_Dropdown() {
+		s = new Select(CheckCashRegister_Dropdown_CheckPaymentSection_On_PhoneOrderPage);
+		return s.getFirstSelectedOption().getText();
+	}
+	
+	public void Enter_CheckDate_On_TextBox(String checkdate) {
+		jsClearAndType(CheckDate_CheckPaymentSection_On_PhoneOrderPage, checkdate);
+	}
+	
+	public String get_Entered_CheckDate_On_TextBox() {
+		HighlightElement(CheckDate_CheckPaymentSection_On_PhoneOrderPage);
+		return CheckDate_CheckPaymentSection_On_PhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Enter_CheckAccountNumber_On_TextBox(String checkAccountNumber) {
+		jsClearAndType(CheckAccountNumber_CheckPaymentSection_On_PhoneOrderPage, checkAccountNumber);
+	}
+	
+	public String get_Entered_CheckAccountNumber_On_TextBox() {
+		HighlightElement(CheckAccountNumber_CheckPaymentSection_On_PhoneOrderPage);
+		return CheckAccountNumber_CheckPaymentSection_On_PhoneOrderPage.getAttribute("value");
+	}
+	public void Enter_CheckRountingNumber_On_TextBox(String checkRountingNumber) {
+		jsClearAndType(Check_RoutingNumber_CheckPaymentSection_On_PhoneOrderPage, checkRountingNumber);
+	}
+	
+	public String get_Entered_CheckRountingNumber_On_TextBox() {
+		HighlightElement(Check_RoutingNumber_CheckPaymentSection_On_PhoneOrderPage);
+		return Check_RoutingNumber_CheckPaymentSection_On_PhoneOrderPage.getAttribute("value");
+	}
+	
+	public void Enter_EINNumber_Textbox_On_PaymentSection(String EINNumber) {
+		jsClearAndType(EINNumber_PhoneOrder_PaymentSection, EINNumber);
+	}
+	
+	public  String get_EINNumber_Textbox_On_PaymentSection() {
+		HighlightElement(EINNumber_PhoneOrder_PaymentSection);
+		return EINNumber_PhoneOrder_PaymentSection.getAttribute("value");
+	}
+	
+	public String get_autopopulated_creditcard_paymenttype_FirstName() {
+		HighlightElement(CreditCard_PaymentType_FirstName_OnCustDetailsPopup);
+		return CreditCard_PaymentType_FirstName_OnCustDetailsPopup.getAttribute("value");
+	}
+	
+	public String get_autopopulated_creditcard_paymenttype_LastName() {
+		HighlightElement(CreditCard_PaymentType_LastName_OnCustDetailsPopup);
+		return CreditCard_PaymentType_LastName_OnCustDetailsPopup.getAttribute("value");
+	}
+	
+	public String get_autopopulated_creditcard_paymenttype_Zipcode() {
+		HighlightElement(CreditCard_PaymentType_ZipCode_OnCustDetailsPopup);
+		return CreditCard_PaymentType_ZipCode_OnCustDetailsPopup.getAttribute("value");
+	}
+	
+	public String get_autopopulated_creditcard_paymenttype_City() {
+		HighlightElement(CreditCard_PaymentType_City_Dropdown_OnCustDetailsPopup);
+		return CreditCard_PaymentType_City_Dropdown_OnCustDetailsPopup.getAttribute("value");
+	}
+	
+	public String get_autopopulated_creditcard_paymenttype_State() {
+		HighlightElement(CreditCard_PaymentType_State_OnCustDetailsPopup);
+		return CreditCard_PaymentType_State_OnCustDetailsPopup.getAttribute("value");
+	}
+	
+	public String get_Selected_creditcard_paymenttype_Country() {
+		HighlightElement(CreditCard_PaymentType_Country_OnCustDetailsPopup);
+		s = new Select(CreditCard_PaymentType_Country_OnCustDetailsPopup);
+		return s.getFirstSelectedOption().getText();
+	}
+	
+	public void Enter_CreditCardNumber_CCPaymentSection_On_PhoneOrderPage(String creditcardnumber) {
+		jsClearAndType(CreditCard_PaymentType_CreditCardNumber_OnCustDetailsPopup, creditcardnumber);
+	}
+	
+	public String get_entered_CreditcardNumber_CCPaymentSection_On_PhoneOrderPage() {
+		HighlightElement(CreditCard_PaymentType_CreditCardNumber_OnCustDetailsPopup);
+		return	CreditCard_PaymentType_CreditCardNumber_OnCustDetailsPopup.getAttribute("value");
+	}
+	
+	public void Enter_ExpiredDate_CCPaymentSection_On_PhoneOrderPage(String creditexpdate) {
+		jsClearAndType(CreditCard_PaymentType_ExpDate_OnCustDetailsPopup, creditexpdate);
+	}
+	
+	public String get_entered_ExpiredDate_CCPaymentSection_On_PhoneOrderPage() {
+		HighlightElement(CreditCard_PaymentType_ExpDate_OnCustDetailsPopup);
+		return	CreditCard_PaymentType_ExpDate_OnCustDetailsPopup.getAttribute("value");
+	}
+	
+	public void Enter_CCV_CCPaymentSection_On_PhoneOrderPage(String creditCCV) {
+		jsClearAndType(CreditCard_PaymentType_CVV_OnCustDetailsPopup, creditCCV);
+	}
+	
+	public String get_entered_CVV_CCPaymentSection_On_PhoneOrderPage() {
+		HighlightElement(CreditCard_PaymentType_CVV_OnCustDetailsPopup);
+		return	CreditCard_PaymentType_CVV_OnCustDetailsPopup.getAttribute("value");
 	}
 	
 }

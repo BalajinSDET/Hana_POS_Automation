@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="3" parallel="classes" name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="2">
+  <test thread-count="3" parallel="classes" name="Test(failed)" verbose="2">
+    <classes>
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T161_OrderEntry_Pickup_OrderDetailsSection_SendRemainderChecked_FT">
+        <methods>
+          <include name="Validate_Hana_T161_OrderEntry_Pickup_OrderDetailsSection_SendRemainderChecked_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T161_OrderEntry_Pickup_OrderDetailsSection_SendRemainderChecked_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T138_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Statements_LessThanOneMonthCustomer_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T138_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Statements_LessThanOneMonthCustomer_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T138_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Statements_LessThanOneMonthCustomer_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T157_Pickup_RecipientSection_Confidential_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T157_Pickup_RecipientSection_Confidential_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T157_Pickup_RecipientSection_Confidential_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T134_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_OrderDateSearchFilter_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="Validate_Hana_T134_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_OrderDateSearchFilter_Functionality_Test"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T134_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_OrderDateSearchFilter_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T158_Pickup_RecipientSection_SelectOptionMultipleSelect_FT">
+        <methods>
+          <include name="Validate_Hana_T158_Pickup_RecipientSection_SelectOptionMultipleSelect_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T158_Pickup_RecipientSection_SelectOptionMultipleSelect_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T162_OrderEntry_Pickup_OrderDetailsSection_SendRemainder_UnChecked_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T162_OrderEntry_Pickup_OrderDetailsSection_SendRemainder_UnChecked_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T162_OrderEntry_Pickup_OrderDetailsSection_SendRemainder_UnChecked_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T107_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_BalanceAmt_Search_Filter_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="Validate_Hana_T107_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_BalanceAmt_Search_Filter_Test"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T107_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_BalanceAmt_Search_Filter_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T163_OrderEntry_Pickup_OrderDetailsSection_SendRemainderEmail_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T163_OrderEntry_Pickup_OrderDetailsSection_SendRemainderEmail__Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T163_OrderEntry_Pickup_OrderDetailsSection_SendRemainderEmail_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T152_Pickup_RecipientSection_AddressLookup_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T152_Pickup_RecipientSection_AddressLookup_FT_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T152_Pickup_RecipientSection_AddressLookup_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T147_Pickup_RecipientSection_ExistingCustomerDetails_FT">
+        <methods>
+          <include name="Validate_Hana_T147_Pickup_RecipientSection_ExistingCustomerDetails_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T147_Pickup_RecipientSection_ExistingCustomerDetails_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T195_OrderEntryPage_Pickup_ProductSection_CreateRecipe_ItemGallery_Functionality">
+        <methods>
+          <include name="Validate_Hana_T195_OrderEntryPage_Pickup_ProductSection_CreateRecipe_ItemGallery_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T195_OrderEntryPage_Pickup_ProductSection_CreateRecipe_ItemGallery_Functionality -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T155_OrderEntryPage_Pickup_RecipientSection_SaveFuneral_FT">
+        <methods>
+          <include name="Validate_Hana_T155_OrderEntryPage_Pickup_RecipientSection_SaveFuneral_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T155_OrderEntryPage_Pickup_RecipientSection_SaveFuneral_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T143_Pickup_CustomerSection_TextMeUpdatesAndPromotion_Checked_FT">
+        <methods>
+          <include name="Validate_Hana_T143_Pickup_CustomerSection_TextMeUpdatesAndPromotion_Checked_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T143_Pickup_CustomerSection_TextMeUpdatesAndPromotion_Checked_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T141_Pickup_CustomerSection_CustomerHistory_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T141_Pickup_CustomerSection_CustomerHistory_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T141_Pickup_CustomerSection_CustomerHistory_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T151_Pickup_RecipientSection_ViewMap_FT">
+        <methods>
+          <include name="Validate_Hana_T151_Pickup_RecipientSection_ViewMap_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T151_Pickup_RecipientSection_ViewMap_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T133_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_AddressSearchFilter_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T133_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_AddressSearchFilter_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T133_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_AddressSearchFilter_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T153_Pickup_RecipientSection_AttentionFieldLookup_FT">
+        <methods>
+          <include name="Validate_Hana_T153_Pickup_RecipientSection_AttentionFieldLookup_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T153_Pickup_RecipientSection_AttentionFieldLookup_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T131_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_StatusSearchFilter_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T131_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_StatusSearchFilter_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T131_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_StatusSearchFilter_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T146_Pickup_RecipientSection_WithExistingRecipientDetails_FT">
+        <methods>
+          <include name="Validate_Hana_T146_Pickup_RecipientSection_With_Existing_RecipientDetails_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T146_Pickup_RecipientSection_WithExistingRecipientDetails_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Tax_Search_Filter_FT">
+        <methods>
+          <include name="Validate_Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Tax_Search_Filter_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Tax_Search_Filter_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T122_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pay_Date_Search_Filter_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T122_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pay_Date_Search_Filter_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T122_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pay_Date_Search_Filter_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T154_Pickup_RecipientSection_FrequentAddress_FT">
+        <methods>
+          <include name="Validate_Hana_T154_Pickup_RecipientSection_FrequentAddress_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T154_Pickup_RecipientSection_FrequentAddress_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T149_Pickup_RecipientSection_ClearTime_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T149_Pickup_RecipientSection_ClearTime_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T149_Pickup_RecipientSection_ClearTime_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_CCNumber_SearchFilter_FT">
+        <methods>
+          <include name="Validate_Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_CCNumber_SearchFilter_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_CCNumber_SearchFilter_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T148_Pickup_RecipientSection_NewCustomerDetails_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T148_Pickup_RecipientSection_NewCustomerDetails_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T148_Pickup_RecipientSection_NewCustomerDetails_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T172_OrderEntry_Pickup_OrderDetailsSection_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T172_OrderEntry_Pickup_OrderDetailsSection_Functionality_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T172_OrderEntry_Pickup_OrderDetailsSection_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T144_Pickup_CustomerSection_TextMeUpdatesAndPromotion_UnChecked_FT">
+        <methods>
+          <include name="Validate_Hana_T144_Pickup_CustomerSection_TextMeUpdatesAndPromotion_UnChecked_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T144_Pickup_CustomerSection_TextMeUpdatesAndPromotion_UnChecked_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T160_OrderEntry_Pickup_OrderDetailsSection_SendRemainderField_FT">
+        <methods>
+          <include name="Validate_Hana_T160_OrderEntry_Pickup_OrderDetailsSection_SendRemainderField_Functionality_Test"/>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T160_OrderEntry_Pickup_OrderDetailsSection_SendRemainderField_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T082_Pickup_Functionality_with_New_customer_FT -->
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT">
+        <methods>
+          <include name="loadConfig"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="Validate_Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT_Test"/>
+        </methods>
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

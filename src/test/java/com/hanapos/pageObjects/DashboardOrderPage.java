@@ -1,5 +1,9 @@
 package com.hanapos.pageObjects;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.openqa.selenium.Keys;
@@ -148,6 +152,39 @@ public class DashboardOrderPage extends TestBaseClass{
 	@FindBy(xpath="//div[@class='fa fa-flag IsFlagColor']")
 	private WebElement RedflagIcon_OnOrderpage;
 	
+	@FindBy(xpath="//td[contains(@class,'hana-grid-row-fullview order-status-col')]")
+	private WebElement OrderStatus_OnOrderPage;
+	
+	@FindBy(xpath="//span[@class='label label-info']")
+	private WebElement OrderStatus_InvPopup;
+	
+	@FindBy(xpath="(//div[@class=' PadLeft text-left no-padding'])[3]")
+	private WebElement driverName_InvPopup;
+	
+	@FindBy(xpath="//a[text()='Dispatch']")
+	private WebElement dispatchTab_InvPopup;
+	
+	@FindBy(xpath="//p[@class='allinform']")
+	private WebElement dispatch_ConfirmationMessage_InvPopup;
+	
+	@FindBy(xpath="//a[text()='Status']")
+	private WebElement statusTab_InvPopup;
+	
+	@FindBy(xpath="(//table[@class='table table-striped']//tbody)[7]//tr[1]/td[1]")
+	private WebElement statusTable_row1_Date;
+	
+	@FindBy(xpath="(//table[@class='table table-striped']//tbody)[7]//tr[1]/td[2]")
+	private WebElement statusTable_row1_statusType;
+	
+	@FindBy(xpath="//span[@class='set-font-msg-desc']")
+	private WebElement deliveryontruck_msg_on_Activity;
+	
+	@FindBy(xpath="//div[@class='set-msg-border-container']//b")
+	private WebElement deliveryontruck_dateandtime_on_Activity;
+	
+	@FindBy(xpath="//div[@class='set-msg-border-container']")
+	private WebElement deliveryontruck_fullmsg_on_Activity;
+	
 	public String validateDashboardOrderPage() {
 		return	getDriver().getCurrentUrl();
 	}
@@ -205,8 +242,8 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&& listOfPaidOutsideHana.get(0).getText().equals("Paid Outside Hana")) {
-			HighlightElement(listOfInvoiceNumber.get(0));
-			paidOutsideHana = listOfInvoiceNumber.get(0).isDisplayed();
+			HighlightElement(listOfPaidOutsideHana.get(0));
+			paidOutsideHana = listOfPaidOutsideHana.get(0).isDisplayed();
 		}return paidOutsideHana;
 	}
 	
@@ -224,7 +261,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfGiftCard.get(0).getText().equals("Gift Card")) {
-				giftcard_Invoice=listOfInvoiceNumber.get(0).isDisplayed();
+				giftcard_Invoice=listOfGiftCard.get(0).isDisplayed();
 		}return giftcard_Invoice;
 	}
 	
@@ -242,8 +279,8 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfDonation.get(0).getText().equals("Donation")) {
-				HighlightElement(listOfInvoiceNumber.get(0));
-				donation_Invoice=listOfInvoiceNumber.get(0).isDisplayed();						
+				HighlightElement(listOfDonation.get(0));
+				donation_Invoice=listOfDonation.get(0).isDisplayed();						
 		}return donation_Invoice;
 	}
 	
@@ -310,6 +347,203 @@ public class DashboardOrderPage extends TestBaseClass{
 		}	return invoiceNumber;			 		
 	}
 	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_COD_PaymentType() {
+		String invoiceNumber = null;
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("COD - Cash On Delivery")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_COD_PaymentType_PickUp_InvoiceNumber() {
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("COD - Cash On Delivery")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_COD_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("COD - Cash On Delivery")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+	
+	public String Validate_PhoneOrder_Debit_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Debit")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+	
+	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_Debit_PaymentType() {
+		String invoiceNumber = null;
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Debit")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_Debit_PaymentType_PickUp_InvoiceNumber() {
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Debit")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_AmericanExpress_PaymentType() {
+		String invoiceNumber = null;
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("American Express")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_AmericanExpress_PaymentType_PickUp_InvoiceNumber() {
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("American Express")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_AmericanExpress_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("American Express")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_Lovingly_PaymentType() {
+		String invoiceNumber = null;
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Lovingly")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_Lovingly_PaymentType_PickUp_InvoiceNumber() {
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Lovingly")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_Lovingly_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Lovingly")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+
+	public String get_InvoiceNumber_PhoneOrder_PickUp_Marigold_PaymentType() {
+		String invoiceNumber = null;
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Marigold")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_Marigold_PaymentType_PickUp_InvoiceNumber() {
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Marigold")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_Marigold_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Marigold")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+
+	public String get_InvoiceNumber_PhoneOrder_PickUp_MasterCard_PaymentType() {
+		String invoiceNumber = null;
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Master Card")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_MasterCard_PaymentType_PickUp_InvoiceNumber() {
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Master Card")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_MasterCard_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Master Card")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+
+	public String get_InvoiceNumber_PhoneOrder_PickUp_Paid_Outside_Hana_PaymentType() {
+		String invoiceNumber = null;
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Paid Outside Hana")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_Paid_Outside_Hana_PaymentType_PickUp_InvoiceNumber() {
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Paid Outside Hana")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_Paid_Outside_Hana_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Paid Outside Hana")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+	
 	
 	public boolean Validate_PhoneOrder_InvoiceInHousePayment() {
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
@@ -319,14 +553,184 @@ public class DashboardOrderPage extends TestBaseClass{
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
 	
-	public boolean Validate_PhoneOrder_DeliveryInvoiceInHousePayment() {
+	public String get_InvoiceNumber_PhoneOrder_PickUp_Cash_PaymentType() {
+		String invoiceNumber = null;
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
-				&& listOfPickUp.get(0).getText().contains("Delivery") 
-				&& listOfInvoiceHouseAccount.get(0).getText().contains("Invoice/House Account")) {			
-				HighlightElement(listOfInvoiceHouseAccount.get(0));
-				listOfInvoiceHouseAccount.get(0).isDisplayed();
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_CashPaymentType_PickUp_InvoiceNumber() {
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
+	
+	public String Validate_PhoneOrder_CashPaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_Visa_PaymentType() {
+		String invoiceNumber = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Visa")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_Visa_PaymentType_PickUp_InvoiceNumber() {
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Visa")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_Visa_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Visa")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_WriteOff_PaymentType() {
+		String invoiceNumber = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Write Off")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_WriteOff_PaymentType_PickUp_InvoiceNumber() {
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Write Off")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_WriteOff_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Write Off")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_Check_PaymentType() {
+		String invoiceNumber = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Check")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_Check_PaymentType_PickUp_InvoiceNumber() {
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Check")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_Check_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Check")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_Donation_PaymentType() {
+		String invoiceNumber = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Donation")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_Donation_PaymentType_PickUp_InvoiceNumber() {
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Donation")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_Donation_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Donation")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+	
+	public String get_InvoiceNumber_PhoneOrder_PickUp_CC_PaymentType() {
+		String invoiceNumber = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Credit Card")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_CC_PaymentType_PickUp_InvoiceNumber() {
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& listOfPickUp.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Credit Card")) {		
+			HighlightElement(listOfInvoiceNumber.get(0));
+			delayWithGivenTime(1000);
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public String Validate_PhoneOrder_CC_PaymentType_PickUp_ModeOfPayment() {
+		String Mode_Of_Pay = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Credit Card")) {	
+			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
+		}	return 	Mode_Of_Pay;		 		
+	}
+	
+	
+	public String getInvoiceNumber_On_PhoneOrder_DeliveryInvoiceInHousePayment() {
+		String invoiceNumber = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Invoice/House Account")) {							
+			invoiceNumber=listOfInvoiceNumber.get(0).getText().trim();	
+		}	return invoiceNumber;			 		
+	}
+	
 	
 	public void ClickInvoiceInhousePayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
@@ -337,45 +741,13 @@ public class DashboardOrderPage extends TestBaseClass{
 		}	 			 		
 	}
 	
-	public void Click_DeliveryInvoiceInhousePayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
-		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
-			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
-			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Invoice/House Account")) {
-			
-			HighlightElement(ListOfOrderType_OnOrderPageTable.get(0));
-			delayWithGivenTime(500);
-			HighlightElement(ListOfDeliveryType_OnOrderPageTable.get(0));
-			delayWithGivenTime(500);
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));			
-			jsClick(ListOfOrderType_OnOrderPageTable.get(0));
+	public void Click_Cash_Payment_PickUp_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
+		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+				&& listOfPickUp.get(0).getText().contains("Pick Up") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {						
+			jsClick(listOfSenderCustomer.get(0));
 		}	 			 		
 	}
-	
-	public void Click_DeliveryAsCashPayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
-		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
-			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
-			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {					
-			jsClick(listOfInvoiceNumber.get(0));
-		}	 			 		
-	}
-	
-	public String get_InvoiceNumber_PhoneOrder_Delivery_AsCashPayment() {
-		String invoiceNumber = null;
-		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Phone Order") 
-				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().equals("Delivery") 
-				&& ListOfMOP_OnOrderPageTable.get(0).getText().equals("Cash")) {
-			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
-		}return invoiceNumber;
-	}
-	
-	public boolean Validate_DeliveryAsCashPayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
-		boolean invoiceNumber = false;
-		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
-			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
-			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {		
-			invoiceNumber = listOfSenderCustomer.get(0).isDisplayed();		 		
-	} return invoiceNumber;
-}
 	
 	public String GetSenderorCustomerOnOrderPage() {
 		String sender_cust=null;
@@ -608,29 +980,26 @@ public class DashboardOrderPage extends TestBaseClass{
 		return ListOfMOP_OnOrderPageTable.get(0).getText();	
 	}
 	
+	public String get_PhoneOrder_WireOut_InvoiceInHousePayment() {
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Wire Out") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Invoice/House Account")) {
+				delayWithGivenTime(500);	
+		}	return listOfInvoiceNumber.get(0).getText();			 		
+	}
+	
 	public boolean Validate_PhoneOrder_WireOut_InvoiceInHousePayment() {
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Wire Out") 
 				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Invoice/House Account")) {
-				delayWithGivenTime(500);
-				HighlightElement(ListOfOrderType_OnOrderPageTable.get(0));
-				delayWithGivenTime(500);
-				HighlightElement(ListOfDeliveryType_OnOrderPageTable.get(0));
-				delayWithGivenTime(500);
-				HighlightElement(listOfInvoiceHouseAccount.get(0));			
+				delayWithGivenTime(500);		
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
 	
 	public void Click_PhoneOrder_WireOut_InvoiceInHousePayment() {
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Wire Out") 
-				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Invoice/House Account")) {
-				delayWithGivenTime(500);
-				HighlightElement(ListOfOrderType_OnOrderPageTable.get(0));
-				delayWithGivenTime(500);
-				HighlightElement(ListOfDeliveryType_OnOrderPageTable.get(0));
-				delayWithGivenTime(500);
-				HighlightElement(listOfInvoiceHouseAccount.get(0));			
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Invoice/House Account")) {		
 		}	jsClick(ListOfOrderType_OnOrderPageTable.get(0));			 		
 	}
 	
@@ -644,8 +1013,213 @@ public class DashboardOrderPage extends TestBaseClass{
 		return RedflagIcon_OnOrderpage.isDisplayed();
 	}
 	
-	
+	public String get_status_on_orderpage() {
+		HighlightElement(OrderStatus_OnOrderPage);
+		return	OrderStatus_OnOrderPage.getText();
 	}
+	
+	public void Click_OrderStatus() {
+		jsClick(OrderStatus_OnOrderPage);
+	}
+	
+	public String get_OrderStatus_DeliveryPopup() {
+		HighlightElement(OrderStatus_InvPopup);
+		return OrderStatus_InvPopup.getText();
+	}
+	
+	public String get_drivername_onInvoicePopup() {
+		HighlightElement(driverName_InvPopup);
+		return driverName_InvPopup.getText().trim();
+	}
+	
+	public void Click_DispatchTab_onInvPopup() {
+		jsClick(dispatchTab_InvPopup);
+	}
+	
+	public String get_dispatchConfirmation_Date_and_Time() {
+		String fullText = dispatch_ConfirmationMessage_InvPopup.getText();
+		 String[] parts = fullText.split("Dispatched on ");
+		 parts[1].trim();
+		 String dateTime = null ;
+		 if (parts.length > 1) {
+	            dateTime = parts[1].split(" Delivered by")[0].trim().toUpperCase();
+		 }  return dateTime;   
+	}
+	
+	public boolean Validate_dispatchConfirmation_Date_and_Time_With_AtlanticTimeZone() {
+		if(get_dispatchConfirmation_Date_and_Time().contains(Atlantic_TimeZone())) {
+			return true;
+		}else {
+			System.out.println("Dispatch Confirmation Date and Time is : "+get_dispatchConfirmation_Date_and_Time() + " not matched with : "+Atlantic_TimeZone());
+			return false;
+		}
+		
+	}
+	
+	
+	public String get_dispatchConfirmation_DriverName() {
+		String fullText = dispatch_ConfirmationMessage_InvPopup.getText();
+		 String[] parts = fullText.split("driver ");
+		String drivername = parts[1].trim();
+		return drivername;  	
+	}
+
+	public void Click_StatusTab_onInvPopup() {
+		jsClick(statusTab_InvPopup);
+	}
+	
+	public String get_status_date_and_time() {
+	    String dateandtime = null;
+	    if (statusTable_row1_statusType != null && statusTable_row1_statusType.getText().contains("Dispatched")) {
+	        if (statusTable_row1_Date != null) {
+	            HighlightElement(statusTable_row1_Date);
+	            dateandtime = statusTable_row1_Date.getText().trim().toUpperCase();
+	        } else {
+	            System.out.println("statusTable_row1_Date is null");
+	        }
+	    } else {
+	        System.out.println("statusTable_row1_statusType is null or does not contain 'Dispatched'");
+	    }
+	    return dateandtime;
+	}
+   
+	public boolean Validate_status_date_and_time() {
+		if(get_status_date_and_time().contains(Atlantic_TimeZone_NumberDateFormat())) {
+			return true;
+		}else {
+			System.out.println("Status Tab confirmation dispatch Date and Time is : "+get_status_date_and_time() + " not matched with : "+Atlantic_TimeZone());
+			return false;
+		}
+	}
+	
+	
+	public String Verify_DeliveryOnTruck_at_ActivitySection() {
+		HighlightElement(deliveryontruck_msg_on_Activity);
+		return deliveryontruck_msg_on_Activity.getText().trim();
+	}
+	
+	public String get_DeliveryOnTruck_DateandTime_at_ActivitySection() {
+		HighlightElement(deliveryontruck_dateandtime_on_Activity);
+		String dateandtime = deliveryontruck_dateandtime_on_Activity.getText().trim().toUpperCase();
+		return dateandtime;
+	}
+	
+	public boolean Validate_DeliveryOnTruck_DateandTime_at_ActivitySection() {
+		if(get_DeliveryOnTruck_DateandTime_at_ActivitySection().contains(Atlantic_TimeZone())) {
+			return true;
+		}else {
+			System.out.println("Delivery on Truck Date and Time is : "+get_DeliveryOnTruck_DateandTime_at_ActivitySection() + " not matched with : "+Atlantic_TimeZone());
+			return false;
+		}
+	}
+	
+	public String get_ConfirmationDate_and_Time_RouteNumber_on_ActivitySection() {
+		HighlightElement(deliveryontruck_fullmsg_on_Activity);
+		String fulltext = deliveryontruck_fullmsg_on_Activity.getText().trim();
+		String[] parts = fulltext.split(" Your delivery driver is ");
+		String dateTime = parts[0].split("loaded into truck on ")[1].trim().toUpperCase();
+		return dateTime;
+	}	
+	
+	public boolean Validate_ConfirmationDate_and_Time_RouteNumber_on_ActivitySection() {
+		if(get_ConfirmationDate_and_Time_RouteNumber_on_ActivitySection().contains(Atlantic_TimeZone())) {
+			return true;
+		}else {
+			System.out.println("Confirmation on activity route number text Date and Time is : "+get_ConfirmationDate_and_Time_RouteNumber_on_ActivitySection() + " not matched with : "+Atlantic_TimeZone());
+			return false;
+		}
+	}
+	
+	public String get_Confirmation_DriverName_RouteNumber_on_ActivitySection() {
+		HighlightElement(deliveryontruck_fullmsg_on_Activity);
+		String fulltext = deliveryontruck_fullmsg_on_Activity.getText().trim();
+		String[] parts = fulltext.split(" Your delivery driver is ");
+		 String drivername = parts[1].trim();
+		return drivername;
+	}	
+	
+	public String get_InvoiceNumber_PhoneOrder_Delivery_Type_InvoiceHouse() {
+		String invoiceNumber = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Invoice/House Account")) {			
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}	return invoiceNumber;			 		
+	}
+	
+	public boolean Validate_PhoneOrder_DeliveryInvoiceInHousePayment() {
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Invoice/House Account")) {			
+				listOfInvoiceHouseAccount.get(0).isDisplayed();
+		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
+	}
+	
+	public void Click_DeliveryInvoiceInhousePayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Invoice/House Account")) {		
+			jsClick(ListOfOrderType_OnOrderPageTable.get(0));
+		}	 			 		
+	}
+	
+	public String get_InvoiceNumber_PhoneOrder_Delivery_AsCashPayment() {
+		String invoiceNumber = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Phone Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().equals("Delivery") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().equals("Cash")) {
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}return invoiceNumber;
+	}
+	
+	public boolean Validate_DeliveryAsCashPayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
+		boolean invoiceNumber = false;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {		
+			invoiceNumber = listOfSenderCustomer.get(0).isDisplayed();		 		
+	} return invoiceNumber;
+}
+
+	public void Click_DeliveryAsCashPayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {					
+			jsClick(listOfInvoiceNumber.get(0));
+		}	 			 		
+	}
+	
+	public String get_InvoiceNumber_PhoneOrder_Delivery_As_Visa_Payment() {
+		String invoiceNumber = null;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Phone Order") 
+				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().equals("Delivery") 
+				&& ListOfMOP_OnOrderPageTable.get(0).getText().equals("Visa")) {
+			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
+		}return invoiceNumber;
+	}
+	
+	public boolean Validate_DeliveryAs_Visa_Payment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
+		boolean invoiceNumber = false;
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Visa")) {		
+			invoiceNumber = listOfSenderCustomer.get(0).isDisplayed();		 		
+	} return invoiceNumber;
+}
+
+	public void Click_DeliveryAs_Visa_Payment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage() {
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
+			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
+			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Visa")) {					
+			jsClick(listOfInvoiceNumber.get(0));
+		}	 			 		
+	}
+	
+	
+	
+	
+	
+}
 	
 	
 

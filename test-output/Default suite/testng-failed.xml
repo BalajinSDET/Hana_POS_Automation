@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T195_OrderEntryPage_Pickup_ProductSection_CreateRecipe_ItemGallery_Functionality">
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T241_OrderEntryPage_Pickup_Payment_Section_CreditCard_Functionality">
         <methods>
-          <include name="Validate_Hana_T195_OrderEntryPage_Pickup_ProductSection_CreateRecipe_ItemGallery_Functionality_Test"/>
           <include name="loadConfig"/>
           <include name="tearDown"/>
           <include name="setup"/>
+          <include name="Validate_Hana_T241_OrderEntryPage_Pickup_Payment_Section_CreditCard_Functionality_Test" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrderTest.Hana_T195_OrderEntryPage_Pickup_ProductSection_CreateRecipe_ItemGallery_Functionality -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T241_OrderEntryPage_Pickup_Payment_Section_CreditCard_Functionality -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

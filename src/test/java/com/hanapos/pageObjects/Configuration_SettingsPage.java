@@ -96,7 +96,26 @@ public class Configuration_SettingsPage extends TestBaseClass{
 	@FindBy(xpath="//div[@class='ibox-content iframeContent']//iframe")
 	private WebElement iframe_Funeral_Log_AddNewRecord_Popup;
 	
+	@FindBy(xpath="//p[text()='Inventory Management']")
+	private WebElement InventoryManagement_leftMenu;
 	
+	@FindBy(xpath="(//h2['config-comp-head'])[9]")
+	private WebElement InventoryManagement_Section;
+	
+	@FindBy(xpath="//p[text()='Component Category']")
+	private WebElement ComponentCategory_ConfigurationSettings_SubMenu;
+	
+	@FindBy(xpath="//h2[@class='gridTitle']")
+	private WebElement ComponentCategory_PageTitle;
+	
+	@FindBy(xpath="//div[@class='ibox-content gridGrp']//div[4]//table//tr//td[3]")
+	private List<WebElement> ListOfComponentCategoryTable_Markup; 
+	
+	@FindBy(xpath="//div[@class='ibox-content gridGrp']//div[4]//table//tr//td[1]")
+	private List<WebElement> ListOfComponentCategoryTable_TypeName; 
+	
+	@FindBy(xpath="(//table//tbody//tr//td[normalize-space()=\"Designer's Choice Seasonal Arrangement\"])[1]/following::td[2]")
+	private WebElement Markup_Value; 
 	
 	public boolean Verify_Configuration_SettingsPage() {
 		HighlightElement(HanaSupportPortal);
@@ -240,7 +259,30 @@ public class Configuration_SettingsPage extends TestBaseClass{
 		jsClick(YesButton_DeleteConfirmation_On_CommonAddress);
 	}
 	
+	public void Click_InventoryManagement_LeftMenu() {
+		click(InventoryManagement_leftMenu);
+	}
 	
+	public boolean Verify_InventoryManagement_Section_ConfigurationSetting_IsDisplayed() {
+		HighlightElement(InventoryManagement_Section);
+		return InventoryManagement_Section.isDisplayed();
+	}
+	
+	public void Click_InventoryManagement_Section_ComponentCategory() {
+		click(ComponentCategory_ConfigurationSettings_SubMenu);
+	}
+	
+	public boolean Verify_componentCategory_Page_IsDisplayed() {
+		delayWithGivenTime(3000);
+		HighlightElement(ComponentCategory_PageTitle);
+		return ComponentCategory_PageTitle.isDisplayed();
+	}
+	
+	public String get_ComponentMarkup_Value() {
+		delayWithGivenTime(2000);
+		HighlightElement(Markup_Value);
+		return Markup_Value.getText();
+	}
 	
 }	
 

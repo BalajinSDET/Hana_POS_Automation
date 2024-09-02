@@ -24,7 +24,7 @@ public class Hana_T61_Payments_GiftCard_Payment_Section_FT extends TestBaseClass
 	private CashAndCarryPage cashandcarry;
 	private CashAndCarryPaymentPage cashandcarrypayment;
 	private DashboardOrderPage dashboardorder;
-
+	String invoice;
 	public static final String dataSheetName = "Hana_T14";
 	SoftAssert softassert = new SoftAssert();
 
@@ -186,6 +186,7 @@ public class Hana_T61_Payments_GiftCard_Payment_Section_FT extends TestBaseClass
 				cashandcarrypayment.GetTenderPrice();
 				logger.info(("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice()));
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
+				invoice=cashandcarrypayment.GetInvoiceNumber();
 			}	
 			
 		//	RobotAcceptAlert();
@@ -206,7 +207,7 @@ public class Hana_T61_Payments_GiftCard_Payment_Section_FT extends TestBaseClass
 			delayWithGivenTime(1000);
 			
 			// Test Step - 21
-			dashboardorder.EnterGlobalSearch(dashboardorder.get_Walkins_Pickup_GiftCard_OnOrderPage());
+			dashboardorder.EnterGlobalSearch(invoice);//
 			delayWithGivenTime(1000);
 
 			softassert.assertTrue(dashboardorder.Validate_GiftCard_MOP_DisplayedOnOrderPage(),"Test Step - 21 - Gift Card mode of pay is not displayed on orders page");		

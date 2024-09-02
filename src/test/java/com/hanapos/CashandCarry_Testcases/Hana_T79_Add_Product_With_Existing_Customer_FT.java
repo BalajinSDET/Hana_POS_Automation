@@ -27,6 +27,7 @@ public class Hana_T79_Add_Product_With_Existing_Customer_FT extends TestBaseClas
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
 	SoftAssert softassert = new SoftAssert();
+	String invoice;
 
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
@@ -160,7 +161,7 @@ public class Hana_T79_Add_Product_With_Existing_Customer_FT extends TestBaseClas
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
 				cashandcarrypayment.GetOrderConfirmationMsgAndInvoiceNo();		
-				cashandcarrypayment.GetInvoiceNumber();
+				invoice =	cashandcarrypayment.GetInvoiceNumber();
 				System.out.println("Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber());				
 				cashandcarrypayment.GetTenderPrice();
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
@@ -186,7 +187,7 @@ public class Hana_T79_Add_Product_With_Existing_Customer_FT extends TestBaseClas
 			logger.info("User verify that the order page is navigated to dashboard order page");
 			
 			delayWithGivenTime(1000);
-			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage());
+			dashboardorder.EnterGlobalSearch(invoice);//dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage()
 			
 			delayWithGivenTime(2000);
 			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step - 16 - Invoice number is not displayed on hana dashboard order page");		

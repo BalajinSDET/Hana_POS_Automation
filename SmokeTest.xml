@@ -16,7 +16,7 @@
 			</run>
 		</groups>
 		<classes>
-			<class name="com.hanapos.CashandCarry_Testcases.Hana_T43_Payments_Split_Payment_FT" />
+			
 			<class
 				name="com.hanapos.CashandCarry_Testcases.Hana_T37_Add_New_Customer_FT" />
 			<class
@@ -104,7 +104,7 @@
 				name="com.hanapos.CashandCarry_Testcases.Hana_T88_WalkinsSetting_CashRegistery_Customer_Copy_Checked_FT" />
 			<class
 				name="com.hanapos.CashandCarry_Testcases.Hana_T89_WalkinsSetting_CashRegistery_Customer_Copy_UnChecked_FT" />
-		
+		<class name="com.hanapos.CashandCarry_Testcases.Hana_T43_Payments_Split_Payment_FT" />
 		<class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T081_Pickup_Functionality_with_Existing_customer_FT"/>
     	<class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T082_Pickup_Functionality_with_New_customer_FT"/>
      	<class name="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases.Hana_T302_Delivery_Functionality_with_Existing_customer_FT"/>

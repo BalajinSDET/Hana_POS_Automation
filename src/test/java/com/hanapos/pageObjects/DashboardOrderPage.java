@@ -65,7 +65,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	@FindBy(xpath="//span[@class='set-value-column-text-bold']")
 	private List<WebElement> listOfInvoiceAmountValue;
 	
-	@FindBy(xpath="//table[@role='grid']//tr[1]//td[6]")
+	@FindBy(xpath="//table[@role='grid']//tr[1]//td[7]")
 	private List<WebElement> listOfSenderCustomer;
 	
 	@FindBy(xpath="//table[@role='grid']//tr[1]//td[5]")
@@ -190,18 +190,16 @@ public class DashboardOrderPage extends TestBaseClass{
 	}
 
 	public void EnterGlobalSearch(String globalsearch) {
-		//HighlightElement(Global_search_OrderPage);
 		Global_search_OrderPage.clear();
 		delayWithGivenTime(1000);
 		Global_search_OrderPage.sendKeys(globalsearch);
-		//clickAndType(Global_search_OrderPage,globalsearch);
 		delayWithGivenTime(1000);
 		Global_search_OrderPage.sendKeys(Keys.ENTER);
 	}
 	
 	public boolean ValidateInvoiceNumber() {
 		boolean invoiceNumber = false;
-		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up") 
 				&& listOfCashMOP.get(0).getText().equals("Cash")) {			
 			HighlightElement(listOfInvoiceNumber.get(0));
@@ -229,7 +227,7 @@ public class DashboardOrderPage extends TestBaseClass{
 
 	public String get_Walkins_Pickup_POH_MOP_DisplayedOnOrderPage() {
 		String paidOutsideHana_Invoice = null;
-		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&& listOfPaidOutsideHana.get(0).getText().equals("Paid Outside Hana")) {
 				paidOutsideHana_Invoice = listOfInvoiceNumber.get(0).getText();
@@ -239,17 +237,17 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public boolean Validate_POH_MOP_DisplayedOnOrderPage() {
 		boolean paidOutsideHana = false;
-		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&& listOfPaidOutsideHana.get(0).getText().equals("Paid Outside Hana")) {
-			HighlightElement(listOfPaidOutsideHana.get(0));
+			delayWithGivenTime(1000);
 			paidOutsideHana = listOfPaidOutsideHana.get(0).isDisplayed();
 		}return paidOutsideHana;
 	}
 	
 	public String get_Walkins_Pickup_GiftCard_OnOrderPage() {
 		String giftcard_Invoice=null;
-		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfGiftCard.get(0).getText().equals("Gift Card")) {			
 				giftcard_Invoice=listOfInvoiceNumber.get(0).getText();
@@ -258,7 +256,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public boolean Validate_GiftCard_MOP_DisplayedOnOrderPage() {
 		boolean giftcard_Invoice=false;
-		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfGiftCard.get(0).getText().equals("Gift Card")) {
 				giftcard_Invoice=listOfGiftCard.get(0).isDisplayed();
@@ -267,16 +265,17 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public String get_Walkins_Pickup_Donation_OnOrderPage() {
 		String donation_Invoice=null;
-		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
-				&&	listOfDonation.get(0).getText().equals("Donation")) {			
+				&&	listOfDonation.get(0).getText().equals("Donation")) {	
+				delayWithGivenTime(1000);
 				donation_Invoice=listOfInvoiceNumber.get(0).getText();						
 		}return donation_Invoice;
 	}
 	
 	public boolean Validate_Donation_MOP_DisplayedOnOrderPage() {
 		boolean donation_Invoice=false;
-		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfDonation.get(0).getText().equals("Donation")) {
 				HighlightElement(listOfDonation.get(0));
@@ -286,7 +285,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public String getStatusOnOrderPage() {
 		String status = null;
-		if(listOfWalkinSales.get(0).getText().equals("Walkin Sales") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfDonation.get(0).getText().equals("Donation")) {
 				HighlightElement(listOfOrderStatus.get(0));
@@ -295,7 +294,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	}
 	
 	public String GetInvoiceAmount_Walkin_pickup_Cash_OnOrderPage() {
-		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales")
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Walkin Sales")
 				&&listOfPickUp.get(0).getText().contains("Pick Up")
 				&&listOfCashMOP.get(0).getText().contains("Cash")) {
 			HighlightElement(listOfWalkinSales.get(0));
@@ -311,7 +310,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public boolean Validate_PhoneOrder_Pickup_Cash_InvoiceNumber() {
 		boolean invoiceNumber = false;
-		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 				&& listOfPickUp.get(0).getText().contains("Pick Up") 
 				&& listOfCashMOP.get(0).getText().contains("Cash")) {
 			
@@ -328,7 +327,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public String get_InvoiceNumber_PhoneOrder_PickUp_Cash() {
 		String invoiceNumber = null;
-		if(listOfPhoneOrder.get(0).getText().equals("Phone Order") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Phone Order") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up") 
 				&& listOfCashMOP.get(0).getText().equals("Cash")) {
 			
@@ -340,7 +339,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public String get_InvoiceNumber_PhoneOrder_PickUp_InvoiceHouse() {
 		String invoiceNumber = null;
-		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 				&& listOfPickUp.get(0).getText().contains("Pick Up") 
 				&& listOfInvoiceHouseAccount.get(0).getText().contains("Invoice/House Account")) {			
 			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
@@ -349,7 +348,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public String get_InvoiceNumber_PhoneOrder_PickUp_COD_PaymentType() {
 		String invoiceNumber = null;
-		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 				&& listOfPickUp.get(0).getText().contains("Pick Up") 
 				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("COD - Cash On Delivery")) {			
 			 invoiceNumber = listOfInvoiceNumber.get(0).getText();
@@ -357,7 +356,7 @@ public class DashboardOrderPage extends TestBaseClass{
 	}
 	
 	public boolean Validate_PhoneOrder_COD_PaymentType_PickUp_InvoiceNumber() {
-		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("COD - Cash On Delivery")) {		
 			HighlightElement(listOfInvoiceNumber.get(0));
@@ -751,10 +750,11 @@ public class DashboardOrderPage extends TestBaseClass{
 	
 	public String GetSenderorCustomerOnOrderPage() {
 		String sender_cust=null;
-		if(listOfWalkinSales.get(0).getText().contains("Walkin Sales")
-				&&listOfPickUp.get(0).getText().contains("Pick Up")
-				&&listOfCashMOP.get(0).getText().contains("Cash")) {
-			HighlightElement(listOfSenderCustomer.get(0));
+		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Walkin Sales")
+				&&ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up")
+				&&ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {
+				delayWithGivenTime(1000);//ListOfOrderType_OnOrderPageTable
+			//HighlightElement(listOfSenderCustomer.get(0));
 			sender_cust= listOfSenderCustomer.get(0).getText();
 			System.out.println("Sender or Customer : "+sender_cust);
 		}	return 	sender_cust;		 		

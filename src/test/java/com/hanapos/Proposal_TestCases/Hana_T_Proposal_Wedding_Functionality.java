@@ -10,7 +10,7 @@ import com.hanapos.pageObjects.ManageProposalPage;
 import com.hanapos.pageObjects.ProposalsPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
 
-public class Proposal_Smoke_Flow extends TestBaseClass{
+public class Hana_T_Proposal_Wedding_Functionality extends TestBaseClass{
 
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
@@ -18,11 +18,11 @@ public class Proposal_Smoke_Flow extends TestBaseClass{
 	private ManageProposalPage manageproposal;
 
 	//,dataProvider="fetch_Excel_Data"
-	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Proposal_BasicFlow_Functionality_Test() {
+	@Test(enabled=true,groups= {"Regression","Smoke"}) 
+	public void Validate_Proposal_Wedding_Functionality_Test() {
 
 		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting  Validate_Hana_T198_OrderEntryPage_Pickup_ProductSection_CreateRecipe_DisplayImagesEnabled_Functionality_Test ****");
+		logger.info("**** Starting  Validate_Proposal_Wedding_Functionality_Test ****");
 		logger.debug("capturing application debug logs....");
 
 		try {

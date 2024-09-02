@@ -286,7 +286,8 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	
 	//----------------------Credit card Payment ---------------------------------------------
 	
-
+	@FindBy(xpath="//input[@id='paymentDeductFromFile']")
+	private WebElement storecredit_checkbox;
 	
 	@FindBy(xpath="//a[@id='tabCC']")
 	private WebElement CreditCardTab;
@@ -1274,6 +1275,15 @@ public class CashAndCarryPaymentPage extends TestBaseClass {
 	public String getEnteredEinNumber() {
 		HighlightElement(EINNumber_Textbox);
 		return EINNumber_Textbox.getAttribute("value");
+	}
+	
+	public boolean verify_StoreCredit_CheckBox() {
+		HighlightElement(storecredit_checkbox);
+		return storecredit_checkbox.isDisplayed();
+	}
+	
+	public void Click_StoreCredit_CheckBox() {
+			click(storecredit_checkbox);
 	}
 	
 }

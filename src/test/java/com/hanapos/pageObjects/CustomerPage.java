@@ -2,6 +2,7 @@ package com.hanapos.pageObjects;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,8 +18,20 @@ public class CustomerPage extends TestBaseClass {
 	@FindBy(xpath="//h2[@class='set-text-heading']")
 	private WebElement CustomerMenuHeading;
 	
+	@FindBy(xpath="//th[@data-field='CustomerId']")
+	private WebElement CustomerIdColumn_header;
+	
+	@FindBy(xpath="//span[@class='k-icon k-i-sort-desc-sm']")
+	private WebElement descendingIconOnCustomerIdColumn;
+	
 	@FindBy(xpath="//input[@data-text-field='CustomerName']")
 	private WebElement CustomerNameSearchBox;
+	
+	@FindBy(xpath="//td[4]")
+	private List<WebElement> CustomerId_List_OnCustTable;
+	
+	@FindBy(xpath="//input[@data-text-field='CustomerId']")
+	private WebElement CustomerIdSearchBox;
 	
 	@FindBy(xpath="(//input[@data-text-field='CityStateZip'])[1]")
 	private WebElement CustomerCityStateZipSearchBox;
@@ -29,7 +42,7 @@ public class CustomerPage extends TestBaseClass {
 	@FindBy(xpath="(//input[@data-text-field='Cust_address1'])")
 	private WebElement CustomerAddressSearchBox;
 	
-	@FindBy(xpath="(//ul[@class='k-list k-reset'])[5]//li")
+	@FindBy(xpath="(//div[@class='k-animation-container']//div[2]//ul)[4]//li")
 	private List<WebElement> CustomerList;
 	
 	@FindBy(xpath="(//tr[@role='row'])[2]//td[6]")
@@ -134,6 +147,18 @@ public class CustomerPage extends TestBaseClass {
 	@FindBy(xpath="//tbody[@role='rowgroup']//tr[1]//td[4]")
 	private WebElement CustTable_CustomerID_Row1;
 	
+	@FindBy(xpath="(//div[@class='card-no-text'])[1]")
+	private WebElement CustDetailsPopup_CreditCardNo;
+	
+	@FindBy(xpath="(//div[@class='card-date-text'])[1]")
+	private WebElement CustDetailsPopup_ExpiryDate;
+	
+	@FindBy(xpath="(//div[@class='col-lg-2 col-sm-2 nopadding'])[2]")
+	private WebElement CustDetailsPopup_CreditCard_DeleteIcon;
+	
+	@FindBy(xpath="//button[contains(text(),'Ok')]")
+	private WebElement CustDetailsPopup_CreditcardTab_DeleteIconAlert_OkButton;
+	
 	public boolean VerifyCustomerMenuPage() {
 		HighlightElement(CustomerMenuHeading);
 		fluentWait(CustomerMenuHeading);
@@ -189,10 +214,17 @@ public class CustomerPage extends TestBaseClass {
 		delayWithGivenTime(3000);
 		for (WebElement customer : CustomerList) {
 	        if (customer.getText().contains(expectedcustomername)) {
-	        	click(customer);
+	        	jsClick(customer);
 	            break;
 	        }
 	    }
+	}
+	
+	public void Enter_CustomerName_searchbox_OnCustTable(String customername) {	
+		CustomerNameSearchBox.clear();
+		CustomerNameSearchBox.sendKeys(customername);
+		delayWithGivenTime(1000);
+		CustomerNameSearchBox.sendKeys(Keys.ENTER);
 	}
 	
 	public String VerifyCompanyNameOnCustTable() {
@@ -355,5 +387,46 @@ public class CustomerPage extends TestBaseClass {
 		fluentWait(CustomerDetails_PaginationDropDown);
 		dropDown(CustomerDetails_PaginationDropDown, pagination, "VisibleText");
 	}
+	
+	public String Verify_CreditCardNumber_OnCustomerDetailsPopup() {
+		HighlightElement(CustDetailsPopup_CreditCardNo);
+		return CustDetailsPopup_CreditCardNo.getText();
 	}
+	
+	public String Verify_CreditCard_ExpiredDate_OnCustomerDetailsPopup() {
+		HighlightElement(CustDetailsPopup_ExpiryDate);
+		return CustDetailsPopup_ExpiryDate.getText();
+	}
+	
+	public void Click_OnCreditCard_DeleteIcon_OnCustomerDetailsPopup() {
+		click(CustDetailsPopup_CreditCard_DeleteIcon);
+	}
+	
+	public void Click_OnCreditCard_DeleteIcon_DeleteConfirmation() {
+		jsClick(CustDetailsPopup_CreditcardTab_DeleteIconAlert_OkButton);
+	}
+	
+	public void click_CustomerId_Header_OnCustTable() {
+		click(CustomerIdColumn_header);
+	}
+	
+	public boolean verify_custId_DescendingIcon() {
+		return descendingIconOnCustomerIdColumn.isDisplayed();
+	}
+	
+	public String get_CustomerId_DescendingIcon() {
+		return CustomerId_List_OnCustTable.get(0).getText();	
+	}
+	
+	public void Enter_CustomerId_SearchTextBox_OnCustomerTable() {
+		CustomerIdSearchBox.clear();
+		CustomerIdSearchBox.sendKeys(get_CustomerId_DescendingIcon());
+		delayWithGivenTime(1000);
+		CustomerIdSearchBox.sendKeys(Keys.ENTER);
+	}
+
+
+
+
+}
 

@@ -423,7 +423,6 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			
 			// Test Step - 31			
 			customerpage.SearchAndSelectCustomerName(customername);
-			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
 			customerpage.SearchAndSelectCustomerCityStateZip("Coimbatore");
 			ThreadWait(1000);
 			customerpage.ClickCustomerId_LastRow_OnCustTable();
@@ -465,10 +464,10 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			logger.info("User verify that customer type dropdown field selected data is displayed");
 		
 			if(customerpage.getCustDetailsStoreCreditTextBox()=="100") {
-				softassert.assertEquals(customerpage.getCustDetailsStoreCreditTextBox(), "100","Test Step - 33 - Added customer type dropdown field is not displayed");
+				softassert.assertEquals(customerpage.getCustDetailsStoreCreditTextBox(), "100","Test Step - 33 - Added customer store credit is not displayed");
 				logger.info("User verify that customer type dropdown field selected data is displayed");				
 			}else if(customerpage.getCustDetailsStoreCreditTextBox()=="0") {
-				softassert.assertEquals(customerpage.getCustDetailsStoreCreditTextBox(), "0","Test Step - 33 - Added customer type dropdown field is not displayed");
+				softassert.assertEquals(customerpage.getCustDetailsStoreCreditTextBox(), "0","Test Step - 33 - Added customer store credit is not displayed");
 				logger.info("User verify that customer type dropdown field selected data is displayed");		
 			}
 			

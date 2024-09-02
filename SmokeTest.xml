@@ -112,6 +112,8 @@
 		<class name="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT"/>
      	<class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrder_Testcases.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT"/>
 	 	<class name="com.hanapos.OrderEntry_Alais_WireOut_PhoneOrder_Testcases.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT"/>	
+		<class name="com.hanapos.Quick_Dispatch_Testcases.Hana_T711_Quick_Dispatch_Functionality"/>
+		<class name="com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality"/>
 		</classes>
 	</test>
 </suite> 

@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T241_OrderEntryPage_Pickup_Payment_Section_CreditCard_Functionality">
+      <class name="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT">
         <methods>
           <include name="loadConfig"/>
           <include name="tearDown"/>
           <include name="setup"/>
-          <include name="Validate_Hana_T241_OrderEntryPage_Pickup_Payment_Section_CreditCard_Functionality_Test" invocation-numbers="0"/>
+          <include name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T241_OrderEntryPage_Pickup_Payment_Section_CreditCard_Functionality -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

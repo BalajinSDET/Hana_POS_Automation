@@ -222,8 +222,15 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 			logger.info("User verify that customer menu page is displayed successfully");
 			
 			// Test Step - 17
-			delayWithGivenTime(2000);
-			customerpage.Search_and_SelectCustomerName("Mike","Mike");
+			delayWithGivenTime(500);
+			customerpage.click_CustomerId_Header_OnCustTable();
+			delayWithGivenTime(500);
+			customerpage.click_CustomerId_Header_OnCustTable();
+			delayWithGivenTime(1000);
+			softassert.assertTrue(customerpage.verify_custId_DescendingIcon(),"Test Step - 17 - customer id on customer table page descending icon is not displayed");
+
+			customerpage.Enter_CustomerName_searchbox_OnCustTable("Mike");	
+		//	customerpage.Search_and_SelectCustomerName("Mike","Mike");
 			customerpage.SearchAndSelectCustomerAddress("2715 35th Ave");
 			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
 			delayWithGivenTime(2000);

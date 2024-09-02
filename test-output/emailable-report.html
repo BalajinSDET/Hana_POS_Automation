@@ -9,10 +9,41 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">155,404</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">170,350</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T241_OrderEntryPage_Pickup_Payment_Section_CreditCard_Functionality</td><td><a href="#m0">Validate_Hana_T241_OrderEntryPage_Pickup_Payment_Section_CreditCard_Functionality_Test</a></td><td rowspan="1">1725013791033</td><td rowspan="1">146683</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT</td><td><a href="#m0">Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test</a></td><td rowspan="1">1725277308893</td><td rowspan="1">164338</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T241_OrderEntryPage_Pickup_Payment_Section_CreditCard_Functionality#Validate_Hana_T241_OrderEntryPage_Pickup_Payment_Section_CreditCard_Functionality_Test</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th><th>Parameter #11</th><th>Parameter #12</th><th>Parameter #13</th><th>Parameter #14</th></tr><tr class="param stripe"><td>Stuart Markwood</td><td>Abish</td><td>Abish</td><td>David</td><td>3402 Park Blvd</td><td>PICK UP</td><td>92103</td><td>San Diego</td><td>United States</td><td>956-655-0756</td><td>Church</td><td>Birthday</td><td>rrd</td><td>Invoice/House Account</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT#Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th><th>Parameter #10</th><th>Parameter #11</th><th>Parameter #12</th><th>Parameter #13</th><th>Parameter #14</th><th>Parameter #15</th><th>Parameter #16</th><th>Parameter #17</th></tr><tr class="param stripe"><td>Stuart Markwood</td><td>2715 35th Avenue Greeley, CO, USA</td><td>80634</td><td>956-655-0756</td><td>Abish</td><td>David</td><td>3402 Park Blvd</td><td>PICK UP</td><td>92103</td><td>San Diego</td><td>United States</td><td>956-655-0756</td><td>Church</td><td>Birthday</td><td>rrd</td><td>Cash</td><td>Cash Register2</td></tr><tr><th colspan="17">Exception</th></tr><tr><td colspan="17"><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	Test Step - 16 - Payment type is not displayed on order confirmation page expected [FSN] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.java:221)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

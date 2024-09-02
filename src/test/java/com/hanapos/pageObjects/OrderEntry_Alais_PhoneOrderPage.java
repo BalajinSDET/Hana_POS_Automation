@@ -593,6 +593,8 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	private WebElement smstooglebutton_OnCustDetailsPopup;
 
 	//================ Payment Section as Credit card ==========================
+	@FindBy(xpath="//select[@id='SelectCardFormOption']")
+	private WebElement CreditCard_PaymentType_Dropdown_OnCustDetailsPopup;
 	
 	@FindBy(xpath="//input[@id='paymentFirstName']")
 	private WebElement CreditCard_PaymentType_FirstName_OnCustDetailsPopup;
@@ -1865,8 +1867,8 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		boolean itemFound = false;
 	    for (WebElement item : listOfItemsUnderItemcode1) {
 	        if (item.getText().contains(itemdescription)) {
-	            // Perform JavaScript click when the matching item is found
-	        	actionClick(item);
+	        	//actionClick(item);
+	        	item.click();
 	            itemFound = true;
 	            break;
 	        }
@@ -7410,6 +7412,16 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	public String get_entered_CVV_CCPaymentSection_On_PhoneOrderPage() {
 		HighlightElement(CreditCard_PaymentType_CVV_OnCustDetailsPopup);
 		return	CreditCard_PaymentType_CVV_OnCustDetailsPopup.getAttribute("value");
+	}
+	
+	public void Select_CreditcardType_CCPaymentSection_On_PhoneOrderPage(String creditcardtype) {
+		dropDown(CreditCard_PaymentType_Dropdown_OnCustDetailsPopup, creditcardtype, "VisibleText");
+	}
+	
+	public String get_selected_CreditcardType_CCPaymentSection_On_PhoneOrderPage() {
+		HighlightElement(CreditCard_PaymentType_Dropdown_OnCustDetailsPopup);
+		s = new Select(CreditCard_PaymentType_Dropdown_OnCustDetailsPopup);
+		return s.getFirstSelectedOption().getText();
 	}
 	
 }

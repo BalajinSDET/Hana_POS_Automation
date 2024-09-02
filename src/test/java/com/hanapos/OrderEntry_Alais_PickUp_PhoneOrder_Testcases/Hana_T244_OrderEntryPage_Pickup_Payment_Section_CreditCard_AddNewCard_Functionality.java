@@ -1,4 +1,4 @@
-package com.hanapos.OrderEntry_Alais_WireOut_PhoneOrder_Testcases;
+package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
 
 import java.io.IOException;
 
@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.hanapos.pageObjects.CustomerPage;
 import com.hanapos.pageObjects.DashboardOrderPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
@@ -15,27 +16,30 @@ import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
 import com.hanapos.utilities.DataLibrary;
 
-public class Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT extends TestBaseClass {
+public class Hana_T244_OrderEntryPage_Pickup_Payment_Section_CreditCard_AddNewCard_Functionality extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 	private Order_Confirmation_Page orderconfirmationpage;
 	private DashboardOrderPage dashboardorder;
+	private CustomerPage customerpage;
 	
-	public static final String dataSheetName = "Hana_T302";
+	public static final String dataSheetName = "Hana_T81";
+	//,dataProvider="fetch_Excel_Data"
 	
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
 		return DataLibrary.readExcelData(dataSheetName); 
 	}
+
 	
 	
-	@Test(enabled=true,groups= {"Regression","Smoke"},dataProvider="fetch_Excel_Data") 
-	public void Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test(
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") //,invocationCount=5
+	public void Validate_Hana_T244_OrderEntryPage_Pickup_Payment_Section_CreditCard_AddNewCard_Functionality_Test(
 			String salesperson, String customername, String recifname, String recilname, String reciaddress1, String reciaddress2, String recizip, String recicity,
 			String recicountry, String reciphone, String recilocation,String occasion, String searchandselectitemcode, String paymenttype) {
 		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting  Hana-Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test  ****");
+		logger.info("**** Starting  Validate_Hana_T244_OrderEntryPage_Pickup_Payment_Section_CreditCard_AddNewCard_Functionality_Test  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -44,18 +48,18 @@ public class Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_custom
 			logger.info("User on the hana pos login page");
 			
 			// Test Step - 2
-			lp.EnterUserName(prop.getProperty("username"));
-			logger.info("User entered the username as "+prop.getProperty("username"));
-			lp.EnterPassword(prop.getProperty("password"));
-			logger.info("User entered the password as "+prop.getProperty("password"));
+			lp.EnterUserName(prop.getProperty("bestuname"));
+			logger.info("User entered the username as "+prop.getProperty("bestuname"));
+			lp.EnterPassword(prop.getProperty("bestpass"));
+			logger.info("User entered the password as "+prop.getProperty("bestpass"));
 			lp.ClickLoginButton();
 			logger.info("User clicked on Login button");
 
 			dashboard = new HanaDashBoardPage();
 			softassert.assertTrue(dashboard.VerifyHanaDashBoardPage(),"Page does not navigated to hana dashboard page");
 			logger.info("User navigated to hana dashboard page");
-			dashboard.SelectShopNameDropDown(prop.getProperty("shopname"));
-			logger.info("User select the shopname on dashbaord page as "+prop.getProperty("shopname"));
+			dashboard.SelectShopNameDropDown(prop.getProperty("bestshopname"));
+			logger.info("User select the shopname on dashbaord page as "+prop.getProperty("bestshopname"));
 			
 			// Test Step - 3
 			delayWithGivenTime(2000);
@@ -68,9 +72,9 @@ public class Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_custom
 			
 			// Test Step - 5
 			phoneorder = new OrderEntry_Alais_PhoneOrderPage();
-			phoneorder.Click_WireOut_DeliveryType_OnPhoneOrderPage();
+			phoneorder.ClickPickupTypeOnPhoneOrderPage();
 			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.getHighlightedColorOnDeliveryTypeOnPhoneOrderPage(),"#676a6c", "Pickup type is not highlighted in blue color");		
+			softassert.assertEquals(phoneorder.getHighlightedColorOnPickupTypeOnPhoneOrderPage(),"#2f9bc8", "Pickup type is not highlighted in blue color");		
 			
 			// Test Step - 6
 			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage(salesperson);
@@ -99,6 +103,7 @@ public class Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_custom
 			phoneorder.EnterReciPhone(reciphone);
 			delayWithGivenTime(1000);
 			phoneorder.SelectReciLocation(recilocation);
+			phoneorder.Select_Zone_OnRecipientSection("TestZone");
 			delayWithGivenTime(1000);
 			phoneorder.EnterDeliveryDateOnReciSection();
 			delayWithGivenTime(2000);
@@ -123,84 +128,124 @@ public class Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_custom
 			delayWithGivenTime(2000);
 		
 			// Test Step - 9
-			softassert.assertTrue(phoneorder.Verify_ProductSuggestions_Appears("rrd"),"Test Step - 9 - In Item code row 1 on product section autosuggestions are not displayed");
-			phoneorder.SearchandSelectItemcodeOnPhoneOrderPage("rrd","rrd Red Rose Small");
+			phoneorder.SearchandSelectItemcodeOnPhoneOrderPage(searchandselectitemcode,"rrd-Red Rose Deluxe");
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getProdDetailsItemcode1OnPhoneOrderPage(),"rrd","Test Step - 9 - Item code is not displayed on phone order page product details section");
-			if(phoneorder.getProdDetailsItemDescription1OnPhoneOrderPage()=="Red Rose Small") {
-			softassert.assertEquals(phoneorder.getProdDetailsItemDescription1OnPhoneOrderPage(),"Red Rose Small","Test Step - 9 - Item description is not displayed on phone order page product details section"); 
-			}else if(phoneorder.getProdDetailsItemDescription1OnPhoneOrderPage()=="") {
-				softassert.assertEquals(phoneorder.getProdDetailsItemDescription1OnPhoneOrderPage(),"","Test Step - 9 - Item description is not displayed on phone order page product details section"); 
-			}
+			softassert.assertEquals(phoneorder.getProdDetailsItemDescription1OnPhoneOrderPage(),"Red Rose Deluxe","Test Step - 9 - Item description is not displayed on phone order page product details section"); 
 			softassert.assertEquals(phoneorder.getProdItemQty1OnPhoneOrderPage(),"1","Test Step - 9 - Item quantity is not displayed on phone order page product details section");
 			
-			if(phoneorder.getUnitPriceOnProdDetails()=="199.00"){ 
-				softassert.assertEquals(phoneorder.getUnitPriceOnProdDetails(),"199.00","Test Step - 9 - Item price is not displayed on phone order page product details section");
-			}else if (phoneorder.getUnitPriceOnProdDetails()=="209.00") {
-				softassert.assertEquals(phoneorder.getUnitPriceOnProdDetails(),"209.00","Test Step - 9 - Item price is not displayed on phone order page product details section");
-			}else {
-				System.out.println("Test Step - 9 - Item price is displayed as empty or blank on phone order page product details section");
+			if(phoneorder.getUnitPriceOnProdDetails()=="299.00"){ 
+				softassert.assertEquals(phoneorder.getUnitPriceOnProdDetails(),"299.00","Test Step - 9 - Item price is not displayed on phone order page product details section");
+			}else if (phoneorder.getUnitPriceOnProdDetails()=="309.00") {
+				softassert.assertEquals(phoneorder.getUnitPriceOnProdDetails(),"309.00","Test Step - 9 - Item price is not displayed on phone order page product details section");
 			}
-			
+						
 			delayWithGivenTime(2000);
 			
-			// Test Step - 10
-			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection(paymenttype);
+			// Test Step - 10			
+			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection("Credit Card");
 			delayWithGivenTime(1000);
-			phoneorder.Select_WireOut_PaymentMethod("FSN");
-			phoneorder.Enter_WireoutFlorist("63084");
-			phoneorder.set_Amount_wireout_paymentsection();
-			phoneorder.ClickPlaceOrderButton();
-			delayWithGivenTime(1000);
-			getDriver().switchTo().activeElement();
-			softassert.assertTrue(phoneorder.VerifyConfirmationPopupOnPhoneOrderPage(), "Test Step - 10 - Confirmation popup is not displayed on phone order page");
-			delayWithGivenTime(2000);
-			
-			// Test Step - 11
-			phoneorder.ClickCancelButton_On_ConfirmationPopup();
+			softassert.assertEquals(phoneorder.get_SelectedPaymentType_OnPhoneOrderPage(),"Credit Card", "Test Step - 10 - Selected payment type is not displayed");
+		
+			// Test Step - 11	
+			softassert.assertEquals(phoneorder.get_selected_CreditcardType_CCPaymentSection_On_PhoneOrderPage(), "Add New Card","Test Step - 11 - By default add new card dropdown option is not displayed as per expected on credit card payment type section");
 			
 			// Test Step - 12
-			phoneorder.ClickPlaceOrderButton();
-			softassert.assertTrue(phoneorder.VerifyConfirmationPopupOnPhoneOrderPage(), "Test Step - 12 - Confirmation popup is not displayed on phone order page");
-			delayWithGivenTime(2000);
-			
+			softassert.assertEquals(phoneorder.get_autopopulated_creditcard_paymenttype_FirstName(), "Abish", "Test Step - 12 - First name textbox field Payment type as credit card section  is not autopopulated");
+
 			// Test Step - 13
+			softassert.assertEquals(phoneorder.get_autopopulated_creditcard_paymenttype_LastName(), "David", "Test Step - 13 - Last name textbox field Payment type as credit card section  is not autopopulated");
+
+			// Test Step - 14
+			softassert.assertEquals(phoneorder.get_autopopulated_creditcard_paymenttype_Zipcode(), "92103", "Test Step - 14 - Zipcode textbox field Payment type as credit card section  is not autopopulated");
+			
+			// Test Step - 15
+			softassert.assertEquals(phoneorder.get_autopopulated_creditcard_paymenttype_City(), "San Diego", "Test Step - 15 - City textbox field Payment type as credit card section  is not autopopulated");
+			
+			// Test Step - 16
+			softassert.assertEquals(phoneorder.get_autopopulated_creditcard_paymenttype_State(), "CA", "Test Step - 16 - State textbox field Payment type as credit card section  is not autopopulated");
+			
+			// Test Step - 17 
+			softassert.assertEquals(phoneorder.get_Selected_creditcard_paymenttype_Country(), "United States", "Test Step - 17 - Country textbox field Payment type as credit card section  is not autopopulated");
+			
+			// Test Step - 18
+			phoneorder.Enter_CreditCardNumber_CCPaymentSection_On_PhoneOrderPage("4111-1111-1111-1111");
+			softassert.assertEquals(phoneorder.get_entered_CreditcardNumber_CCPaymentSection_On_PhoneOrderPage(), "4111-1111-1111-1111","Test Step - 18 - Entered credit card number is not displayed on credit card payment section");
+			
+			// Test Step - 19
+			phoneorder.Enter_ExpiredDate_CCPaymentSection_On_PhoneOrderPage("0729");
+			softassert.assertEquals(phoneorder.get_entered_ExpiredDate_CCPaymentSection_On_PhoneOrderPage(), "0729","Test Step - 19 - Entered credit card expire date is not displayed on credit card payment section");
+			
+			// Test Step - 20
+			phoneorder.Enter_CCV_CCPaymentSection_On_PhoneOrderPage("111");
+			softassert.assertEquals(phoneorder.get_entered_CVV_CCPaymentSection_On_PhoneOrderPage(), "111","Test Step - 20 - Entered credit card CVV code is not displayed on credit card payment section");
+		
+			// Test Step - 21
+			phoneorder.ClickPlaceOrderButton();
+			
+			// Test Step - 22
 			phoneorder.ClickSubmitButton_On_ConfirmationPopup();
 			delayWithGivenTime(2000);
-			orderconfirmationpage = new Order_Confirmation_Page();
-			softassert.assertTrue(orderconfirmationpage.VerifyOrderConfirmationPage(), "Test Step - 13 - Order confirmation page is not displayed");
 			
-			// Test Step - 14
+			// Test Step - 23
+			
+			// Test Step - 24
+			orderconfirmationpage = new Order_Confirmation_Page();
+			softassert.assertTrue(orderconfirmationpage.VerifyOrderConfirmationPage(), "Test Step - 24 - Order confirmation page is not displayed");
+			
+			// Test Step - 25
+			softassert.assertEquals(orderconfirmationpage.get_PaymentType(), "Credit Card", "Test Step - 25 - Payment type is not displayed on order confirmation page");
+
+			// Test Step - 26
+			softassert.assertEquals(orderconfirmationpage.get_CC_Number_OrderConfirmationPage(), "1111","Test Step - 26 - Entered credit card number on phoneorder order page CC number is not displayed on order confirmation page");
+			
+			
+			// Test Step - 27
 			delayWithGivenTime(1000);
 			dashboard.ClickOrder();
 			delayWithGivenTime(1000);
 			logger.info("User click the order menu on hana dashboard page");	
-			dashboardorder = new DashboardOrderPage();	                      //https://hanafloralpos3.com/Dashboard/Order
-			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
+			dashboardorder = new DashboardOrderPage();	                      
+			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 27 - Dashboard order page is not displayed");				
 			
-			// Test Step - 15
-			delayWithGivenTime(2000);
-			dashboardorder.EnterGlobalSearch(dashboardorder.get_PhoneOrder_WireOut_InvoiceInHousePayment());		
+			// Test Step - 28
+			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_CC_PaymentType());
 			delayWithGivenTime(1000);
-			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_WireOut_InvoiceInHousePayment(),"Test Step - 15 - In order summary page, Respective wire out Phone order invoice in house payment order is not displayed");		//https://hanafloralpos3.com/Dashboard/Order/Validate_PhoneOrder_InvoiceInHousePayment();
-			delayWithGivenTime(2000);
-			dashboardorder.Click_PhoneOrder_WireOut_InvoiceInHousePayment();
-
-			//Test Step - 16
-			delayWithGivenTime(2000);
-			softassert.assertEquals(dashboardorder.getRecipientName_OnDeliveryPopup(),"Abish David", "Test Step 16 - Recipient name is not displayed on delivery popup");
-			softassert.assertEquals(dashboardorder.getRecipientPhoneNum_OnDeliveryPopup(),"956-655-0756","Test Step 16 - Recipient phone number is not displayed on delivery popup");
-			delayWithGivenTime(2000);
-			softassert.assertEquals(dashboardorder.getRecipientAddress_OnDeliveryPopup(),"3402 Park Blvd PICK UP San Diego CA 92103 US", "Test Step 16 - Recipient address is not displayed on delivery popup");
-			softassert.assertEquals(dashboardorder.getCustAndcompyNameOnDeliveryPopup(),"Hana_Sisterchicks | Abish David","Test Step - 16 - customer and company name on delivery popup is not matched");
-			delayWithGivenTime(2000);
-			softassert.assertEquals(dashboardorder.getCustAddressOnDeliveryPopup(),"3402 Park Blvd","Test Step - 16 -customer address on delivery popup is not matched");
-			softassert.assertEquals(dashboardorder.getCustPhoneNumOnDeliveryPopup(),"956-655-0756","Test Step - 16 -customer phone number on delivery popup is not matched");
-			softassert.assertEquals(dashboardorder.getCustEmailOnDeliveryPopup(),"hanaposqateam@gmail.com","Test Step - 16 - customer phone number on delivery popup is not matched");
-			logger.info("User verified displayed customer type, customer name, company name, Address, Phone number & email are matched");
-			delayWithGivenTime(2000);			
-			softassert.assertEquals(dashboardorder.Verify_OrderType_Displayed_on_DeliveryPopup(), "Wire Out Phone Order","Test Step - 16 - Proper Order type is not displayed on delivery popup");
+			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_CC_PaymentType_PickUp_InvoiceNumber(),"Test Step - 28 - In orders summary page Donation payment type invoice number is not displayed for placed order");		
+			delayWithGivenTime(1000);
+			softassert.assertEquals(dashboardorder.Validate_PhoneOrder_CC_PaymentType_PickUp_ModeOfPayment(),"Credit Card","Test Step - 28 - Mode of payment as Donation type is not displayed");
 			
+			// Test Step - 29
+			delayWithGivenTime(2000);
+			customerpage = new CustomerPage();
+			dashboardorder.ClickCustomerMenuOnDashboard();
+			delayWithGivenTime(2000);
+			softassert.assertTrue(customerpage.VerifyCustomerMenuPage(),"Test Step - 29 - customer menu page is not displayed");
+			
+			// Test Step - 30
+			delayWithGivenTime(1000);
+			customerpage.Search_and_SelectCustomerName("Abish","Abish David");
+			customerpage.SearchAndSelectCustomerAddress("3402 Park Blvd");
+			//customerpage.SearchAndSelectCustomerPhone("956-655-0756");
+			delayWithGivenTime(2000);
+			
+			// Test Step - 31
+			customerpage.ClickCustomerTableRow1();
+			delayWithGivenTime(3000);
+			softassert.assertTrue(customerpage.VerifyCustomerDetailsPopup(),"Test Step - 18 - Customer details pop up is not displayed");
+
+			// Test Step - 32
+			delayWithGivenTime(1000);
+			phoneorder.Click_CreditCardTab_OnCustDetailsPopup();
+			delayWithGivenTime(1000);
+			
+			// Test Step - 33
+			softassert.assertEquals(customerpage.Verify_CreditCardNumber_OnCustomerDetailsPopup(), "**** **** **** 1111","Test Step - 33 - Credit card tab credit card number is not displayed");
+			softassert.assertEquals(customerpage.Verify_CreditCard_ExpiredDate_OnCustomerDetailsPopup(), "0729","Test Step - 33 - Credit card tab credit card expired date is not displayed");
+			customerpage.Click_OnCreditCard_DeleteIcon_OnCustomerDetailsPopup();
+			
+			// This method will avoid the junk data 
+			customerpage.Click_OnCreditCard_DeleteIcon_DeleteConfirmation();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

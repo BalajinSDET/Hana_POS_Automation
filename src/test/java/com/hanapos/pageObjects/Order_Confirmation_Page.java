@@ -16,6 +16,9 @@ public class Order_Confirmation_Page extends TestBaseClass {
 		PageFactory.initElements(getDriver(), this);
 	}
 	
+	@FindBy(xpath="//a[@id='odrinvoicelnk']")
+	private WebElement OrderInvoiceLink;
+	
 	@FindBy(xpath="(//h1[normalize-space()='Order Created Successfully'])[1]")
 	private WebElement OrderConfirmationPage;
 	
@@ -99,6 +102,9 @@ public class Order_Confirmation_Page extends TestBaseClass {
 	
 	@FindBy(xpath="//span[@id='orderinvoice1']")
 	private WebElement invoiceNumber_on_Order_Confirmationpage;
+	
+	@FindBy(xpath="//table[@class='table invoice-total no-padding']//tr[11]//td[2]//span")
+	private WebElement ccNumber_on_Order_Confirmationpage;
 	
 	public boolean VerifyOrderConfirmationPage() {
 		HighlightElement(OrderConfirmationPage);
@@ -242,6 +248,15 @@ public class Order_Confirmation_Page extends TestBaseClass {
          .sendKeys("c")
          .keyUp(Keys.CONTROL)
          .perform();
+	}
+	
+	public String get_CC_Number_OrderConfirmationPage() {
+		HighlightElement(ccNumber_on_Order_Confirmationpage);
+		return 	ccNumber_on_Order_Confirmationpage.getText();
+	}
+	
+	public void click_orderInvoiceLink() {
+		jsClick(OrderInvoiceLink);
 	}
 	
 }

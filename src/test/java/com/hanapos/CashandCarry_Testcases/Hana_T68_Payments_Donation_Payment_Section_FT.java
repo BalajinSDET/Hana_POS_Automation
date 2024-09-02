@@ -26,7 +26,7 @@ public class Hana_T68_Payments_Donation_Payment_Section_FT extends TestBaseClass
 	private DashboardOrderPage dashboardorder;
 	public static final String dataSheetName = "Hana_T68";
 	SoftAssert softassert = new SoftAssert();
-
+	String invoice;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
 		return DataLibrary.readExcelData(dataSheetName); 
@@ -170,7 +170,7 @@ public class Hana_T68_Payments_Donation_Payment_Section_FT extends TestBaseClass
 				logger.info("User verify the order confirmation popup is displayed");
 				cashandcarrypayment.GetOrderConfirmationMsgAndInvoiceNo();	
 				logger.info("User verify the order confirmation message and invoice number is displayed");
-				cashandcarrypayment.GetInvoiceNumber();
+				invoice=cashandcarrypayment.GetInvoiceNumber();
 				logger.info(("Generated Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber()));
 				System.out.println("Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber());				
 				cashandcarrypayment.GetTenderPrice();
@@ -195,7 +195,7 @@ public class Hana_T68_Payments_Donation_Payment_Section_FT extends TestBaseClass
 
 			// Test Step - 17
 			delayWithGivenTime(1000);
-			dashboardorder.EnterGlobalSearch(dashboardorder.get_Walkins_Pickup_Donation_OnOrderPage());
+			dashboardorder.EnterGlobalSearch(invoice);//dashboardorder.get_Walkins_Pickup_Donation_OnOrderPage()
 			delayWithGivenTime(1000);
 			
 			softassert.assertTrue(dashboardorder.Validate_Donation_MOP_DisplayedOnOrderPage(),"Test STep - 17 - Mode of payment donation is not displayed");			

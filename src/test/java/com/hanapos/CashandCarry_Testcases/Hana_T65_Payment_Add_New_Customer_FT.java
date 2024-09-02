@@ -27,7 +27,7 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 	private CustomerPage customerpage;
 	public static final String dataSheetName = "Hana_T65";
 	SoftAssert softassert = new SoftAssert();
-
+	String invoice;
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
 
@@ -343,7 +343,7 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 				logger.info("User verify the order confirmation popup is displayed");
 				cashandcarrypayment.GetOrderConfirmationMsgAndInvoiceNo();	
 				logger.info("User verify the order confirmation message and invoice number is displayed");
-				cashandcarrypayment.GetInvoiceNumber();
+				invoice = cashandcarrypayment.GetInvoiceNumber();
 				logger.info(("Generated Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber()));
 				System.out.println("Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber());				
 				cashandcarrypayment.GetTenderPrice();
@@ -364,10 +364,11 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 			dashboardorder = new DashboardOrderPage();							//https://hanafloralpos3-qa.azurewebsites.net/Dashboard/Order
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Dashboard order page is not navigated to");				
 			logger.info("User verify that the order page is navigated to dashboard order page");
-			delayWithGivenTime(1000);
-			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber());		
+			dashboardorder.EnterGlobalSearch(invoice);//
+			delayWithGivenTime(2000);
+			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step - 25 - Invoice number is not displayed");		
 
-			// Test Step - 26
+			// Test Step - 26			
 			delayWithGivenTime(2000);
 			softassert.assertEquals(dashboardorder.GetSenderorCustomerOnOrderPage().contains("Test Automation pvt ltd | Test Automation"),true,"Test Step - 26 - Sender or Customer on order page is not displayed");
 			

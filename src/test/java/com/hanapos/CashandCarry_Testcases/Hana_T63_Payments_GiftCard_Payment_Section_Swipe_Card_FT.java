@@ -24,7 +24,7 @@ public class Hana_T63_Payments_GiftCard_Payment_Section_Swipe_Card_FT extends Te
 	private CashAndCarryPage cashandcarry;
 	private CashAndCarryPaymentPage cashandcarrypayment;
 	private DashboardOrderPage dashboardorder;
-
+	String invoice;
 	public static final String dataSheetName = "Hana_T14";
 	SoftAssert softassert = new SoftAssert();
 
@@ -186,7 +186,7 @@ public class Hana_T63_Payments_GiftCard_Payment_Section_Swipe_Card_FT extends Te
 				logger.info("User verify the order confirmation popup is displayed");
 				cashandcarrypayment.GetOrderConfirmationMsgAndInvoiceNo();	
 				logger.info("User verify the order confirmation message and invoice number is displayed");
-				cashandcarrypayment.GetInvoiceNumber();
+				invoice=cashandcarrypayment.GetInvoiceNumber();
 				logger.info(("Generated Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber()));
 				System.out.println("Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber());				
 				cashandcarrypayment.GetTenderPrice();
@@ -211,7 +211,7 @@ public class Hana_T63_Payments_GiftCard_Payment_Section_Swipe_Card_FT extends Te
 			delayWithGivenTime(1000);
 			
 			// Test Step - 21
-			dashboardorder.EnterGlobalSearch(dashboardorder.get_Walkins_Pickup_GiftCard_OnOrderPage());
+			dashboardorder.EnterGlobalSearch(invoice); //dashboardorder.get_Walkins_Pickup_GiftCard_OnOrderPage()
 			delayWithGivenTime(1000);
 			softassert.assertTrue(dashboardorder.Validate_GiftCard_MOP_DisplayedOnOrderPage(),"Gift Card mode of pay is not displayed on orders page");		
 			softassert.assertAll();

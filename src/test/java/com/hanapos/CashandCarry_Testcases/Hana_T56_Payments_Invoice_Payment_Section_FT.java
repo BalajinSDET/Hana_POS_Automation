@@ -23,7 +23,7 @@ public class Hana_T56_Payments_Invoice_Payment_Section_FT extends TestBaseClass{
 	private HanaDashBoardPage dashboard;
 	private CashAndCarryPage cashandcarry;
 	private CashAndCarryPaymentPage cashandcarrypayment;
-
+	String invoice;	
 	public static final String dataSheetName = "Hana_T56";
 	SoftAssert softassert = new SoftAssert();
 
@@ -185,6 +185,7 @@ public class Hana_T56_Payments_Invoice_Payment_Section_FT extends TestBaseClass{
 				cashandcarrypayment.GetInvoiceNumber();
 				logger.info(("Generated Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber()));
 				System.out.println("Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber());				
+				invoice=cashandcarrypayment.GetInvoiceNumber();
 				cashandcarrypayment.GetTenderPrice();
 				logger.info(("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice()));
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			

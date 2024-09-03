@@ -202,9 +202,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up") 
 				&& listOfCashMOP.get(0).getText().equals("Cash")) {			
-			HighlightElement(listOfInvoiceNumber.get(0));
-			invoiceNumber =	listOfInvoiceNumber.get(0).isDisplayed();
-		
+				invoiceNumber =	listOfInvoiceNumber.get(0).isDisplayed();		
 		}	return invoiceNumber;			 		
 	}
 	
@@ -278,7 +276,6 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfDonation.get(0).getText().equals("Donation")) {
-				HighlightElement(listOfDonation.get(0));
 				donation_Invoice=listOfDonation.get(0).isDisplayed();						
 		}return donation_Invoice;
 	}
@@ -288,24 +285,17 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().equals("Walkin Sales") 
 				&& listOfPickUp.get(0).getText().equals("Pick Up")
 				&&	listOfDonation.get(0).getText().equals("Donation")) {
-				HighlightElement(listOfOrderStatus.get(0));
 				status=	listOfOrderStatus.get(0).getText();
 		}return status;
 	}
 	
 	public String GetInvoiceAmount_Walkin_pickup_Cash_OnOrderPage() {
+		String Invoice_Amt=null;
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Walkin Sales")
 				&&listOfPickUp.get(0).getText().contains("Pick Up")
 				&&listOfCashMOP.get(0).getText().contains("Cash")) {
-			HighlightElement(listOfWalkinSales.get(0));
-			delayWithGivenTime(1000);
-			HighlightElement(listOfOrderDetail.get(0));
-			delayWithGivenTime(1000);
-			HighlightElement(firstrowOfOrderDetail.get(0));
-			delayWithGivenTime(1000);
-			HighlightElement(listOfInvoiceAmountValue.get(0));
-			delayWithGivenTime(1000);
-		}	return listOfInvoiceAmountValue.get(0).getText();			 		
+			Invoice_Amt = listOfInvoiceAmountValue.get(0).getText();
+		}	return 	Invoice_Amt;		 		
 	}
 	
 	public boolean Validate_PhoneOrder_Pickup_Cash_InvoiceNumber() {
@@ -313,13 +303,6 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 				&& listOfPickUp.get(0).getText().contains("Pick Up") 
 				&& listOfCashMOP.get(0).getText().contains("Cash")) {
-			
-			/*
-			 * HighlightElement(listOfPhoneOrder.get(0)); delayWithGivenTime(1000);
-			 * HighlightElement(listOfOrderDetail.get(0)); delayWithGivenTime(1000);
-			 * HighlightElement(firstrowOfOrderDetail.get(0)); delayWithGivenTime(1000);
-			 * HighlightElement(listOfInvoiceNumber.get(0)); delayWithGivenTime(1000);
-			 */
 			 invoiceNumber = listOfInvoiceNumber.get(0).isDisplayed();
 		
 		}	return 	invoiceNumber;		 		
@@ -359,8 +342,6 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("COD - Cash On Delivery")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
-			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
 	
@@ -369,7 +350,6 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("COD - Cash On Delivery")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -379,7 +359,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Debit")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -398,7 +378,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Debit")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -416,7 +396,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("American Express")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -426,7 +406,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("American Express")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -444,7 +424,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Lovingly")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -454,7 +434,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Lovingly")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -472,7 +452,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Marigold")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -482,7 +462,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Marigold")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -500,7 +480,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Master Card")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -510,7 +490,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Master Card")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -528,7 +508,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Paid Outside Hana")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -538,7 +518,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Paid Outside Hana")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -565,7 +545,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(listOfPhoneOrder.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -575,7 +555,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -593,7 +573,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Visa")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -603,7 +583,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Visa")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -621,7 +601,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Write Off")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -631,7 +611,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Write Off")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -649,7 +629,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Check")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -659,7 +639,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Check")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -677,7 +657,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Donation")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -687,7 +667,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Donation")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -705,7 +685,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& listOfPickUp.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Credit Card")) {		
-			HighlightElement(listOfInvoiceNumber.get(0));
+			//HighlightElement(listOfInvoiceNumber.get(0));
 			delayWithGivenTime(1000);
 		}	return listOfInvoiceNumber.get(0).isDisplayed();			 		
 	}
@@ -715,7 +695,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 			&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up") 
 			&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Credit Card")) {	
-			HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
+			//HighlightElement(ListOfMOP_OnOrderPageTable.get(0));
 			Mode_Of_Pay = ListOfMOP_OnOrderPageTable.get(0).getText();
 		}	return 	Mode_Of_Pay;		 		
 	}
@@ -726,6 +706,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Phone Order") 
 				&& ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Delivery") 
 				&& ListOfMOP_OnOrderPageTable.get(0).getText().contains("Invoice/House Account")) {							
+			fluentWait(listOfInvoiceNumber.get(0));
 			invoiceNumber=listOfInvoiceNumber.get(0).getText().trim();	
 		}	return invoiceNumber;			 		
 	}
@@ -753,8 +734,7 @@ public class DashboardOrderPage extends TestBaseClass{
 		if(ListOfOrderType_OnOrderPageTable.get(0).getText().contains("Walkin Sales")
 				&&ListOfDeliveryType_OnOrderPageTable.get(0).getText().contains("Pick Up")
 				&&ListOfMOP_OnOrderPageTable.get(0).getText().contains("Cash")) {
-				delayWithGivenTime(1000);//ListOfOrderType_OnOrderPageTable
-			//HighlightElement(listOfSenderCustomer.get(0));
+				delayWithGivenTime(1000);
 			sender_cust= listOfSenderCustomer.get(0).getText();
 			System.out.println("Sender or Customer : "+sender_cust);
 		}	return 	sender_cust;		 		
@@ -1046,17 +1026,15 @@ public class DashboardOrderPage extends TestBaseClass{
 		 }  return dateTime;   
 	}
 	
-	public boolean Validate_dispatchConfirmation_Date_and_Time_With_AtlanticTimeZone() {
+	public boolean Validate_dispatchConfirmation_Date_and_Time_With_AtlanticTimeZone() {		
 		if(get_dispatchConfirmation_Date_and_Time().contains(Atlantic_TimeZone())) {
 			return true;
 		}else {
 			System.out.println("Dispatch Confirmation Date and Time is : "+get_dispatchConfirmation_Date_and_Time() + " not matched with : "+Atlantic_TimeZone());
 			return false;
-		}
-		
+		}	
 	}
-	
-	
+		
 	public String get_dispatchConfirmation_DriverName() {
 		String fullText = dispatch_ConfirmationMessage_InvPopup.getText();
 		 String[] parts = fullText.split("driver ");
@@ -1073,14 +1051,21 @@ public class DashboardOrderPage extends TestBaseClass{
 	    if (statusTable_row1_statusType != null && statusTable_row1_statusType.getText().contains("Dispatched")) {
 	        if (statusTable_row1_Date != null) {
 	            HighlightElement(statusTable_row1_Date);
-	            dateandtime = statusTable_row1_Date.getText().trim().toUpperCase();
+	            dateandtime = statusTable_row1_Date.getText().trim();
 	        } else {
-	            System.out.println("statusTable_row1_Date is null");
+	            System.out.println("statusTable_row1_Date is null"+dateandtime);
 	        }
 	    } else {
-	        System.out.println("statusTable_row1_statusType is null or does not contain 'Dispatched'");
+	        System.out.println("statusTable_row1_statusType is null or does not contain 'Dispatched'"+dateandtime);
 	    }
 	    return dateandtime;
+	}
+	
+	public String get_StatusTab_date_and_time() {
+		String dateandtime = null;
+		HighlightElement(statusTable_row1_Date);
+        dateandtime = statusTable_row1_Date.getText().trim();
+        return dateandtime;
 	}
    
 	public boolean Validate_status_date_and_time() {

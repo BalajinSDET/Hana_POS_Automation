@@ -24,6 +24,9 @@ public class CustomerPage extends TestBaseClass {
 	@FindBy(xpath="//span[@class='k-icon k-i-sort-desc-sm']")
 	private WebElement descendingIconOnCustomerIdColumn;
 	
+	@FindBy(xpath="//span[@class='k-icon k-i-sort-asc-sm']")
+	private WebElement ascendingIconOnCustomerIdColumn;
+	
 	@FindBy(xpath="//input[@data-text-field='CustomerName']")
 	private WebElement CustomerNameSearchBox;
 	
@@ -42,7 +45,7 @@ public class CustomerPage extends TestBaseClass {
 	@FindBy(xpath="(//input[@data-text-field='Cust_address1'])")
 	private WebElement CustomerAddressSearchBox;
 	
-	@FindBy(xpath="(//div[@class='k-animation-container']//div[2]//ul)[4]//li")
+	@FindBy(xpath="(//ul[@class='k-list k-reset'])//li")
 	private List<WebElement> CustomerList;
 	
 	@FindBy(xpath="(//tr[@role='row'])[2]//td[6]")
@@ -147,6 +150,9 @@ public class CustomerPage extends TestBaseClass {
 	@FindBy(xpath="//tbody[@role='rowgroup']//tr[1]//td[4]")
 	private WebElement CustTable_CustomerID_Row1;
 	
+	@FindBy(xpath="(//div[@class='card-no-text'])")
+	private List<WebElement> List_OfCustDetailsPopup_CreditCardNo;
+	
 	@FindBy(xpath="(//div[@class='card-no-text'])[1]")
 	private WebElement CustDetailsPopup_CreditCardNo;
 	
@@ -211,7 +217,7 @@ public class CustomerPage extends TestBaseClass {
 		CustomerNameSearchBox.click();
 		delayWithGivenTime(1000);
 		DoubleClickAndType(CustomerNameSearchBox, customerName);
-		delayWithGivenTime(3000);
+		delayWithGivenTime(1000);
 		for (WebElement customer : CustomerList) {
 	        if (customer.getText().contains(expectedcustomername)) {
 	        	jsClick(customer);
@@ -407,24 +413,37 @@ public class CustomerPage extends TestBaseClass {
 	}
 	
 	public void click_CustomerId_Header_OnCustTable() {
-		click(CustomerIdColumn_header);
+		jsClick(CustomerIdColumn_header);
 	}
 	
 	public boolean verify_custId_DescendingIcon() {
 		return descendingIconOnCustomerIdColumn.isDisplayed();
 	}
 	
-	public String get_CustomerId_DescendingIcon() {
+	public boolean verify_custId_AscendingIcon() {
+		return ascendingIconOnCustomerIdColumn.isDisplayed();
+	}
+	
+	
+	public String get_CustomerId_OnCustTable() {
 		return CustomerId_List_OnCustTable.get(0).getText();	
 	}
 	
-	public void Enter_CustomerId_SearchTextBox_OnCustomerTable() {
+	public void Enter_CustomerId_SearchTextBox_OnCustomerTable(String custId) {
 		CustomerIdSearchBox.clear();
-		CustomerIdSearchBox.sendKeys(get_CustomerId_DescendingIcon());
+		CustomerIdSearchBox.sendKeys(custId);
 		delayWithGivenTime(1000);
 		CustomerIdSearchBox.sendKeys(Keys.ENTER);
 	}
 
+	public boolean Verify_DontSaveCreditCard_OnCustomerDetailsPopup() {
+		int count = List_OfCustDetailsPopup_CreditCardNo.size();
+		if(count<2) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 
 

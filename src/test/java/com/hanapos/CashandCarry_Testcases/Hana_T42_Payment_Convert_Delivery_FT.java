@@ -123,8 +123,7 @@ public class Hana_T42_Payment_Convert_Delivery_FT extends TestBaseClass{
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 			
 			// Test Step - 10
-			cashandcarry.EnterCustomerName(customername,customername
-					);
+			cashandcarry.EnterCustomerName(customername,customername);
 			logger.info("User search and select the created customer ");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion(occasion);

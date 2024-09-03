@@ -21,7 +21,7 @@ public class Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT extends TestBaseCla
 	private Order_Confirmation_Page orderconfirmationpage;
 	private DashboardOrderPage dashboardorder;
 	public static final String dataSheetName = "Hana_T303";
-	
+	String invoiceNumber;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
 		return DataLibrary.readExcelData(dataSheetName); 
@@ -159,6 +159,8 @@ public class Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT extends TestBaseCla
 			
 			// Test Step - 12
 			orderconfirmationpage = new Order_Confirmation_Page();
+			invoiceNumber = orderconfirmationpage.get_invoiceNumber_on_OrderConfirmation_Page();
+			delayWithGivenTime(500);
 			softassert.assertEquals(orderconfirmationpage.getCustomerFname(), "Abish","Test Step - 12 - Added first name on customer section in phoneorder page and compared with order confirmation page displayed first name are not matched");
 			softassert.assertEquals(orderconfirmationpage.getCustomerLname(), "David","Test Step - 12 - Added last name on customer section in phoneorder page and compared with order confirmation page displayed last name are not matched");
 			softassert.assertEquals(orderconfirmationpage.getCustomerAddress(), "2715 35th Avenue Greeley, CO, USA","Test Step - 12 - Added address on customer section in phoneorder page and compared with order confirmation page displayed addresses are not matched");
@@ -197,8 +199,8 @@ public class Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT extends TestBaseCla
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
 			
 			// Test Step - 18
-			delayWithGivenTime(2000);
-			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_WireInDeliveryType_Appears_OnOrderPage());		
+			delayWithGivenTime(1000);
+			dashboardorder.EnterGlobalSearch(invoiceNumber);		//dashboardorder.getInvoiceNumber_WireInDeliveryType_Appears_OnOrderPage()
 			delayWithGivenTime(1000);
 			softassert.assertTrue(dashboardorder.Validate_WireInOrderType_Appears_OnOrderPage(),"Test Step - 18 - Wire in order type is not displayed on order page");
 			softassert.assertEquals(dashboardorder.get_WireInOrderType_Text_OnOrderPage(),"FSN Order","Test Step - 18 - Wire in order type is not displayed on order page");

@@ -172,11 +172,9 @@ public class Hana_T33_Purchase_Product_With_Coupon_FT extends TestBaseClass{
 			
 				cashandcarrypayment.GetInvoiceNumber();		
 				logger.info(("Generated Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber()));
-				System.out.println("Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber());				
 				
 				cashandcarrypayment.GetTenderPrice();
 				logger.info(("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice()));
-				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
 			}	
 		//	RobotDismissAlert();
 			logger.info("User click the cancel button on webclientprint window popup");

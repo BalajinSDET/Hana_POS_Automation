@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT">
+      <class name="com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality">
         <methods>
           <include name="loadConfig"/>
           <include name="tearDown"/>
+          <include name="Validate_Proposal_Wedding_Functionality_Test"/>
           <include name="setup"/>
-          <include name="Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT -->
+      </class> <!-- com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

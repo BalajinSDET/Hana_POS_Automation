@@ -28,6 +28,8 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 	public static final String dataSheetName = "Hana_T65";
 	SoftAssert softassert = new SoftAssert();
 	String invoice;
+	String custId;
+	String newlycreatedcustomername;
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
 
@@ -274,7 +276,7 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 			logger.info("User verify that email id field entered data is displayed");
 			softassert.assertEquals(cashandcarrypayment.getSelectedCustTypeOnAddNewCustPopup(), "Corporate","Test Step - 18 - Added customer type dropdown field is not displayed");
 			logger.info("User verify that customer type dropdown field selected data is displayed");
-			softassert.assertEquals(cashandcarrypayment.getEnteredaddnewcustcredit(), "100","Test Step - 18 - Added customer type dropdown field is not displayed");
+			softassert.assertEquals(cashandcarrypayment.getEnteredaddnewcustcredit(), "0","Test Step - 18 - Added customer type dropdown field is not displayed");
 			logger.info("User verify that customer type dropdown field selected data is displayed");
 
 			// Test Step - 19
@@ -300,22 +302,19 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 			logger.info("User verified success toast message is displayed ");
 			softassert.assertEquals(cashandcarrypayment.getDisplayedCustomerNameOnCCPage(),"Test Automation","Customer name is not displayed");		
 			logger.info("User verified created customer name is displayed on cash and carry page");
+			custId=cashandcarrypayment.getCustomerIdDisplayed();
+			newlycreatedcustomername=cashandcarrypayment.getDisplayedCustomerNameOnCCPage();
 			
 			// Test Step - 21		
 			delayWithGivenTime(2000);
-			softassert.assertEquals(cashandcarrypayment.getDisplayedCustomerNameOnCCPage(),"Test Automation","Customer name is displayed");
-		
-		//===============In automation we cannot get newly created cust id becoz ele disappear
-			//So I skipped the below two steps
-		/*
-		 * cashandcarrypayment.ClickCrossIconOnAddNewCust();
-		 * logger.info("User clicks on the cancel customer icon");
-		 * softassert.assertEquals(cashandcarrypayment.
-		 * getSearchandselectCustDisplayedData(), ""); ;
-		 * 
-		 * // Test Step - 22 cashandcarrypayment.EnterCustomerName(customername);
-		 * logger.info("User search and select the created customer ");
-		 */
+			softassert.assertEquals(cashandcarrypayment.getDisplayedCustomerNameOnCCPage(),"Test Automation","Test Step - 21 - Customer name is displayed");		
+			cashandcarrypayment.ClickCrossIconOnAddNewCust();
+			logger.info("User clicks on the cancel customer icon");
+			softassert.assertEquals(cashandcarrypayment.getSearchandselectCustDisplayedData(), "","Test Step - 21 - Selected customer cleared by close icon is not working"); ;
+		 
+		  	//Test Step - 22
+		  	cashandcarrypayment.EnterCustomerName(custId);
+		 
 			// Test Step - 23
 			delayWithGivenTime(2000);
 			softassert.assertTrue(cashandcarrypayment.Verify_CustomerName_AppearsOnCCPage(),"Test Step - 23 - Customer name is not displayed");
@@ -398,10 +397,11 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 			logger.info("User verify that customer menu page is displayed successfully");
 			
 			// Test Step - 31
-			customerpage.SearchAndSelectCustomerName(customername);
+			//customerpage.SearchAndSelectCustomerName(customername);
 			delayWithGivenTime(2000);
-			customerpage.SearchAndSelectCustomerPhone("919-293-9495");
-			customerpage.SearchAndSelectCustomerCityStateZip("Coimbatore Tamilnadu 641004");
+			customerpage.Enter_CustomerId_SearchTextBox_OnCustomerTable(custId);
+			//customerpage.SearchAndSelectCustomerPhone("919-293-9495");
+			//customerpage.SearchAndSelectCustomerCityStateZip("Coimbatore Tamilnadu 641004");
 			ThreadWait(1000);
 			
 			// It is a new customer so it will appears on row1 in customer table grid
@@ -467,12 +467,9 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 			softassert.assertEquals(customerpage.getDisplayedCustDetailsCustomerType(), "Corporate","Added customer type dropdown field is not displayed");
 			logger.info("User verify that customer type dropdown field selected data is displayed");
 			
-			if(customerpage.getCustDetailsStoreCreditTextBox()=="100") {
-			softassert.assertEquals(customerpage.getCustDetailsStoreCreditTextBox(), "100","Test Step - 33 - Added credit card field is not displayed");
+			if(customerpage.getCustDetailsStoreCreditTextBox()=="0") {
+			softassert.assertEquals(customerpage.getCustDetailsStoreCreditTextBox(), "0","Test Step - 33 - Added credit card field is not displayed");
 			logger.info("User verify that customer type dropdown field selected data is displayed");
-			}else if(customerpage.getCustDetailsStoreCreditTextBox()=="0") {
-				softassert.assertEquals(customerpage.getCustDetailsStoreCreditTextBox(), "0","Added credit card field is not displayed");
-				logger.info("User verify that customer type dropdown field selected data is displayed");
 			}
 			
 			softassert.assertTrue(customerpage.validateCustDetailsCreditApprovedToogle(),"Credit approved toogle is enabled");

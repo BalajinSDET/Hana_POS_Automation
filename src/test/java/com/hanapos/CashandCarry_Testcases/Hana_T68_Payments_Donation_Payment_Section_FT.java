@@ -199,7 +199,7 @@ public class Hana_T68_Payments_Donation_Payment_Section_FT extends TestBaseClass
 			delayWithGivenTime(1000);
 			
 			softassert.assertTrue(dashboardorder.Validate_Donation_MOP_DisplayedOnOrderPage(),"Test STep - 17 - Mode of payment donation is not displayed");			
-			delayWithGivenTime(1000);
+			delayWithGivenTime(2000);
 			
 			softassert.assertEquals(dashboardorder.getStatusOnOrderPage(),"Delivered","Test Step - 17 - Status on order page is not delivered");
 			softassert.assertAll();

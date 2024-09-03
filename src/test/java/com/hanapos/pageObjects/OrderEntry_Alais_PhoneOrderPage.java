@@ -596,6 +596,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	@FindBy(xpath="//select[@id='SelectCardFormOption']")
 	private WebElement CreditCard_PaymentType_Dropdown_OnCustDetailsPopup;
 	
+	@FindBy(id="cbDontSaveCC")
+	private WebElement dontSaveCreditCardCheckbox_OnCustDetailsPopup;
+	
 	@FindBy(xpath="//input[@id='paymentFirstName']")
 	private WebElement CreditCard_PaymentType_FirstName_OnCustDetailsPopup;
 
@@ -7423,6 +7426,16 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		s = new Select(CreditCard_PaymentType_Dropdown_OnCustDetailsPopup);
 		return s.getFirstSelectedOption().getText();
 	}
+	
+	public void Click_Dont_Save_Checkbox_CCPaymentSection_On_PhoneOrderPage() {
+		click(dontSaveCreditCardCheckbox_OnCustDetailsPopup);
+	}
+	
+	public boolean Verify_DontSave_Checkbox_CCPaymentSection_On_PhoneOrderPage_IsChecked() {
+		HighlightElement(dontSaveCreditCardCheckbox_OnCustDetailsPopup);
+		return dontSaveCreditCardCheckbox_OnCustDetailsPopup.isSelected();
+	}
+	
 	
 }
 	

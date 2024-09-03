@@ -26,10 +26,12 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 	private DashboardOrderPage dashboardorder;
 	private CustomerPage customerpage = new CustomerPage();
 	public static final String dataSheetName = "Hana_T37";
+	String invoiceNumber;
+	String newlyCreatedCustName;
 	SoftAssert softassert = new SoftAssert();
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
-
+	String custId;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
 		return DataLibrary.readExcelData(dataSheetName); 
@@ -308,28 +310,19 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			softassert.assertEquals(cashandcarry.getDisplayedCustomerNameOnCCPage(),"Test Automation","Test Step - 19 - Newly created Customer name is not displayed");		
 			logger.info("User verified created customer name is displayed on cash and carry page");
 			System.out.println("Test Step - 19 - Newly Created Customer Id: " +cashandcarry. get_NewlyCreated_CustomerId());
+			custId = cashandcarry.get_NewlyCreated_CustomerId();
+			newlyCreatedCustName = cashandcarry.getDisplayedCustomerNameOnCCPage();
 		
-			// Test Step - 20
-			//========================== Test 20, 21
-			//=========================== In Automation we cannot able to reselect the customer name			
-			//========== Because we cannot able to get the newly created customer id ================= 
-			/*
-			 * delayWithGivenTime(1000); cashandcarry.ClickCancelCustIcon();
-			 * logger.info("User clicks on the cancel customer icon");
-			 * delayWithGivenTime(1000);
-			 * softassert.assertEquals(cashandcarry.getDisplayedCustomerName(),
-			 * "","Customer name is displayed");
-			 * 
-			 * // Test Step - 21 delayWithGivenTime(1000); //
-			 * cashandcarry.EnterCustomerName(customername);
-			 * cashandcarry.EnterNewCustomerName();
-			 * logger.info("User search and select the created customer ");
-			 * delayWithGivenTime(1000);
-			 * //softassert.assertEquals(cashandcarry.getDisplayedCustomerName()
-			 * ,"Test Automation","Customer name is not displayed"); logger.
-			 * info("User verify that search and selected the created customer is displayed "
-			 * );
-			 *///=======================Skiped above test step
+			// Test Step - 20			
+			 delayWithGivenTime(1000); 
+			 cashandcarry.ClickCancelCustIcon();
+			 logger.info("User clicks on the cancel customer icon");
+			 delayWithGivenTime(1000);
+			 softassert.assertEquals(cashandcarry.getDisplayedCustomerName(), "","Test Step - 20 - Customer name is displayed");
+			 
+			// Test Step - 21
+			 cashandcarry.EnterCustomerName(custId,newlyCreatedCustName);
+			 logger.info("User search and select the created customer");
 			
 			// Test Step - 22
 			delayWithGivenTime(1000);
@@ -367,7 +360,7 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 				logger.info("User verify the order confirmation popup is displayed");
 				cashandcarrypayment.GetOrderConfirmationMsgAndInvoiceNo();	
 				logger.info("User verify the order confirmation message and invoice number is displayed");
-				cashandcarrypayment.GetInvoiceNumber();
+				invoiceNumber =cashandcarrypayment.GetInvoiceNumber();
 				logger.info(("Generated Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber()));
 				System.out.println("Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber());				
 				cashandcarrypayment.GetTenderPrice();
@@ -390,7 +383,7 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			logger.info("User verify that the order page is navigated to dashboard order page");
 			
 			delayWithGivenTime(1000);
-			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage());
+			dashboardorder.EnterGlobalSearch(invoiceNumber); //dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage()
 			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step - 25 -Invoice number on order page is not displayed");		
 			
 			// Test Step - 26
@@ -421,16 +414,15 @@ public class Hana_T37_Add_New_Customer_FT extends TestBaseClass{
 			softassert.assertTrue(customerpage.VerifyCustomerMenuPage(),"Test Step - 30 -customer menu page is not displayed");
 			logger.info("User verify that customer menu page is displayed successfully");
 			
-			// Test Step - 31			
-			customerpage.SearchAndSelectCustomerName(customername);
-			customerpage.SearchAndSelectCustomerCityStateZip("Coimbatore");
-			ThreadWait(1000);
+			// Test Step - 31		
+			delayWithGivenTime(1000);
+			customerpage.Enter_CustomerId_SearchTextBox_OnCustomerTable(custId);
+			delayWithGivenTime(2000);
 			customerpage.ClickCustomerId_LastRow_OnCustTable();
 			
 			// Test Step - 32
-
 			logger.info("User clicks the displayed customer in the table ");
-			delayWithGivenTime(4000);
+			delayWithGivenTime(3000);
 			softassert.assertTrue(customerpage.VerifyCustomerDetailsPopup(),"Test Step - 32 - Customer details pop up is not displayed");
 			logger.info("User verify that customer details popup is displayed");
 			

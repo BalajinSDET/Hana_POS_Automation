@@ -23,7 +23,7 @@ public class Hana_T711_Quick_Dispatch_Functionality extends TestBaseClass {
 	private Order_Confirmation_Page orderconfirmationpage;
 	private DashboardOrderPage dashboardorder;
 	private DispatchPage dispatch;
-	
+	String invoice;
 	public static final String dataSheetName = "Hana_T302";
 	
 	@DataProvider(name = "fetch_Excel_Data") 
@@ -153,7 +153,9 @@ public class Hana_T711_Quick_Dispatch_Functionality extends TestBaseClass {
 			delayWithGivenTime(2000);
 			orderconfirmationpage = new Order_Confirmation_Page();
 			softassert.assertTrue(orderconfirmationpage.VerifyOrderConfirmationPage(), "Test Step - 13 - Order confirmation page is not displayed");
-			
+			delayWithGivenTime(500);
+			invoice = orderconfirmationpage.get_invoiceNumber_on_OrderConfirmation_Page();
+
 			delayWithGivenTime(1000);
 			dashboard.ClickOrder();
 			delayWithGivenTime(1000);
@@ -162,7 +164,7 @@ public class Hana_T711_Quick_Dispatch_Functionality extends TestBaseClass {
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
 			delayWithGivenTime(2000);
 			
-			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_On_PhoneOrder_DeliveryInvoiceInHousePayment());
+			dashboardorder.EnterGlobalSearch(invoice); //dashboardorder.getInvoiceNumber_On_PhoneOrder_DeliveryInvoiceInHousePayment()
 			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_DeliveryInvoiceInHousePayment(),"Test Step - 15 - Phone order invoice in house payment is not displayed");		//https://hanafloralpos3.com/Dashboard/Order/Validate_PhoneOrder_InvoiceInHousePayment();
 			delayWithGivenTime(2000);
 			
@@ -262,22 +264,19 @@ public class Hana_T711_Quick_Dispatch_Functionality extends TestBaseClass {
 			dashboardorder.Click_StatusTab_onInvPopup();
 			
 			// Test Step - 18
-			delayWithGivenTime(1000);
+			delayWithGivenTime(2000);
 			softassert.assertTrue(dashboardorder.Validate_status_date_and_time(),"Test Step - 18 - Status tab confirmation dispatch date and time is not matched as expected on invoice popup");
 			
 			// Test Step - 19
 			delayWithGivenTime(1000);
 			softassert.assertEquals(dashboardorder.Verify_DeliveryOnTruck_at_ActivitySection(), "Delivery On Truck","Test Step - 19 - Delivery on truck message text is not matched as expected on activity section");
-			delayWithGivenTime(1000);
+			delayWithGivenTime(2000);
 			softassert.assertTrue(dashboardorder.Validate_DeliveryOnTruck_DateandTime_at_ActivitySection(), "Test Step - 19 - Delivery on truck date and time is not matched as expected on activity section");
 			delayWithGivenTime(1000);
 			softassert.assertEquals(dashboardorder.get_Confirmation_DriverName_RouteNumber_on_ActivitySection(), "LJB","Test Step - 19 - Delivery on truck driver name is not matched as expected on activity section");
-			delayWithGivenTime(1000);
+			delayWithGivenTime(2000);
 			softassert.assertTrue(dashboardorder.Validate_ConfirmationDate_and_Time_RouteNumber_on_ActivitySection(),"Test Step - 19 - Delivery on truck driver name is not matched as expected on activity section");
 			delayWithGivenTime(1000);
-		
-		
-		
 		
 		} catch (Exception e) {
 			e.printStackTrace();

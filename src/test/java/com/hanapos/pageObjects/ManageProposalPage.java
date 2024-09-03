@@ -21,6 +21,9 @@ public class ManageProposalPage extends TestBaseClass {
 		PageFactory.initElements(getDriver(), this);
 	}
 	
+	@FindBy(id="lblProposalId")
+	private WebElement ProposalId;
+	
 	@FindBy(xpath="//a[@id='aCoupleDetails']")
 	private WebElement coupleDetails_Tab;
 	
@@ -667,6 +670,11 @@ public class ManageProposalPage extends TestBaseClass {
 	
 	public void Click_PublishBtn_On_AlertPopup() {
 		click(publish_Btn_On_AlertPopup);
+	}
+	
+	public String get_ProposalId() {
+		HighlightElement(ProposalId);
+		return ProposalId.getText();
 	}
 	
 }

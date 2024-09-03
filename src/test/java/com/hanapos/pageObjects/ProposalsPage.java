@@ -2,6 +2,7 @@ package com.hanapos.pageObjects;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -44,6 +45,9 @@ public class ProposalsPage extends TestBaseClass {
 	
 	@FindBy(xpath="(//select[@id='ddlStatusType'])[1]")
 	private WebElement proposal_StatusType_DropDown;
+	
+	@FindBy(xpath="//input[@id='txtProposalGridSearch']")
+	private WebElement proposal_SearchBox;
 	
 	@FindBy(xpath="(//span[@class='fa fa-bars fa-1x hana-color-drdAction'])[1]")
 	private WebElement proposal_Action_Button;
@@ -131,6 +135,14 @@ public class ProposalsPage extends TestBaseClass {
 	public boolean Verify_ItemNameIsDisplayed_on_CustProposalView() {
 		HighlightElement(proposal_CustProposalView_itemName);
 		return proposal_CustProposalView_itemName.isDisplayed();
+	}
+	
+	public void Enter_ProposalId_In_Proposal_GlobalSearchBox(String proposalId) {
+		proposal_SearchBox.clear();
+		delayWithGivenTime(1000);
+		proposal_SearchBox.sendKeys(proposalId);
+		delayWithGivenTime(1000);
+		proposal_SearchBox.sendKeys(Keys.ENTER);
 	}
 	
 }

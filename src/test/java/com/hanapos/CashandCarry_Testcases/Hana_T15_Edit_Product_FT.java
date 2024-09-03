@@ -27,7 +27,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
 	SoftAssert softassert = new SoftAssert();
-
+	String invoicenumber;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
 		return DataLibrary.readExcelData(dataSheetName); 
@@ -218,7 +218,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
 				cashandcarrypayment.GetOrderConfirmationMsgAndInvoiceNo();		
-				cashandcarrypayment.GetInvoiceNumber();
+				invoicenumber =cashandcarrypayment.GetInvoiceNumber();
 				System.out.println("Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber());				
 				cashandcarrypayment.GetTenderPrice();
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			
@@ -241,7 +241,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step:25 - Dashboard order page is not displayed");
 			logger.info("User verify that the order page is navigated to dashboard order page");
 			delayWithGivenTime(1000); 
-			dashboardorder.EnterGlobalSearch(dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage());
+			dashboardorder.EnterGlobalSearch(invoicenumber);//dashboardorder.getInvoiceNumber_Walkin_pickup_Cash_OnOrderPage()
 
 			softassert.assertTrue(dashboardorder.ValidateInvoiceNumber(),"Test Step:25 - Invoice number is not displayed on order page");
 

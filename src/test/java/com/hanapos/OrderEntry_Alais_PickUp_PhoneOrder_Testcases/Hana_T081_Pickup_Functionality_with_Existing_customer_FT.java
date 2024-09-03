@@ -21,7 +21,7 @@ public class Hana_T081_Pickup_Functionality_with_Existing_customer_FT extends Te
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 	private Order_Confirmation_Page orderconfirmationpage;
 	private DashboardOrderPage dashboardorder;
-	
+	String invoiceNumber;
 	public static final String dataSheetName = "Hana_T81";
 	//,dataProvider="fetch_Excel_Data"
 	
@@ -162,6 +162,8 @@ public class Hana_T081_Pickup_Functionality_with_Existing_customer_FT extends Te
 			delayWithGivenTime(2000);
 			orderconfirmationpage = new Order_Confirmation_Page();
 			softassert.assertTrue(orderconfirmationpage.VerifyOrderConfirmationPage(), "Test Step - 13 - Order confirmation page is not displayed");
+			delayWithGivenTime(500);
+			invoiceNumber = orderconfirmationpage.get_invoiceNumber_on_OrderConfirmation_Page();
 			
 			// Test Step - 14
 			delayWithGivenTime(1000);
@@ -172,7 +174,7 @@ public class Hana_T081_Pickup_Functionality_with_Existing_customer_FT extends Te
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
 			
 			// Test Step - 15
-			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_InvoiceHouse());
+			dashboardorder.EnterGlobalSearch(invoiceNumber); //dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_InvoiceHouse()
 			delayWithGivenTime(1000);
 			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_InvoiceInHousePayment(),"Test Step - 15 - Phone order invoice in house payment is not displayed");		//https://hanafloralpos3.com/Dashboard/Order/Validate_PhoneOrder_InvoiceInHousePayment();
 			delayWithGivenTime(1000);

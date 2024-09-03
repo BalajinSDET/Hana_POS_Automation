@@ -25,6 +25,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -982,22 +983,30 @@ public class TestBaseClass implements FrameworkDesign {
 	}
 
 	public String Atlantic_TimeZone() {
-		LocalDateTime systemDateTime = LocalDateTime.now();
+        // Get the current system time
+        LocalDateTime systemDateTime = LocalDateTime.now();
 
-		ZoneId systemZone = ZoneId.systemDefault();
-		ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
+        // Get the system's default zone
+        ZoneId systemZone = ZoneId.systemDefault();
+        ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
 
-		// Define the Atlantic Standard Time zone (UTC-04:00)
-		ZoneId atlanticTimeZone = ZoneId.of("America/Halifax"); // Use "America/Halifax" for AST
+        // Define the Atlantic Standard Time zone (UTC-04:00)
+        ZoneId atlanticTimeZone = ZoneId.of("America/Halifax");
 
-		ZonedDateTime atlanticZonedDateTime = systemZonedDateTime.withZoneSameInstant(atlanticTimeZone);
-		
-		// Remove the space at mm a to get hh:mma = 05:30AM || h:mma = 5:30AM  
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy h:mma");
-		String formattedAtlanticTime = atlanticZonedDateTime.format(formatter).toUpperCase();
-		
-		return formattedAtlanticTime;
-	}
+        // Convert to Atlantic Standard Time
+        ZonedDateTime atlanticZonedDateTime = systemZonedDateTime.withZoneSameInstant(atlanticTimeZone);
+
+        // Format the Atlantic Time
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d yyyy h:mma");
+        String formattedAtlanticTime = atlanticZonedDateTime.format(formatter).toUpperCase();
+
+        // Replace "SEPT" with "SEP" if necessary
+        if (formattedAtlanticTime.startsWith("SEPT")) {
+            formattedAtlanticTime = formattedAtlanticTime.replaceFirst("SEPT", "SEP");
+        }
+        return formattedAtlanticTime; // Return the formatted Atlantic Time
+    }
+	
 
 	public String Atlantic_TimeZone_NumberDateFormat() {
 		LocalDateTime systemDateTime = LocalDateTime.now();

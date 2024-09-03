@@ -6,6 +6,8 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class TimeZoneConverter {
+	
+	
     public static void main(String[] args) {
     	LocalDateTime systemDateTime = LocalDateTime.now();
 
@@ -19,9 +21,12 @@ public class TimeZoneConverter {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mma");
 		String formattedAtlanticTime = atlanticZonedDateTime.format(formatter).toUpperCase();
+
+		System.out.println("Atlantic Time Minute is :" +atlanticZonedDateTime.getMinute());
+		System.out.println("Atlantic Current Date and Time is :" +formattedAtlanticTime);
 		DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("MM/dd/yyyy h:mma");
 		String formattedAtlanticTime1 = atlanticZonedDateTime.format(formatter1).toUpperCase();
-
+		
 		System.out.println("Atlantic Current Date and Time is :" +formattedAtlanticTime1);
 		
     }

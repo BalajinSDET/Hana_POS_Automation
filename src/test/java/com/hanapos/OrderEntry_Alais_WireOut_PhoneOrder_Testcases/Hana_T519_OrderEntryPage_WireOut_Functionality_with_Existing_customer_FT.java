@@ -21,7 +21,7 @@ public class Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_custom
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 	private Order_Confirmation_Page orderconfirmationpage;
 	private DashboardOrderPage dashboardorder;
-	
+	String invoiceNumber;
 	public static final String dataSheetName = "Hana_T302";
 	
 	@DataProvider(name = "fetch_Excel_Data") 
@@ -169,7 +169,9 @@ public class Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_custom
 			delayWithGivenTime(2000);
 			orderconfirmationpage = new Order_Confirmation_Page();
 			softassert.assertTrue(orderconfirmationpage.VerifyOrderConfirmationPage(), "Test Step - 13 - Order confirmation page is not displayed");
-			
+			delayWithGivenTime(500);
+			invoiceNumber = orderconfirmationpage.get_invoiceNumber_on_OrderConfirmation_Page();
+		
 			// Test Step - 14
 			delayWithGivenTime(1000);
 			dashboard.ClickOrder();
@@ -180,7 +182,7 @@ public class Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_custom
 			
 			// Test Step - 15
 			delayWithGivenTime(2000);
-			dashboardorder.EnterGlobalSearch(dashboardorder.get_PhoneOrder_WireOut_InvoiceInHousePayment());		
+			dashboardorder.EnterGlobalSearch(invoiceNumber); //dashboardorder.get_PhoneOrder_WireOut_InvoiceInHousePayment()		
 			delayWithGivenTime(1000);
 			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_WireOut_InvoiceInHousePayment(),"Test Step - 15 - In order summary page, Respective wire out Phone order invoice in house payment order is not displayed");		//https://hanafloralpos3.com/Dashboard/Order/Validate_PhoneOrder_InvoiceInHousePayment();
 			delayWithGivenTime(2000);

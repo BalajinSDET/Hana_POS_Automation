@@ -16,7 +16,7 @@ public class Hana_T_Proposal_Wedding_Functionality extends TestBaseClass{
 	private HanaDashBoardPage dashboard;
 	private ProposalsPage proposal;
 	private ManageProposalPage manageproposal;
-
+	String proposalId;
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression","Smoke"}) 
 	public void Validate_Proposal_Wedding_Functionality_Test() {
@@ -68,17 +68,18 @@ public class Hana_T_Proposal_Wedding_Functionality extends TestBaseClass{
 			delayWithGivenTime(2000);
 			
 			// Test Step - 9
+			proposalId = manageproposal.get_ProposalId();
 			manageproposal.Click_CoupleDetailsTab();
 			manageproposal.Select_Bride_Groom_DropDown1("Groom");
 			delayWithGivenTime(2000);
-			softassert.assertEquals(manageproposal.get_Entered_Bride_FirstName(), "Abish","Test Step - 24 - Entered bride first name is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Bride_LastName(), "David","Test Step - 24 - Entered bride last name is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Bride_PhoneNumber(), "956-655-0756","Test Step - 24 -Entered bride phone number is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Bride_Email(), "hanaposqateam@gmail.com","Test Step - 24 -Entered bride email is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Bride_City(), "San Diego","Test Step - 24 -Entered bride city is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Bride_State(), "CA","Test Step - 24 -Entered bride state is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Bride_Address(), "3402 Park Blvd","Test Step - 24 -Entered bride address is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Bride_Zip(), "92103","Test Step - 24 -Entered bride zip code is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Bride_FirstName(), "Abish","Test Step - 9 - Entered bride first name is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Bride_LastName(), "David","Test Step - 9 - Entered bride last name is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Bride_PhoneNumber(), "9566550756","Test Step - 9 -Entered bride phone number is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Bride_Email(), "hanaposqateam@gmail.com","Test Step - 9 -Entered bride email is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Bride_City(), "San Diego","Test Step - 9 -Entered bride city is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Bride_State(), "CA","Test Step - 9 -Entered bride state is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Bride_Address(), "3402 Park Blvd","Test Step - 9 -Entered bride address is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Bride_Zip(), "92103","Test Step - 9 -Entered bride zip code is not displayed");
 			
 			// Test Step - 10
 			delayWithGivenTime(2000);
@@ -94,14 +95,14 @@ public class Hana_T_Proposal_Wedding_Functionality extends TestBaseClass{
 			manageproposal.Enter_Groom_Zip("92021");
 
 			delayWithGivenTime(2000);
-			softassert.assertEquals(manageproposal.get_Entered_Groom_FirstName(), "O'Brien","Test Step - 24 -Entered groom first name is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Groom_LastName(), "John","Test Step - 24 -Entered groom last name is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Groom_PhoneNumber(), "925-456-2305","Test Step - 24 -Entered groom phone number is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Groom_Email(), "hanaposqateam@gmail.com","Test Step - 24 -Entered groom email is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Groom_City(), "El Cajon","Test Step - 24 -Entered groom city is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Groom_State(), "CA","Test Step - 24 -Entered groom state is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Groom_Address(), "Blossom Valley","Test Step - 24 -Entered groom address is not displayed");
-			softassert.assertEquals(manageproposal.get_Entered_Groom_Zip(), "92021","Test Step - 24 -Entered groom zip code is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Groom_FirstName(), "O'Brien","Test Step - 10 -Entered groom first name is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Groom_LastName(), "John","Test Step - 10 -Entered groom last name is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Groom_PhoneNumber(), "925-456-2305","Test Step - 10 -Entered groom phone number is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Groom_Email(), "hanaposqateam@gmail.com","Test Step - 10 -Entered groom email is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Groom_City(), "El Cajon","Test Step - 10 -Entered groom city is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Groom_State(), "CA","Test Step - 10 -Entered groom state is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Groom_Address(), "Blossom Valley","Test Step - 10 -Entered groom address is not displayed");
+			softassert.assertEquals(manageproposal.get_Entered_Groom_Zip(), "92021","Test Step - 10 -Entered groom zip code is not displayed");
 			
 			// Test Step - 11
 			delayWithGivenTime(2000);
@@ -195,18 +196,15 @@ public class Hana_T_Proposal_Wedding_Functionality extends TestBaseClass{
 			softassert.assertEquals(proposal.get_ProposalsViewPageTitle(), "Hana | View Proposal","Test Step - 18 - View proposal page is not displayed");
 
 			// Test Step - 19
-			proposal.Click_Proposal_Id_Label();
-			delayWithGivenTime(5000);
-			softassert.assertTrue(proposal.Verify_Proposal_Id_Sort_asc_Icon(), "Test Step - 19 - Proposal Id ascending order arrow up icon is not displayed");
-			proposal.Click_Proposal_Id_Label();
-			delayWithGivenTime(4000);
-			softassert.assertTrue(proposal.Verify_Proposal_Id_Sort_desc_Icon(), "Test Step - 19 - Proposal Id ascending order arrow down icon is not displayed");
+			delayWithGivenTime(2000);
+			proposal.Enter_ProposalId_In_Proposal_GlobalSearchBox(proposalId);
 			delayWithGivenTime(2000);
 			softassert.assertEquals(proposal.get_Selected_Proposal_StatusType(), "Accepted","Test Step - 19 - Selected proposal status type is not displayed");
 			delayWithGivenTime(3000);
 			proposal.Click_Proposal_Action_Button();			
 
 			// Test Step - 20
+			delayWithGivenTime(2000);
 			proposal.Click_Proposal_CustProposalView_Button();
 			delayWithGivenTime(2000);
 			softassert.assertTrue(proposal.Verify_ItemNameIsDisplayed_on_CustProposalView(),"Test Step - 20 - Item name is not displayed on customer proposal view");

@@ -26,7 +26,7 @@ public class Hana_T09_WalkinsSetting_CashRegistery_Merchant_Copy_with_Merchant_C
 	public static ExecutorService executorService ;
 	private static final int THREAD_POOL_SIZE = 2;
 	SoftAssert softassert = new SoftAssert();
-
+	String invoicenumber;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
 		return DataLibrary.readExcelData(dataSheetName); 
@@ -122,7 +122,7 @@ public class Hana_T09_WalkinsSetting_CashRegistery_Merchant_Copy_with_Merchant_C
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
 				cashandcarrypayment.VerifyOrderConfirmationPopup();
 				cashandcarrypayment.GetOrderConfirmationMsgAndInvoiceNo();		
-				cashandcarrypayment.GetInvoiceNumber();
+				invoicenumber = cashandcarrypayment.GetInvoiceNumber();
 				System.out.println("Order invoice number is :"+cashandcarrypayment.GetInvoiceNumber());				
 				cashandcarrypayment.GetTenderPrice();
 				System.out.println("The remaining amount given to customer is :"+cashandcarrypayment.GetTenderPrice());			

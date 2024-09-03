@@ -259,4 +259,8 @@ public class Order_Confirmation_Page extends TestBaseClass {
 		jsClick(OrderInvoiceLink);
 	}
 	
+	public String get_invoiceNumber_on_OrderConfirmation_Page() {
+		HighlightElement(OrderInvoiceLink);
+		return OrderInvoiceLink.getText();
+	}
 }

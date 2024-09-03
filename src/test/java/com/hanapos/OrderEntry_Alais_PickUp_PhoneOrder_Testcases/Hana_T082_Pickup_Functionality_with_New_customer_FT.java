@@ -24,7 +24,7 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 	private DashboardOrderPage dashboardorder;
 	private CustomerPage customerpage;
 	public static final String dataSheetName = "Hana_T82";
-	
+	String invoiceNumber;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
 		return DataLibrary.readExcelData(dataSheetName); 
@@ -173,8 +173,9 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			orderconfirmationpage = new Order_Confirmation_Page();
 			softassert.assertTrue(orderconfirmationpage.VerifyOrderConfirmationPage(), "Test Step - 13 - Order confirmation page is not displayed");
 			
-			// Test Step - 14
-			delayWithGivenTime(1000);
+			// Test Step - 14	
+			invoiceNumber = orderconfirmationpage.get_invoiceNumber_on_OrderConfirmation_Page();
+			delayWithGivenTime(500);
 			orderconfirmationpage.click_orderInvoiceLink();
 			/*  // Below code may causes exception. during parallel execution ....
 			 * dashboard.ClickOrder(); delayWithGivenTime(1000);
@@ -184,10 +185,10 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.
 			  getProperty("livedashboardorderURL")
 			  ,"Test Step - 14 - Dashboard order page is not displayed");
-			 
+			
 			// Test Step - 15,20
 			delayWithGivenTime(1000);
-			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_Cash());
+			dashboardorder.EnterGlobalSearch(invoiceNumber);//dashboardorder.get_InvoiceNumber_PhoneOrder_PickUp_Cash()
 			delayWithGivenTime(1000);			
 			softassert.assertTrue(dashboardorder.Validate_PhoneOrder_Pickup_Cash_InvoiceNumber(),"Test Step - 15 - Phone order invoice is not displayed");
 			dashboardorder.ClickPhoneOrder_on_SenderorCustomer_OnOrderPage();
@@ -220,12 +221,14 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			delayWithGivenTime(500);
 			customerpage.click_CustomerId_Header_OnCustTable();
 			delayWithGivenTime(500);
+			softassert.assertTrue(customerpage.verify_custId_AscendingIcon(),"Test Step - 17 - customer id on customer table page ascending icon is not displayed");
+			delayWithGivenTime(2000);
 			customerpage.click_CustomerId_Header_OnCustTable();
 			delayWithGivenTime(1000);
 			softassert.assertTrue(customerpage.verify_custId_DescendingIcon(),"Test Step - 17 - customer id on customer table page descending icon is not displayed");
 
-			customerpage.Enter_CustomerName_searchbox_OnCustTable("Mike");			
-		//	customerpage.Search_and_SelectCustomerName("Mike","Mike");
+		//	customerpage.Enter_CustomerName_searchbox_OnCustTable("Mike");			
+			customerpage.Search_and_SelectCustomerName("Mike","Mike");
 			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
 			customerpage.SearchAndSelectCustomerAddress("2715 35th Ave");
 			ThreadWait(1000);

@@ -26,7 +26,7 @@ public class Hana_T20_OrderConfirmationEmail_FT extends TestBaseClass{
 	SoftAssert softassert = new SoftAssert();
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
-	
+	String invoicenumber;
 
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 

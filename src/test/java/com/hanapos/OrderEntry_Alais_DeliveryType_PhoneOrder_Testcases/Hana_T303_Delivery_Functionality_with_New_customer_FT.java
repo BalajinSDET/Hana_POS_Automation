@@ -24,7 +24,7 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 	private DashboardOrderPage dashboardorder;
 	private CustomerPage customerpage;
 	public static final String dataSheetName = "Hana_T303";
-	
+	String invoiceNumber;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
 		return DataLibrary.readExcelData(dataSheetName); 
@@ -180,9 +180,10 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 			delayWithGivenTime(2000);
 			orderconfirmationpage = new Order_Confirmation_Page();
 			softassert.assertTrue(orderconfirmationpage.VerifyOrderConfirmationPage(), "Test Step - 13 - Order confirmation page is not displayed");
-			
+			delayWithGivenTime(500);
+			invoiceNumber = orderconfirmationpage.get_invoiceNumber_on_OrderConfirmation_Page();
+
 			// Test Step - 14
-			delayWithGivenTime(1000);
 			dashboard.ClickOrder();
 			delayWithGivenTime(1000);
 			logger.info("User click the order menu on hana dashboard page");	
@@ -190,7 +191,7 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL"),"Test Step - 14 - Dashboard order page is not displayed");				
 			
 			// Test Step - 15,20
-			dashboardorder.EnterGlobalSearch(dashboardorder.get_InvoiceNumber_PhoneOrder_Delivery_AsCashPayment());
+			dashboardorder.EnterGlobalSearch(invoiceNumber); //dashboardorder.get_InvoiceNumber_PhoneOrder_Delivery_AsCashPayment()
 			delayWithGivenTime(1000);			
 			softassert.assertTrue(dashboardorder.Validate_DeliveryAsCashPayment_on_PhoneOrder_on_SenderorCustomer_OnOrderPage(),"Test Step - 15 - Phone order cash payment is not displayed");		//https://hanafloralpos3.com/Dashboard/Order/Validate_PhoneOrder_InvoiceInHousePayment();
 			delayWithGivenTime(2000);
@@ -224,13 +225,13 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 			// Test Step - 17
 			delayWithGivenTime(500);
 			customerpage.click_CustomerId_Header_OnCustTable();
-			delayWithGivenTime(500);
+			delayWithGivenTime(2000);
 			customerpage.click_CustomerId_Header_OnCustTable();
 			delayWithGivenTime(1000);
 			softassert.assertTrue(customerpage.verify_custId_DescendingIcon(),"Test Step - 17 - customer id on customer table page descending icon is not displayed");
+			delayWithGivenTime(1000);
 
 			customerpage.Enter_CustomerName_searchbox_OnCustTable("Mike");	
-		//	customerpage.Search_and_SelectCustomerName("Mike","Mike");
 			customerpage.SearchAndSelectCustomerAddress("2715 35th Ave");
 			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
 			delayWithGivenTime(2000);

@@ -20,7 +20,7 @@ public class Hana_T104_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 	@Test(enabled=true,groups= {"Regression"}) 
 	public void Validate_Hana_T104_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Test() {
 		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting  Hana_T104_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_FT  ****");
+		logger.info("**** Starting  Hana_T311_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1

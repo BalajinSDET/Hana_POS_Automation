@@ -21,7 +21,7 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 	@Test(enabled=true,groups= {"Regression"}) 
 	public void Validate_Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT_Test() {
 		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting  Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT  ****");
+		logger.info("**** Starting  Hana_T310_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -209,6 +209,7 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 			softassert.assertEquals(phoneorder.get_TaxType_OnPhoneOrderPage(),"Standard Tax",
 					"Test Step - 33 - Tax type of phone order page and customer details popup at preference tab updated tax type fields are not matched");
 			
+			delayWithGivenTime(2000);
 			//Set previously updated value
 			softassert.assertTrue(phoneorder.Verify_CustEditIcon_Appears(), "Test Step - 8 - Customer clear button is not displayed on phone order page");			
 			phoneorder.Click_CustEditIcon();
@@ -239,8 +240,7 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 			
 			phoneorder.Click_UpdateCustDefaultBtn_PreferenceTab_OnCustDetailsPopup();
 			softassert.assertTrue(phoneorder.Verify_CustDefaultSucessMsg_PreferenceTab_OnCustDetailsPopup(), "Test Step - 22 - Customer details popup success message is not displayed on phone order page");
-			
-			
+						
 			
 		} catch (Exception e) {
 			e.printStackTrace();

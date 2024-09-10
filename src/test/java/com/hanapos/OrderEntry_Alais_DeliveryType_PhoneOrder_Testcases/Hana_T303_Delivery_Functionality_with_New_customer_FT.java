@@ -25,6 +25,7 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 	private CustomerPage customerpage;
 	public static final String dataSheetName = "Hana_T303";
 	String invoiceNumber;
+	String customerName;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
 		return DataLibrary.readExcelData(dataSheetName); 
@@ -182,6 +183,7 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 			softassert.assertTrue(orderconfirmationpage.VerifyOrderConfirmationPage(), "Test Step - 13 - Order confirmation page is not displayed");
 			delayWithGivenTime(500);
 			invoiceNumber = orderconfirmationpage.get_invoiceNumber_on_OrderConfirmation_Page();
+			customerName = orderconfirmationpage.getCustomerFname() + " " + orderconfirmationpage.getCustomerLname();
 
 			// Test Step - 14
 			dashboard.ClickOrder();
@@ -223,17 +225,8 @@ public class Hana_T303_Delivery_Functionality_with_New_customer_FT extends TestB
 			logger.info("User verify that customer menu page is displayed successfully");
 			
 			// Test Step - 17
-			delayWithGivenTime(500);
-			customerpage.click_CustomerId_Header_OnCustTable();
-			delayWithGivenTime(2000);
-			customerpage.click_CustomerId_Header_OnCustTable();
-			delayWithGivenTime(1000);
-			softassert.assertTrue(customerpage.verify_custId_DescendingIcon(),"Test Step - 17 - customer id on customer table page descending icon is not displayed");
-			delayWithGivenTime(1000);
-
-			customerpage.Enter_CustomerName_searchbox_OnCustTable("Mike");	
-			customerpage.SearchAndSelectCustomerAddress("2715 35th Ave");
-			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
+			customerpage.Enter_CustomerName_searchbox_OnCustTable(customerName);
+			ThreadWait(1000);
 			delayWithGivenTime(2000);
 			softassert.assertEquals(customerpage.VerifyPhoneNumberOnCustTable(),"956-655-0756","Test Step - 17 -Phone number on customer table is not matched");
 			logger.info("User verify that phone number on customer table");

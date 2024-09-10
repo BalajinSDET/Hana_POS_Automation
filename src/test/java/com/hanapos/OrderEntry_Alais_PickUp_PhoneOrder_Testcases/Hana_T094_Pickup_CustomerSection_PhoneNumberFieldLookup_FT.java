@@ -52,6 +52,7 @@ public class Hana_T094_Pickup_CustomerSection_PhoneNumberFieldLookup_FT extends 
 			logger.info("User select the shopname on dashbaord page as "+prop.getProperty("shopname"));
 			
 			// Test Step - 3
+			delayWithGivenTime(2000);
 			softassert.assertTrue(dashboard.VerifyOrderEntryOptionIsDisplayed(),"Order entry option is not displayed");
 			softassert.assertTrue(dashboard.Verify_Cashandcarry_OptionIsDisplayed(),"Cash and carry option is not displayed");
 		

@@ -1,0 +1,705 @@
+<html>
+<head>
+<title>TestNG:  Smoke Functionality Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Smoke Functionality Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>16/10/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 10 11:54:25 IST 2024</td>
+</tr>
+<tr><td>Total time:</td><td>893 seconds (893533 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>Smoke </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T51_Payments_Cash_Payment_Section_FT.Validate_Hana_T51_Payments_Cash_Payment_Test()'><b>Validate_Hana_T51_Payments_Cash_Payment_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T51_Payments_Cash_Payment_Section_FT<br>Parameters: rrd, abish, Birthday, 100, 500</td>
+<td><div><pre>java.lang.AssertionError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[@class=&apos;li_Hana navbar-brand&apos;]&quot;}
+  (Session info: chrome=128.0.6613.115)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d56ee8a4ed8d4cd6bd82003acc0292ed, findElement {using=xpath, value=//a[@class=&apos;li_Hana navbar-brand&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.115, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63420}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63420/devtoo..., se:cdpVersion: 128.0.6613.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d56ee8a4ed8d4cd6bd82003acc0292ed
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T51_Payments_Cash_Payment_Section_FT.Validate_Hana_T51_Payments_Cash_Payment_Test(Hana_T51_Payments_Cash_Payment_Section_FT.java:200)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1594422232", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1594422232'><pre>java.lang.AssertionError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[@class=&apos;li_Hana navbar-brand&apos;]&quot;}
+  (Session info: chrome=128.0.6613.115)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d56ee8a4ed8d4cd6bd82003acc0292ed, findElement {using=xpath, value=//a[@class=&apos;li_Hana navbar-brand&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.115, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63420}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63420/devtoo..., se:cdpVersion: 128.0.6613.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d56ee8a4ed8d4cd6bd82003acc0292ed
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T51_Payments_Cash_Payment_Section_FT.Validate_Hana_T51_Payments_Cash_Payment_Test(Hana_T51_Payments_Cash_Payment_Section_FT.java:200)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>126</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T51_Payments_Cash_Payment_Section_FT@32a68f4f</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T68_Payments_Donation_Payment_Section_FT.Validate_Hana_T68_Payments_Donation_Payment_Test()'><b>Validate_Hana_T68_Payments_Donation_Payment_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T68_Payments_Donation_Payment_Section_FT<br>Parameters: rrd, abish, Birthday, ---$$$@@@, 123456789</td>
+<td><div><pre>java.lang.AssertionError: An exception occurred: javascript error: {&quot;status&quot;:60,&quot;value&quot;:&quot;https://hanafloralpos3-pre-production.azurewebsites.net/order/ordersnew has no size and location&quot;}
+  (Session info: chrome=128.0.6613.115)
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8257d3c99a112565ba32305c2f690add, actions {actions=[org.openqa.selenium.interactions.Sequence@37cce645]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.115, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63812}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63812/devtoo..., se:cdpVersion: 128.0.6613.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8257d3c99a112565ba32305c2f690add
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T68_Payments_Donation_Payment_Section_FT.Validate_Hana_T68_Payments_Donation_Payment_Test(Hana_T68_Payments_Donation_Payment_Section_FT.java:207)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2065657451", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2065657451'><pre>java.lang.AssertionError: An exception occurred: javascript error: {&quot;status&quot;:60,&quot;value&quot;:&quot;https://hanafloralpos3-pre-production.azurewebsites.net/order/ordersnew has no size and location&quot;}
+  (Session info: chrome=128.0.6613.115)
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8257d3c99a112565ba32305c2f690add, actions {actions=[org.openqa.selenium.interactions.Sequence@37cce645]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.115, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63812}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63812/devtoo..., se:cdpVersion: 128.0.6613.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8257d3c99a112565ba32305c2f690add
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T68_Payments_Donation_Payment_Section_FT.Validate_Hana_T68_Payments_Donation_Payment_Test(Hana_T68_Payments_Donation_Payment_Section_FT.java:207)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>136</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T68_Payments_Donation_Payment_Section_FT@4ed5eb72</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T53_Payments_Check_Payment_Section_FT.Validate_Hana_T53_Payments_Check_Payment_Section_Test()'><b>Validate_Hana_T53_Payments_Check_Payment_Section_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T53_Payments_Check_Payment_Section_FT<br>Parameters: rrd, abish, Birthday, *&^&^&&$&^*^, 1844020000000050, Fedral Bank, Hana Test Automation for pos</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step - 16 expected [1844020000000010] but found [],
+	Test Step - 16 expected [Bank Of America] but found [],
+	Test Step - 16 expected [Hana POS] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.CashandCarry_Testcases.Hana_T53_Payments_Check_Payment_Section_FT.Validate_Hana_T53_Payments_Check_Payment_Section_Test(Hana_T53_Payments_Check_Payment_Section_FT.java:309)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div><a href='#' onClick='toggleBox("stack-trace303231418", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace303231418'><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step - 16 expected [1844020000000010] but found [],
+	Test Step - 16 expected [Bank Of America] but found [],
+	Test Step - 16 expected [Hana POS] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.CashandCarry_Testcases.Hana_T53_Payments_Check_Payment_Section_FT.Validate_Hana_T53_Payments_Check_Payment_Section_Test(Hana_T53_Payments_Check_Payment_Section_FT.java:309)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>119</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T53_Payments_Check_Payment_Section_FT@73194df</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T65_Payment_Add_New_Customer_FT.Validate_Hana_T65_Payments_Add_New_Customer_Test()'><b>Validate_Hana_T65_Payments_Add_New_Customer_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T65_Payment_Add_New_Customer_FT<br>Parameters: rrd, Test, Automation, 9900778866, @@$$@, @!#$@, !!@@@##^&*, !!@@@##^&*, abcdefghij, abcdefghij, 991234567890111, 991234567890111, Test Automation pvt ltd , 9192939495, 9192939896, Test Automation address, India, QA Test Automation, Cbe, Tn, India, 641004, Coimbatore, Tamilnadu, India, hanaposqateam@gmail.com, Corporate, 0, Test Automation, Birthday</td>
+<td><div><pre>java.lang.AssertionError: timeout: Timed out receiving message from renderer: 40.000
+  (Session info: chrome=128.0.6613.115)
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [159f688a0c10e1d892a21d109f4d7a13, actions {actions=[org.openqa.selenium.interactions.Sequence@5fa6066e]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.115, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62842}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62842/devtoo..., se:cdpVersion: 128.0.6613.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 159f688a0c10e1d892a21d109f4d7a13
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T65_Payment_Add_New_Customer_FT.Validate_Hana_T65_Payments_Add_New_Customer_Test(Hana_T65_Payment_Add_New_Customer_FT.java:495)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div><a href='#' onClick='toggleBox("stack-trace414254616", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace414254616'><pre>java.lang.AssertionError: timeout: Timed out receiving message from renderer: 40.000
+  (Session info: chrome=128.0.6613.115)
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [159f688a0c10e1d892a21d109f4d7a13, actions {actions=[org.openqa.selenium.interactions.Sequence@5fa6066e]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.115, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62842}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62842/devtoo..., se:cdpVersion: 128.0.6613.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 159f688a0c10e1d892a21d109f4d7a13
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T65_Payment_Add_New_Customer_FT.Validate_Hana_T65_Payments_Add_New_Customer_Test(Hana_T65_Payment_Add_New_Customer_FT.java:495)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>70</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T65_Payment_Add_New_Customer_FT@13330ac6</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT.Validate_Hana_T14_Add_Product_Test()'><b>Validate_Hana_T14_Add_Product_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT<br>Parameters: rrd</td>
+<td><div><pre>java.lang.AssertionError: Index 0 out of bounds for length 0
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT.Validate_Hana_T14_Add_Product_Test(Hana_T14_Add_Product_FT.java:200)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1230831349", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1230831349'><pre>java.lang.AssertionError: Index 0 out of bounds for length 0
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT.Validate_Hana_T14_Add_Product_Test(Hana_T14_Add_Product_FT.java:200)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>141</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT@3c7c886c</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T69_Add_Product_Without_Customer_FT.Validate_Hana_T69_Add_Product_Without_Customer_Test()'><b>Validate_Hana_T69_Add_Product_Without_Customer_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T69_Add_Product_Without_Customer_FT<br>Parameters: Hana POS (Canada), Automation clerk desc, Stuart Ben, TAI, Test Automation Item Deluxe, Tile Product~Test Automation Tile Product Small~220.00~3972569~true~false~Item~2251669, Birthday</td>
+<td><div><pre>java.lang.AssertionError: An exception occurred: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//tr[@id=&apos;Row_1&apos;]&quot;}
+  (Session info: chrome=128.0.6613.115)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f40b19472e730a9cf7e6d508d09a9517, findElement {using=xpath, value=//tr[@id=&apos;Row_1&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.115, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63869}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63869/devtoo..., se:cdpVersion: 128.0.6613.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f40b19472e730a9cf7e6d508d09a9517
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T69_Add_Product_Without_Customer_FT.Validate_Hana_T69_Add_Product_Without_Customer_Test(Hana_T69_Add_Product_Without_Customer_FT.java:195)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1230660387", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1230660387'><pre>java.lang.AssertionError: An exception occurred: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//tr[@id=&apos;Row_1&apos;]&quot;}
+  (Session info: chrome=128.0.6613.115)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f40b19472e730a9cf7e6d508d09a9517, findElement {using=xpath, value=//tr[@id=&apos;Row_1&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.115, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63869}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63869/devtoo..., se:cdpVersion: 128.0.6613.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f40b19472e730a9cf7e6d508d09a9517
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T69_Add_Product_Without_Customer_FT.Validate_Hana_T69_Add_Product_Without_Customer_Test(Hana_T69_Add_Product_Without_Customer_FT.java:195)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>201</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T69_Add_Product_Without_Customer_FT@12f9af83</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T15_Edit_Product_FT.Validate_Hana_T15_Edit_Product_Test()'><b>Validate_Hana_T15_Edit_Product_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T15_Edit_Product_FT<br>Parameters: rrd, Birthday, 3, abish</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	expected [Red Rose Deluxe] but found [Red Rose Small],
+	expected [Red Rose Deluxe] but found [Red Rose Small]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.CashandCarry_Testcases.Hana_T15_Edit_Product_FT.Validate_Hana_T15_Edit_Product_Test(Hana_T15_Edit_Product_FT.java:258)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div><a href='#' onClick='toggleBox("stack-trace585536300", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace585536300'><pre>java.lang.AssertionError: The following asserts failed:
+	expected [Red Rose Deluxe] but found [Red Rose Small],
+	expected [Red Rose Deluxe] but found [Red Rose Small]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.CashandCarry_Testcases.Hana_T15_Edit_Product_FT.Validate_Hana_T15_Edit_Product_Test(Hana_T15_Edit_Product_FT.java:258)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>155</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T15_Edit_Product_FT@55493582</td></tr>
+<tr>
+<td title='com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test()'><b>Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test</b><br>Test class: com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT<br>Parameters: Stuart Markwood, 2715 35th Avenue Greeley, CO, USA, 80634, 956-655-0756, Abish, David, 3402 Park Blvd, PICK UP, 92103, San Diego, United States, 956-655-0756, Church, Birthday, rrd, Cash, Cash Register2</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step - 16 - Payment type is not displayed on order confirmation page expected [FSN] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.java:223)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div><a href='#' onClick='toggleBox("stack-trace300133759", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace300133759'><pre>java.lang.AssertionError: The following asserts failed:
+	Test Step - 16 - Payment type is not displayed on order confirmation page expected [FSN] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT.java:223)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>191</td>
+<td>com.hanapos.OrderEntry_Alais_WireIn_PhoneOrder_Testcases.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT@30af5b6b</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T79_Add_Product_With_Existing_Customer_FT.Validate_Hana_T79_Add_Product_With_Existing_Customer_Test()'><b>Validate_Hana_T79_Add_Product_With_Existing_Customer_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T79_Add_Product_With_Existing_Customer_FT<br>Parameters: rrd, Test Automation, Tax Exemption, Birthday</td>
+<td><div><pre>java.lang.AssertionError: timeout: Timed out receiving message from renderer: 40.000
+  (Session info: chrome=128.0.6613.115)
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [317898b4105175b076ed84a0e2f9b627, actions {actions=[org.openqa.selenium.interactions.Sequence@2f52dedb]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.115, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62846}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62846/devtoo..., se:cdpVersion: 128.0.6613.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 317898b4105175b076ed84a0e2f9b627
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T79_Add_Product_With_Existing_Customer_FT.Validate_Hana_T79_Add_Product_With_Existing_Customer_Test(Hana_T79_Add_Product_With_Existing_Customer_FT.java:201)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div><a href='#' onClick='toggleBox("stack-trace797861841", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace797861841'><pre>java.lang.AssertionError: timeout: Timed out receiving message from renderer: 40.000
+  (Session info: chrome=128.0.6613.115)
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [317898b4105175b076ed84a0e2f9b627, actions {actions=[org.openqa.selenium.interactions.Sequence@2f52dedb]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.115, chrome: {chromedriverVersion: 128.0.6613.119 (6e439cfca4d..., userDataDir: C:\Users\Balaji\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62846}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62846/devtoo..., se:cdpVersion: 128.0.6613.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 317898b4105175b076ed84a0e2f9b627
+	at org.testng.Assert.fail(Assert.java:111)
+	at com.hanapos.CashandCarry_Testcases.Hana_T79_Add_Product_With_Existing_Customer_FT.Validate_Hana_T79_Add_Product_With_Existing_Customer_Test(Hana_T79_Add_Product_With_Existing_Customer_FT.java:201)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>70</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T79_Add_Product_With_Existing_Customer_FT@539d019</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T18_OrderConfirmationPopup_FT.Validate_Hana_T18_Order_Confirmation_Popup_Test()'><b>Validate_Hana_T18_Order_Confirmation_Popup_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T18_OrderConfirmationPopup_FT<br>Parameters: rrd, abish, Birthday</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	******Test Step - 13 - SMS Phone number is not autopopulated from customer details****** expected [956-655-0756] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.CashandCarry_Testcases.Hana_T18_OrderConfirmationPopup_FT.Validate_Hana_T18_Order_Confirmation_Popup_Test(Hana_T18_OrderConfirmationPopup_FT.java:196)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1626254977", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1626254977'><pre>java.lang.AssertionError: The following asserts failed:
+	******Test Step - 13 - SMS Phone number is not autopopulated from customer details****** expected [956-655-0756] but found []
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at com.hanapos.CashandCarry_Testcases.Hana_T18_OrderConfirmationPopup_FT.Validate_Hana_T18_Order_Confirmation_Popup_Test(Hana_T18_OrderConfirmationPopup_FT.java:196)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+</pre></div></td>
+<td>104</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T18_OrderConfirmationPopup_FT@6b88ca8c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T082_Pickup_Functionality_with_New_customer_FT.Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test()'><b>Validate_Hana_T082_Pickup_Functionality_with_New_customer_Test</b><br>Test class: com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T082_Pickup_Functionality_with_New_customer_FT<br>Parameters: Stuart Markwood, 2715 35th Avenue Greeley, CO, USA, 80634, 956-655-0756, Abish, David, 3402 Park Blvd, PICK UP, 92103, San Diego, United States, 956-655-0756, Church, Birthday, rrd, Cash, Cash Register2</td>
+<td></td>
+<td>182</td>
+<td>com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T082_Pickup_Functionality_with_New_customer_FT@2631f68c</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T37_Add_New_Customer_FT.Validate_Hana_T37_Add_New_Customer_Test()'><b>Validate_Hana_T37_Add_New_Customer_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T37_Add_New_Customer_FT<br>Parameters: rrd, Test, Automation, 9900778866, @@$$@, @!#$@, !!@@@##^&*, !!@@@##^&*, abcdefghij, abcdefghij, 991234567890111, 991234567890111, Test Automation pvt ltd , 9192939495, 9192939896, Test Automation address, India, QA Test Automation, Cbe, Tn, India, 641004, Coimbatore, Tamilnadu, India, hanaposqateam@gmail.com, Corporate, 0, Test Automation, Birthday</td>
+<td></td>
+<td>225</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T37_Add_New_Customer_FT@24ba9639</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T33_Purchase_Product_With_Coupon_FT.Validate_Hana_T33_Purchase_Product_With_Coupon_Test()'><b>Validate_Hana_T33_Purchase_Product_With_Coupon_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T33_Purchase_Product_With_Coupon_FT<br>Parameters: rrd, QA24, abish</td>
+<td></td>
+<td>68</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T33_Purchase_Product_With_Coupon_FT@53941c2f</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T28_Gift_Card_FT.Validate_Hana_T28_GiftCard_Functionality_Test()'><b>Validate_Hana_T28_GiftCard_Functionality_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T28_Gift_Card_FT<br>Parameters: $30, abc, 30, 5.00, Abcdef, 111112222233333444445555566, abish, $30</td>
+<td></td>
+<td>123</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T28_Gift_Card_FT@19e4fcac</td></tr>
+<tr>
+<td title='com.hanapos.Quick_Dispatch_Testcases.Hana_T711_Quick_Dispatch_Functionality.Validate_Hana_T711_Quick_Dispatch_Functionality_with_Existing_customer()'><b>Validate_Hana_T711_Quick_Dispatch_Functionality_with_Existing_customer</b><br>Test class: com.hanapos.Quick_Dispatch_Testcases.Hana_T711_Quick_Dispatch_Functionality<br>Parameters: Stuart Markwood, Abish, Abish, David, 3402 Park Blvd, PICK UP, 92103, San Diego, United States, 956-655-0756, Church, Birthday, rrd, Invoice/House Account</td>
+<td></td>
+<td>183</td>
+<td>com.hanapos.Quick_Dispatch_Testcases.Hana_T711_Quick_Dispatch_Functionality@bcef303</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T56_Payments_Invoice_Payment_Section_FT.Validate_Hana_T56_Payments_Invoice_Payment_Section_Test()'><b>Validate_Hana_T56_Payments_Invoice_Payment_Section_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T56_Payments_Invoice_Payment_Section_FT<br>Parameters: rrd, abish, Birthday, Net 30</td>
+<td></td>
+<td>78</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T56_Payments_Invoice_Payment_Section_FT@6eb2384f</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T16_Delete_Product_FT.Validate_Hana_T16_Delete_Product_Test()'><b>Validate_Hana_T16_Delete_Product_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T16_Delete_Product_FT<br>Parameters: rrd, Birthday</td>
+<td></td>
+<td>67</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T16_Delete_Product_FT@1a20270e</td></tr>
+<tr>
+<td title='com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T081_Pickup_Functionality_with_Existing_customer_FT.Validate_Hana_T081_Pickup_Functionality_with_Existing_customer()'><b>Validate_Hana_T081_Pickup_Functionality_with_Existing_customer</b><br>Test class: com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T081_Pickup_Functionality_with_Existing_customer_FT<br>Parameters: Stuart Markwood, Abish, Abish, David, 3402 Park Blvd, PICK UP, 92103, San Diego, United States, 956-655-0756, Church, Birthday, rrd, Invoice/House Account</td>
+<td></td>
+<td>130</td>
+<td>com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T081_Pickup_Functionality_with_Existing_customer_FT@6bca7e0d</td></tr>
+<tr>
+<td title='com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases.Hana_T303_Delivery_Functionality_with_New_customer_FT.Validate_Hana_T303_Delivery_Functionality_with_New_customer_Functionality_Test()'><b>Validate_Hana_T303_Delivery_Functionality_with_New_customer_Functionality_Test</b><br>Test class: com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases.Hana_T303_Delivery_Functionality_with_New_customer_FT<br>Parameters: Stuart Markwood, 2715 35th Avenue Greeley, CO, USA, 80634, 956-655-0756, Abish, David, 3402 Park Blvd, PICK UP, 92103, San Diego, United States, 956-655-0756, Church, Birthday, rrd, Cash, Cash Register2</td>
+<td></td>
+<td>183</td>
+<td>com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases.Hana_T303_Delivery_Functionality_with_New_customer_FT@8ad6665</td></tr>
+<tr>
+<td title='com.hanapos.OrderEntry_Alais_WireOut_PhoneOrder_Testcases.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT.Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test()'><b>Validate_Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_Functionality_Test</b><br>Test class: com.hanapos.OrderEntry_Alais_WireOut_PhoneOrder_Testcases.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT<br>Parameters: Stuart Markwood, 2715 35th Avenue Greeley, CO, USA, 80634, 956-655-0756, Abish, David, 3402 Park Blvd, PICK UP, 92103, San Diego, United States, 956-655-0756, Church, Birthday, rrd, Cash, Cash Register2</td>
+<td></td>
+<td>193</td>
+<td>com.hanapos.OrderEntry_Alais_WireOut_PhoneOrder_Testcases.Hana_T520_OrderEntryPage_WireOut_Functionality_with_New_customer_FT@68b32e3e</td></tr>
+<tr>
+<td title='com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases.Hana_T302_Delivery_Functionality_with_Existing_customer_FT.Validate_Hana_T302_Delivery_Functionality_with_Existing_customer()'><b>Validate_Hana_T302_Delivery_Functionality_with_Existing_customer</b><br>Test class: com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases.Hana_T302_Delivery_Functionality_with_Existing_customer_FT<br>Parameters: Stuart Markwood, Abish, Abish, David, 3402 Park Blvd, PICK UP, 92103, San Diego, United States, 956-655-0756, Church, Birthday, rrd, Invoice/House Account</td>
+<td></td>
+<td>150</td>
+<td>com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases.Hana_T302_Delivery_Functionality_with_Existing_customer_FT@6ed3f258</td></tr>
+<tr>
+<td title='com.hanapos.OrderEntry_Alais_WireOut_PhoneOrder_Testcases.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT.Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test()'><b>Validate_Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_Functionality_Test</b><br>Test class: com.hanapos.OrderEntry_Alais_WireOut_PhoneOrder_Testcases.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT<br>Parameters: Stuart Markwood, Abish, Abish, David, 3402 Park Blvd, PICK UP, 92103, San Diego, United States, 956-655-0756, Church, Birthday, rrd, Invoice/House Account</td>
+<td></td>
+<td>157</td>
+<td>com.hanapos.OrderEntry_Alais_WireOut_PhoneOrder_Testcases.Hana_T519_OrderEntryPage_WireOut_Functionality_with_Existing_customer_FT@19835e64</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T43_Payments_Split_Payment_FT.Validate_Hana_T43_Payments_Split_Payment_Test()'><b>Validate_Hana_T43_Payments_Split_Payment_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T43_Payments_Split_Payment_FT<br>Parameters: rrd, Test Automation, Birthday, Automation, Test, Add New Card, 8866 8866 8866 8866, 567, 10/25, 200, 100, Cash Register2, 50, 150, 889900889900, 10, 1844223338884, Bank Of America, Hana POS Automation</td>
+<td></td>
+<td>292</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T43_Payments_Split_Payment_FT@7f132176</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T61_Payments_GiftCard_Payment_Section_FT.Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test()'><b>Validate_Hana_T61_Payments_GiftCard_Payment_Section_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T61_Payments_GiftCard_Payment_Section_FT<br>Parameters: rrd</td>
+<td></td>
+<td>101</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T61_Payments_GiftCard_Payment_Section_FT@3a4621bd</td></tr>
+<tr>
+<td title='com.hanapos.CashandCarry_Testcases.Hana_T59_Payments_POH_Payment_Section_FT.Validate_Hana_T59_Payments_POH_Payment_Section_Test()'><b>Validate_Hana_T59_Payments_POH_Payment_Section_Test</b><br>Test class: com.hanapos.CashandCarry_Testcases.Hana_T59_Payments_POH_Payment_Section_FT<br>Parameters: rrd</td>
+<td></td>
+<td>92</td>
+<td>com.hanapos.CashandCarry_Testcases.Hana_T59_Payments_POH_Payment_Section_FT@3c9c0d96</td></tr>
+<tr>
+<td title='com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality.Validate_Proposal_Wedding_Functionality_Test()'><b>Validate_Proposal_Wedding_Functionality_Test</b><br>Test class: com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality</td>
+<td></td>
+<td>214</td>
+<td>com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality@41709512</td></tr>
+</table><p>
+</body>
+</html>

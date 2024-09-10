@@ -95,7 +95,7 @@ public class Hana_T131_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Orde
 			
 			// Test Step - 12
 			RobotPressEnter();
-			ThreadWait(2000);
+			ThreadWait(2000); // Bug
 			softassert.assertTrue(phoneorder.Verify_Status_Orderdetailstab("Delivered"),"Test Step - 12 - Filtered status with 3 characters is not displayed on the order details tab at customer details popup");
 			
 			// Test Step - 13

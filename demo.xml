@@ -18,9 +18,24 @@
 		</groups>
 
 		<classes>
-			
 			<class
-				name="com.hanapos.OrderEntry_Alais_WireIn_PhoneOrderTest.Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT" />
+				name="com.hanapos.CashandCarry_Testcases.Hana_T51_Payments_Cash_Payment_Section_FT" />
+			<class
+				name="com.hanapos.CashandCarry_Testcases.Hana_T53_Payments_Check_Payment_Section_FT" />
+			<class
+				name="com.hanapos.CashandCarry_Testcases.Hana_T56_Payments_Invoice_Payment_Section_FT" />
+			<class
+				name="com.hanapos.CashandCarry_Testcases.Hana_T59_Payments_POH_Payment_Section_FT" />
+			<class
+				name="com.hanapos.CashandCarry_Testcases.Hana_T61_Payments_GiftCard_Payment_Section_FT" />
+			<class
+				name="com.hanapos.CashandCarry_Testcases.Hana_T63_Payments_GiftCard_Payment_Section_Swipe_Card_FT" />
+			<class
+				name="com.hanapos.CashandCarry_Testcases.Hana_T65_Payment_Add_New_Customer_FT" />
+			<class
+				name="com.hanapos.CashandCarry_Testcases.Hana_T68_Payments_Donation_Payment_Section_FT" />
+			<class
+				name="com.hanapos.CashandCarry_Testcases.Hana_T69_Add_Product_Without_Customer_FT" />
 		</classes>
 	</test>
 </suite> 

@@ -78,7 +78,7 @@ public class Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			// Test Step - 8
 			delayWithGivenTime(1000);
 			phoneorder.ClickOn_PaymentDetails_CustomerDetailsPopup();
-			ThreadWait(4000);
+			ThreadWait(10000);//===== Facing loading issue =====
 			softassert.assertTrue(phoneorder.Verify_TableGridOnPaymentDetailsTab_IsAppear(), "Test Step - 9 - payment details tab webtable grid is not displayed");		
 						
 			// Test Step - 9

@@ -25,6 +25,7 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 	private CustomerPage customerpage;
 	public static final String dataSheetName = "Hana_T82";
 	String invoiceNumber;
+	String customerName;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
 		return DataLibrary.readExcelData(dataSheetName); 
@@ -176,14 +177,14 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			// Test Step - 14	
 			invoiceNumber = orderconfirmationpage.get_invoiceNumber_on_OrderConfirmation_Page();
 			delayWithGivenTime(500);
+			customerName = orderconfirmationpage.getCustomerFname() + " " + orderconfirmationpage.getCustomerLname();
 			orderconfirmationpage.click_orderInvoiceLink();
 			/*  // Below code may causes exception. during parallel execution ....
 			 * dashboard.ClickOrder(); delayWithGivenTime(1000);
 			 * logger.info("User click the order menu on hana dashboard page");
 			  */
 			dashboardorder = new DashboardOrderPage();
-			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.
-			  getProperty("livedashboardorderURL")
+			softassert.assertEquals(dashboardorder.validateDashboardOrderPage(),prop.getProperty("livedashboardorderURL")
 			  ,"Test Step - 14 - Dashboard order page is not displayed");
 			
 			// Test Step - 15,20
@@ -226,11 +227,8 @@ public class Hana_T082_Pickup_Functionality_with_New_customer_FT extends TestBas
 			customerpage.click_CustomerId_Header_OnCustTable();
 			delayWithGivenTime(1000);
 			softassert.assertTrue(customerpage.verify_custId_DescendingIcon(),"Test Step - 17 - customer id on customer table page descending icon is not displayed");
-
-		//	customerpage.Enter_CustomerName_searchbox_OnCustTable("Mike");			
-			customerpage.Search_and_SelectCustomerName("Mike","Mike");
-			customerpage.SearchAndSelectCustomerPhone("956-655-0756");
-			customerpage.SearchAndSelectCustomerAddress("2715 35th Ave");
+			
+			customerpage.Enter_CustomerName_searchbox_OnCustTable(customerName);
 			ThreadWait(1000);
 			
 			softassert.assertEquals(customerpage.VerifyPhoneNumberOnCustTable(),"956-655-0756","Test Step - 17 -Phone number on customer table is not matched");

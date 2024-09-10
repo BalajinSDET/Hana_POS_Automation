@@ -85,7 +85,7 @@ public class Hana_T107_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			delayWithGivenTime(1000);			
 		
 			// Test Step - 10
-			phoneorder.Enter_BalanceAmount_OnInvoiceSearchBox_UnpaidInvoiceTab("314");
+			phoneorder.Enter_BalanceAmount_OnInvoiceSearchBox_UnpaidInvoiceTab("349");
 			
 			// Test Step - 11
 			phoneorder.PressEnterKey();
@@ -94,7 +94,7 @@ public class Hana_T107_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 					"Test Step - 11 Displayed balance amount is did not matched with previously searched invoice number on unpaid invoice grid table");
 			
 			// Test Step - 12
-			phoneorder.Enter_BalanceAmount_OnInvoiceSearchBox_UnpaidInvoiceTab("75");
+			phoneorder.Enter_BalanceAmount_OnInvoiceSearchBox_UnpaidInvoiceTab("49");
 
 			// Test Step - 13
 			phoneorder.PressEnterKey();
@@ -109,8 +109,7 @@ public class Hana_T107_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			delayWithGivenTime(1000);
 			softassert.assertTrue(phoneorder.Verify_NoUnpaidInvoiceFound(), "Test step - 14 - No unpaid invoice found message is not displayed in unpaid invoice grid table");
 			
-			// Test Step - 15
-			
+			// Test Step - 15			
 			softassert.assertTrue(phoneorder.Verify_ClearButton_AppearsOnBalanceAmtSearchtextbox_UnpaidInvoiceTab(), "Test Step - 15 - Clear button is not displayed on invoice search textbox at unpaid invoice tab in customer details popup");
 			
 			// Test Step - 16

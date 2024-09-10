@@ -224,6 +224,9 @@ public class CashAndCarryPage extends TestBaseClass{
 	@FindBy(xpath="(//a[@class='QuickInsertItem'])[1]")
 	private WebElement flowerstd_leftside_displayedTile_Prod;
 	
+	@FindBy(xpath="(//a[@class='QuickInsertItem'])")
+	private List<WebElement> flowerstd_leftside_displayedTile;
+	
 	// Add New Customer Pop up - web elements
 	
 	@FindBy(xpath="//h4[@id='AddNewCustomerModalTitle']")
@@ -1799,6 +1802,20 @@ public class CashAndCarryPage extends TestBaseClass{
 		
 	}
 	
+	public CashAndCarryPage Select_Product_Tile(String prodtile) {		
+		for(WebElement prodTile:ListOfProdTiles) {
+			delayWithGivenTime(1000);
+			if(prodTile.getAttribute("title").contains(prodtile)) {
+				HighlightElement(prodTile);
+				jsClick(prodTile);
+				break;
+			}
+		}		
+	
+		return this;	
+		
+	}
+	
 	public String getDisplayedProductTitletooltip() {
 		Actions action = new Actions(getDriver());
 		explicitWait(CashAndCarryBalloonTitle);
@@ -3342,6 +3359,28 @@ public class CashAndCarryPage extends TestBaseClass{
 		delayWithGivenTime(2000);
 		String prodTile_tooltip = flowerstd_leftside_displayedTile_Prod.getAttribute("title");
 		return prodTile_tooltip;
+	}
+	
+	public void Click_ToolTip_OnLeftSideTileProduct(String prodTile_tooltip) {
+		for(WebElement ele : flowerstd_leftside_displayedTile) {
+			if(ele.getAttribute("title").equals(prodTile_tooltip)) {
+				ele.click();
+				break;
+			}
+		}
+	}
+	
+	public String Verify_ToolTip_OnLeftSideTileProduct() {
+		String flag = null ;
+		for(WebElement ele : flowerstd_leftside_displayedTile) {
+			if(ele.getAttribute("title").contains("Tile Product-Test Automation Tile Product Small-$220.00")) {
+				HighlightElement(ele);
+				delayWithGivenTime(2000);
+				flag = ele.getText();
+				return flag;
+			}
+		}
+		return flag;
 	}
 	
 	public void PressAltKeyH_SalesHistory() {

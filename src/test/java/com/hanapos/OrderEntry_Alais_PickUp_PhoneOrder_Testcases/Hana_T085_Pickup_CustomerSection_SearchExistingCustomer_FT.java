@@ -26,7 +26,7 @@ public class Hana_T085_Pickup_CustomerSection_SearchExistingCustomer_FT extends 
 	}
 
 	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
-	public void Validate_Hana_T085_Pickup_CustomerSection_SearchExistingCustomer_Test(String salesperson, String customername, String searchandselectcust) {
+	public void Validate_Hana_T085_Pickup_CustomerSection_SearchExistingCustomer_Test(String salesperson, String customername, String searchandselectcust,String invalidsearchandselect,String searchandselectwith3char) {
 		SoftAssert softassert = new SoftAssert();
 		logger.info("**** Starting  Hana_T85_Pickup_CustomerSection_SearchExistingCustomer_FT  ****");
 		logger.debug("capturing application debug logs....");
@@ -70,30 +70,30 @@ public class Hana_T085_Pickup_CustomerSection_SearchExistingCustomer_FT extends 
 			softassert.assertTrue(phoneorder.VerifyCustSectionAppears(), "Test Step - 6 - Customer section is not displayed on phone order page");
 			
 			// Test Step - 7
-			phoneorder.SearchAndSelect_CustomerOnCust_Section("Abish", customername);
+			phoneorder.SearchAndSelect_CustomerOnCust_Section(prop.getProperty("cust_firstName"), customername);
 			delayWithGivenTime(2000);
 			
 			// Test Step - 8
 			phoneorder.ClickOn_CustClearBtn();
 			delayWithGivenTime(2000);
-			softassert.assertTrue(phoneorder.VerifyAutosuggestion_Displayed_On_Cust_Section("@#$$!$#"),"Autosuggestion is displayed on customer section");
+			softassert.assertTrue(phoneorder.VerifyAutosuggestion_Displayed_On_Cust_Section(invalidsearchandselect),"Autosuggestion is displayed on customer section");
 			delayWithGivenTime(2000);
 		
 			// Test Step - 9
 			phoneorder.ClickOn_CustClearBtn();
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelect_CustomerOnCust_Section("Abi", searchandselectcust);
+			phoneorder.SearchAndSelect_CustomerOnCust_Section(searchandselectwith3char, searchandselectcust);
 			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 9 - First name is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 9 - Last name is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getCompanyNameOnPhoneOrderPage(),"Hana_Sisterchicks", "Test Step - 9 - Company name is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getEmailIdOnPhoneOrderPage(),"hanaposqateam@gmail.com", "Test Step -9 - email id is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getAddress1OnPhoneOrderPage(),"3402 Park Blvd", "Test Step - 9 - address 1 is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getAddress2OnPhoneOrderPage(),"", "Test Step - 9- Address 2 is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getZipCodeOnPhoneOrderPage(),"92103", "Test Step -9 - Zipcode is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getCityOnPhoneOrderPage(),"San Diego", "Test Step -9 - city is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getPhoneNumberOnPhoneOrderPage(),"956-655-0756", "Test Step - 9 - phone number 1 is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getAltPhoneNumberOnPhoneOrderPage(),"956-655-0756", "Test Step - 9 - Alt phone number is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),prop.getProperty("cust_firstName"), "Test Step - 9 - First name is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),prop.getProperty("cust_lastName"), "Test Step - 9 - Last name is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getCompanyNameOnPhoneOrderPage(),prop.getProperty("cust_companyName"), "Test Step - 9 - Company name is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getEmailIdOnPhoneOrderPage(),prop.getProperty("cust_email"), "Test Step - 9 - email id is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getAddress1OnPhoneOrderPage(),prop.getProperty("cust_address1"), "Test Step - 9 - address 1 is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getAddress2OnPhoneOrderPage(),"", "Test Step - 9 - Address 2 is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getZipCodeOnPhoneOrderPage(),prop.getProperty("cust_zipcode"), "Test Step - 9 - Zipcode is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getCityOnPhoneOrderPage(),prop.getProperty("cust_city"), "Test Step - 9 - city is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getPhoneNumberOnPhoneOrderPage(),prop.getProperty("cust_phoneNumber"), "Test Step - 9 - phone number 1 is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getAltPhoneNumberOnPhoneOrderPage(),prop.getProperty("cust_Alt_phoneNumber"), "Test Step - 9 - Alt phone number is not displayed on phone order page");			
 
 			// Test Step - 10
 			softassert.assertFalse(phoneorder.VerifyFnameField_On_CustSection_IsDisabled(),"Test STep - 10 - First name field is not disabled");

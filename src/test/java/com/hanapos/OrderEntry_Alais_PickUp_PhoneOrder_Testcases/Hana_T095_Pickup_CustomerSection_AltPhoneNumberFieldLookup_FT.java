@@ -1,6 +1,9 @@
 package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -8,15 +11,22 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T095_Pickup_CustomerSection_AltPhoneNumberFieldLookup_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 	
-	//,dataProvider="fetch_Excel_Data"
-	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T095_Pickup_CustomerSection_AltPhoneNumberFieldLookup_Test() {
+	public static final String dataSheetName = "Hana_T95";
+	
+	@DataProvider(name = "fetch_Excel_Data") 
+	public Object[][] fetchData() throws IOException { 
+		return DataLibrary.readExcelData(dataSheetName); 
+	}
+	
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
+	public void Validate_Hana_T095_Pickup_CustomerSection_AltPhoneNumberFieldLookup_Test(String salesperson, String custphone, String searchandselectaltphone) {
 		SoftAssert softassert = new SoftAssert();
 		logger.info("**** Starting  Hana_T95_Pickup_CustomerSection_AltPhoneNumberFieldLookup_FT  ****");
 		logger.debug("capturing application debug logs....");
@@ -42,6 +52,7 @@ public class Hana_T095_Pickup_CustomerSection_AltPhoneNumberFieldLookup_FT exten
 			logger.info("User select the shopname on dashbaord page as "+prop.getProperty("shopname"));
 			
 			// Test Step - 3
+			delayWithGivenTime(2000);
 			softassert.assertTrue(dashboard.VerifyOrderEntryOptionIsDisplayed(),"Order entry option is not displayed");
 			softassert.assertTrue(dashboard.Verify_Cashandcarry_OptionIsDisplayed(),"Cash and carry option is not displayed");
 		
@@ -59,24 +70,24 @@ public class Hana_T095_Pickup_CustomerSection_AltPhoneNumberFieldLookup_FT exten
 			softassert.assertTrue(phoneorder.VerifyCustSectionAppears(), "Test Step - 6 - Customer section is not displayed on phone order page");
 			
 			// Test Step - 7
-			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage("Stuart Markwood");
-			phoneorder.EnterAltPhoneNumber("9566550756");
+			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage(salesperson);
+			phoneorder.EnterAltPhoneNumber(custphone);
 			delayWithGivenTime(1000);
 			softassert.assertFalse(phoneorder.Verify_AltphonenumberCustSection_AutosuggestionAppears(), "Test Step - 7 - Customer section last name autosuggestion is not displayed on phone order page");
 			
 			// Test Step - 8
-			phoneorder.SearchAndSelect_AltphonenumberOnCustSection("9566550756","13827052 Abish David Hana_Sisterchicks (956-655-0756,956-655-0756)");
+			phoneorder.SearchAndSelect_AltphonenumberOnCustSection(prop.getProperty("cust_Alt_phoneNumber"),searchandselectaltphone);
 			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 8 - First name is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 8 - Last name is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getCompanyNameOnPhoneOrderPage(),"Hana_Sisterchicks", "Test Step - 8 - Company name is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getEmailIdOnPhoneOrderPage(),"hanaposqateam@gmail.com", "Test Step - 8 - email id is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getAddress1OnPhoneOrderPage(),"3402 Park Blvd", "Test Step - 8 - address 1 is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),prop.getProperty("cust_firstName"), "Test Step - 8 - First name is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),prop.getProperty("cust_lastName"), "Test Step - 8 - Last name is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getCompanyNameOnPhoneOrderPage(),prop.getProperty("cust_companyName"), "Test Step - 8 - Company name is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getEmailIdOnPhoneOrderPage(),prop.getProperty("cust_email"), "Test Step - 8 - email id is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getAddress1OnPhoneOrderPage(),prop.getProperty("cust_address1"), "Test Step - 8 - address 1 is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getAddress2OnPhoneOrderPage(),"", "Test Step - 8 - Address 2 is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getZipCodeOnPhoneOrderPage(),"92103", "Test Step - 8 - Zipcode is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getCityOnPhoneOrderPage(),"San Diego", "Test Step - 8 - city is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getPhoneNumberOnPhoneOrderPage(),"956-655-0756", "Test Step - 8 - phone number 1 is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getAltPhoneNumberOnPhoneOrderPage(),"956-655-0756", "Test Step - 8 - Alt phone number is not displayed on phone order page");			
+			softassert.assertEquals(phoneorder.getZipCodeOnPhoneOrderPage(),prop.getProperty("cust_zipcode"), "Test Step - 8 - Zipcode is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getCityOnPhoneOrderPage(),prop.getProperty("cust_city"), "Test Step - 8 - city is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getPhoneNumberOnPhoneOrderPage(),prop.getProperty("cust_phoneNumber"), "Test Step - 8 - phone number 1 is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getAltPhoneNumberOnPhoneOrderPage(),prop.getProperty("cust_Alt_phoneNumber"), "Test Step - 8 - Alt phone number is not displayed on phone order page");			
 			} catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail("Test case failed due to exception " + e.getMessage());

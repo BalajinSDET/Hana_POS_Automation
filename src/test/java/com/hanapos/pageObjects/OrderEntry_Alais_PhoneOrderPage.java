@@ -489,6 +489,12 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	// ===================== Customer Section ==============================
 	@FindBy(xpath = "//fieldset[contains(@class,'customerinfo')]")
 	private WebElement custSectionOnPhoneOrderPage;
+	
+	@FindBy(xpath="(//legend[@class='scheduler-border']//span[1])[1]")
+	private WebElement custId_OnPhoneOrderPage;
+	
+	@FindBy(xpath="(//input[@id='txtCutomerId'])[1]")
+	private WebElement custIdTextbox_CustDetailsPopup_OnPhoneOrderPage;
 
 	@FindBy(xpath = "//input[@id='searchCustomer']")
 	private WebElement searchCustomertextboxOnCustSection;
@@ -767,6 +773,15 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	private List<WebElement> listOfShortcodesOnPhoneOrderPage;
 
 	// ======================= Product Details Section ==============
+	@FindBy(id="orderItemDesc1")
+	private WebElement prod_details_ItemDesc1;
+	
+	@FindBy(xpath="//ul[@id='ui-id-30']")
+	private WebElement itemDesc1_Autosuggestion;
+	
+	@FindBy(xpath="//ul[@id='ui-id-30']//li//div")
+	private List<WebElement> listOfItems_row1_UnderItemDesc1;
+	
 	@FindBy(xpath="//ul[@id='ui-id-27']//li")
 	private List<WebElement> itemcode_row1_Autosuggestion;
 	
@@ -775,6 +790,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath = "//ul[@id='ui-id-15']//li//div")
 	private List<WebElement> listOfItemsUnderItemcode1;
+	
+	@FindBy(xpath = "//ul[@class='ui-menu ui-widget ui-widget-content ui-autocomplete ui-front']//li//div")
+	private List<WebElement> listOfItems_UnderItemcode1;
 	
 	@FindBy(xpath="//ul[@id='ui-id-16']//li//div")
 	private List<WebElement> listOfItemsUnderItemcode2;
@@ -1043,6 +1061,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	// =================Payments as Invoice/House Account ==================
 	@FindBy(xpath = "(//input[@id='paymentPONumber'])[1]")
 	private WebElement ponumber_paymenttype_InvHouseAct_OnPhoneOrderPage;
+	
+	@FindBy(xpath="//input[@id='paymentPaymentTerm']")
+	private WebElement PaymentTerms_paymenttype_InvHouseAct_OnPhoneOrderPage;
 
 	// ====================== Confirmation popup ==============================
 	@FindBy(xpath = "//h4[contains(text(),'Order Confirmation')]")
@@ -1863,6 +1884,35 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 	
 	
+	public void SearchandSelect_ItemDescription_Row1OnPhoneOrderPage(String proditemDesc, String itemdesc) {
+		DoubleClickAndType(prod_details_ItemDesc1, proditemDesc);
+		delayWithGivenTime(3000);
+		for (WebElement itemdescription : listOfItems_row1_UnderItemDesc1) {
+			if (itemdescription.getText().contains(itemdesc)) {
+				itemdescription.click();
+				//click(itemdescription);
+				break;
+			}
+		}
+	}
+	
+	
+	public void SearchandSelect_ItemcodeOnPhoneOrderPage(String proditemcode,String itemdescription) {
+		DoubleClickAndType(prod_details_Itemcode1, proditemcode);
+		delayWithGivenTime(3000);
+		for(int i = 0; i < listOfItems_UnderItemcode1.size(); i++) {
+			if(listOfItems_UnderItemcode1.get(i).getText().contains(itemdescription)) {	
+				listOfItems_UnderItemcode1.get(i).click();
+				break;
+			}
+		}
+		
+		/*
+		 * for (WebElement item : listOfItems_UnderItemcode1) { if
+		 * (item.getText().contains(itemdescription)) { actionClick(item);
+		 * //jsClick(item); item.click(); break; } }
+		 */	}
+	
 	public void SearchandSelectItemcodeOnPhoneOrderPage(String proditemcode,String itemdescription) {
 		DoubleClickAndType(prod_details_Itemcode1, proditemcode);
 		delayWithGivenTime(3000);
@@ -1871,7 +1921,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	    for (WebElement item : listOfItemsUnderItemcode1) {
 	        if (item.getText().contains(itemdescription)) {
 	        	//actionClick(item);
-	        	item.click();
+	        	jsClick(item);
 	            itemFound = true;
 	            break;
 	        }
@@ -2043,6 +2093,12 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		jsClick(deliverytypeOnPhoneOrderPage);
 	}
 
+	public String get_HighlightedColor_OnDelivery_TypeOnPhoneOrderPage() {
+		String color = deliverytypeOnPhoneOrderPage.getCssValue("color");
+		String hexColor = rgbaToHex(color);
+		return hexColor;
+	}
+	
 	public void Click_WireIn_DeliveryType_OnPhoneOrderPage() {
 		jsClick(wirein_deliverytype_OnPhoneOrderPage);
 	}
@@ -2434,6 +2490,11 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	public void EnterCashAmount() {
 		DoubleClickAndType(paidAmountOnPhoneOrderPage, getGrandTotalAmount());
 	}
+	
+	public void Enter_Cash_Amount() {
+		DoubleClickAndType(paidAmountOnPhoneOrderPage, getGrandTotalAmount());
+		paidAmountOnPhoneOrderPage.sendKeys(Keys.TAB);
+	}
 
 	public void Enter_CashPaymentType_Amount() {
 		double grandTotal = Double.parseDouble(getGrandTotalAmount());
@@ -2470,6 +2531,11 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		jsClick(placeOrderButtonOnPhoneOrderPage);
 	}
 
+
+	public void Click_PlaceOrder_Button() {		
+		placeOrderButtonOnPhoneOrderPage.click();
+	}
+	
 	public boolean VerifyConfirmationPopupOnPhoneOrderPage() {
 		HighlightElement(confirmationPopupTitleOnPhoneOrderPage);
 		return confirmationPopupTitleOnPhoneOrderPage.isDisplayed();
@@ -7436,6 +7502,32 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return dontSaveCreditCardCheckbox_OnCustDetailsPopup.isSelected();
 	}
 	
+	public String get_custId_OnPhoneorderPage() {
+		HighlightElement(custId_OnPhoneOrderPage);
+		return custId_OnPhoneOrderPage.getText();
+	}
+	
+	public boolean Verify_PO_NumberField_IsDisplayed_On_InvoiceHouseAccount_PaymentSection() {
+		HighlightElement(ponumber_paymenttype_InvHouseAct_OnPhoneOrderPage);
+		return ponumber_paymenttype_InvHouseAct_OnPhoneOrderPage.isDisplayed();
+	}
+	
+	public boolean Verify_Payment_TermsField_IsDisplayed_On_InvoiceHouseAccount_PaymentSection() {
+		HighlightElement(PaymentTerms_paymenttype_InvHouseAct_OnPhoneOrderPage);
+		return PaymentTerms_paymenttype_InvHouseAct_OnPhoneOrderPage.isDisplayed();
+	}
+	
+	public String get_CustomerId_OnCustomerDetailsPopup_OnPhoneOrderPage() {
+		HighlightElement(custIdTextbox_CustDetailsPopup_OnPhoneOrderPage);
+		return custIdTextbox_CustDetailsPopup_OnPhoneOrderPage.getAttribute("value");
+	}
+	
+	public boolean Verify_ItemDescription_Autosuggestion_DropdownOptions(String proditemDesc) {
+		DoubleClickAndType(prod_details_ItemDesc1, proditemDesc);
+		delayWithGivenTime(3000);
+		HighlightElement(itemDesc1_Autosuggestion);
+		return itemDesc1_Autosuggestion.isDisplayed();
+	}
 	
 }
 	

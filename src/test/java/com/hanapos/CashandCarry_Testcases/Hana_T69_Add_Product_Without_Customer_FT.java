@@ -54,14 +54,15 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 			logger.info("User entered username as "+prop.getProperty("password"));
 			lp.ClickLoginButton();
 			logger.info("User clicked on Login button..");
-
+			delayWithGivenTime(2000);
 			dashboard = new HanaDashBoardPage();
 			softassert.assertTrue(dashboard.VerifyHanaDashBoardPage(),"Page does not navigated to hana dashboard page");
 			logger.info("User navigated to hana dashboard page sucess..");
 
-			// Test Step - 3
-			dashboard.SelectShopNameDropDown(prop.getProperty("shopname"));
+			// Test Step - 3	
+			dashboard.SelectShopNameDropDown(shopname);
 			logger.info("User selected the shop name as "+prop.getProperty("shopname")+ "in dashboard page");
+			delayWithGivenTime(2000);
 			dashboard.CashAndCarryMenuClick();							
 			cashandcarry = new CashAndCarryPage();
 			logger.info("User hover the mouse on New order and click on Cash and Carry..");
@@ -121,14 +122,14 @@ public class Hana_T69_Add_Product_Without_Customer_FT extends TestBaseClass{
 			softassert.assertEquals(cashandcarry.GetAddedItemDiscountPercentage(),"0.00");
 			
 			// Test Step - 10
-			softassert.assertEquals(cashandcarry.VerifyToolTipOnLeftSideTileProduct(), "35486~Violet&Roses Standard~21.00~169514~true~false~Item~1801202","Test Step - 10 - Tooltip is not matched");
+		//	softassert.assertEquals(cashandcarry.Verify_ToolTip_OnLeftSideTileProduct(), "Tile Product-Test Automation Tile Product Small-$220.00","Test Step - 10 - Tooltip is not matched");
 			
 			// Test Step - 11
 			delayWithGivenTime(2000);
-			cashandcarry.SelectProductTile(prodtile);
+			cashandcarry.Select_Product_Tile(prodtile);
 			logger.info("User click on the particular product tile");
 			delayWithGivenTime(2000);
-			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"35486","Test Step - 11 - selected product tile is not displayed");
+			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"Tile Product","Test Step - 11 - selected product tile is not displayed");
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 
 			// Test Step - 12

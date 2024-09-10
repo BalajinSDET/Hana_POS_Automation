@@ -2,22 +2,22 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-09-03T18:18:37 IST" name="Default suite" finished-at="2024-09-03T18:21:16 IST" duration-ms="159684">
+  <suite started-at="2024-09-10T12:22:26 IST" name="Default suite" finished-at="2024-09-10T12:24:05 IST" duration-ms="99126">
     <groups>
       <group name="Regression">
-        <method signature="Hana_T_Proposal_Wedding_Functionality.Validate_Proposal_Wedding_Functionality_Test()[pri:0, instance:com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality@389c4eb1]" name="Validate_Proposal_Wedding_Functionality_Test" class="com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality"/>
+        <method signature="Hana_T14_Add_Product_FT.Validate_Hana_T14_Add_Product_Test(java.lang.String)[pri:0, instance:com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT@46271dd6]" name="Validate_Hana_T14_Add_Product_Test" class="com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT"/>
       </group> <!-- Regression -->
       <group name="Smoke">
-        <method signature="Hana_T_Proposal_Wedding_Functionality.Validate_Proposal_Wedding_Functionality_Test()[pri:0, instance:com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality@389c4eb1]" name="Validate_Proposal_Wedding_Functionality_Test" class="com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality"/>
+        <method signature="Hana_T14_Add_Product_FT.Validate_Hana_T14_Add_Product_Test(java.lang.String)[pri:0, instance:com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT@46271dd6]" name="Validate_Hana_T14_Add_Product_Test" class="com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT"/>
       </group> <!-- Smoke -->
     </groups>
-    <test started-at="2024-09-03T18:18:37 IST" name="Default test" finished-at="2024-09-03T18:21:16 IST" duration-ms="159684">
-      <class name="com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality@389c4eb1]" started-at="2024-09-03T18:18:37 IST" name="loadConfig" finished-at="2024-09-03T18:18:37 IST" duration-ms="18" status="PASS">
+    <test started-at="2024-09-10T12:22:26 IST" name="Default test" finished-at="2024-09-10T12:24:05 IST" duration-ms="99126">
+      <class name="com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT@46271dd6]" started-at="2024-09-10T12:22:26 IST" name="loadConfig" finished-at="2024-09-10T12:22:26 IST" duration-ms="27" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality@389c4eb1]" started-at="2024-09-03T18:18:37 IST" name="setup" finished-at="2024-09-03T18:18:44 IST" duration-ms="6986" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT@46271dd6]" started-at="2024-09-10T12:22:28 IST" name="setup" finished-at="2024-09-10T12:22:36 IST" duration-ms="8421" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -28,15 +28,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Validate_Proposal_Wedding_Functionality_Test()[pri:0, instance:com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality@389c4eb1]" started-at="2024-09-03T18:18:44 IST" name="Validate_Proposal_Wedding_Functionality_Test" finished-at="2024-09-03T18:21:16 IST" duration-ms="152263" status="PASS">
+        <test-method signature="Validate_Hana_T14_Add_Product_Test(java.lang.String)[pri:0, instance:com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT@46271dd6]" started-at="2024-09-10T12:22:36 IST" name="Validate_Hana_T14_Add_Product_Test" data-provider="fetch_Excel_Data" finished-at="2024-09-10T12:24:05 IST" duration-ms="88504" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[rrd]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Validate_Proposal_Wedding_Functionality_Test -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality@389c4eb1]" started-at="2024-09-03T18:21:16 IST" name="tearDown" finished-at="2024-09-03T18:21:16 IST" duration-ms="304" status="PASS">
+        </test-method> <!-- Validate_Hana_T14_Add_Product_Test -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT@46271dd6]" started-at="2024-09-10T12:24:05 IST" name="tearDown" finished-at="2024-09-10T12:24:05 IST" duration-ms="276" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.hanapos.Proposal_TestCases.Hana_T_Proposal_Wedding_Functionality -->
+      </class> <!-- com.hanapos.CashandCarry_Testcases.Hana_T14_Add_Product_FT -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -55,13 +55,14 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			lp.EnterPassword(prop.getProperty("password"));
 			lp.ClickLoginButton();
 			logger.info("Clicked on Login button..");
-
+			delayWithGivenTime(2000);
 			dashboard = new HanaDashBoardPage();
 			Assert.assertTrue(dashboard.VerifyHanaDashBoardPage(),"Page does not navigated to hana dashboard page");
 			logger.info("User navigated to hana dashboard page sucess..");
 
 			// Test Step - 3
 			dashboard.SelectShopNameDropDown(prop.getProperty("shopname"));
+			delayWithGivenTime(2000);
 			dashboard.CashAndCarryMenuClick();							
 			cashandcarry = new CashAndCarryPage();
 			logger.info("User hover the mouse on New order and click on Cash and Carry..");

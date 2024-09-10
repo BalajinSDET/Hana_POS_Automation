@@ -61,7 +61,7 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 			logger.info("User entered username as "+prop.getProperty("password"));
 			lp.ClickLoginButton();
 			logger.info("User clicked on Login button..");
-
+			delayWithGivenTime(2000);
 			dashboard = new HanaDashBoardPage();
 			Assert.assertTrue(dashboard.VerifyHanaDashBoardPage(),"Page does not navigated to hana dashboard page");
 			logger.info("User navigated to hana dashboard page sucess..");
@@ -69,6 +69,7 @@ public class Hana_T65_Payment_Add_New_Customer_FT extends TestBaseClass{
 			// Test Step - 3
 			dashboard.SelectShopNameDropDown(prop.getProperty("shopname"));
 			logger.info("User selected the shop name as "+prop.getProperty("shopname")+ "in dashboard page");
+			delayWithGivenTime(2000);
 			dashboard.CashAndCarryMenuClick();							
 			cashandcarry = new CashAndCarryPage();
 			logger.info("User hover the mouse on New order and click on Cash and Carry..");

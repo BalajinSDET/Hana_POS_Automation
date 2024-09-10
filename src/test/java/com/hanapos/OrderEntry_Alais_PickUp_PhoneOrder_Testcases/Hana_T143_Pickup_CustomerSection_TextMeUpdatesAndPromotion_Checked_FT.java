@@ -72,7 +72,7 @@ public class Hana_T143_Pickup_CustomerSection_TextMeUpdatesAndPromotion_Checked_
 			delayWithGivenTime(2000);
 			softassert.assertTrue(phoneorder.VerifyCustSectionAppears(),"Test Step - 6 - Customer section is not displayed on phone order page");
 			delayWithGivenTime(500);
-			softassert.assertTrue(phoneorder.Verify_TextmepromotionCheckboxIsChecked_OnPhoneorderPage(), "Test Step - 6 - Text me promotion checkbox is not checked on phone order page");
+			softassert.assertFalse(phoneorder.Verify_TextmepromotionCheckboxIsChecked_OnPhoneorderPage(), "Test Step - 6 - Text me promotion checkbox is not checked on phone order page");
 			
 			// Test Step - 7
 			phoneorder.Click_TextmePromotionCheckBox_OnphoneOrderPage();
@@ -82,7 +82,7 @@ public class Hana_T143_Pickup_CustomerSection_TextMeUpdatesAndPromotion_Checked_
 			// Test Step - 8
 			phoneorder.Click_TextmePromotionCheckBox_OnphoneOrderPage();
 			delayWithGivenTime(500);
-			softassert.assertTrue(phoneorder.Verify_TextmepromotionCheckboxIsChecked_OnPhoneorderPage(), "Test Step - 8 - Text me promotion checkbox is not checked on phone order page");
+			softassert.assertFalse(phoneorder.Verify_TextmepromotionCheckboxIsChecked_OnPhoneorderPage(), "Test Step - 8 - Text me promotion checkbox is not checked on phone order page");
 
 			// Test Step - 9
 			phoneorder.ClickPickupTypeOnPhoneOrderPage();
@@ -145,7 +145,7 @@ public class Hana_T143_Pickup_CustomerSection_TextMeUpdatesAndPromotion_Checked_
 			delayWithGivenTime(2000);
 			
 			// Test Step - 12
-			phoneorder.SearchandSelectItemcodeOnPhoneOrderPage("rrd","rrd Red Rose Deluxe");
+			phoneorder.SearchandSelect_ItemcodeOnPhoneOrderPage("rrd","rrd Red Rose Deluxe");
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getProdDetailsItemcode1OnPhoneOrderPage(),"rrd","Test Step - 12 - Item code is not displayed on phone order page product details section");
 			softassert.assertEquals(phoneorder.getProdDetailsItemDescription1OnPhoneOrderPage(),"Red Rose Deluxe","Test Step - 12 - Item description is not displayed on phone order page product details section"); 

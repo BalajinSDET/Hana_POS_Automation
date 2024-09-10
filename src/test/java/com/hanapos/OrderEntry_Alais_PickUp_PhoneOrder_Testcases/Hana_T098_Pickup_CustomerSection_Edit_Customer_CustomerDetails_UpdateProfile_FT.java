@@ -11,17 +11,18 @@ import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
 
-public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_FT extends TestBaseClass {
+public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UpdateProfile_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 	private Order_Confirmation_Page orderconfirmationpage;
 	private CustomerPage customerpage;
+	String customerName;
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Test() {
+	public void Validate_Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UpdateProfile_Functionality_Test() {
 		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting  Hana_T98_Pickup_CustomerSection_Edit_Customer_CustomerDetails_FT  ****");
+		logger.info("**** Starting  Validate_Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UpdateProfile_Functionality_Test  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -217,6 +218,7 @@ public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_FT e
 			delayWithGivenTime(2000);
 			orderconfirmationpage = new Order_Confirmation_Page();
 			softassert.assertTrue(orderconfirmationpage.VerifyOrderConfirmationPage(), "Test Step - 22 - Order confirmation page is not displayed");
+			customerName = orderconfirmationpage.getCustomerFname() + " " + orderconfirmationpage.getCustomerLname();
 			softassert.assertEquals(orderconfirmationpage.getCustomerFname(),"David","Test Step - 22 - first name is not matched");
 			softassert.assertEquals(orderconfirmationpage.getCustomerLname(),"Abish","Test Step - 22 - Last name is not matched");
 			softassert.assertEquals(orderconfirmationpage.getCustomerPhone1(),"956-655-0756","Test Step - 22 - phone number 1 is not matched");
@@ -235,7 +237,7 @@ public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_FT e
 			
 			// Test Step - 24
 			delayWithGivenTime(4000);
-			customerpage.Search_and_SelectCustomerName("David Ab","David Abish");
+			customerpage.Enter_CustomerName_searchbox_OnCustTable(customerName);
 			
 			delayWithGivenTime(4000);
 			softassert.assertEquals(customerpage.VerifyCompanyNameOnCustTable(),"Hana_Sister","Test Step 24 - Company Name on customer table is not matched");

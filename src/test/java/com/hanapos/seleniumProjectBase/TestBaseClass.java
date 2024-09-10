@@ -643,16 +643,16 @@ public class TestBaseClass implements FrameworkDesign {
 	}
 
 	public void PressF8() {
-
-		try {
-			SafeRobot robot = SafeRobot.getInstance();
-			// Press Tab key to focus on the "F8" to navigate gift card tab
-			synchronized (robot) {
-				robot.keyPress(KeyEvent.VK_F8);
-				robot.keyRelease(KeyEvent.VK_F8);
-			}} catch (AWTException e) {
-				e.printStackTrace();
-			}
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
+		js.executeScript("var event = new KeyboardEvent('keydown', {keyCode: 119, which: 119}); document.dispatchEvent(event);");
+		
+		// Robot class does not work on parallel execution.....
+		/*
+		 * try { SafeRobot robot = SafeRobot.getInstance(); // Press Tab key to focus on
+		 * the "F8" to navigate gift card tab synchronized (robot) {
+		 * robot.keyPress(KeyEvent.VK_F8); robot.keyRelease(KeyEvent.VK_F8); }} catch
+		 * (AWTException e) { e.printStackTrace(); }
+		 */
 	}
 
 	public void action_PressF8() {

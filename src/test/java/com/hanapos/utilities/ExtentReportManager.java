@@ -60,7 +60,7 @@ public class ExtentReportManager extends TestBaseClass implements ITestListener 
 		extent.attachReporter(sparkReporter);
 		extent.setSystemInfo("Application", "Hana - POS");
 		extent.setSystemInfo("Tester Name", System.getProperty("user.name"));
-		extent.setSystemInfo("Environment", "QA");
+		extent.setSystemInfo("Environment", prop.getProperty("env"));
 
 		String os = testContext.getCurrentXmlTest().getParameter("os");
 		extent.setSystemInfo("Operating System", os);

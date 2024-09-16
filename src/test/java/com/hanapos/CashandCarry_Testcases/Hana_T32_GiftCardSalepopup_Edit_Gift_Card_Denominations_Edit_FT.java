@@ -9,6 +9,7 @@ import com.hanapos.pageObjects.CashAndCarryPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T32_GiftCardSalepopup_Edit_Gift_Card_Denominations_Edit_FT extends TestBaseClass{
@@ -16,7 +17,9 @@ public class Hana_T32_GiftCardSalepopup_Edit_Gift_Card_Denominations_Edit_FT ext
 	private HanaDashBoardPage dashboard;
 	private CashAndCarryPage cashandcarry;
 	public static final String dataSheetName = "Hana_T32";
-	SoftAssert softassert = new SoftAssert();
+	
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
 
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 

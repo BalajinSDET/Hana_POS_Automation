@@ -1,6 +1,9 @@
 package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -8,17 +11,28 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
+import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T105_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Invoice_Search_Filter_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 
-	//,dataProvider="fetch_Excel_Data"
-	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T105_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Invoice_Search_Filter_Test() {
-		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting  Hana_T105_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Invoice_Search_Filter_FT  ****");
+	public static final String dataSheetName = "Hana_T105";
+
+	@DataProvider(name = "fetch_Excel_Data") 
+	public Object[][] fetchData() throws IOException { 
+		return DataLibrary.readExcelData(dataSheetName); 
+	}
+	
+	
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
+	public void Validate_Hana_T105_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Invoice_Search_Filter_Test(String search_invoice_3digits, String search_invalid_invoiceno) {
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
+		logger.info("**** Starting  Hana_T105_OrderEntryPage_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Invoice_Search_Filter_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -56,9 +70,9 @@ public class Hana_T105_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			softassert.assertEquals(phoneorder.getHighlightedColorOnPickupTypeOnPhoneOrderPage(),"#2f9bc8", "Test Step - 5 - Pickup type is not highlighted in blue color");		
 		
 			//Test Step - 6
-			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage("Stuart Markwood");
+			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage(prop.getProperty("salesperson"));
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 6 - Last name is not displayed on phone order page");
@@ -94,7 +108,7 @@ public class Hana_T105_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 					"Test Step - 11 Displayed invoice number is did not matched with previously searched invoice number on unpaid invoice grid table");
 			
 			// Test Step - 12
-			phoneorder.Enter_InvoiceSearchext_UnpaidInvoiceTab("903");
+			phoneorder.Enter_InvoiceSearchext_UnpaidInvoiceTab(search_invoice_3digits);
 
 			// Test Step - 13
 			phoneorder.PressEnterKey();
@@ -103,7 +117,7 @@ public class Hana_T105_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			
 			// Test Step - 14
 			delayWithGivenTime(1000);
-			phoneorder.Enter_InvoiceSearchext_UnpaidInvoiceTab("123456");
+			phoneorder.Enter_InvoiceSearchext_UnpaidInvoiceTab(search_invalid_invoiceno);
 			delayWithGivenTime(1000);
 			phoneorder.PressEnterKey();
 			delayWithGivenTime(1000);

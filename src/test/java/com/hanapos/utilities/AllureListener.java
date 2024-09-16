@@ -25,11 +25,9 @@ public class AllureListener extends TestBaseClass implements ITestListener {
 
 	    @Override
 	    public void onTestFailure(ITestResult result) {
-	    	 System.out.println("I am in onTestFailure method " + getTestMethodName(result) + " failed");
 	         Object testClass = result.getInstance();
 	         WebDriver driver = ((TestBaseClass) testClass).getDriver();
 	         if (driver != null) {
-	             System.out.println("Screenshot captured for test case: " + getTestMethodName(result));
 	             Allure.addAttachment("Screenshot", new ByteArrayInputStream(saveScreenshotPNG(driver)));
 	         }
 	         Allure.step("Test failed: " + getTestMethodName(result));

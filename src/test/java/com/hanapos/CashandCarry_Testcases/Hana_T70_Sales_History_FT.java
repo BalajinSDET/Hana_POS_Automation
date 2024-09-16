@@ -14,6 +14,7 @@ import com.hanapos.pageObjects.DashboardOrderPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T70_Sales_History_FT extends TestBaseClass{
@@ -21,7 +22,9 @@ public class Hana_T70_Sales_History_FT extends TestBaseClass{
 	private HanaDashBoardPage dashboard;
 	private CashAndCarryPage cashandcarry;
 
-	SoftAssert softassert = new SoftAssert();
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
+	
 	/*
 	 * HANA-T70 - 1 to 7 - Verify add product without customer Functionality
 	 */

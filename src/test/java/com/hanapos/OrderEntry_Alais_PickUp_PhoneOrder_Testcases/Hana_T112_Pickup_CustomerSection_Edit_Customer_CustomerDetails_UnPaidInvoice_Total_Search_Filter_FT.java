@@ -8,17 +8,21 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 
 public class Hana_T112_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Total_Search_Filter_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 
-	//,dataProvider="fetch_Excel_Data"
+	String totalamount;
+
 	@Test(enabled=true,groups= {"Regression"}) 
 	public void Validate_Hana_T112_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Total_Search_Filter_Test() {
-		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting Hana_T112_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Total_Search_Filter_FT  ****");
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
+		logger.info("**** Starting Hana_T112_OrderEntryPage_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Total_Search_Filter_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -54,10 +58,44 @@ public class Hana_T112_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			phoneorder.ClickPickupTypeOnPhoneOrderPage();
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getHighlightedColorOnPickupTypeOnPhoneOrderPage(),"#2f9bc8", "Test Step - 5 - Pickup type is not highlighted in blue color");		
+	
+			//========================================================================================//		
+			// Pre requite to set tax in unpaid invoice
+			delayWithGivenTime(2000);
+			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			delayWithGivenTime(2000);
+			phoneorder.SelectOccasion_On_OrderDetails_In_PhoneOrderPage("Birthday");
+			phoneorder.EnterViewShortCode();			
+			delayWithGivenTime(2000);
+			phoneorder.SearchandSelectItemcodeOnPhoneOrderPage("rrd","rrd-Red Rose Deluxe");
+			delayWithGivenTime(2000);
+			phoneorder.Select_TaxType_OnPhoneOrderPage("Standard Tax");
+			delayWithGivenTime(1000);
+			totalamount = phoneorder.get_SubtotalAmount_OnPhoneOrderPage();
+			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection("Invoice/House Account");
+			delayWithGivenTime(1000);
+			
+			phoneorder.ClickPlaceOrderButton();
+			delayWithGivenTime(2000);
+			getDriver().switchTo().activeElement();
+			softassert.assertTrue(phoneorder.VerifyConfirmationPopupOnPhoneOrderPage(), "Test Step - 10 - Confirmation popup is not displayed on phone order page");
+			delayWithGivenTime(2000);
+			phoneorder.ClickSubmitButton_On_ConfirmationPopup();
+			delayWithGivenTime(2000);
+		
+			// Test Step - 4
+			dashboard.ClickOrderEntry();
+			logger.info("User hover the mouse on New order and clicked on order entry");
+			
+			// Test Step - 5
+			phoneorder = new OrderEntry_Alais_PhoneOrderPage();
+			phoneorder.ClickPickupTypeOnPhoneOrderPage();
+			delayWithGivenTime(2000);
+			softassert.assertEquals(phoneorder.getHighlightedColorOnPickupTypeOnPhoneOrderPage(),"#2f9bc8", "Test Step - 5 - Pickup type is not highlighted in blue color");		
 		
 			//Test Step - 6
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 6 - Last name is not displayed on phone order page");
@@ -84,21 +122,21 @@ public class Hana_T112_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			delayWithGivenTime(1000);			
 		
 			// Test Step - 10
-			phoneorder.Enter_Total_OnInvoiceSearchBox_UnpaidInvoiceTab("314");
+			phoneorder.Enter_Total_OnInvoiceSearchBox_UnpaidInvoiceTab(totalamount);
 			
 			// Test Step - 11
 			RobotPressEnter();
 			delayWithGivenTime(1000);
-			softassert.assertTrue(phoneorder.Verify_TotalValue_OnDisplayedInvoices(), "Test Step - 11 - Total value is not displayed in unpaid invoice grid table");
+			softassert.assertTrue(phoneorder.Verify_TotalValue_OnDisplayedInvoices(totalamount), "Test Step - 11 - Total value is not displayed in unpaid invoice grid table");
 			delayWithGivenTime(1000);
 		
 			// Test Step - 12
-			phoneorder.Enter_Total_OnInvoiceSearchBox_UnpaidInvoiceTab("31");
+			phoneorder.Enter_Total_OnInvoiceSearchBox_UnpaidInvoiceTab("29");
 
 			// Test Step - 13
 			RobotPressEnter();
 			delayWithGivenTime(1000);
-			softassert.assertTrue(phoneorder.Verify_TotalValue_OnDisplayedInvoices(), "Test Step - 13 - Total value is not displayed in unpaid invoice grid table");			
+			softassert.assertTrue(phoneorder.Verify_TotalValue_OnDisplayedInvoices("29"), "Test Step - 13 - Total value is not displayed in unpaid invoice grid table");			
 		
 			// Test Step - 14
 			delayWithGivenTime(1000);

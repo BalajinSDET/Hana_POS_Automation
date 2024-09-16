@@ -1,6 +1,9 @@
 package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -10,6 +13,8 @@ import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
+import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UpdateProfile_FT extends TestBaseClass {
 	private LoginPage lp;
@@ -18,10 +23,20 @@ public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Upda
 	private Order_Confirmation_Page orderconfirmationpage;
 	private CustomerPage customerpage;
 	String customerName;
-	//,dataProvider="fetch_Excel_Data"
-	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UpdateProfile_Functionality_Test() {
-		SoftAssert softassert = new SoftAssert();
+	public static final String dataSheetName = "Hana_T98";
+
+	@DataProvider(name = "fetch_Excel_Data") 
+	public Object[][] fetchData() throws IOException { 
+		return DataLibrary.readExcelData(dataSheetName); 
+	}
+	
+
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
+	public void Validate_Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UpdateProfile_Functionality_Test(String salesperson, String companyname, String firstname,String lastname, String emailid, String address1,  String zipcode, String country, String city,  String phonenumber,
+			String altphonenumber, String recifirstname, String recilastname, String reciaddress1, String reciaddress2, String recizipcode, String recicountry, String reciphone, String recilocation,String occasion, String searchandselectitemcode, String paymenttype, String cashregistry) {
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting  Validate_Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UpdateProfile_Functionality_Test  ****");
 		logger.debug("capturing application debug logs....");
 		try {
@@ -63,20 +78,20 @@ public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Upda
 			softassert.assertTrue(phoneorder.VerifyCustSectionAppears(), "Test Step - 6 - Customer section is not displayed on phone order page");
 			
 			// Test Step - 7
-			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage("Stuart Markwood");
+			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage(salesperson);
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 7 - First name is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 7 - Last name is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getCompanyNameOnPhoneOrderPage(),"Hana_Sisterchicks", "Test Step - 7 - Company name is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getEmailIdOnPhoneOrderPage(),"hanaposqateam@gmail.com", "Test Step -7 - email id is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getAddress1OnPhoneOrderPage(),"3402 Park Blvd", "Test Step - 7 - address 1 is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getAddress2OnPhoneOrderPage(),"", "Test Step - 7- Address 2 is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getZipCodeOnPhoneOrderPage(),"92103", "Test Step -7 - Zipcode is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getCityOnPhoneOrderPage(),"San Diego", "Test Step -7 - city is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getPhoneNumberOnPhoneOrderPage(),"956-655-0756", "Test Step - 7 - phone number 1 is not displayed on phone order page");
-			softassert.assertEquals(phoneorder.getAltPhoneNumberOnPhoneOrderPage(),"956-655-0756", "Test Step - 7 - Alt phone number is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),prop.getProperty("cust_firstName"), "Test Step - 7 - First name is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),prop.getProperty("cust_lastName"), "Test Step - 7 - Last name is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getCompanyNameOnPhoneOrderPage(),prop.getProperty("cust_companyName"), "Test Step - 7 - Company name is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getEmailIdOnPhoneOrderPage(),prop.getProperty("cust_email"), "Test Step - 7 - email id is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getAddress1OnPhoneOrderPage(),prop.getProperty("cust_address1"), "Test Step - 7 - address 1 is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getAddress2OnPhoneOrderPage(),"", "Test Step - 6 - Address 2 is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getZipCodeOnPhoneOrderPage(),prop.getProperty("cust_zipcode"), "Test Step - 7 - Zipcode is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getCityOnPhoneOrderPage(),prop.getProperty("cust_city"), "Test Step - 7 - city is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getPhoneNumberOnPhoneOrderPage(),prop.getProperty("cust_phoneNumber"), "Test Step - 7 - phone number 1 is not displayed on phone order page");
+			softassert.assertEquals(phoneorder.getAltPhoneNumberOnPhoneOrderPage(),prop.getProperty("cust_Alt_phoneNumber"), "Test Step - 7 - Alt phone number is not displayed on phone order page");			
 			delayWithGivenTime(2000);
 		
 			// Test Step - 8
@@ -95,16 +110,16 @@ public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Upda
 			softassert.assertFalse(phoneorder.Verify_CustomerIDField_Disabled(),"Test Step - 11 -Customer Id field is not disabled on Customer details popup on is not displayed on phone order page");
 			
 			// Test Step - 12
-			phoneorder.Enter_CompanyName_OnCustDetailsPopup("Hana_Sister");
-			phoneorder.Enter_FirstName_OnCustDetailsPopup("David");
-			phoneorder.Enter_LastName_OnCustDetailsPopup("Abish");
-			phoneorder.Enter_Email_OnCustDetailsPopup("hanaposqa@gmail.com");
-			phoneorder.Enter_Address1_OnCustDetailsPopup("3402 Park Blvd 1");
-			phoneorder.Enter_ZipCode_OnCustDetailsPopup("92103");
-			phoneorder.Enter_Country_OnCustDetailsPopup("United States");
-			phoneorder.Enter_City_OnCustDetailsPopup("San Diego");
-			phoneorder.Enter_PhoneNumber_OnCustDetailsPopup("956-655-0756");
-			phoneorder.Enter_AltPhoneNumber_OnCustDetailsPopup("956-655-0756");
+			phoneorder.Enter_CompanyName_OnCustDetailsPopup(companyname);
+			phoneorder.Enter_FirstName_OnCustDetailsPopup(firstname);
+			phoneorder.Enter_LastName_OnCustDetailsPopup(lastname);
+			phoneorder.Enter_Email_OnCustDetailsPopup(emailid);
+			phoneorder.Enter_Address1_OnCustDetailsPopup(address1);
+			phoneorder.Enter_ZipCode_OnCustDetailsPopup(zipcode);
+			phoneorder.Enter_Country_OnCustDetailsPopup(country);
+			phoneorder.Enter_City_OnCustDetailsPopup(city);
+			phoneorder.Enter_PhoneNumber_OnCustDetailsPopup(phonenumber);
+			phoneorder.Enter_AltPhoneNumber_OnCustDetailsPopup(altphonenumber);
 			
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.get_CompanyName_OnCustDetailsPopup(),"Hana_Sister", "Test Step - 12 - Company name is not displayed on phone order page");
@@ -149,24 +164,24 @@ public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Upda
 
 			// Test Step -17
 			delayWithGivenTime(3000);
-			phoneorder.EnterReciFirstName("Abish");
-			phoneorder.EnterReciLastName("David");
-			phoneorder.EnterReciAddress1("3402 Park Blvd");
-			phoneorder.EnterReciAddress2("PICK UP");
-			phoneorder.EnterReciZipcode("92103");
+			phoneorder.EnterReciFirstName(recifirstname);
+			phoneorder.EnterReciLastName(recilastname);
+			phoneorder.EnterReciAddress1(reciaddress1);
+			phoneorder.EnterReciAddress2(reciaddress2);
+			phoneorder.EnterReciZipcode(recizipcode);
 			delayWithGivenTime(1000);
 			//phoneorder.EnterReciCity("San Diego");
-			phoneorder.SelectReciCountry("United States");
-			phoneorder.EnterReciPhone("956-655-0756");
+			phoneorder.SelectReciCountry(recicountry);
+			phoneorder.EnterReciPhone(reciphone);
 			delayWithGivenTime(1000);
-			phoneorder.SelectReciLocation("Church");
+			phoneorder.SelectReciLocation(recilocation);
 			delayWithGivenTime(1000);
 			phoneorder.EnterDeliveryDateOnReciSection();
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getReciFirstName(),"Abish","Test Step - 17 - Entered first name is not displayed on phone order page recipient section");
 			softassert.assertEquals(phoneorder.getReciLastName(),"David","Test Step - 17 - Entered last name is not displayed on phone order page recipient section");
 			softassert.assertEquals(phoneorder.getReciAddress1(),"3402 Park Blvd","Test Step - 17 - Entered address 1 is not displayed on phone order page recipient section");
-			softassert.assertEquals(phoneorder.getReciAddress2(),"PICK UP","Test Step - 17 - Entered address 2 is not displayed on phone order page recipient section");
+			softassert.assertEquals(phoneorder.getReciAddress2(),"114 Spring Field","Test Step - 17 - Entered address 2 is not displayed on phone order page recipient section");
 			softassert.assertEquals(phoneorder.getReciZipcode(),"92103","Test Step - 17 - Entered zipcode is not displayed on phone order page recipient section");
 			softassert.assertEquals(phoneorder.getReciCity(),"San Diego","Test Step - 17 - Entered city is not displayed on phone order page recipient section");
 			softassert.assertEquals(phoneorder.getSelectedCountryOnReciCountry(),"United States","Test Step - 17 - Selected country is not displayed on phone order page recipient section");
@@ -176,7 +191,7 @@ public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Upda
 			softassert.assertEquals(phoneorder.getDeliveryDateOnReciSection(),phoneorder.NextDate(),"Test Step - 17 - Delivery date is not displayed on phone order page recipient section");
 		
 			// Test Step - 18
-			phoneorder.SelectOccasion_On_OrderDetails_In_PhoneOrderPage("Birthday");
+			phoneorder.SelectOccasion_On_OrderDetails_In_PhoneOrderPage(occasion);
 			phoneorder.EnterViewShortCode();			
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getSelectedOccasionOnPhoneOrderPage(),"Birthday","Test Step - 18 - Selected Occasion is not displayed on phone order page order details section");
@@ -184,7 +199,7 @@ public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Upda
 			delayWithGivenTime(2000);
 		
 			// Test Step - 19
-			phoneorder.SearchandSelectItemcodeOnPhoneOrderPage("rrd","rrd-Red Rose Deluxe");
+			phoneorder.SearchandSelectItemcodeOnPhoneOrderPage(searchandselectitemcode,"rrd-Red Rose Deluxe");
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getProdDetailsItemcode1OnPhoneOrderPage(),"rrd","Test Step - 19 - Item code is not displayed on phone order page product details section");
 			softassert.assertEquals(phoneorder.getProdDetailsItemDescription1OnPhoneOrderPage(),"Red Rose Deluxe","Test Step - 19 - Item description is not displayed on phone order page product details section"); 
@@ -197,13 +212,13 @@ public class Hana_T098_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Upda
 			delayWithGivenTime(2000);
 			
 			// Test Step - 20
-			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection("Cash");
+			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection(paymenttype);
 			delayWithGivenTime(1000);
 			softassert.assertEquals(phoneorder.getDisplayedPaymentTypeSelectedOption(),"Cash","Test Step - 20 - Selected Payment type is not displayed on phone order page payment section");
 			delayWithGivenTime(2000);
 			phoneorder.EnterCashAmount();
 			delayWithGivenTime(3000);
-			phoneorder.SelectCashRegistry_On_CashPaymentType("Cash Register2");
+			phoneorder.SelectCashRegistry_On_CashPaymentType(cashregistry);
 			phoneorder.ClickPlaceOrderButton();
 			delayWithGivenTime(1000);
 			getDriver().switchTo().activeElement();

@@ -15,6 +15,7 @@ import com.hanapos.pageObjects.DashboardOrderPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T79_Add_Product_With_Existing_Customer_FT extends TestBaseClass{
@@ -26,7 +27,10 @@ public class Hana_T79_Add_Product_With_Existing_Customer_FT extends TestBaseClas
 	public static final String dataSheetName = "Hana_T79";
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
-	SoftAssert softassert = new SoftAssert();
+	
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
+	
 	String invoice;
 
 	@DataProvider(name = "fetch_Excel_Data") 

@@ -14,6 +14,7 @@ import com.hanapos.pageObjects.CashAndCarryPaymentPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 import com.hanapos.utilities.EmailReader;
 
@@ -23,7 +24,10 @@ public class Hana_T20_OrderConfirmationEmail_FT extends TestBaseClass{
 	private CashAndCarryPage cashandcarry;
 	private CashAndCarryPaymentPage cashandcarrypayment;
 	public static final String dataSheetName = "Hana_T20";
-	SoftAssert softassert = new SoftAssert();
+	
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
+	
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
 	String invoicenumber;

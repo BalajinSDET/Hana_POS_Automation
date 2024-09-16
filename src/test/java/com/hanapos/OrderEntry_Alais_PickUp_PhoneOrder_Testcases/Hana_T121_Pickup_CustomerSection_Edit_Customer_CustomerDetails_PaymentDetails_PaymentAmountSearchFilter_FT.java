@@ -7,16 +7,18 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 
 public class Hana_T121_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_PaymentAmountSearchFilter_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
-
-	//,dataProvider="fetch_Excel_Data"
+	
 	@Test(enabled=true,groups= {"Regression"}) 
 	public void Validate_Hana_T121_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_PaymentAmountSearchFilter_Functionality_Test() {
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting Hana_T121_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_PaymentAmountSearchFilter_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
@@ -43,7 +45,7 @@ public class Hana_T121_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			delayWithGivenTime(2000);
 			softassert.assertTrue(dashboard.VerifyOrderEntryOptionIsDisplayed(),"Test Step - 3 : Order entry option is not displayed");
 			softassert.assertTrue(dashboard.Verify_Cashandcarry_OptionIsDisplayed(),"Test Step - 3 : Cash and carry option is not displayed");
-		
+						
 			// Test Step - 4
 			dashboard.ClickOrderEntry();
 			logger.info("User hover the mouse on New order and clicked on order entry");
@@ -72,8 +74,7 @@ public class Hana_T121_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 		
 			// Test Step - 7			
 			phoneorder.Click_CustEditIcon();
-			softassert.assertTrue(phoneorder.Verify_CustomerDetailsPopupAppears(), "Test Step - 8 - Customer details popup on is not displayed on phone order page");
-			
+			softassert.assertTrue(phoneorder.Verify_CustomerDetailsPopupAppears(), "Test Step - 8 - Customer details popup on is not displayed on phone order page");			
 			
 			// Test Step - 8
 			delayWithGivenTime(1000);
@@ -90,11 +91,11 @@ public class Hana_T121_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			softassert.assertTrue(phoneorder.Verify_PayAmount_Paymentdetailstab("349"),"Test Step - 10 - Filtered Pay Amount is not displayed on the payment details tab at customer details popup");
 			
 			// Test Step - 11
-			phoneorder.Enter_PayAmountSearchBox_OnPaymentDetailsTab("349");
+			phoneorder.Enter_PayAmountSearchBox_OnPaymentDetailsTab("50");
 		
 			// Test Step - 12
 			RobotPressEnter();
-			softassert.assertTrue(phoneorder.Verify_PayAmount_Paymentdetailstab("349"),"Test Step - 12 - Filtered Pay Amount is not displayed on the payment details tab at customer details popup");
+			softassert.assertTrue(phoneorder.Verify_PayAmount_Paymentdetailstab("50"),"Test Step - 12 - Filtered Pay Amount is not displayed on the payment details tab at customer details popup");
 			
 			// Test Step - 13
 			phoneorder.Enter_PayAmountSearchBox_OnPaymentDetailsTab("11111");	

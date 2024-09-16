@@ -9,6 +9,7 @@ import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.EmailReader;
 
 public class Hana_T144_Pickup_CustomerSection_TextMeUpdatesAndPromotion_UnChecked_FT extends TestBaseClass {
@@ -20,7 +21,9 @@ public class Hana_T144_Pickup_CustomerSection_TextMeUpdatesAndPromotion_UnChecke
 	// ,dataProvider="fetch_Excel_Data"
 	@Test(enabled = true, groups = { "Regression" })
 	public void Validate_Hana_T144_Pickup_CustomerSection_TextMeUpdatesAndPromotion_UnChecked_Functionality_Test() {
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting Hana_T144_Pickup_CustomerSection_TextMeUpdatesAndPromotion_UnChecked_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {

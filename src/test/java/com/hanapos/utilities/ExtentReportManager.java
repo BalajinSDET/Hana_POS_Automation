@@ -1,9 +1,5 @@
 package com.hanapos.utilities;
 
-import java.awt.Desktop;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -35,25 +31,22 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
 
-import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
-
 
 public class ExtentReportManager extends TestBaseClass implements ITestListener {
 	private static ExtentSparkReporter sparkReporter;
 	private static ExtentReports extent;
 	private static String repName;
-	private ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
+	private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 	private String timeStamp;
-	
-	
+
 	public void onStart(ITestContext testContext) {
 		timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		repName = "Hana-Test-AutomationReport-" + timeStamp + ".html";
-	//	sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName);
+		// sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName);
 		sparkReporter = new ExtentSparkReporter(".\\reports\\extentreport\\Hanapos_AutomationReport.html");
-		sparkReporter.config().setDocumentTitle("Hana POS Automation"); 
-		sparkReporter.config().setReportName("Hana POS Automation Test Report"); 
+		sparkReporter.config().setDocumentTitle("Hana POS Automation");
+		sparkReporter.config().setReportName("Hana POS Automation Test Report");
 		sparkReporter.config().setTheme(Theme.DARK);
 
 		extent = new ExtentReports();
@@ -74,120 +67,132 @@ public class ExtentReportManager extends TestBaseClass implements ITestListener 
 		}
 	}
 
-	 public void onTestStart(ITestResult result) {
-	        ExtentTest test = extent.createTest(result.getMethod().getMethodName());
-	        extentTest.set(test);
-	    }
-	
-	public void onTestSuccess(ITestResult result) {
-			ExtentTest test = extentTest.get();
-			test.assignCategory(result.getMethod().getGroups());
-			test.log(Status.PASS, result.getName() + " got successfully executed");
+	public void onTestStart(ITestResult result) {
+		ExtentTest test = extent.createTest(result.getMethod().getMethodName());
+		extentTest.set(test);
 	}
 
-	private static String getTestMethodName(ITestResult iTestResult) {
-        return iTestResult.getMethod().getConstructorOrMethod().getName();
-    }
-	  
-		@Attachment(value = "Screenshot", type = "image/png")
-	    public byte[] saveScreenshotPNG(WebDriver driver) {
-	        return ((TakesScreenshot) TestBaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
-	    }
+	public void onTestSuccess(ITestResult result) {
+		ExtentTest test = extentTest.get();
+		test.assignCategory(result.getMethod().getGroups());
+		test.log(Status.PASS, result.getName() + " got successfully executed");
+	}
 
-		public void onTestFailure(ITestResult result) {
-		    ExtentTest test = extentTest.get();
-		    test.assignCategory(result.getMethod().getGroups());
-		    test.log(Status.FAIL, result.getName() + " got failed");
-		    test.log(Status.INFO, result.getThrowable().getMessage());
+	public static String getTestMethodName (ITestResult iTestResult) {
+		return iTestResult.getMethod().getConstructorOrMethod().getName();
+	}
 
-		    String logFilePath = System.getProperty("user.dir") + "\\logs\\" + result.getName() + "_" + timeStamp + "-console.log";
-		    LogUtil.saveBrowserLogs(getDriver(), logFilePath);
+	@Attachment(value = "Screenshot", type = "image/png")
+	public byte[] saveScreenshotPNG(WebDriver driver) {
+		return ((TakesScreenshot) TestBaseClass.getDriver()).getScreenshotAs(OutputType.BYTES);
+	}
 
-		    try {
+	public void onTestFailure(ITestResult result) {
+		ExtentTest test = extentTest.get();
+		test.assignCategory(result.getMethod().getGroups());
+		test.log(Status.FAIL, result.getName() + " got failed");
+		test.log(Status.INFO, result.getThrowable().getMessage());
 
-		        Object testClass = result.getInstance();
-		        WebDriver driver = ((TestBaseClass) testClass).getDriver();
-		        
-		        if (driver != null) {
-		            String base64Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
-		            test.addScreenCaptureFromBase64String(base64Screenshot, "Screenshot on failure: " + result.getName());
-		        }
-		    } catch (Exception e) {
-		        e.printStackTrace();
-		    }
-		}
+		String logFilePath = System.getProperty("user.dir") + "\\logs\\" + result.getName() + "_" + timeStamp
+				+ "-console.log";
+		LogUtil.saveBrowserLogs(getDriver(), logFilePath);
 
+		/*// I have implemented custom soft assert so no need to using below code
+		 *
+		 * try { Object testClass = result.getInstance(); WebDriver driver =
+		 * ((TestBaseClass) testClass).getDriver();
+		 * 
+		 * if (driver != null) { String base64Screenshot =
+		 * ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+		 * test.addScreenCaptureFromBase64String(base64Screenshot,
+		 * "Screenshot on failure: " + result.getName()); } } catch (Exception e) {
+		 * e.printStackTrace(); }
+		 */
+		  }
 
 	public void onTestSkipped(ITestResult result) {
-			ExtentTest test = extentTest.get();
-			test.assignCategory(result.getMethod().getGroups());
-			test.log(Status.SKIP, result.getName() + " got skipped");
-			test.log(Status.INFO, result.getThrowable().getMessage());
+		ExtentTest test = extentTest.get();
+		test.assignCategory(result.getMethod().getGroups());
+		test.log(Status.SKIP, result.getName() + " got skipped");
+		test.log(Status.INFO, result.getThrowable().getMessage());
 	}
 
 	public void onFinish(ITestContext testContext) {
-			extent.flush();
-			
-			
-			 //To open report on desktop..
-		//	String pathOfExtentReport =	 System.getProperty("user.dir") + "\\reports\\" + repName;
-		//	File extentReport = new File(pathOfExtentReport);
-			 
-		//	 try {
-		//		 Desktop.getDesktop().browse(ex
-		//	tentReport.toURI()); 
-		//	 } catch (IOException e) {
-		//		 e.printStackTrace(); 
-		//		 }
-			 
+		extent.flush();
+
+		// To open report on desktop..
+		// String pathOfExtentReport = System.getProperty("user.dir") + "\\reports\\" +
+		// repName;
+		// File extentReport = new File(pathOfExtentReport);
+
+		// try {
+		// Desktop.getDesktop().browse(ex
+		// tentReport.toURI());
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// }
+
 	}
 
+	// User defined method for sending email..
+	// private final static String host = "imap.gmail.com";
+	// private final static String username = "hanaposqateam@gmail.com"; // password
+	// is app password created
+	// private final static String password = "bcfburrmktksjckr";
 
-	//User defined method for sending email..
-//	private final static String host = "imap.gmail.com"; 
-//	private final static String username = "hanaposqateam@gmail.com"; // password is app password created
-//	private final static String password = "bcfburrmktksjckr";
+	public static ExtentTest getTest() { 
+		ExtentTest test = extentTest.get();
+		return test;
+	}
+
+	public static ExtentTest createTest(String testName, String description) {
+        if (extent == null) {
+            throw new IllegalStateException("ExtentReports is not initialized. Please call setupExtentReport() before creating tests.");
+        }
+        return extent.createTest(testName, description);
+    }
+	
 	
 	public void sendEmail(String senderEmail, String senderPassword, String recipientEmail) {
-	    Properties properties = new Properties();
-	    properties.put("mail.smtp.auth", "true");
-	    properties.put("mail.smtp.starttls.enable", "true");
-	    properties.put("mail.smtp.host", "smtp.gmail.com");
-	    properties.put("mail.smtp.port", "587");
+		Properties properties = new Properties();
+		properties.put("mail.smtp.auth", "true");
+		properties.put("mail.smtp.starttls.enable", "true");
+		properties.put("mail.smtp.host", "smtp.gmail.com");
+		properties.put("mail.smtp.port", "587");
 
-	    Session session = Session.getInstance(properties, new Authenticator() {
-	        protected PasswordAuthentication getPasswordAuthentication() {
-	            return new PasswordAuthentication(senderEmail, senderPassword);
-	        }
-	    });
+		Session session = Session.getInstance(properties, new Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(senderEmail, senderPassword);
+			}
+		});
 
-	    try {
-	        Message message = new MimeMessage(session);
-	        message.setFrom(new InternetAddress(senderEmail));
-	        message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipientEmail));
-	        message.setSubject("Test Report with attachment");
+		try {
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(senderEmail));
+			message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipientEmail));
+			message.setSubject("Test Report with attachment");
 
-	        Multipart multipart = new MimeMultipart();
-	        String filePath = ".\\reports\\" + repName;
-	        String fileName = repName;
-	        MimeBodyPart attachmentPart = new MimeBodyPart();
-	        attachmentPart.attachFile(filePath);
-	        attachmentPart.setFileName(fileName);
+			Multipart multipart = new MimeMultipart();
+			String filePath = ".\\reports\\" + repName;
+			String fileName = repName;
+			MimeBodyPart attachmentPart = new MimeBodyPart();
+			attachmentPart.attachFile(filePath);
+			attachmentPart.setFileName(fileName);
 
-	        MimeBodyPart textPart = new MimeBodyPart();
-	        textPart.setText("Please find the attached file.");
+			MimeBodyPart textPart = new MimeBodyPart();
+			textPart.setText("Please find the attached file.");
 
-	        multipart.addBodyPart(textPart);
-	        multipart.addBodyPart(attachmentPart);
+			multipart.addBodyPart(textPart);
+			multipart.addBodyPart(attachmentPart);
 
-	        message.setContent(multipart);
+			message.setContent(multipart);
 
-	        Transport.send(message);
+			Transport.send(message);
 
-	        System.out.println("Email sent successfully!");
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        System.out.println("Failed to send email: " + e.getMessage());
-	    }
-	}	
+			System.out.println("Email sent successfully!");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Failed to send email: " + e.getMessage());
+		}
+	}
 }

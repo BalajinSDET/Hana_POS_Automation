@@ -1,26 +1,35 @@
 package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
-import com.hanapos.pageObjects.CustomerPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
-import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
+import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T104_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
+	public static final String dataSheetName = "Hana_T104";
 
-	//,dataProvider="fetch_Excel_Data"
-	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T104_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Test() {
-		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting  Hana_T311_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_FT  ****");
+	@DataProvider(name = "fetch_Excel_Data") 
+	public Object[][] fetchData() throws IOException { 
+		return DataLibrary.readExcelData(dataSheetName); 
+	}
+	
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
+	public void Validate_Hana_T104_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Test(String paymentmethod, String cashregistry) {
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
+		logger.info("**** Starting  Hana_T104_OrderEntryPage_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -61,9 +70,9 @@ public class Hana_T104_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			softassert.assertTrue(phoneorder.VerifyCustSectionAppears(), "Test Step - 6 - Customer section is not displayed on phone order page");
 			
 			// Test Step - 7
-			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage("Stuart Markwood");
+			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage(prop.getProperty("salesperson"));
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelect_CustomerOnCust_Section("Abish", "Abish David");
+			phoneorder.SearchAndSelect_CustomerOnCust_Section(prop.getProperty("cust_firstName"), "Abish David");
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 7 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 7 - Last name is not displayed on phone order page");
@@ -107,8 +116,8 @@ public class Hana_T104_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			
 			// Test Step - 15
 			delayWithGivenTime(2000);
-			phoneorder.Select_PaymentMethod_OnUnpaidInvoiceTab("Cash");
-			phoneorder.Select_CashRegistry_OnUnpaidInvoiceTab("Cash Register2");
+			phoneorder.Select_PaymentMethod_OnUnpaidInvoiceTab(paymentmethod);
+			phoneorder.Select_CashRegistry_OnUnpaidInvoiceTab(cashregistry);
 			
 			//Test Step - 16
 			phoneorder.EnterPaymentAmount_InvoiceDetails_UnpaidInvoiceTab();
@@ -118,8 +127,8 @@ public class Hana_T104_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			phoneorder.Click_MakePaymentBtn_InvoicePopup_OnUnpaidInvoiceTab();
 			delayWithGivenTime(2000);
 			softassert.assertTrue(phoneorder.Verify_InvoicePaymentDetails_UnpaidInvoiceTab_OnCustDetailsPopup(),"Test Step - 14 - Invoice payment details section is not displayed on phone order page");
-			phoneorder.Select_PaymentMethod_OnUnpaidInvoiceTab("Cash");
-			phoneorder.Select_CashRegistry_OnUnpaidInvoiceTab("Cash Register2");	
+			phoneorder.Select_PaymentMethod_OnUnpaidInvoiceTab(paymentmethod);
+			phoneorder.Select_CashRegistry_OnUnpaidInvoiceTab(cashregistry);	
 			phoneorder.EnterPaymentAmount_InvoiceDetails_UnpaidInvoiceTab();
 			phoneorder.Click_SubmitButton_InvoiceDetails_UnpaidInvoiceTab();
 			

@@ -11,6 +11,7 @@ import com.hanapos.pageObjects.CashAndCarryPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T07_WalkingSettings_EditCashRegister_FT extends TestBaseClass {
@@ -18,7 +19,8 @@ public class Hana_T07_WalkingSettings_EditCashRegister_FT extends TestBaseClass 
 	private HanaDashBoardPage dashboard;
 	private CashAndCarryPage cashandcarry;
 	public static final String dataSheetName = "Hana_T07";
-	SoftAssert softassert = new SoftAssert();
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
 
 
 	@DataProvider(name = "fetch_Excel_Data") 

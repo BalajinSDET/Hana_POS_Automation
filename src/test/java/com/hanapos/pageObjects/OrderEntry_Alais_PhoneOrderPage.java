@@ -1959,8 +1959,8 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public String getProdDetailsItemDescription1OnPhoneOrderPage() {
 		HighlightElement(prod_details_ItemDescription1);
-		System.out.println("Item Description displayed is :  "+prod_details_ItemDescription1.getAttribute("value"));
-		return prod_details_ItemDescription1.getAttribute("value");
+		//System.out.println("Item Description displayed is :  "+prod_details_ItemDescription1.getAttribute("value"));
+		return prod_details_ItemDescription1.getAttribute("value").trim();
 	}
 
 	public String getProdDetailsItemDescription2OnPhoneOrderPage() {
@@ -2384,6 +2384,21 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 		String formattedNextDay = nextDay.format(formatter);
 		jsClearAndType(recipientDeliverydateOnPhoneOrderPage, formattedNextDay); // DoubleClickAndType();
+	}
+	
+	
+	public void EnterDeliveryDateOnReciSection(String date) {
+		/*
+		 * LocalDate currentDate = LocalDate.now();
+		 * 
+		 * // Calculate the next day LocalDate nextDay = currentDate.plusDays(1);
+		 * 
+		 * // Format the date as a string (adjust the format to match the date picker's
+		 * // expected format) DateTimeFormatter formatter =
+		 * DateTimeFormatter.ofPattern("MM/dd/yyyy"); String formattedNextDay =
+		 * nextDay.format(formatter);
+		 */
+		jsClearAndType(recipientDeliverydateOnPhoneOrderPage, date); // DoubleClickAndType();
 	}
 
 	public String getDeliveryDateOnReciSection() {
@@ -3272,7 +3287,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	public String get_PaidAmount_UnpaidInvoiceTable_OnUnpaidInvoiceTab() {
 		HighlightElement(PaidAmtSearchTextbox_InvoiceTable_UnpaidTab_OnPhoneOrderPage);
-		return PaidAmtSearchTextbox_InvoiceTable_UnpaidTab_OnPhoneOrderPage.getText();
+		return PaidAmtSearchTextbox_InvoiceTable_UnpaidTab_OnPhoneOrderPage.getAttribute("value").trim();
 	}
 
 	public boolean Verify_ClearButton_AppearsOnPaidAmtSearchtextbox_UnpaidInvoiceTab() {
@@ -3285,7 +3300,7 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 	}
 
 	public void Click_LastRowCheckbox_OnUnpaidInvoiceTable_UnpaidInvoiceTab() {
-		click(lastRow_Checkbox_InvoiceTable_UnpaidTabOnPhoneOrderPage);
+		jsClick(lastRow_Checkbox_InvoiceTable_UnpaidTabOnPhoneOrderPage);
 	}
 
 	public void Enter_BalanceAmount_OnInvoiceSearchBox_UnpaidInvoiceTab(String balanceamount) {
@@ -3332,11 +3347,11 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return CustomerDetailsPopup_ProductTotalsearchtextbox_UnpaidTab.getAttribute("value");
 	}
 
-	public boolean Verify_ProductTotalValue_OnDisplayedInvoices() {
+	public boolean Verify_ProductTotalValue_OnDisplayedInvoices(String producttotal) {
 		boolean allValuesMatch = true;
 		for (WebElement cell : ListOfProductsTotal_UnpaidInvoiceTable_UnpaidTabOnPhoneOrderPage) {
 			String productTotalValue = cell.getText();
-			if (productTotalValue.contains("34")) {
+			if (productTotalValue.contains(producttotal)) {
 				HighlightElement(cell);
 			} else {
 				System.out.println("Validation Failed: " + productTotalValue);
@@ -3372,20 +3387,17 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return CustomerDetailsPopup_Deliverysearchtextbox_UnpaidTab.getAttribute("value");
 	}
 
-	public boolean Verify_DeliveryValue_OnDisplayedInvoices() {
+	public boolean Verify_DeliveryValue_OnDisplayedInvoices(String deliveryamt) {
 		boolean allValuesMatch = true;
 		for (WebElement cell : ListOfDelivery_UnpaidInvoiceTable_UnpaidTabOnPhoneOrderPage) {
 			String deliveryValue = cell.getText();
-			if (deliveryValue.contains("20")) {
+			if (deliveryValue.contains(deliveryamt)) {
 				HighlightElement(cell);
 			} else {
-				System.out.println("Validation Failed: " + deliveryValue);
 				allValuesMatch = false;
 			}
 		}
-
 		return allValuesMatch;
-
 	}
 
 	public void Enter_Tax_OnInvoiceSearchBox_UnpaidInvoiceTab(String tax) {
@@ -3412,11 +3424,11 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return CustomerDetailsPopup_Taxsearchtextbox_UnpaidTab.getAttribute("value");
 	}
 
-	public boolean Verify_TaxValue_OnDisplayedInvoices() {
+	public boolean Verify_TaxValue_OnDisplayedInvoices(String taxamount) {
 		boolean allValuesMatch = true;
 		for (WebElement cell : ListOfTax_UnpaidInvoiceTable_UnpaidTabOnPhoneOrderPage) {
 			String taxValue = cell.getText();
-			if (taxValue.contains("9.21")) {
+			if (taxValue.contains(taxamount)) {
 				HighlightElement(cell);
 			} else {
 				System.out.println("Validation Failed: " + taxValue);
@@ -3450,11 +3462,11 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return CustomerDetailsPopup_Totalsearchtextbox_UnpaidTab.getAttribute("value");
 	}
 
-	public boolean Verify_TotalValue_OnDisplayedInvoices() {
+	public boolean Verify_TotalValue_OnDisplayedInvoices(String subtotalamount) {
 		boolean allValuesMatch = true;
 		for (WebElement cell : ListOfTotal_UnpaidInvoiceTable_UnpaidTabOnPhoneOrderPage) {
 			String totalValue = cell.getText();
-			if (totalValue.contains("31")) {
+			if (totalValue.contains(subtotalamount)) {
 				HighlightElement(cell);
 			} else {
 				System.out.println("Validation Failed: " + totalValue);
@@ -3488,14 +3500,13 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return CustomerDetailsPopup_OrderDatesearchtextbox_UnpaidTab.getAttribute("value");
 	}
 
-	public boolean Verify_OrderDateValue_OnDisplayedInvoices() {
+	public boolean Verify_OrderDateValue_OnDisplayedInvoices(String orderdate) {
 		boolean allValuesMatch = true;
 		for (WebElement cell : ListOfOrderDate_UnpaidInvoiceTable_UnpaidTabOnPhoneOrderPage) {
 			String totalValue = cell.getText();
-			if (totalValue.contains("07/17/2024")) {
+			if (totalValue.contains(orderdate)) {
 				HighlightElement(cell);
 			} else {
-				System.out.println("Validation Failed: " + totalValue);
 				allValuesMatch = false;
 			}
 		}
@@ -3526,11 +3537,11 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		return CustomerDetailsPopup_DeliveryDatesearchtextbox_UnpaidTab.getAttribute("value");
 	}
 
-	public boolean Verify_DeliveryDateValue_OnDisplayedInvoices() {
+	public boolean Verify_DeliveryDateValue_OnDisplayedInvoices(String deliverydate) {
 		boolean allValuesMatch = true;
 		for (WebElement cell : ListOfDeliveryDate_UnpaidInvoiceTable_UnpaidTabOnPhoneOrderPage) {
 			String DeliveryValue = cell.getText();
-			if (DeliveryValue.contains("07/17/2024")) {
+			if (DeliveryValue.contains(deliverydate)) {
 				HighlightElement(cell);
 			} else {
 				System.out.println("Validation Failed: " + DeliveryValue);
@@ -6983,6 +6994,13 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		String formattedExpectedGrandTotal = df.format(expectedGrandTotal);
 		System.out.println("Calculated Expected Grand Total: " + formattedExpectedGrandTotal);
 		return formattedExpectedGrandTotal;
+	}
+	
+	public String get_SubtotalAmount_OnPhoneOrderPage() {
+		double subTotal = Double.parseDouble(subTotalOnPhoneOrderPage.getAttribute("value").replace("$", "").trim());
+		DecimalFormat df = new DecimalFormat("#.00");
+		String formattedSubTotal = df.format(subTotal);
+		return formattedSubTotal;
 	}
 	
 	public String get_taxAmountOnOrderconfirmation_Popup() {

@@ -8,6 +8,7 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 
 public class Hana_T116_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Pagination_FT extends TestBaseClass {
 	private LoginPage lp;
@@ -17,8 +18,10 @@ public class Hana_T116_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 
 	public void Validate_Hana_T116_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Pagination_Functionality_Test() {
-		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting Hana_T116_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Pagination_FT  ****");
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
+		logger.info("**** Starting Hana_T116_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Pagination_Functionality  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -57,7 +60,7 @@ public class Hana_T116_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 		
 			//Test Step - 6
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 6 - Last name is not displayed on phone order page");

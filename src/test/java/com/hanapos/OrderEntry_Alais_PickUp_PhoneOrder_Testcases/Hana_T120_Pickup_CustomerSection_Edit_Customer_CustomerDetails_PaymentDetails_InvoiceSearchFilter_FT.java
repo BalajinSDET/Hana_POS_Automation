@@ -7,16 +7,18 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 
 public class Hana_T120_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_InvoiceSearchFilter_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 
-	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T120_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_InvoiceSearchFilter_FunctionalityTest() {
-		SoftAssert softassert = new SoftAssert();
+	public void Validate_Hana_T120_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_InvoiceSearchFilter_FunctionalityTest(String search_invoice_3digits, String search_invalid_invoiceno) {
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting Hana_T120_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_InvoiceSearchFilter_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
@@ -56,7 +58,7 @@ public class Hana_T120_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 		
 			//Test Step - 6
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 6 - Last name is not displayed on phone order page");
@@ -79,27 +81,26 @@ public class Hana_T120_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			phoneorder.ClickOn_PaymentDetails_CustomerDetailsPopup();
 			ThreadWait(4000);
 			softassert.assertTrue(phoneorder.Verify_TableGridOnPaymentDetailsTab_IsAppear(), "Test Step - 9 - payment details tab webtable grid is not displayed");		
-			
-			
+						
 			// Test Step - 9
 			ThreadWait(1000);
-			phoneorder.EnterInvoiceNo_Paymentdetailstab("9037921");
+			phoneorder.EnterInvoiceNo_Paymentdetailstab(phoneorder.get_InvoiceNumber_UnpaidInvoiceTable_OnUnpaidInvoiceTab());
 		
 			// Test Step - 10
 			RobotPressEnter();
-			softassert.assertTrue(phoneorder.Verify_InvoiceNo_Paymentdetailstab("9037921"),"Test Step - 10 - Filtered Invoice is not displayed on the payment details tab at customer details popup");
+			softassert.assertTrue(phoneorder.Verify_InvoiceNo_Paymentdetailstab(phoneorder.get_InvoiceNumber_UnpaidInvoiceTable_OnUnpaidInvoiceTab()),"Test Step - 10 - Filtered Invoice is not displayed on the payment details tab at customer details popup");
 			
 			// Test Step - 11
 			ThreadWait(1000);
-			phoneorder.EnterInvoiceNo_Paymentdetailstab("903");
+			phoneorder.EnterInvoiceNo_Paymentdetailstab(search_invoice_3digits);
 		
 			// Test Step - 12
 			RobotPressEnter();
-			softassert.assertTrue(phoneorder.Verify_InvoiceNo_Paymentdetailstab("903"),"Test Step - 12 - Filtered Invoice is not displayed on the payment details tab at customer details popup");
+			softassert.assertTrue(phoneorder.Verify_InvoiceNo_Paymentdetailstab(search_invoice_3digits),"Test Step - 12 - Filtered Invoice is not displayed on the payment details tab at customer details popup");
 			
 			// Test Step - 13
 			ThreadWait(1000);
-			phoneorder.EnterInvoiceNo_Paymentdetailstab("11111");
+			phoneorder.EnterInvoiceNo_Paymentdetailstab(search_invalid_invoiceno);
 	
 			RobotPressEnter();
 			softassert.assertTrue(phoneorder.Verify_NoCustomerPaymentsFound_PaymentDetailsTab(),"Test Step - 13 - Filtered Invoice is not displayed on the payment details tab at customer details popup");
@@ -112,8 +113,8 @@ public class Hana_T120_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			softassert.assertEquals(phoneorder.get_InvoiceNo_Paymentdetailstab(), "","Test Step - 15 - In Invoice searchbox entered data is not cleared");
 			
 			} catch (Exception e) {
-		//	e.getMessage();
-			e.printStackTrace();
+				softassert.fail(e.getMessage());
+				e.printStackTrace();
 		} finally {
 			softassert.assertAll();
 		}

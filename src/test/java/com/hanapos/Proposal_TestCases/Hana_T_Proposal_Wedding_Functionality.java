@@ -2,13 +2,13 @@ package com.hanapos.Proposal_TestCases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.ManageProposalPage;
 import com.hanapos.pageObjects.ProposalsPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 
 public class Hana_T_Proposal_Wedding_Functionality extends TestBaseClass{
 
@@ -21,7 +21,9 @@ public class Hana_T_Proposal_Wedding_Functionality extends TestBaseClass{
 	@Test(enabled=true,groups= {"Regression","Smoke"}) 
 	public void Validate_Proposal_Wedding_Functionality_Test() {
 
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting  Validate_Proposal_Wedding_Functionality_Test ****");
 		logger.debug("capturing application debug logs....");
 

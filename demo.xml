@@ -12,16 +12,27 @@
 		<parameter name="browser" value="chrome" /> 
 		<groups>
 			<run>
-				<include name="Smoke"/>
-						
+				<include name="Regression"/>						
 			</run>
 		</groups>
 
 		<classes>
-			<class
-				name="com.hanapos.CashandCarry_Testcases.Hana_T51_Payments_Cash_Payment_Section_FT" />
-			<class
-				name="com.hanapos.CashandCarry_Testcases.Hana_T53_Payments_Check_Payment_Section_FT" />
+		  <!-- <class name="com.hanapos.CashandCarry_Testcases.Hana_T53_Payments_Check_Payment_Section_FT" />-->
+		
+		<class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pagination_FT" />
+		
+		<!--<class name="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases.Hana_T329_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pay_Date_Search_Filter_Functionality"/>
+-->
+		</classes>
+	</test>
+</suite> 
+
+
+<!--	<class name="com.hanapos.CashandCarry_Testcases.Hana_T53_Payments_Check_Payment_Section_FT" />
+
+<class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T122_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pay_Date_Search_Filter_FT" />
+
+			
 			<class
 				name="com.hanapos.CashandCarry_Testcases.Hana_T56_Payments_Invoice_Payment_Section_FT" />
 			<class
@@ -36,6 +47,4 @@
 				name="com.hanapos.CashandCarry_Testcases.Hana_T68_Payments_Donation_Payment_Section_FT" />
 			<class
 				name="com.hanapos.CashandCarry_Testcases.Hana_T69_Add_Product_Without_Customer_FT" />
-		</classes>
-	</test>
-</suite> 
+-->	

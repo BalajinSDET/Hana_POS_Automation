@@ -14,6 +14,7 @@ import com.hanapos.pageObjects.CashAndCarryPaymentPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T09_WalkinsSetting_CashRegistery_Merchant_Copy_with_Merchant_Copy_Notes_FT extends TestBaseClass {
@@ -25,7 +26,8 @@ public class Hana_T09_WalkinsSetting_CashRegistery_Merchant_Copy_with_Merchant_C
 	public static final String dataSheetName = "Hana_T09";
 	public static ExecutorService executorService ;
 	private static final int THREAD_POOL_SIZE = 2;
-	SoftAssert softassert = new SoftAssert();
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
 	String invoicenumber;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 

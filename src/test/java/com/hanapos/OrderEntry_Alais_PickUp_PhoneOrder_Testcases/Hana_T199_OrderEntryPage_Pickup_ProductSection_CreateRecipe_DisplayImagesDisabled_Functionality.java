@@ -14,6 +14,7 @@ import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.pageObjects.ProposalsPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 
 public class Hana_T199_OrderEntryPage_Pickup_ProductSection_CreateRecipe_DisplayImagesDisabled_Functionality extends TestBaseClass {
 	private LoginPage lp;
@@ -25,7 +26,9 @@ public class Hana_T199_OrderEntryPage_Pickup_ProductSection_CreateRecipe_Display
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 
 	public void Validate_Hana_T199_OrderEntryPage_Pickup_ProductSection_CreateRecipe_DisplayImagesDisabled_Functionality_Test() {
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting  Validate_Hana_T199_OrderEntryPage_Pickup_ProductSection_CreateRecipe_DisplayImagesDisabled_Functionality_Test ****");
 		logger.debug("capturing application debug logs....");
 		try {

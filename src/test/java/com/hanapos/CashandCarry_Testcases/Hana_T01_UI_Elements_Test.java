@@ -10,6 +10,7 @@ import com.hanapos.pageObjects.CashAndCarryPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 import io.qameta.allure.Allure;
@@ -26,7 +27,8 @@ public class Hana_T01_UI_Elements_Test extends TestBaseClass {
 	private HanaDashBoardPage dashboard;
 	private CashAndCarryPage cashandcarry;
 	public static final String dataSheetName = "TC_002_CashAndCarryTest";
-	SoftAssert softassert = new SoftAssert();
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
 
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 

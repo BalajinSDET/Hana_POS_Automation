@@ -8,17 +8,20 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 
 public class Hana_T113_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_OrderDate_Search_Filter_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 
-	//,dataProvider="fetch_Excel_Data"
+
 	@Test(enabled=true,groups= {"Regression"}) 
 	public void Validate_Hana_T113_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_OrderDate_Search_Filter_Test() {
-		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting Hana_T113_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_OrderDate_Search_Filter_FT  ****");
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
+		logger.info("**** Starting Hana_T113_OrderEntryPage_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_OrderDate_Search_Filter_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -57,7 +60,7 @@ public class Hana_T113_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 		
 			//Test Step - 6
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 6 - Last name is not displayed on phone order page");
@@ -84,21 +87,21 @@ public class Hana_T113_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			delayWithGivenTime(1000);			
 		
 			// Test Step - 10
-			phoneorder.Enter_OrderDate_OnInvoiceSearchBox_UnpaidInvoiceTab("07/17/2024");
+			phoneorder.Enter_OrderDate_OnInvoiceSearchBox_UnpaidInvoiceTab(CurrentDate());
 			
 			// Test Step - 11
 			RobotPressEnter();
 			delayWithGivenTime(1000);
-			softassert.assertTrue(phoneorder.Verify_OrderDateValue_OnDisplayedInvoices(), "Test Step - 11 - Order Date value is not displayed in unpaid invoice grid table");
+			softassert.assertTrue(phoneorder.Verify_OrderDateValue_OnDisplayedInvoices(CurrentDate()), "Test Step - 11 - Order Date value is not displayed in unpaid invoice grid table");
 			delayWithGivenTime(1000);
 		
 			// Test Step - 12
-			phoneorder.Enter_OrderDate_OnInvoiceSearchBox_UnpaidInvoiceTab("07/17/2024");
+			phoneorder.Enter_OrderDate_OnInvoiceSearchBox_UnpaidInvoiceTab(CurrentDate());
 		
 			// Test Step - 13
 			RobotPressEnter();
 			delayWithGivenTime(1000);
-			softassert.assertTrue(phoneorder.Verify_OrderDateValue_OnDisplayedInvoices(), "Test Step - 13 - Order Date value is not displayed in unpaid invoice grid table");			
+			softassert.assertTrue(phoneorder.Verify_OrderDateValue_OnDisplayedInvoices(CurrentDate()), "Test Step - 13 - Order Date value is not displayed in unpaid invoice grid table");			
 		
 			// Test Step - 14
 			delayWithGivenTime(1000);
@@ -107,10 +110,10 @@ public class Hana_T113_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			RobotPressEnter();
 			delayWithGivenTime(1000);
 			softassert.assertEquals(phoneorder.get_OrderDate_UnpaidInvoiceTable_OnUnpaidInvoiceTab(),"", "Test step - 14 - Entered invalid order date value is displayed in unpaid invoice grid table");
-			
+
 			// Test Step - 15
 			delayWithGivenTime(1000);
-			phoneorder.Enter_OrderDate_OnInvoiceSearchBox_UnpaidInvoiceTab("07/17/2025");
+			phoneorder.Enter_OrderDate_OnInvoiceSearchBox_UnpaidInvoiceTab(NextDate());
 			delayWithGivenTime(1000);
 			RobotPressEnter();
 			delayWithGivenTime(1000);

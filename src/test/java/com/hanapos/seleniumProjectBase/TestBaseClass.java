@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,6 +28,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -79,7 +81,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import org.testng.asserts.IAssert;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.hanapos.utilities.ExtentReportManager;
 import com.hanapos.utilities.SafeRobot;
 
 import io.appium.java_client.windows.WindowsDriver;
@@ -87,7 +92,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 
-public class TestBaseClass implements FrameworkDesign {
+public class TestBaseClass  implements FrameworkDesign  {
 	private static final Object lock = new Object();
 	public static Properties prop;
 	public Logger logger;
@@ -645,7 +650,7 @@ public class TestBaseClass implements FrameworkDesign {
 	public void PressF8() {
 		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		js.executeScript("var event = new KeyboardEvent('keydown', {keyCode: 119, which: 119}); document.dispatchEvent(event);");
-		
+
 		// Robot class does not work on parallel execution.....
 		/*
 		 * try { SafeRobot robot = SafeRobot.getInstance(); // Press Tab key to focus on
@@ -983,30 +988,30 @@ public class TestBaseClass implements FrameworkDesign {
 	}
 
 	public String Atlantic_TimeZone() {
-        // Get the current system time
-        LocalDateTime systemDateTime = LocalDateTime.now();
+		// Get the current system time
+		LocalDateTime systemDateTime = LocalDateTime.now();
 
-        // Get the system's default zone
-        ZoneId systemZone = ZoneId.systemDefault();
-        ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
+		// Get the system's default zone
+		ZoneId systemZone = ZoneId.systemDefault();
+		ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
 
-        // Define the Atlantic Standard Time zone (UTC-04:00)
-        ZoneId atlanticTimeZone = ZoneId.of("America/Halifax");
+		// Define the Atlantic Standard Time zone (UTC-04:00)
+		ZoneId atlanticTimeZone = ZoneId.of("America/Halifax");
 
-        // Convert to Atlantic Standard Time
-        ZonedDateTime atlanticZonedDateTime = systemZonedDateTime.withZoneSameInstant(atlanticTimeZone);
+		// Convert to Atlantic Standard Time
+		ZonedDateTime atlanticZonedDateTime = systemZonedDateTime.withZoneSameInstant(atlanticTimeZone);
 
-        // Format the Atlantic Time
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d yyyy h:mma");
-        String formattedAtlanticTime = atlanticZonedDateTime.format(formatter).toUpperCase();
+		// Format the Atlantic Time
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d yyyy h:mma");
+		String formattedAtlanticTime = atlanticZonedDateTime.format(formatter).toUpperCase();
 
-        // Replace "SEPT" with "SEP" if necessary
-        if (formattedAtlanticTime.startsWith("SEPT")) {
-            formattedAtlanticTime = formattedAtlanticTime.replaceFirst("SEPT", "SEP");
-        }
-        return formattedAtlanticTime; // Return the formatted Atlantic Time
-    }
-	
+		// Replace "SEPT" with "SEP" if necessary
+		if (formattedAtlanticTime.startsWith("SEPT")) {
+			formattedAtlanticTime = formattedAtlanticTime.replaceFirst("SEPT", "SEP");
+		}
+		return formattedAtlanticTime; // Return the formatted Atlantic Time
+	}
+
 
 	public String Atlantic_TimeZone_NumberDateFormat() {
 		LocalDateTime systemDateTime = LocalDateTime.now();
@@ -1018,28 +1023,28 @@ public class TestBaseClass implements FrameworkDesign {
 		ZoneId atlanticTimeZone = ZoneId.of("America/Halifax"); // Use "America/Halifax" for AST
 
 		ZonedDateTime atlanticZonedDateTime = systemZonedDateTime.withZoneSameInstant(atlanticTimeZone);
-		
+
 		// Remove the space at mm a to get hh:mma = 05:30AM || h:mma = 5:30AM  
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy h:mma");
 		String formattedAtlanticTime = atlanticZonedDateTime.format(formatter).toUpperCase();
 
 		return formattedAtlanticTime;
 	}
-	
+
 	public String Central_TimeZone() {
-        LocalDateTime systemDateTime = LocalDateTime.now();
+		LocalDateTime systemDateTime = LocalDateTime.now();
 
-        ZoneId systemZone = ZoneId.systemDefault();
-        ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
-        
-        // Define the Central Time (US & Canada) zone
-        ZoneId centralTimeZone = ZoneId.of("America/Chicago");  // Central Time Zone (UTC-06:00)
-        
-        // Convert system date-time to Central Time
-        ZonedDateTime centralZonedDateTime = systemZonedDateTime.withZoneSameInstant(centralTimeZone);
+		ZoneId systemZone = ZoneId.systemDefault();
+		ZonedDateTime systemZonedDateTime = systemDateTime.atZone(systemZone);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mma");
-        String formattedCentralTime = centralZonedDateTime.format(formatter).toUpperCase();;
+		// Define the Central Time (US & Canada) zone
+		ZoneId centralTimeZone = ZoneId.of("America/Chicago");  // Central Time Zone (UTC-06:00)
+
+		// Convert system date-time to Central Time
+		ZonedDateTime centralZonedDateTime = systemZonedDateTime.withZoneSameInstant(centralTimeZone);
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mma");
+		String formattedCentralTime = centralZonedDateTime.format(formatter).toUpperCase();;
 
 		return formattedCentralTime;
 	}
@@ -1126,7 +1131,15 @@ public class TestBaseClass implements FrameworkDesign {
 		String formattedPreviousDay = previousDay.format(formatter);
 		return formattedPreviousDay;
 	}
-	
+
+	public String Next_TwoYears_Date() {
+		LocalDate currentDate = LocalDate.now();
+		LocalDate previousDay =currentDate.plusDays(730);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		String formattedPreviousDay = previousDay.format(formatter);
+		return formattedPreviousDay;
+	}
+
 	@Override
 	public void switchToWindowbyIndex(int i) {
 		try {
@@ -1285,6 +1298,43 @@ public class TestBaseClass implements FrameworkDesign {
 		}
 		return dest;
 	}
+
+	
+	public static String captureScreenshotBase64() {
+	    String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+	    String screenshotBase64 = "";
+	    try {
+	        // Capture the screenshot using Robot class
+	        Robot robot = new Robot();
+	        Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+	        BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
+
+	        // Convert the captured image to byte array
+	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	        ImageIO.write(screenFullImage, "png", baos);
+	        byte[] screenshotBytes = baos.toByteArray();
+
+	        // Encode the byte array to Base64
+	        screenshotBase64 = Base64.getEncoder().encodeToString(screenshotBytes);
+	    } catch (AWTException | IOException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return screenshotBase64; // Return Base64 string of the screenshot
+	}
+
+	// Method to capture a screenshot in Base64 format
+	/*
+	 * public static String captureScreenshotBase64() { try { // Casting the
+	 * WebDriver instance to TakesScreenshot TakesScreenshot ts = (TakesScreenshot)
+	 * getDriver();
+	 * 
+	 * // Capturing the screenshot as a Base64 string return
+	 * ts.getScreenshotAs(OutputType.BASE64); } catch (Exception e) { // Print any
+	 * exception that occurs during screenshot capture
+	 * System.out.println("Exception while taking screenshot: " + e.getMessage());
+	 * return null; // Return null if there was an issue } }
+	 */
 
 
 	@Override

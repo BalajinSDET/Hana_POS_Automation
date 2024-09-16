@@ -1,6 +1,9 @@
 package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -8,17 +11,28 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
+import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T108_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_ProductTotal_Search_Filter_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 
-	//,dataProvider="fetch_Excel_Data"
-	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T108_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_ProductTotal_Search_Filter_Test() {
-		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting Hana_T108_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_ProductTotal_Search_Filter_FT  ****");
+	public static final String dataSheetName = "Hana_T108";
+
+	@DataProvider(name = "fetch_Excel_Data") 
+	public Object[][] fetchData() throws IOException { 
+		return DataLibrary.readExcelData(dataSheetName); 
+	}
+	
+
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
+	public void Validate_Hana_T108_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_ProductTotal_Search_Filter_Test(String valid_prodtotal_amount, String twodigit_prodtotal_amount, String invalid_prodtotal_amount) {
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
+		logger.info("**** Starting Hana_T108_Pickup_OrderEntryPage_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_ProductTotal_Search_Filter_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -56,9 +70,9 @@ public class Hana_T108_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			softassert.assertEquals(phoneorder.getHighlightedColorOnPickupTypeOnPhoneOrderPage(),"#2f9bc8", "Test Step - 5 - Pickup type is not highlighted in blue color");		
 		
 			//Test Step - 6
-			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage("Stuart Markwood");
+			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage(prop.getProperty("salesperson"));
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 6 - Last name is not displayed on phone order page");
@@ -85,32 +99,31 @@ public class Hana_T108_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			delayWithGivenTime(1000);			
 		
 			// Test Step - 10
-			phoneorder.Enter_ProductTotal_OnInvoiceSearchBox_UnpaidInvoiceTab("349");
+			phoneorder.Enter_ProductTotal_OnInvoiceSearchBox_UnpaidInvoiceTab(valid_prodtotal_amount);
 			
 			// Test Step - 11
 			RobotPressEnter();
 			delayWithGivenTime(1000);
-			softassert.assertTrue(phoneorder.Verify_ProductTotalValue_OnDisplayedInvoices(), "Test Step - 11 - Product total value is not displayed in unpaid invoice grid table");
+			softassert.assertTrue(phoneorder.Verify_ProductTotalValue_OnDisplayedInvoices(valid_prodtotal_amount), "Test Step - 11 - Product total value is not displayed in unpaid invoice grid table");
 			delayWithGivenTime(1000);
 			
 			// Test Step - 12
-			phoneorder.Enter_ProductTotal_OnInvoiceSearchBox_UnpaidInvoiceTab("34");
+			phoneorder.Enter_ProductTotal_OnInvoiceSearchBox_UnpaidInvoiceTab(twodigit_prodtotal_amount);
 
 			// Test Step - 13
 			RobotPressEnter();
 			delayWithGivenTime(1000);
-			softassert.assertTrue(phoneorder.Verify_ProductTotalValue_OnDisplayedInvoices(), "Test Step - 13 - Product total value is not displayed in unpaid invoice grid table");			
+			softassert.assertTrue(phoneorder.Verify_ProductTotalValue_OnDisplayedInvoices(twodigit_prodtotal_amount), "Test Step - 13 - Product total value is not displayed in unpaid invoice grid table");			
 		
 			// Test Step - 14
 			delayWithGivenTime(1000);
-			phoneorder.Enter_ProductTotal_OnInvoiceSearchBox_UnpaidInvoiceTab("123456");
+			phoneorder.Enter_ProductTotal_OnInvoiceSearchBox_UnpaidInvoiceTab(invalid_prodtotal_amount);
 			delayWithGivenTime(1000);
 			RobotPressEnter();
 			delayWithGivenTime(1000);
 			softassert.assertTrue(phoneorder.Verify_NoUnpaidInvoiceFound(), "Test step - 14 - No unpaid invoice found message is not displayed in unpaid invoice grid table");
 			
-			// Test Step - 15
-			
+			// Test Step - 15			
 			softassert.assertTrue(phoneorder.Verify_ClearButton_AppearsOnProductTotalSearchtextbox_UnpaidInvoiceTab(), "Test Step - 15 - Clear button is not displayed on invoice search textbox at unpaid invoice tab in customer details popup");
 			
 			// Test Step - 16

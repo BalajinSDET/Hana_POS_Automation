@@ -8,13 +8,15 @@ import com.hanapos.pageObjects.CashAndCarryPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 
 public class Hana_T05_WalkingSettings_AddNewPopup_UI_Test extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private CashAndCarryPage cashandcarry;
 	
-	SoftAssert softassert = new SoftAssert();
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
 	//retryAnalyzer= com.hanapos.utilities.RetryTest.class,
 	@Test(enabled=true,groups= {"Regression"})
 	public void Validate_Hana_T05_WalkingSetting_AddNewBtn_UIElement_Test() {

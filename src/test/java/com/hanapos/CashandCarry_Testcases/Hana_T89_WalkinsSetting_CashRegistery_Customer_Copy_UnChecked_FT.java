@@ -2,18 +2,17 @@ package com.hanapos.CashandCarry_Testcases;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import com.hanapos.pageObjects.CashAndCarryPage;
 import com.hanapos.pageObjects.CashAndCarryPaymentPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T89_WalkinsSetting_CashRegistery_Customer_Copy_UnChecked_FT extends TestBaseClass {
@@ -24,9 +23,11 @@ public class Hana_T89_WalkinsSetting_CashRegistery_Customer_Copy_UnChecked_FT ex
 	private CashAndCarryPaymentPage cashandcarrypayment;
 
 	public static ExecutorService executorService;
-	private static final int THREAD_POOL_SIZE = 2;
+
 	public static final String dataSheetName = "Hana_T89";
-	SoftAssert softassert = new SoftAssert();
+	
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
 
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 

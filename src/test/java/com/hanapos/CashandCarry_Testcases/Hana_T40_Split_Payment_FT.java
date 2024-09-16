@@ -14,6 +14,7 @@ import com.hanapos.pageObjects.DashboardOrderPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T40_Split_Payment_FT extends TestBaseClass{
@@ -22,7 +23,9 @@ public class Hana_T40_Split_Payment_FT extends TestBaseClass{
 	private CashAndCarryPage cashandcarry;
 	private CashAndCarryPaymentPage cashandcarrypayment;
 	public static final String dataSheetName = "Hana_T40";
-	SoftAssert softassert = new SoftAssert();
+	
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
 
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 

@@ -1,27 +1,38 @@
 package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import com.hanapos.pageObjects.CustomerPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
-import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
+import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 	
+	public static final String dataSheetName = "Hana_T103";
 
-	//,dataProvider="fetch_Excel_Data"
-	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT_Test() {
-		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting  Hana_T310_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT  ****");
+	@DataProvider(name = "fetch_Excel_Data") 
+	public Object[][] fetchData() throws IOException { 
+		return DataLibrary.readExcelData(dataSheetName); 
+	}
+	
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
+	public void Validate_Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT_Test(String salesperson, String taxtype, String taxid, String cardmessage, String discountpercentage, String discountamount, String deliveryfee, String ponumber,
+			String paymenttype, String paymentterms, String specialinstruction, String paymentType, String taxType, String taxId, String cardMessage, String discPercentage, String PaymentType, String PaymentTerms) {
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
+		logger.info("**** Starting  Hana_T103_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_Preferences_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -62,9 +73,9 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 			softassert.assertTrue(phoneorder.VerifyCustSectionAppears(), "Test Step - 6 - Customer section is not displayed on phone order page");
 			
 			// Test Step - 7
-			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage("Stuart Markwood");
+			phoneorder.Select_SalesPersonOn_PhoneOrderEntryPage(salesperson);
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelect_CustomerOnCust_Section("Abish", "Abish David");
+			phoneorder.SearchAndSelect_CustomerOnCust_Section(prop.getProperty("cust_firstName"), "Abish David");
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 7 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 7 - Last name is not displayed on phone order page");
@@ -89,19 +100,19 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 			delayWithGivenTime(1000);
 		
 			// Test Step - 10
-			phoneorder.Select_TaxType_PreferencesTab_OnCustDetailsPopup("Standard");
+			phoneorder.Select_TaxType_PreferencesTab_OnCustDetailsPopup(taxtype);
 			softassert.assertEquals(phoneorder.get_TaxType_PreferencesTab_OnCustDetailsPopup(),"Standard", "Test Step - 10 - Customer details popup Tax type is not displayed on phone order page");
 			
 			// Test Step - 11
-			phoneorder.Enter_TexId_PreferenceTab_OnCustDetailsPopup("ST1234");
+			phoneorder.Enter_TexId_PreferenceTab_OnCustDetailsPopup(taxid);
 			softassert.assertEquals(phoneorder.get_TexId_PreferenceTab_OnCustDetailsPopup(),"ST1234", "Test Step - 11 - Customer details popup Tax id is not displayed on phone order page");
 			
 			// Test Step - 12
-			phoneorder.Enter_CardMessage_PreferenceTab_OnCustDetailsPopup("Hello !!! Card Message");
+			phoneorder.Enter_CardMessage_PreferenceTab_OnCustDetailsPopup(cardmessage);
 			softassert.assertEquals(phoneorder.get_CardMessage_PreferenceTab_OnCustDetailsPopup(),"Hello !!! Card Message", "Test Step - 12 - Customer details popup Card message is not displayed on phone order page");			
 			
 			// Test Step - 13
-			phoneorder.Enter_DiscountPercentage_PreferenceTab_OnCustDetailsPopup("10");
+			phoneorder.Enter_DiscountPercentage_PreferenceTab_OnCustDetailsPopup(discountpercentage);
 			softassert.assertEquals(phoneorder.get_DiscountPercentage_PreferenceTab_OnCustDetailsPopup(),"10", "Test Step - 13 - Customer details popup Discount is not displayed on phone order page");
 			
 			// Test Step - 14
@@ -111,7 +122,7 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 
 			
 			//Test Step - 15
-			phoneorder.Enter_DiscountAmount_PreferenceTab_OnCustDetailsPopup("10.00");
+			phoneorder.Enter_DiscountAmount_PreferenceTab_OnCustDetailsPopup(discountamount);
 			softassert.assertEquals(phoneorder.get_DiscountAmount_PreferenceTab_OnCustDetailsPopup(),"10.00", "Test Step - 15 - Customer details popup Discount amount is not displayed on phone order page");
 			
 			// Test Step - 16
@@ -120,23 +131,23 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 			softassert.assertEquals(phoneorder.get_DiscountPercentage_PreferenceTab_OnCustDetailsPopup(),"0", "Test Step - 16 - Customer details popup Discount is not displayed on phone order page");
 			
 			//Test Step - 17
-			phoneorder.Enter_DeliveryFee_PreferenceTab_OnCustDetailsPopup("30.00");
+			phoneorder.Enter_DeliveryFee_PreferenceTab_OnCustDetailsPopup(deliveryfee);
 			softassert.assertEquals(phoneorder.get_DeliveryFee_PreferenceTab_OnCustDetailsPopup(),"30.00", "Test Step - 17 - Customer details popup Delivery fee is not displayed on phone order page");
 			
 			//Test Step - 18
-			phoneorder.Enter_PONumber_PreferenceTab_OnCustDetailsPopup("PO2024AD");
+			phoneorder.Enter_PONumber_PreferenceTab_OnCustDetailsPopup(ponumber);
 			softassert.assertEquals(phoneorder.get_PONumber_PreferenceTab_OnCustDetailsPopup(),"PO2024AD", "Test Step - 18 - Customer details popup PO number is not displayed on phone order page");
 						
 			//Test Step - 19
-			phoneorder.Select_PaymentType_PreferenceTab_OnCustDetailsPopup("Cash");
+			phoneorder.Select_PaymentType_PreferenceTab_OnCustDetailsPopup(paymenttype);
 			softassert.assertEquals(phoneorder.get_PaymentType_PreferenceTab_OnCustDetailsPopup(),"Cash", "Test Step - 19 - Customer details popup Payment type is not displayed on phone order page");
 			
 			//Test Step - 20
-			phoneorder.Select_PaymentTerms_PreferenceTab_OnCustDetailsPopup("Net 15");
+			phoneorder.Select_PaymentTerms_PreferenceTab_OnCustDetailsPopup(paymentterms);
 			softassert.assertEquals(phoneorder.get_PaymentTerms_PreferenceTab_OnCustDetailsPopup(), "Net 15", "Test Step - 20 - Customer details popup Payment terms is not displayed on phone order page");
 			
 			// Test Step - 21
-			phoneorder.Enter_SpecialInstruction_PreferenceTab_OnCustDetailsPopup("Hello !!! Special Instruction");
+			phoneorder.Enter_SpecialInstruction_PreferenceTab_OnCustDetailsPopup(specialinstruction);
 			softassert.assertEquals(phoneorder.get_SpecialInstruction_PreferenceTab_OnCustDetailsPopup(),"Hello !!! Special Instruction", "Test Step - 21 - Customer details popup Special instruction is not displayed on phone order page");
 			
 			// Test Step - 22
@@ -152,7 +163,7 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 			
 			// Test Step - 23
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelect_CustomerOnCust_Section("Abish", "Abish David");
+			phoneorder.SearchAndSelect_CustomerOnCust_Section(prop.getProperty("cust_firstName"), "Abish David");
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 23 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 23 - Last name is not displayed on phone order page");
@@ -176,7 +187,7 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 					"Test Step - 25 - Payment type is on phone order page and customer details at preference tab updated payment type fields are not matched");
 			
 			// Test Step - 26
-			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection("Invoice/House Account");
+			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection(paymentType);
 			delayWithGivenTime(1000);
 			softassert.assertEquals(phoneorder.getDisplayedPaymentTypeSelectedOption(), "Invoice/House Account","Test Step - 26 - Payment type of phone order page and selected payment type fields are not matched");
 			
@@ -218,13 +229,13 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 			phoneorder.Click_PreferencesTab_OnCustDetailsPopup();
 			delayWithGivenTime(1000);
 
-			phoneorder.Select_TaxType_PreferencesTab_OnCustDetailsPopup("Exemption");
+			phoneorder.Select_TaxType_PreferencesTab_OnCustDetailsPopup(taxType);
 
-			phoneorder.Enter_TexId_PreferenceTab_OnCustDetailsPopup("1234");
+			phoneorder.Enter_TexId_PreferenceTab_OnCustDetailsPopup(taxId);
 
-			phoneorder.Enter_CardMessage_PreferenceTab_OnCustDetailsPopup("Hi !!!");
+			phoneorder.Enter_CardMessage_PreferenceTab_OnCustDetailsPopup(cardMessage);
 
-			phoneorder.Enter_DiscountPercentage_PreferenceTab_OnCustDetailsPopup("10");
+			phoneorder.Enter_DiscountPercentage_PreferenceTab_OnCustDetailsPopup(discPercentage);
 
 			phoneorder.Click_DiscountAmount_PreferenceTab_OnCustDetailsPopup();
 
@@ -232,9 +243,9 @@ public class Hana_T103_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Pref
 	
 			phoneorder.Enter_PONumber_PreferenceTab_OnCustDetailsPopup("");
 			
-			phoneorder.Select_PaymentType_PreferenceTab_OnCustDetailsPopup("COD - Cash On Delivery");
+			phoneorder.Select_PaymentType_PreferenceTab_OnCustDetailsPopup(PaymentType);
 		
-			phoneorder.Select_PaymentTerms_PreferenceTab_OnCustDetailsPopup("Net 30");
+			phoneorder.Select_PaymentTerms_PreferenceTab_OnCustDetailsPopup(PaymentTerms);
 		
 			phoneorder.Enter_SpecialInstruction_PreferenceTab_OnCustDetailsPopup("");			
 			

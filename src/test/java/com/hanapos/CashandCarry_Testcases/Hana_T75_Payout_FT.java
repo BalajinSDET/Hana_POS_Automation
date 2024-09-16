@@ -16,6 +16,7 @@ import com.hanapos.pageObjects.DashboardOrderPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T75_Payout_FT extends TestBaseClass{
@@ -24,7 +25,9 @@ public class Hana_T75_Payout_FT extends TestBaseClass{
 	private CashAndCarryPage cashandcarry;
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
-	SoftAssert softassert = new SoftAssert();
+	
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
 	
 	/*
 	 * HANA-T72 - 1 to 7 - Verify Open drawer Functionality

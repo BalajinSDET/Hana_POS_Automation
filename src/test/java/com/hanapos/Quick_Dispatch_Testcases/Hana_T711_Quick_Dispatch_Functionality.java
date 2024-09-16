@@ -14,6 +14,7 @@ import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T711_Quick_Dispatch_Functionality extends TestBaseClass {
@@ -36,7 +37,9 @@ public class Hana_T711_Quick_Dispatch_Functionality extends TestBaseClass {
 	public void Validate_Hana_T711_Quick_Dispatch_Functionality_with_Existing_customer(
 			String salesperson, String customername, String recifname, String recilname, String reciaddress1, String reciaddress2, String recizip, String recicity,
 			String recicountry, String reciphone, String recilocation,String occasion, String searchandselectitemcode, String paymenttype) {
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting  Hana-Validate_Hana_T302_Delivery_Functionality_with_Existing_customer  ****");
 		logger.debug("capturing application debug logs....");
 		try {

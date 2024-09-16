@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import com.hanapos.pageObjects.DashboardOrderPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
@@ -12,6 +11,7 @@ import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT extends TestBaseClass {
@@ -32,7 +32,9 @@ public class Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_FT extends TestBaseCla
 	public void Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test(String salesperson, String custaddress1, String custzip,String custphone, String recifname, String recilname, String reciaddress1, String reciaddress2, String recizip,
 			String recicity, String recicountry, String reciphone, String recilocation, String occasion, String searchandselectitemcode, String paymenttype, String cashregistry) {
 		
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting  Validate_Hana_T455_OrderEntryPage_WireIn_Wire_In_Info_Functionality_Test  ****");
 		logger.debug("capturing application debug logs....");
 		try {

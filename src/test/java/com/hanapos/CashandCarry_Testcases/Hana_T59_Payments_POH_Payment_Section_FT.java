@@ -16,6 +16,7 @@ import com.hanapos.pageObjects.DashboardOrderPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T59_Payments_POH_Payment_Section_FT extends TestBaseClass{
@@ -25,7 +26,10 @@ public class Hana_T59_Payments_POH_Payment_Section_FT extends TestBaseClass{
 	private CashAndCarryPaymentPage cashandcarrypayment;
 	private DashboardOrderPage dashboardorder;
 	public static final String dataSheetName = "Hana_T14";
-	SoftAssert softassert = new SoftAssert();
+	
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
+	
 	String invoice;
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 

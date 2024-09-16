@@ -11,6 +11,7 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T085_Pickup_CustomerSection_SearchExistingCustomer_FT extends TestBaseClass {
@@ -27,7 +28,9 @@ public class Hana_T085_Pickup_CustomerSection_SearchExistingCustomer_FT extends 
 
 	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
 	public void Validate_Hana_T085_Pickup_CustomerSection_SearchExistingCustomer_Test(String salesperson, String customername, String searchandselectcust,String invalidsearchandselect,String searchandselectwith3char) {
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting  Hana_T85_Pickup_CustomerSection_SearchExistingCustomer_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {

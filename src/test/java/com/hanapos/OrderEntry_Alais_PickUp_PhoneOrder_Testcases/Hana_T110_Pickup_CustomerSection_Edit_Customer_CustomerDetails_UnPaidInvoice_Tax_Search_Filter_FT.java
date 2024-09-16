@@ -1,6 +1,9 @@
 package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
 
+import java.io.IOException;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -8,17 +11,29 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
+import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Tax_Search_Filter_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 
-	//,dataProvider="fetch_Excel_Data"
+	public static final String dataSheetName = "Hana_T108";
+
+	String taxamount;
+	
+	@DataProvider(name = "fetch_Excel_Data") 
+	public Object[][] fetchData() throws IOException { 
+		return DataLibrary.readExcelData(dataSheetName); 
+	}
+
 	@Test(enabled=true,groups= {"Regression"}) 
 	public void Validate_Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Tax_Search_Filter_Test() {
-		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Tax_Search_Filter_FT  ****");
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
+		logger.info("**** Starting Hana_T110_OrderEntryPage_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPaidInvoice_Tax_Search_Filter_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -67,8 +82,10 @@ public class Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			delayWithGivenTime(2000);
 			phoneorder.Select_TaxType_OnPhoneOrderPage("Standard Tax");
 			delayWithGivenTime(1000);
+			taxamount = phoneorder.get_TaxAmount_PaymentSection();
 			phoneorder.SelectPaymentTypeOnPhoneOrderPage_PaymentSection("Invoice/House Account");
 			delayWithGivenTime(1000);
+			
 			phoneorder.ClickPlaceOrderButton();
 			delayWithGivenTime(2000);
 			getDriver().switchTo().activeElement();
@@ -93,7 +110,7 @@ public class Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			
 			//Test Step - 6
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 6 - Last name is not displayed on phone order page");
@@ -120,20 +137,21 @@ public class Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			delayWithGivenTime(1000);			
 		
 			// Test Step - 10
-			phoneorder.Enter_Tax_OnInvoiceSearchBox_UnpaidInvoiceTab("9.21");
+			phoneorder.Enter_Tax_OnInvoiceSearchBox_UnpaidInvoiceTab(taxamount);
 			
 			// Test Step - 11
 			RobotPressEnter();
 			delayWithGivenTime(1000);
-			softassert.assertTrue(phoneorder.Verify_TaxValue_OnDisplayedInvoices(), "Test Step - 11 - Tax value is not displayed in unpaid invoice grid table");
+			softassert.assertTrue(phoneorder.Verify_TaxValue_OnDisplayedInvoices(taxamount), "Test Step - 11 - Tax value is not displayed in unpaid invoice grid table");
 			delayWithGivenTime(1000);
+			
 			// Test Step - 12
-			phoneorder.Enter_Tax_OnInvoiceSearchBox_UnpaidInvoiceTab("9.21");
+			phoneorder.Enter_Tax_OnInvoiceSearchBox_UnpaidInvoiceTab(taxamount);
 
 			// Test Step - 13
 			RobotPressEnter();
 			delayWithGivenTime(1000);
-			softassert.assertTrue(phoneorder.Verify_TaxValue_OnDisplayedInvoices(), "Test Step - 13 - Tax value is not displayed in unpaid invoice grid table");			
+			softassert.assertTrue(phoneorder.Verify_TaxValue_OnDisplayedInvoices(taxamount), "Test Step - 13 - Tax value is not displayed in unpaid invoice grid table");			
 		
 			// Test Step - 14
 			delayWithGivenTime(1000);
@@ -151,8 +169,7 @@ public class Hana_T110_Pickup_CustomerSection_Edit_Customer_CustomerDetails_UnPa
 			phoneorder.Click_Clearbutton_Taxsearchtextbox_UnpaidInvoiceTab();
 			delayWithGivenTime(1000);
 			softassert.assertEquals(phoneorder.get_EnteredTaxSearchtext_UnpaidInvoiceTab(),"","Test Step - 16 - Entered tax on search text box is not getting cleared ");
-			softassert.assertNotEquals(phoneorder.Verify_ListofInvoiceNumbers_Appears_InUnpaidInvoiceTable_OnUnpaidInvoiceTab(), 0,"Test Step - 16 - Unpaid Invoices are not displayed in unpaid invoice table on unpaid invoice tab customer details popup");
-			
+			softassert.assertNotEquals(phoneorder.Verify_ListofInvoiceNumbers_Appears_InUnpaidInvoiceTable_OnUnpaidInvoiceTab(), 0,"Test Step - 16 - Unpaid Invoices are not displayed in unpaid invoice table on unpaid invoice tab customer details popup");			
 			
 		} catch (Exception e) {
 			Assert.fail("Test case failed due to exception " + e.getMessage());

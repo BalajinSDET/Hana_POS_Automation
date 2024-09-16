@@ -7,17 +7,19 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 
 public class Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pagination_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 
-	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 
 	public void Validate_Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pagination_Functionality_Test() {
-		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pagination_FT  ****");
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
+		logger.info("**** Starting Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pagination_Functionality_Test  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -56,7 +58,7 @@ public class Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 		
 			//Test Step - 6
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 6 - Last name is not displayed on phone order page");
@@ -101,7 +103,7 @@ public class Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			// Test Step - 13
 			phoneorder.Click_NextPagePaginationIcon_OnUnpaidTab_OnCustomerDetailsPopup();
 			delayWithGivenTime(1000);
-			softassert.assertEquals(phoneorder.get_PaginationInfo_PaymentDetailsTab().contains("11 - 20"),true,"Test Step - 13 - Florist does not navigate to next page");
+			softassert.assertEquals(phoneorder.get_PaginationInfo_PaymentDetailsTab().contains("11 - "+phoneorder.get_Second_NumberOfPage()),true,"Test Step - 13 - Florist does not navigate to next page");
 			
 			// Test Step - 14
 			phoneorder.ClickThreeDots_Pagination_PaymentDetails();
@@ -111,12 +113,21 @@ public class Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			// Test Step - 15
 			phoneorder.Click_Pagenumber2_Pagination_PaymentDetails();
 			delayWithGivenTime(1000);
-			softassert.assertEquals(phoneorder.get_PaginationInfo_PaymentDetailsTab().contains( "111 - 120"),true,"Test Step - 15 - Florist does not navigate to respective page");
+			softassert.assertEquals(
+				    phoneorder.get_PaginationInfo_PaymentDetailsTab(), 
+				    phoneorder.get_first_NumberOfPage() + " - " + phoneorder.get_Second_NumberOfPage(), 
+				    "Test Step - 15 - Florist did not navigate to the last page on the payment details tab under the table"
+				);
 			
 			// Test Step - 16
 			phoneorder.Click_PreviousPagePaginationIcon_OnUnpaidTab_OnCustomerDetailsPopup();
 			delayWithGivenTime(1000);
-			softassert.assertEquals(phoneorder.get_PaginationInfo_PaymentDetailsTab().contains( "101 - 110"),true,"Test Step - 16 - Florist does not navigate to previous page");
+			softassert.assertEquals(
+				    phoneorder.get_PaginationInfo_PaymentDetailsTab(), 
+				    phoneorder.get_first_NumberOfPage() + " - " + phoneorder.get_Second_NumberOfPage(), 
+				    "Test Step - 16 - Florist did not navigate to the previous page on the payment details tab under the table"
+				);
+			
 			
 			// Test Step - 17
 			phoneorder.Click_LastPagePaginationIcon_OnUnpaidTab_OnCustomerDetailsPopup();
@@ -127,7 +138,7 @@ public class Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			// Test Step - 18
 			phoneorder.Click_FirstPagePaginationIcon_OnUnpaidTab_OnCustomerDetailsPopup();
 			delayWithGivenTime(1000);
-			softassert.assertEquals(phoneorder.get_PaginationInfo_PaymentDetailsTab().contains( "1 - 10"),true,"Test Step - 18 - Florist does not navigate to first page");
+			softassert.assertEquals(phoneorder.get_PaginationInfo_PaymentDetailsTab().contains( phoneorder.get_first_NumberOfPage() + " - " + phoneorder.get_Second_NumberOfPage()),true,"Test Step - 18 - Florist does not navigate to first page");
 
 			// Test Step - 19
 			softassert.assertTrue(phoneorder.Verify_PreviousPagePaginationIcon_OnUnpaidTab_OnCustomerDetailsPopup(), "Test Step - 19 - Previous page pagination icon is enabled on the payment details tab under the table");
@@ -145,7 +156,7 @@ public class Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			// Test Step - 22
 			phoneorder.Click_FirstPagePaginationIcon_OnUnpaidTab_OnCustomerDetailsPopup();
 			delayWithGivenTime(1000);
-			softassert.assertEquals(phoneorder.get_PaginationInfo_PaymentDetailsTab().contains( "1 - 10"),true,"Test Step - 22 - Florist does not navigate to first page");			
+			softassert.assertEquals(phoneorder.get_PaginationInfo_PaymentDetailsTab().contains( phoneorder.get_first_NumberOfPage() + " - " + phoneorder.get_Second_NumberOfPage()),true,"Test Step - 22 - Florist does not navigate to first page");			
 			
 			} catch (Exception e) {
 				e.printStackTrace();

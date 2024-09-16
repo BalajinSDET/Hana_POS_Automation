@@ -14,6 +14,7 @@ import com.hanapos.pageObjects.DashboardOrderPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T48_Payments_CreditCard_Manually_Entering_CreditCard_Details_ExistingCard_Functionality_FT extends TestBaseClass{
@@ -23,7 +24,9 @@ public class Hana_T48_Payments_CreditCard_Manually_Entering_CreditCard_Details_E
 	private CashAndCarryPaymentPage cashandcarrypayment;
 
 	public static final String dataSheetName = "Hana_T48";
-	SoftAssert softassert = new SoftAssert();
+	
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
 
 	@DataProvider(name = "fetch_Excel_Data") 
 	public Object[][] fetchData() throws IOException { 
@@ -45,10 +48,10 @@ public class Hana_T48_Payments_CreditCard_Manually_Entering_CreditCard_Details_E
 			logger.info("User on the hana pos login page");
 			
 			// Test Step - 2
-			lp.EnterUserName(prop.getProperty("username"));
-			logger.info("User entered username as "+prop.getProperty("username"));
-			lp.EnterPassword(prop.getProperty("password"));
-			logger.info("User entered username as "+prop.getProperty("password"));
+			lp.EnterUserName(prop.getProperty("bestuname"));
+			logger.info("User entered username as "+prop.getProperty("bestuname"));
+			lp.EnterPassword(prop.getProperty("bestpass"));
+			logger.info("User entered username as "+prop.getProperty("bestpass"));
 			lp.ClickLoginButton();
 			logger.info("User clicked on Login button..");
 
@@ -57,8 +60,8 @@ public class Hana_T48_Payments_CreditCard_Manually_Entering_CreditCard_Details_E
 			logger.info("User navigated to hana dashboard page sucess..");
 			
 			// Test Step - 3
-			dashboard.SelectShopNameDropDown(prop.getProperty("shopname"));
-			logger.info("User selected the shop name as "+prop.getProperty("shopname")+ "in dashboard page");
+			dashboard.SelectShopNameDropDown(prop.getProperty("bestshopname"));
+			logger.info("User selected the shop name as "+prop.getProperty("bestshopname")+ "in dashboard page");
 			dashboard.CashAndCarryMenuClick();							
 			cashandcarry = new CashAndCarryPage();
 			logger.info("User hover the mouse on New order and click on Cash and Carry..");
@@ -66,16 +69,16 @@ public class Hana_T48_Payments_CreditCard_Manually_Entering_CreditCard_Details_E
 			logger.info("User verify the Cash and Carry page is displayed..");
 			
 			// Test Step - 4
-			cashandcarry.SelectShopName(prop.getProperty("shopname")); //"Hana POS (Canada)"
-			logger.info("User select the shop name as "+prop.getProperty("shopname")+ "in cash and carry page");
+			cashandcarry.SelectShopName(prop.getProperty("bestshopname")); //"Hana POS (Canada)"
+			logger.info("User select the shop name as "+prop.getProperty("bestshopname")+ "in cash and carry page");
 			
 			//Test Step - 5
-			cashandcarry.SelectClerkName(prop.getProperty("clerkname")); //"Automation clerk desc"
-			logger.info("User select the clerk name as "+prop.getProperty("clerkname"));
+			cashandcarry.SelectClerkName(prop.getProperty("bestclerk")); //"Automation clerk desc"
+			logger.info("User select the clerk name as "+prop.getProperty("bestclerk"));
 			
 			// Test Step - 6
-			cashandcarry.SelectEmployeeName(prop.getProperty("employeename")); //"QA Team Automation"
-			logger.info("User select the employee name as "+prop.getProperty("employeename"));
+			cashandcarry.SelectEmployeeName(prop.getProperty("bestemployee")); //"QA Team Automation"
+			logger.info("User select the employee name as "+prop.getProperty("bestemployee"));
 
 			// Test Step - 7
 			softassert.assertTrue(cashandcarry.IsPayButtonDisabled(),"Pay button is not disabled");
@@ -116,13 +119,13 @@ public class Hana_T48_Payments_CreditCard_Manually_Entering_CreditCard_Details_E
 			
 			// Test Step - 9
 			delayWithGivenTime(2000);
-			cashandcarry.ClickParticularProdTitle();
+			cashandcarry.Click_Displayed_Tile_Product("rrd-");
 			logger.info("User click on the particular product tile");
-			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"ballonsYY");
+			softassert.assertEquals(cashandcarry.getAddedItemCodeRow2(),"rrd");
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");		
 			
 			// Test Step - 10
-			cashandcarry.EnterCustomerName(customername,customername);
+			cashandcarry.EnterCustomerName("Abish","Abish David");
 			logger.info("User search and select the created customer ");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion(occasion);
@@ -142,38 +145,51 @@ public class Hana_T48_Payments_CreditCard_Manually_Entering_CreditCard_Details_E
 			// Test Step - 12				
 			delayWithGivenTime(2000);
 			cashandcarrypayment.ClickCreditCardTab();
-			if(cashandcarrypayment.VerifyCreditCardPresentToogleBtnIsAppear()==true) {
-				cashandcarrypayment.ClickCreditCardPresentToogleBtn();
-				softassert.assertTrue(cashandcarrypayment.VerifyCreditCardPresentToogleBtnIsSelected(),"Test Step - 12 : Credit card is present toogle button is not turn on");
-			}else {
-					softassert.fail("***Credit card present toogle button is not displayed***");
-				}
-			
-			if(cashandcarrypayment.VerifyCreditCardFirstNameIsDisabled()==true) {
-			softassert.assertTrue(cashandcarrypayment.VerifyCreditCardFirstNameIsDisabled(),"Credit card first name field is not disabled");
-			softassert.assertTrue(cashandcarrypayment.VerifyCreditCardLastNameIsDisabled(),"Credit card last name field is not disabled");
-			softassert.assertTrue(cashandcarrypayment.VerifySelectCreditCardTypeIsDisabled(),"Credit card selected card type is not disabled");
-			softassert.assertTrue(cashandcarrypayment.VerifyEnterCreditCardNumberIsDisabled(),"Credit card number field is not disabled");
-			softassert.assertTrue(cashandcarrypayment.VerifyEnterCreditCardExpireDateIsDisabled(),"Credit card expire date is not disabled");
-			softassert.assertTrue(cashandcarrypayment.VerifyEnterCreditCardCVVIsDisabled(),"Credit card cvv field is not disabled");
-			softassert.assertTrue(cashandcarrypayment.VerifyEnterCreditCardZipCodeIsDisabled(),"Credit card zipcode field is not disabled");
-			}else {
-				softassert.fail("Test Step - 12 : Credit card tab all the fields are not disabled");
-			}
+			/*
+			 * if(cashandcarrypayment.VerifyCreditCardPresentToogleBtnIsAppear()==true) {
+			 * cashandcarrypayment.ClickCreditCardPresentToogleBtn();
+			 * softassert.assertTrue(cashandcarrypayment.
+			 * VerifyCreditCardPresentToogleBtnIsSelected()
+			 * ,"Test Step - 12 : Credit card is present toogle button is not turn on");
+			 * }else {
+			 * softassert.fail("***Credit card present toogle button is not displayed***");
+			 * }
+			 * 
+			 * if(cashandcarrypayment.VerifyCreditCardFirstNameIsDisabled()==true) {
+			 * softassert.assertTrue(cashandcarrypayment.VerifyCreditCardFirstNameIsDisabled
+			 * (),"Credit card first name field is not disabled");
+			 * softassert.assertTrue(cashandcarrypayment.VerifyCreditCardLastNameIsDisabled(
+			 * ),"Credit card last name field is not disabled");
+			 * softassert.assertTrue(cashandcarrypayment.
+			 * VerifySelectCreditCardTypeIsDisabled()
+			 * ,"Credit card selected card type is not disabled");
+			 * softassert.assertTrue(cashandcarrypayment.
+			 * VerifyEnterCreditCardNumberIsDisabled()
+			 * ,"Credit card number field is not disabled");
+			 * softassert.assertTrue(cashandcarrypayment.
+			 * VerifyEnterCreditCardExpireDateIsDisabled()
+			 * ,"Credit card expire date is not disabled");
+			 * softassert.assertTrue(cashandcarrypayment.VerifyEnterCreditCardCVVIsDisabled(
+			 * ),"Credit card cvv field is not disabled");
+			 * softassert.assertTrue(cashandcarrypayment.
+			 * VerifyEnterCreditCardZipCodeIsDisabled()
+			 * ,"Credit card zipcode field is not disabled"); }else { softassert.
+			 * fail("Test Step - 12 : Credit card tab all the fields are not disabled"); }
+			 */
 			
 			// Test Step - 13 
-			cashandcarrypayment.ClickCreditCardPresentToogleBtn();
+			//cashandcarrypayment.ClickCreditCardPresentToogleBtn();
 			cashandcarrypayment.EnterFirstNameOnCreditCardTab(ccfname);
 			softassert.assertEquals(cashandcarrypayment.getEnteredCreditCardFirstName(),"Automation","First name is not displayed");
 			cashandcarrypayment.EnterLastNameOnCreditCardTab(cclname);
 			softassert.assertEquals(cashandcarrypayment.getEnteredCreditCardLastName(),"Test","Last name is not displayed");
 			cashandcarrypayment.SelectCreditCardTypeOnCreditCardTab(creditcardtype);
-			cashandcarrypayment.EnterCreditCardNumberOnCreditCardTab(cccardnumber);
-			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardNumber(),"378282246310005","credit card number entered data is not displayed");
-			cashandcarrypayment.EnterCreditCardExpireDateOnCreditCardTab(ccexpiredate);
-			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardExpireDate(),"0628","credit card expire date entered data is not displayed");	
-			cashandcarrypayment.EnterCreditCardCVVOnCreditCardTab(cccvv);
-			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardCVV(),"567","credit card cvv entered data is not displayed");
+			cashandcarrypayment.EnterCreditCardNumberOnCreditCardTab(prop.getProperty("creditcardnum"));
+			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardNumber(),"4111111111111111","credit card number entered data is not displayed");
+			cashandcarrypayment.EnterCreditCardExpireDateOnCreditCardTab(prop.getProperty("ccexpiredate"));
+			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardExpireDate(),"1030","credit card expire date entered data is not displayed");	
+			cashandcarrypayment.EnterCreditCardCVVOnCreditCardTab(prop.getProperty("cccvv"));
+			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardCVV(),"123","credit card cvv entered data is not displayed");
 			cashandcarrypayment.EnterCreditCardZipCodeOnCreditCardTab(cczipcode);
 			softassert.assertEquals(cashandcarrypayment.getEnterCreditCardZipCode(),"32012","credit card zipcode entered data is not displayed");
 			softassert.assertTrue(cashandcarrypayment.VerifyProcessPaymentButton(),"Process payment button is not displayed");

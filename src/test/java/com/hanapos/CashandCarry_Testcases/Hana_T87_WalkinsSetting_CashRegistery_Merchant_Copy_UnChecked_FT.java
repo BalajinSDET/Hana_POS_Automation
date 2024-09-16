@@ -15,6 +15,7 @@ import com.hanapos.pageObjects.CashAndCarryPaymentPage;
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT extends TestBaseClass {
@@ -24,7 +25,10 @@ public class Hana_T87_WalkinsSetting_CashRegistery_Merchant_Copy_UnChecked_FT ex
 	private CashAndCarryPage cashandcarry;
 	private CashAndCarryPaymentPage cashandcarrypayment;
 	public static final String dataSheetName = "Hana_T87";
-	SoftAssert softassert = new SoftAssert();
+	
+	// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+	CustomSoftAssert softassert = new CustomSoftAssert();
+	
 	public static ExecutorService executorService;
 	private static final int THREAD_POOL_SIZE = 2;
 

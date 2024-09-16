@@ -5,12 +5,12 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T295_OrderEntryPage_Delivery_CustomerSection_AddressLookup_Functionality extends TestBaseClass {
@@ -28,7 +28,9 @@ public class Hana_T295_OrderEntryPage_Delivery_CustomerSection_AddressLookup_Fun
 	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
 	public void Validate_Hana_T295_OrderEntryPage_Delivery_CustomerSection_AddressLookup_Functionality_Test(String salesperson, String custfname, String custlname, String custcompanyname, String custemail, String custaddress1,
 			String customeraddress1, String shortaddress1, String searchandselectaddress1, String custphone, String againcustaddress1, String againsearchandselectaddress1) {
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting  Validate_Hana_T295_OrderEntryPage_Delivery_CustomerSection_AddressLookup_Functionality_Test  ****");
 		logger.debug("capturing application debug logs....");
 		

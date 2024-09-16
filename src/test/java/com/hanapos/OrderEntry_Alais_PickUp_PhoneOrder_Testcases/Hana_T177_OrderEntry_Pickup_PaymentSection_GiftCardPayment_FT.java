@@ -11,6 +11,7 @@ import com.hanapos.pageObjects.Marketing_RemaindersPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 
 public class Hana_T177_OrderEntry_Pickup_PaymentSection_GiftCardPayment_FT extends TestBaseClass {
 	private LoginPage lp;
@@ -22,7 +23,9 @@ public class Hana_T177_OrderEntry_Pickup_PaymentSection_GiftCardPayment_FT exten
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 
 	public void Validate_Hana_T177_OrderEntry_Pickup_PaymentSection_GiftCardPayment_Functionality_Test() {
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting  Validate_Hana_T177_OrderEntry_Pickup_PaymentSection_GiftCardPayment_Functionality_Test ****");
 		logger.debug("capturing application debug logs....");
 		try {

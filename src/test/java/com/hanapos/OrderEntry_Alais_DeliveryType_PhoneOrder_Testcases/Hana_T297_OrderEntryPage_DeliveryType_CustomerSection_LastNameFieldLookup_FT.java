@@ -5,12 +5,12 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T297_OrderEntryPage_DeliveryType_CustomerSection_LastNameFieldLookup_FT extends TestBaseClass {
@@ -28,7 +28,9 @@ public class Hana_T297_OrderEntryPage_DeliveryType_CustomerSection_LastNameField
 	
 	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
 	public void Validate_Hana_T297_OrderEntryPage_DeliveryType_CustomerSection_LastNameFieldLookup_Functionality_Test(String salesperson, String custlname, String searchandselectlname) {
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting  Validate_Hana_T297_OrderEntryPage_DeliveryType_CustomerSection_LastNameFieldLookup_Functionality_Test  ****");
 		logger.debug("capturing application debug logs....");
 		

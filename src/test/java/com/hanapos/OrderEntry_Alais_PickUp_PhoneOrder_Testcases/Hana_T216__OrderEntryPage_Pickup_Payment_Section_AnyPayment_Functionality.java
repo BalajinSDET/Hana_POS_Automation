@@ -13,6 +13,7 @@ import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.pageObjects.Order_Confirmation_Page;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
 import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T216__OrderEntryPage_Pickup_Payment_Section_AnyPayment_Functionality extends TestBaseClass {
@@ -36,7 +37,9 @@ public class Hana_T216__OrderEntryPage_Pickup_Payment_Section_AnyPayment_Functio
 	public void Validate_Hana_T216__OrderEntryPage_Pickup_Payment_Section_AnyPayment_Functionality_Test(
 			String salesperson, String customername, String recifname, String recilname, String reciaddress1, String reciaddress2, String recizip, String recicity,
 			String recicountry, String reciphone, String recilocation,String occasion, String searchandselectitemcode, String paymenttype) {
-		SoftAssert softassert = new SoftAssert();
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
 		logger.info("**** Starting  Validate_Hana_T216__OrderEntryPage_Pickup_Payment_Section_AnyPayment_Functionality_Test  ****");
 		logger.debug("capturing application debug logs....");
 		try {

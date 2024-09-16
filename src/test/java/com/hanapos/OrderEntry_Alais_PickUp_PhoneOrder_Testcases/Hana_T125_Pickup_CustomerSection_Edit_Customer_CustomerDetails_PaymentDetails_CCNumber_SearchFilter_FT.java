@@ -1,5 +1,8 @@
 package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
 
+import java.io.IOException;
+
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -7,17 +10,26 @@ import com.hanapos.pageObjects.HanaDashBoardPage;
 import com.hanapos.pageObjects.LoginPage;
 import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
+import com.hanapos.utilities.CustomSoftAssert;
+import com.hanapos.utilities.DataLibrary;
 
 public class Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_CCNumber_SearchFilter_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
+	public static final String dataSheetName = "Hana_T125";
 
-	//,dataProvider="fetch_Excel_Data"
-	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_CCNumber_SearchFilter_Functionality_Test() {
-		SoftAssert softassert = new SoftAssert();
-		logger.info("**** Starting Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_CCNumber_SearchFilter_FT  ****");
+	@DataProvider(name = "fetch_Excel_Data") 
+	public Object[][] fetchData() throws IOException { 
+		return DataLibrary.readExcelData(dataSheetName); 
+	}
+
+	@Test(enabled=true,groups= {"Regression"},dataProvider="fetch_Excel_Data") 
+	public void Validate_Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_CCNumber_SearchFilter_Functionality_Test(String valid_ccno, String three_digit_ccno, String invalid_ccno) {
+		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
+		CustomSoftAssert softassert = new CustomSoftAssert();
+		
+		logger.info("**** Starting Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_CCNumber_SearchFilter_Functionality_Test  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -26,18 +38,18 @@ public class Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			logger.info("User on the hana pos login page");
 			
 			// Test Step - 2
-			lp.EnterUserName(prop.getProperty("username"));
-			logger.info("User entered the username as "+prop.getProperty("username"));
-			lp.EnterPassword(prop.getProperty("password"));
-			logger.info("User entered the password as "+prop.getProperty("password"));
+			lp.EnterUserName(prop.getProperty("bestuname"));
+			logger.info("User entered the username as "+prop.getProperty("bestuname"));
+			lp.EnterPassword(prop.getProperty("bestpass"));
+			logger.info("User entered the password as "+prop.getProperty("bestpass"));
 			lp.ClickLoginButton();
 			logger.info("User clicked on Login button");
 
 			dashboard = new HanaDashBoardPage();
 			softassert.assertTrue(dashboard.VerifyHanaDashBoardPage(),"Test Step - 2 : Hana dashboard page is not displayed");
 			logger.info("User navigated to hana dashboard page");
-			dashboard.SelectShopNameDropDown(prop.getProperty("shopname"));
-			logger.info("User select the shopname on dashbaord page as "+prop.getProperty("shopname"));
+			dashboard.SelectShopNameDropDown(prop.getProperty("bestshopname"));
+			logger.info("User select the shopname on dashbaord page as "+prop.getProperty("bestshopname"));
 			
 			// Test Step - 3
 			delayWithGivenTime(2000);
@@ -56,7 +68,7 @@ public class Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 		
 			//Test Step - 6
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 6 - Last name is not displayed on phone order page");
@@ -72,32 +84,31 @@ public class Hana_T125_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 		
 			// Test Step - 7			
 			phoneorder.Click_CustEditIcon();
-			softassert.assertTrue(phoneorder.Verify_CustomerDetailsPopupAppears(), "Test Step - 8 - Customer details popup on is not displayed on phone order page");
-			
+			softassert.assertTrue(phoneorder.Verify_CustomerDetailsPopupAppears(), "Test Step - 8 - Customer details popup on is not displayed on phone order page");		
 			
 			// Test Step - 8
 			delayWithGivenTime(1000);
 			phoneorder.ClickOn_PaymentDetails_CustomerDetailsPopup();
-			ThreadWait(10000);//===== Facing loading issue =====
+			ThreadWait(5000);
 			softassert.assertTrue(phoneorder.Verify_TableGridOnPaymentDetailsTab_IsAppear(), "Test Step - 9 - payment details tab webtable grid is not displayed");		
 						
 			// Test Step - 9
 			ThreadWait(2000);
-			phoneorder.Enter_CCNumberSearchBox_OnPaymentDetailsTab("1844020000000010");
+			phoneorder.Enter_CCNumberSearchBox_OnPaymentDetailsTab(valid_ccno);
 		
 			// Test Step - 10
 			RobotPressEnter();
-			softassert.assertTrue(phoneorder.Verify_CCNumber_Paymentdetailstab("1844020000000010"),"Test Step - 10 - Entered Credit Card number is not displayed on the payment details tab at customer details popup");
+			softassert.assertTrue(phoneorder.Verify_CCNumber_Paymentdetailstab(valid_ccno),"Test Step - 10 - Entered Credit Card number is not displayed on the payment details tab at customer details popup");
 			
 			// Test Step - 11
-			phoneorder.Enter_CCNumberSearchBox_OnPaymentDetailsTab("184");
+			phoneorder.Enter_CCNumberSearchBox_OnPaymentDetailsTab(three_digit_ccno);
 		
 			// Test Step - 12
 			RobotPressEnter();
-			softassert.assertTrue(phoneorder.Verify_CCNumber_Paymentdetailstab("1844020000000010"),"Test Step - 12 - Entered Credit Card number is not displayed on the payment details tab at customer details popup");
+			softassert.assertTrue(phoneorder.Verify_CCNumber_Paymentdetailstab(valid_ccno),"Test Step - 12 - Entered Credit Card number is not displayed on the payment details tab at customer details popup");
 			
 			// Test Step - 13
-			phoneorder.Enter_CCNumberSearchBox_OnPaymentDetailsTab("11111111111");	
+			phoneorder.Enter_CCNumberSearchBox_OnPaymentDetailsTab(invalid_ccno);	
 			RobotPressEnter();
 			softassert.assertTrue(phoneorder.Verify_NoCustomerPaymentsFound_PaymentDetailsTab(),"Test Step - 13 - Entered invalid Credit Card number is displayed on the payment details tab at customer details popup");			
 			

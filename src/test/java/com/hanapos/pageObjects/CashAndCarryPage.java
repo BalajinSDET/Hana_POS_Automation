@@ -3,6 +3,7 @@ package com.hanapos.pageObjects;
 import java.awt.Robot;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -327,7 +328,7 @@ public class CashAndCarryPage extends TestBaseClass{
 	@FindBy(xpath="//input[@id='txtSearchProduct']")
 	private WebElement SelectCustomer;
 	
-	@FindBy(xpath="//ul[@id='ui-id-1']//li//div")
+	@FindBy(xpath="//ul[@id='ui-id-1']//li[@class='ui-menu-item']//div") 
 	private List<WebElement> CustomerList_autocomplete_dropdown_Option;
 	
 	@FindBy(xpath="//ul[@id='ui-id-1']//li//div[contains(text(),'')]")
@@ -428,6 +429,9 @@ public class CashAndCarryPage extends TestBaseClass{
 
 	@FindBy(xpath="//div[@class='MyBoxes'][normalize-space()='ballonsYY-Ballons small-$40.00']")
 	private WebElement CashAndCarryBalloonTitle;
+	
+	@FindBy(xpath="//div[@class='MyBoxes']")
+	private List<WebElement> ListOfCashAndCarryTileProducts;
 	
 	@FindBy(xpath="//a[@class='QuickInsertItem']")
 	private List<WebElement> ListOfProdTiles;
@@ -1231,6 +1235,9 @@ public class CashAndCarryPage extends TestBaseClass{
 		delayWithGivenTime(3000);
 		for(WebElement cust : CustomerList_autocomplete_dropdown_Option) {
 			if(cust.getText().equals(prop.getProperty("customername"))) {
+				//cust.click();
+				//Actions actions = new Actions(getDriver()); // Initialize Actions class
+				//actions.moveToElement(cust).sendKeys(Keys.ARROW_DOWN).perform();
 				jsClick(cust);
 				break;
 			}
@@ -1251,6 +1258,27 @@ public class CashAndCarryPage extends TestBaseClass{
 		return this;
 	}
 
+	public CashAndCarryPage Enter_CustomerName(String customershorttext) {
+		SelectCustomer.clear();
+		clickAndType(SelectCustomer,customershorttext); //"abish"
+		delayWithGivenTime(3000);
+		SelectCustomer.sendKeys(Keys.ARROW_DOWN);
+		delayWithGivenTime(3000);
+		SelectCustomer.sendKeys(Keys.ENTER);
+		/*
+		 * for(int i=0;i<CustomerList_autocomplete_dropdown_Option.size();i++) {
+		 * //for(WebElement cust : CustomerList_autocomplete_dropdown_Option) {
+		 * if(CustomerList_autocomplete_dropdown_Option.get(i).getText().contains(
+		 * customername)) {
+		 * CustomerList_autocomplete_dropdown_Option.get(i).sendKeys(Keys.ARROW_DOWN);
+		 * delayWithGivenTime(3000);
+		 * CustomerList_autocomplete_dropdown_Option.get(i).sendKeys(Keys.ENTER);
+		 * //click(cust); break; } } 
+		 */
+		return this;
+	}
+
+	
 	public CashAndCarryPage EnterNewCustomerName() {
 		SelectCustomer.sendKeys("");
 		delayWithGivenTime(2000);
@@ -3758,6 +3786,21 @@ public class CashAndCarryPage extends TestBaseClass{
             System.out.println("The difference field is not highlighted in red.");
         }
 	}	
+	
+	
+	public void Click_Displayed_Tile_Product(String tile) {
+		
+		for(WebElement Tile:ListOfCashAndCarryTileProducts) {
+			HighlightElement(Tile);
+			if(Tile.getText().contains(tile)) {
+				click(Tile);
+				break;
+			}
+			
+		}
+		//ListOfCashAndCarryTileProducts
+		//click(Displayed_ReconcileBtn);
+	}
 }
 	
 

@@ -1,5 +1,6 @@
-package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
+package com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -9,18 +10,17 @@ import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
 import com.hanapos.utilities.CustomSoftAssert;
 
-public class Hana_T130_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_TotalSearchFilter_FT extends TestBaseClass {
+public class Hana_T335_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_ExportToExcel_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 
-	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T130_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_TotalSearchFilter_Functionality_Test() {
+	public void Validate_Hana_T335_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_ExportToExcel_Functionality_Test() {
 		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
 		CustomSoftAssert softassert = new CustomSoftAssert();
 		
-		logger.info("**** Starting Hana_T130_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_TotalSearchFilter_FT  ****");
+		logger.info("**** Starting Hana_T335_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_ExportToExcel_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -53,9 +53,9 @@ public class Hana_T130_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Orde
 			
 			// Test Step - 5
 			phoneorder = new OrderEntry_Alais_PhoneOrderPage();
-			phoneorder.ClickPickupTypeOnPhoneOrderPage();
+			phoneorder.ClickdeliveryTypeOnPhoneOrderPage();
 			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.getHighlightedColorOnPickupTypeOnPhoneOrderPage(),"#2f9bc8", "Test Step - 5 - Pickup type is not highlighted in blue color");		
+			softassert.assertEquals(phoneorder.get_HighlightedColor_OnDelivery_TypeOnPhoneOrderPage(),"#676a6c", "Test Step - 5 - Delivery type is not highlighted in blue color");		
 		
 			//Test Step - 6
 			delayWithGivenTime(2000);
@@ -73,52 +73,30 @@ public class Hana_T130_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Orde
 			softassert.assertEquals(phoneorder.getAltPhoneNumberOnPhoneOrderPage(),"956-655-0756", "Test Step - 6 - Alt phone number is not displayed on phone order page");
 			delayWithGivenTime(2000);
 		
-			// Test Step - 7			
+			// Test Step - 7
+			softassert.assertTrue(phoneorder.Verify_CustEditIcon_Appears(), "Test Step - 7 - Customer clear button is not displayed on phone order page");			
+			
+			// Test Step  - 8
 			phoneorder.Click_CustEditIcon();
 			softassert.assertTrue(phoneorder.Verify_CustomerDetailsPopupAppears(), "Test Step - 8 - Customer details popup on is not displayed on phone order page");
 			
-			// Test Step - 8
+			// Test Step - 9
 			delayWithGivenTime(1000);
 			phoneorder.Click_OrderDetailsTab_CustomerDetailsPopup();
-			delayWithGivenTime(4000);
-			softassert.assertTrue(phoneorder.Verify_OrderDetailsTableGrid_IsAppears_OrderDetailsTab_CustomerDetailsPopup(), "Test Step - 9 - Order details tab webtable grid is not displayed");		
-					
-			// Test Step - 9
-			ThreadWait(1000);
-			phoneorder.Enter_TotalAmount_OrderDetailsTab_CustomerDetailsPopup("349.00");
-		
-			 // Test Step - 10
-			RobotPressEnter();
-			ThreadWait(1000);
-			softassert.assertTrue(phoneorder.Verify_TotalAmount_Orderdetailstab("349.00"),"Test Step - 10 - Filtered total amount is not displayed on the order details tab at customer details popup");
+								
+			// Test Step - 10
+			ThreadWait(2000);
+			softassert.assertTrue(phoneorder.Verify_ExportToExcel_OrderDetailsTab_CustomerDetailsPopup(),"Test Step - 10 - Export to excel button is not displayed on order details tab at customer phone order page");
 			
 			// Test Step - 11
-			ThreadWait(3000);
-			phoneorder.Enter_TotalAmount_OrderDetailsTab_CustomerDetailsPopup("349");
-			
-			// Test Step - 12
-			RobotPressEnter();
-			ThreadWait(1000);
-			softassert.assertTrue(phoneorder.Verify_TotalAmount_Orderdetailstab("349"),"Test Step - 12 - Filtered total amount with 3 digits is not displayed on the order details tab at customer details popup");
-			
-			// Test Step - 13
-			ThreadWait(3000);
-			phoneorder.Enter_TotalAmount_OrderDetailsTab_CustomerDetailsPopup("123456");
-			ThreadWait(1000);
-			RobotPressEnter();
-			softassert.assertTrue(phoneorder.Verify_NoCustomerOrdersFoundMessage_Appears_OrderDetailsTab(),"Test Step - 13 - Filtered with invalid total amount number is not displayed on the message like No Customer Order Found in order details tab at customer details popup");
+			delayWithGivenTime(1000);
+			phoneorder.Click_ExportToExcelButton_OrderDetailsTab_CustomerDetailsPopup();
+			delayWithGivenTime(2000);
+			softassert.assertTrue(phoneorder.VerifyFileIsDownloaded("C:\\Users\\Balaji\\Downloads","OrderDetails.xlsx"),"Test Step - 11 - File is not downloaded on order details tab at customer phone order page");
 
-			// Test Step - 14
-			ThreadWait(2000);
-			softassert.assertTrue(phoneorder.Verify_Clearbutton_TotalAmountSearchBox_OrderDetailsTab(),"Test Step - 14 - Clear button on total amount search box is not displayed in order details tab customer details popup");
-			
-			// Test Step - 15
-			phoneorder.Click_clearbutton_TotalAmountSearchBox_OrderDetailsTab();
-			softassert.assertEquals(phoneorder.get_TotalAmount_Orderdetailstab(), "","Test Step - 15 - Total amount search box entered data is not cleared in order details tab at customer details popup");
-			softassert.assertTrue(phoneorder.Verify_AllTheTotalAmounts_AppearsOn_OrderDetailsTab(),"Test Step - 15 - All the total amount are not displayed on order details tab" );
 			} catch (Exception e) {
-			e.printStackTrace();
-			softassert.fail();
+			Assert.fail("Test case failed due to exception " + e.getMessage());
+			logger.error("Test case failed due to exception " + e.getMessage());
 		} finally {
 			softassert.assertAll();
 		}

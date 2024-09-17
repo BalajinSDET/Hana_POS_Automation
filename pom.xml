@@ -36,9 +36,9 @@
 							<suiteXmlFile>${xmlFiles}</suiteXmlFile>
 						</suiteXmlFiles>
 						<!--${xmlFiles} RegressionTest.xml-->
-					<!--<systemPropertyVariables>
+				<!--<systemPropertyVariables>
 						<appURL>${url}</appURL>
-					</systemPropertyVariables>-->
+				</systemPropertyVariables>-->
 						
 					</configuration>
 

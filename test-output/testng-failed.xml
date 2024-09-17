@@ -14,14 +14,14 @@
       </run>
     </groups>
     <classes>
-      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pagination_FT">
+      <class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_InvoiceSearchFilter_FT">
         <methods>
-          <include name="Validate_Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pagination_Functionality_Test"/>
+          <include name="Validate_Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_InvoiceSearchFilter_FunctionalityTest"/>
           <include name="loadConfig"/>
           <include name="tearDown"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pagination_FT -->
+      </class> <!-- com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_InvoiceSearchFilter_FT -->
     </classes>
   </test> <!-- ChromeBrowserTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

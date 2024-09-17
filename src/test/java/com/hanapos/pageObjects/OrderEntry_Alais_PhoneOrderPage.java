@@ -1553,6 +1553,9 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 
 	@FindBy(xpath="(//thead[@role='rowgroup']//tr[2]//th//span//input)[1]") //(//thead[@role='rowgroup']//tr[2]//th//span//input)[18]
 	private WebElement InvoiceNoSearchBox_OrderDetailsTab;
+	
+	@FindBy(xpath="(//td[@class='hana-cust-grid-row-fullview kendo-hana-invoice-column gvCustomerOrderDtls-set-invoice-font'])[1]")
+	private WebElement InvoiceNo_row1_OrderDetailsTab;
 
 	@FindBy(xpath="//table[@role='grid']//tbody//tr//td[contains(@class,' gvCustomerOrderDtls')]")
 	private List<WebElement> ListOfInvoiceNo_OrderDetailsTab;
@@ -5140,8 +5143,13 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		Collections.sort(sortedInvoiceNumbers);
 
 		if (originalInvoiceNumbers.equals(sortedInvoiceNumbers)) {
+			System.out.println("Original invoice numbers: "+originalInvoiceNumbers);
+			System.out.println("Sorted invoice numbers: "+sortedInvoiceNumbers);
 			return false;
 		} else {
+			
+			System.out.println(" Else condition: Original invoice numbers: "+originalInvoiceNumbers);
+			System.out.println(" Else condition: Sorted invoice numbers: "+sortedInvoiceNumbers);
 			return true;
 		}
 	}
@@ -7546,6 +7554,12 @@ public class OrderEntry_Alais_PhoneOrderPage extends TestBaseClass {
 		HighlightElement(itemDesc1_Autosuggestion);
 		return itemDesc1_Autosuggestion.isDisplayed();
 	}
+	
+	public String get_orderdetailsTab_invoicenumber_row1() {
+		HighlightElement(InvoiceNo_row1_OrderDetailsTab);
+		return InvoiceNo_row1_OrderDetailsTab.getText();		
+	}
+	
 	
 }
 	

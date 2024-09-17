@@ -19,7 +19,7 @@
 		<classes>
 		  <!-- <class name="com.hanapos.CashandCarry_Testcases.Hana_T53_Payments_Check_Payment_Section_FT" />-->
 		
-		<class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T126_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pagination_FT" />
+		<class name="com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases.Hana_T130_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_TotalSearchFilter_FT" />
 		
 		<!--<class name="com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases.Hana_T329_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Pay_Date_Search_Filter_Functionality"/>
 -->

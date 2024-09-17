@@ -45,7 +45,7 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 		logger.debug("capturing application debug logs....");
 		try {
 			lp = new LoginPage();
-			softassert.assertTrue(lp.LoginPageIsDisplayed(),"Login page is not displayed");
+			softassert.assertTrue(lp.LoginPageIsDisplayed(),"Test Step - 1 : Login page is not displayed");
 			logger.info("User on the hana pos login page");
 			
 			// Test Step - 2
@@ -56,7 +56,7 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			logger.info("Clicked on Login button..");
 
 			dashboard = new HanaDashBoardPage();
-			softassert.assertTrue(dashboard.VerifyHanaDashBoardPage(),"Page does not navigated to hana dashboard page");
+			softassert.assertTrue(dashboard.VerifyHanaDashBoardPage(),"Test Step - 2 : Hana dashboard Page does not navigated to hana dashboard page");
 			logger.info("User navigated to hana dashboard page sucess..");
 			
 			// Test Step - 3	
@@ -65,7 +65,7 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			cashandcarry = new CashAndCarryPage();
 
 			logger.info("User hover the mouse on New order and click on Cash and Carry..");
-			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Cash And Carry page is not displayed");
+			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Test Step - 3 : Cash And Carry page is not displayed");
 			logger.info("User verify the Cash and Carry page is displayed..");
 
 			// Test Step - 4		
@@ -76,21 +76,21 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			
 			cashandcarry.ClickWalkingSettingIcon();
 			delayWithGivenTime(2000);
-			softassert.assertTrue(cashandcarry.verifyWalkingSettingPopupIsDisplayed(),"Walking Setting pop up is not displayed");
+			softassert.assertTrue(cashandcarry.verifyWalkingSettingPopupIsDisplayed(),"Test Step - 4 : Walking Setting pop up is not displayed");
 
 			cashandcarry.ClickAutomationClerkDescEditBtnOnWalkInSetting();
-			softassert.assertTrue(cashandcarry.VerifyAddNewWalkingSettingPopupIsDisplayed());
+			softassert.assertTrue(cashandcarry.VerifyAddNewWalkingSettingPopupIsDisplayed(),"Test Step - 4 : Add New Walking Setting pop up is not displayed");
 			delayWithGivenTime(1000);
-			softassert.assertTrue(cashandcarry.custCopyCheckBoxonAddNewpopUPIsSelected());
+			softassert.assertTrue(cashandcarry.custCopyCheckBoxonAddNewpopUPIsSelected(),"Test Step - 4 : Customer Copy checkbox is not selected");
 			delayWithGivenTime(1000);
-			softassert.assertEquals(cashandcarry.getEnteredCustCopyNoteonAddnewPopup(),"");
+			softassert.assertEquals(cashandcarry.getEnteredCustCopyNoteonAddnewPopup(),"","Test Step - 4 : Customer Copy Notes is not empty");
 			delayWithGivenTime(1000);
 			cashandcarry.ClickWalkingPopupCloseIcon();
 			delayWithGivenTime(3000);
 			logger.info("User selected the shop name");
 			
 			// Test Step - 5
-			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Cash And Carry page is not displayed");
+			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Test Step - 5 : Cash And Carry page is not displayed");
 			logger.info("User verify the Cash and Carry page is displayed..");
 			cashandcarry.SelectClerkName("Automation Clerk Desc");		
 			logger.info("User selected the clerk as Automation Clerk Desc");
@@ -105,16 +105,16 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			// If it fails possible to check default values of qty is changed
 				
 			logger.info("User search and selected the item code");
-			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe");	;
-			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1");
+			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe","Test Step - 7 : Item description is not matched with search and selected item code");	;
+			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1","Test Step - 7 : Item quantity is not matched with search and selected item code");	;
 			
 			if(cashandcarry.ItemPriceValueIsExist()=="299") {
-				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Item price is not matched with search and selected item code");
+				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Test Step - 7 : Item price is not matched with search and selected item code");
 			}else if(cashandcarry.ItemPriceValueIsExist()=="309") {
-				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309","Item price is not matched with search and selected item code");
+				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309","Test Step - 7 : Item price is not matched with search and selected item code");
 			}			
-			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0");
-			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0");
+			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0","Test Step - 7 : Item discount amount is not matched with search and selected item code");
+			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0","Test Step - 7 : Item discount percentage is not matched with search and selected item code");
 
 			// Test Step - 8
 			cashandcarry.ClickAddItem();
@@ -130,7 +130,7 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			// Test Step - 11
 			delayWithGivenTime(2000);
 			cashandcarrypayment = new CashAndCarryPaymentPage();
-			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
+			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Test Step - 11 : Cash And Carry payment page is not displayed");
 			logger.info("User is on Cash And Carry payment page");
 			delayWithGivenTime(1000);
 			cashandcarrypayment.ClickCashTab();
@@ -140,9 +140,9 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			cashandcarrypayment.GetCustomerName();
 			cashandcarrypayment.ClickProcessPaymentBtn();
 			logger.info("User click the process payment button");
-			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
+			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg(),"Test Step - 11 : Success toast message is not displayed"); 		
 			logger.info("User verified the order payment done successfully");
-			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully","Test Step - 11 : Order confirmation toast message is not displayed");
 			delayWithGivenTime(1000);
 			
 			if(cashandcarrypayment.getConfirmationPopup()==true) {
@@ -166,7 +166,7 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			
 			// Test Step - 14	
 			delayWithGivenTime(1000);
-			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Cash And Carry page is not displayed");
+			softassert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Test Step - 14 : Cash And Carry page is not displayed");
 			logger.info("User verify the Cash and Carry page is displayed..");
 			
 			cashandcarry.SelectEmployeeName(prop.getProperty("employeename"));
@@ -174,16 +174,16 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			cashandcarry.SearchAndSelectTheItemCode("rrd");
 			logger.info("User search and selected the item code");
 			delayWithGivenTime(500);
-			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe");	;
-			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1");
+			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe","Test Step - 14 : Item description is not matched with search and selected item code");	;
+			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1","Test Step - 14 : Item quantity is not matched with search and selected item code");	;
 			
 			if(cashandcarry.ItemPriceValueIsExist()=="299") {
-				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Item price is not matched with search and selected item code");
+				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Test Step - 14 : Item price is not matched with search and selected item code");
 			}else if(cashandcarry.ItemPriceValueIsExist()=="309") {
-				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309","Item price is not matched with search and selected item code");
+				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309","Test Step - 14 : Item price is not matched with search and selected item code");
 			}			
-			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0");
-			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0");
+			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0","Test Step - 14 : Item discount amount is not matched with search and selected item code");
+			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0","Test Step - 14 : Item discount percentage is not matched with search and selected item code");
 			cashandcarry.ClickAddItem();
 			cashandcarry.EnterCustomerName("abish");
 			cashandcarry.SelectTaxType("Tax Exemption");
@@ -192,7 +192,7 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			delayWithGivenTime(2000);
 		
 			cashandcarrypayment = new CashAndCarryPaymentPage();
-			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
+			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Test Step - 11 : Cash And Carry payment page is not displayed");
 			logger.info("User is on Cash And Carry payment page");
 			delayWithGivenTime(1000);
 			softassert.assertTrue(cashandcarrypayment.verifyPaymentDescriptionTableIsDisplayed());
@@ -222,9 +222,9 @@ public class Hana_T12_WalkinsSetting_CashRegistery_Customer_Copy_Without_Custome
 			logger.info("Selected customer name is:"+cashandcarrypayment.GetCustomerName());
 			cashandcarrypayment.ClickProcessPaymentBtn();
 			logger.info("User click the process payment button");
-			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 
+			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg(),"Test Step - 15 : Success toast message is not displayed"); 
 			logger.info("User verified the order payment done successfully");
-			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully","Test Step - 16 : Order confirmation toast message is not displayed");
 			delayWithGivenTime(1000);
 			
 			if(cashandcarrypayment.getConfirmationPopup()==true) {

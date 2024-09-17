@@ -50,7 +50,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 		logger.debug("capturing application debug logs....");
 		try {
 			lp = new LoginPage();
-			softassert.assertTrue(lp.LoginPageIsDisplayed(),"Login page is not displayed");
+			softassert.assertTrue(lp.LoginPageIsDisplayed(), "Test Step - 1 - Login page is not displayed");
 			logger.info("User on the hana pos login page");
 			
 			// Test Step - 2
@@ -61,7 +61,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			logger.info("Clicked on Login button..");
 			delayWithGivenTime(2000);
 			dashboard = new HanaDashBoardPage();
-			Assert.assertTrue(dashboard.VerifyHanaDashBoardPage(),"Page does not navigated to hana dashboard page");
+			Assert.assertTrue(dashboard.VerifyHanaDashBoardPage(),"Test Step - 2 - Hana dashboard Page does not navigated to hana dashboard page");
 			logger.info("User navigated to hana dashboard page sucess..");
 
 			// Test Step - 3
@@ -70,7 +70,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			dashboard.CashAndCarryMenuClick();							
 			cashandcarry = new CashAndCarryPage();
 			logger.info("User hover the mouse on New order and click on Cash and Carry..");
-			Assert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Cash And Carry page is not displayed");
+			Assert.assertTrue(cashandcarry.VerifyCashAndCarryPage(), "Test Step - 3 - Cash And Carry page is not displayed");
 			logger.info("User verify the Cash and Carry page is displayed..");
 
 			// Test Step - 4
@@ -86,44 +86,44 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			logger.info("User select the employee name");
 
 			// Test Step - 7
-			softassert.assertTrue(cashandcarry.IsPayButtonDisabled(), "Pay button is not disabled");
+			softassert.assertTrue(cashandcarry.IsPayButtonDisabled(), "Test Step - 7 - Pay button is not disabled");
 
 			// Test Step - 8
 			cashandcarry.SearchAndSelectTheItemCode(searchandselectitemcode);
 
-			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe");	
-			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1");
+			softassert.assertEquals(cashandcarry.ItemDescriptionValueIsExist(), "Red Rose Deluxe","Test Step - 8 - Item description is not matched with search and selected item code");	
+			softassert.assertEquals(cashandcarry.ItemQtyValueIsExist(), "1","Test Step - 8 - Item quantity is not matched with search and selected item code");
 
 			if(cashandcarry.ItemPriceValueIsExist()=="299") {
-				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Item price is not matched with search and selected item code");
+				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "299","Test Step - 8 - Item price is not matched with search and selected item code");
 			}else if(cashandcarry.ItemPriceValueIsExist()=="309") {
-				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309","Item price is not matched with search and selected item code");
+				softassert.assertEquals(cashandcarry.ItemPriceValueIsExist(), "309","Test Step - 8 - Item price is not matched with search and selected item code");
 			}
 						
-			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0");
-			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0");
+			softassert.assertEquals(cashandcarry.ItemDiscountAmountIsExist(),"0","Test Step - 8 - Item discount amount is not matched with search and selected item code");
+			softassert.assertEquals(cashandcarry.ItemDiscountPercentageValueIsExist(), "0","Test Step - 8 - Item discount percentage is not matched with search and selected item code");
 
 			// Test Step - 9
 			cashandcarry.ClickAddItem();
 			softassert.assertTrue(cashandcarry.VerifyAddedItem());
-			softassert.assertEquals(cashandcarry.getAddedItemCode(),"rrd");
-			softassert.assertEquals(cashandcarry.GetAddedItemDescription(),"Red Rose Deluxe");
-			softassert.assertEquals(cashandcarry.GetAddedItemQty(), "1");			
+			softassert.assertEquals(cashandcarry.getAddedItemCode(),"rrd","Test Step - 9 - Added item code is not matched with search and selected item code");
+			softassert.assertEquals(cashandcarry.GetAddedItemDescription(),"Red Rose Deluxe","Test Step - 9 - Added item description is not matched with search and selected item code");
+			softassert.assertEquals(cashandcarry.GetAddedItemQty(), "1","Test Step - 9 - Added item quantity is not matched with search and selected item code");			
 			
 			if(cashandcarry.GetAddedItemExtPrice()=="$299.00") {
-				softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$299.00");
+				softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$299.00","Test Step - 9 - Added item extended price is not matched with search and selected item code");
 			}else if(cashandcarry.GetAddedItemExtPrice()=="$309.00") {
-				softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$309.00");
+				softassert.assertEquals(cashandcarry.GetAddedItemExtPrice(), "$309.00","Test Step - 9 - Added item extended price is not matched with search and selected item code");
 			}
 						
 			if(cashandcarry.GetAddedItemPrice()=="$299.00") {
-				softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$299.00");
+				softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$299.00","Test Step - 9 - Added item price is not matched with search and selected item code");
 			}else if(cashandcarry.GetAddedItemPrice()=="$309.00") {
-				softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$309.00");
+				softassert.assertEquals(cashandcarry.GetAddedItemPrice(), "$309.00","Test Step - 9 - Added item price is not matched with search and selected item code");
 			}
 					
-			softassert.assertEquals(cashandcarry.GetAddedItemDiscountAmount(), "$ 0.00");
-			softassert.assertEquals(cashandcarry.GetAddedItemDiscountPercentage(),"0.00");
+			softassert.assertEquals(cashandcarry.GetAddedItemDiscountAmount(), "$ 0.00","Test Step - 9 - Added item discount amount is not matched with search and selected item code");
+			softassert.assertEquals(cashandcarry.GetAddedItemDiscountPercentage(),"0.00","Test Step - 9 - Added item discount percentage is not matched with search and selected item code");
 
 			//Delete the added item on Cash and Carry page
 			cashandcarry.ClickRow1DeleteIcon();
@@ -132,7 +132,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			delayWithGivenTime(2000);
 			logger.info("User verify add the title product to the Cash and Carry page is displayed..");
 			cashandcarry.ClickParticularProdTitle();
-			softassert.assertEquals(cashandcarry.getAddedItemCode(),"ballonsYY");
+			softassert.assertEquals(cashandcarry.getAddedItemCode(),"ballonsYY","Test Step - 10 - Added product tile is not displayed on row 2 in table grid");
 			cashandcarry.SelectTaxType("Tax Exemption");
 			cashandcarry.SelectOccasion(occasion);
 
@@ -142,7 +142,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			logger.info("User fillout the customer,tax type & occasion details and click on Pay button");
 			cashandcarrypayment = new CashAndCarryPaymentPage();
 			delayWithGivenTime(2000);
-			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
+			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Test Step:11 - Cash And Carry payment page is not displayed");
 			logger.info("User is on Cash And Carry payment page");
 
 			// Test Step - 12
@@ -166,9 +166,9 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			// Test Step - 14
 			cashandcarry.ClickAddedRow1EditButton();
 			delayWithGivenTime(1000);
-			softassert.assertTrue(cashandcarry.IsSavedIconDisplayedOnAddedItemTableRow1(),"Saved Icon is not displayed");
+			softassert.assertTrue(cashandcarry.IsSavedIconDisplayedOnAddedItemTableRow1(),"Test Step:14 - Saved Icon is not displayed");
 			delayWithGivenTime(1000);
-			softassert.assertTrue(cashandcarry.IsCancelIconDisplayedOnAddedItemTableRow1(),"Cancel Icon is not displayed");
+			softassert.assertTrue(cashandcarry.IsCancelIconDisplayedOnAddedItemTableRow1(),"Test Step:14 - Cancel Icon is not displayed");
 
 			//Test Step - 15
 			cashandcarry.EditQuantityOnTableRow1(qtyrow1);
@@ -180,8 +180,8 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			delayWithGivenTime(2000);
 			cashandcarry.ClickAddedRow1EditButton();
 			cashandcarry.EditQuantityOnTableRow1(qtyrow1);
-			softassert.assertTrue(cashandcarry.IsSavedIconDisplayedOnAddedItemTableRow1(),"Saved Icon is not displayed");
-			softassert.assertTrue(cashandcarry.IsCancelIconDisplayedOnAddedItemTableRow1(),"Cancel Icon is not displayed");
+			softassert.assertTrue(cashandcarry.IsSavedIconDisplayedOnAddedItemTableRow1(),"Test Step:17 - Saved Icon is not displayed");
+			softassert.assertTrue(cashandcarry.IsCancelIconDisplayedOnAddedItemTableRow1(),"Test Step:17 - Cancel Icon is not displayed");
 			cashandcarry.ClickTheSavedIconOnAddedItemTableRow1();
 
 			// Test Step - 18
@@ -199,7 +199,7 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 
 			logger.info("User fillout the customer,tax type & occasion details and click on Pay button");
 			cashandcarrypayment = new CashAndCarryPaymentPage();
-			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Cash And Carry payment page is not displayed");
+			softassert.assertTrue(cashandcarrypayment.IsPaymentPageDisplayed(),"Test Step:20 - Cash And Carry payment page is not displayed");
 			logger.info("User is on Cash And Carry payment page");
 
 			// Test Step - 21
@@ -215,9 +215,9 @@ public class Hana_T15_Edit_Product_FT extends TestBaseClass{
 			cashandcarrypayment.SearchAndSelectCustomer(customername);
 			logger.info("User search and select the customer ");	
 			cashandcarrypayment.ClickProcessPaymentBtn();
-			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg()); 		
+			softassert.assertTrue(cashandcarrypayment.SuccessToastMsg(),"Test Step:22 - Success Toast message is not displayed"); 		
 			logger.info("User verified the order payment done successfully");
-			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully");
+			softassert.assertEquals(cashandcarrypayment.getOrderConfirmationToastMsg(),"Order payment done successfully","Test Step:22 - Order confirmation message is not matched");
 			
 			delayWithGivenTime(1000);
 			if(cashandcarrypayment.getConfirmationPopup()==true) {

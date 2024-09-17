@@ -1,4 +1,4 @@
-package com.hanapos.OrderEntry_Alais_PickUp_PhoneOrder_Testcases;
+package com.hanapos.OrderEntry_Alais_DeliveryType_PhoneOrder_Testcases;
 
 import java.util.NoSuchElementException;
 
@@ -11,17 +11,17 @@ import com.hanapos.pageObjects.OrderEntry_Alais_PhoneOrderPage;
 import com.hanapos.seleniumProjectBase.TestBaseClass;
 import com.hanapos.utilities.CustomSoftAssert;
 
-public class Hana_T127_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Sorting_FT extends TestBaseClass {
+public class Hana_T334_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Sorting_FT extends TestBaseClass {
 	private LoginPage lp;
 	private HanaDashBoardPage dashboard;
 	private OrderEntry_Alais_PhoneOrderPage phoneorder;
 
 	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T127_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Sorting_Functionality_Test() {
+	public void Validate_Hana_T334_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Sorting_Functionality_Test() {
 		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
 		CustomSoftAssert softassert = new CustomSoftAssert();
 		
-		logger.info("**** Starting Hana_T127_Pickup_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Sorting_FT  ****");
+		logger.info("**** Starting Hana_T334_OrderEntryPage_Delivery_CustomerSection_Edit_Customer_CustomerDetails_PaymentDetails_Sorting_FT  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -54,9 +54,9 @@ public class Hana_T127_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 			
 			// Test Step - 5
 			phoneorder = new OrderEntry_Alais_PhoneOrderPage();
-			phoneorder.ClickPickupTypeOnPhoneOrderPage();
+			phoneorder.ClickdeliveryTypeOnPhoneOrderPage();
 			delayWithGivenTime(2000);
-			softassert.assertEquals(phoneorder.getHighlightedColorOnPickupTypeOnPhoneOrderPage(),"#2f9bc8", "Test Step - 5 - Pickup type is not highlighted in blue color");		
+			softassert.assertEquals(phoneorder.get_HighlightedColor_OnDelivery_TypeOnPhoneOrderPage(),"#676a6c", "Test Step - 5 - Delivery type is not highlighted in blue color");		
 		
 			//Test Step - 6
 			delayWithGivenTime(2000);
@@ -76,8 +76,7 @@ public class Hana_T127_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Paym
 		
 			// Test Step - 7			
 			phoneorder.Click_CustEditIcon();
-			softassert.assertTrue(phoneorder.Verify_CustomerDetailsPopupAppears(), "Test Step - 8 - Customer details popup on is not displayed on phone order page");
-			
+			softassert.assertTrue(phoneorder.Verify_CustomerDetailsPopupAppears(), "Test Step - 8 - Customer details popup on is not displayed on phone order page");			
 			
 			// Test Step - 8
 			delayWithGivenTime(1000);

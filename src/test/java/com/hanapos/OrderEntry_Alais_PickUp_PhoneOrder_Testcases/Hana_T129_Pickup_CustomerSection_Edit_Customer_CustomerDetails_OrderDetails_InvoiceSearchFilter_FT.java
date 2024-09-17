@@ -16,11 +16,11 @@ public class Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Orde
 
 	//,dataProvider="fetch_Excel_Data"
 	@Test(enabled=true,groups= {"Regression"}) 
-	public void Validate_Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_InvoiceSearchFilter_FunctionalityTest() {
+	public void Validate_Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_InvoiceSearchFilter_Functionality_Test() {
 		// SoftAssert softassert = new SoftAssert(); - I have modified this to use CustomSoftAssert
 		CustomSoftAssert softassert = new CustomSoftAssert();
 		
-		logger.info("**** Starting Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_InvoiceSearchFilter_FT  ****");
+		logger.info("**** Starting Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_OrderDetails_InvoiceSearchFilter_Functionality Test  ****");
 		logger.debug("capturing application debug logs....");
 		try {
 			// Test Step - 1
@@ -59,7 +59,7 @@ public class Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Orde
 		
 			//Test Step - 6
 			delayWithGivenTime(2000);
-			phoneorder.SearchAndSelectCustomerOnCust_Section("Abish");
+			phoneorder.SearchAndSelectCustomerOnCust_Section(prop.getProperty("cust_firstName"));
 			delayWithGivenTime(2000);
 			softassert.assertEquals(phoneorder.getFirstnameOnPhoneOrderPage(),"Abish", "Test Step - 6 - First name is not displayed on phone order page");
 			softassert.assertEquals(phoneorder.getLastnameOnPhoneOrderPage(),"David", "Test Step - 6 - Last name is not displayed on phone order page");
@@ -85,13 +85,13 @@ public class Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Orde
 					
 			// Test Step - 9
 			ThreadWait(1000);
-			phoneorder.Enter_InvoiceNo_OrderDetailsTab_CustomerDetailsPopup("9037921");
+			phoneorder.Enter_InvoiceNo_OrderDetailsTab_CustomerDetailsPopup(phoneorder.get_orderdetailsTab_invoicenumber_row1());
 			ThreadWait(2000);
 			
 			 // Test Step - 10
 			RobotPressEnter();
 			ThreadWait(1000);
-			softassert.assertTrue(phoneorder.Verify_InvoiceNo_Orderdetailstab("9037921"),"Test Step - 10 - Filtered Invoice is not displayed on the order details tab at customer details popup");
+			softassert.assertTrue(phoneorder.Verify_InvoiceNo_Orderdetailstab(phoneorder.get_orderdetailsTab_invoicenumber_row1()),"Test Step - 10 - Filtered Invoice is not displayed on the order details tab at customer details popup");
 			
 			// Test Step - 11
 			ThreadWait(3000);
@@ -117,7 +117,7 @@ public class Hana_T129_Pickup_CustomerSection_Edit_Customer_CustomerDetails_Orde
 			phoneorder.Click_ClearBtn_InvoiceSearchBox_OrderDetailsTab();
 			softassert.assertEquals(phoneorder.get_InvoiceNo_Orderdetailstab(), "","Test Step - 15 - Invoice Number search box entered data is not cleared in order details tab at customer details popup");
 			softassert.assertTrue(phoneorder.Verify_AllTheInvoiceNo_AppearsOn_OrderDetailsTab(),"Test Step - 15 - All the invoices numbers are not displayed on order details tab" );
-			} catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			softassert.fail();
 		} finally {
